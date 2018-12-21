@@ -1,0 +1,657 @@
+body {
+  background: -webkit-linear-gradient(-45deg, #8363a1 0%, #74a8c3 100%);
+  background: linear-gradient(135deg, #8363a1 0%, #74a8c3 100%);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/* CALENDAR - FULL YEAR */
+
+.full_year_gen_wrapper {
+
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 20% 10% 70%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 35vw;
+  height: 350px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.year_month_gen {
+  color: white;
+  text-align: center;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.weekdays_gen {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+
+}
+
+.weekdays_item {
+  text-align: center;
+}
+
+.month_days_gen {
+  display: grid;
+  width: 35vw;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  justify-items: center;
+  align-items: center;
+}
+
+
+.day_in_month_item {
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+
+}
+
+.selected_month_year {
+  min-width: 150px;
+  max-width: 150px;
+
+}
+
+
+#selected_month {
+  padding-right: 5px;
+}
+
+#backarrow {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  padding-right: 7px;
+  cursor: pointer;
+}
+
+
+#nextarrow {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  padding-left: 7px;
+  cursor: pointer;
+}
+
+
+
+/* HEADER */
+
+.header-wrapper {
+  width: 98vw;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 30px auto;
+}
+
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header p {
+  color: white;
+  margin-top: -10;
+  font-style: italic;
+  font-family: serif;
+  letter-spacing: 3;
+}
+
+h1 {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: white;
+  font-family: monospace;
+  letter-spacing: 2;
+}
+
+li {
+  overflow-wrap: break-word;
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+  margin: 18px 8px 18px 0px;
+}
+
+.logo-text {
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* HOLIDAYS*/
+
+.upcoming_holidays {
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  position: relative;
+}
+
+#collapsible_holidays {
+
+  position: absolute;
+  bottom: -95px;
+  right: -48px;
+  width: 300px;
+  height: 120px;
+  background-color: black;
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: 10;
+
+}
+
+.collapibleText {
+  padding-left: 7px;
+}
+
+#expand {
+  width: 15px;
+  height: 15px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+/* WEATHER*/
+
+
+.weather-gen {
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#collapsible_weather {
+  position: absolute;
+  flex-direction: column;
+  align-content: middle;
+  justify-content: flex-start;
+  bottom: -235px;
+  left: -125px;
+  width: 300px;
+  height: 260px;
+  background-color: black;
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: 10;
+
+}
+
+.collapibleText_2 {
+  padding-left: 7px;
+  display: inline-block;
+}
+
+#showmore {
+
+  width: 15px;
+  height: 15px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.moreWeaIcons {
+  display: inline-block;
+}
+
+.moreWeaWrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: middle;
+  justify-content: flex-start;
+}
+
+
+/* WELCOME*/
+
+.welcome_text {
+
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  align-items: center;
+}
+
+
+/* QUOTES*/
+
+
+#quotes_text {
+  color: white;
+  font-size: 20px;
+  font-family: cursive;
+  font-style: italic;
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  margin-top: 30px;
+}
+
+
+/* DAYS BOX*/
+
+
+.main-image {
+
+  background-image: url(images/mountains_morning_resize.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  max-height: 220vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto;
+}
+
+
+h2 {
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  flex-basis: 100%;
+  text-transform: uppercase;
+  color: black;
+  padding-top: 5;
+  padding-bottom: 10;
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+}
+
+
+.flex-days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+.day-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 165px;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.day_box_background {
+  flex-basis: 70%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-image: url(images/generic_360x120.jpg), linear-gradient(to right, #2193b0, #6dd5ed);
+}
+
+
+.day_box_text {
+  flex-basis: 30%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  background-size: cover;
+}
+
+
+.day_box_text_sub {
+  flex-basis: 100%;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+.output {
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+  width: 100%;
+  display: block;
+  background-color: #e6e8fa;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+/* FORM BOX*/
+
+#form-container {
+  display: none;
+  flex-direction: row;
+  width: 700px;
+  height: 300px;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: auto;
+  background: white;
+}
+
+#delete_todo_form {
+  display: none;
+}
+
+#checkbox_todo {
+  margin-left: 7px;
+}
+
+.flex-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.flex-form-2 {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.form-item {
+  padding: 8px;
+}
+
+.form-item-2 {
+  padding: 8px;
+  margin-right: 7px;
+}
+
+.flex-form-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* NOTES BOX*/
+
+.card-weather-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+
+#weather-city {
+  margin-left: 5px;
+}
+
+.notes-box {
+  display: none;
+  flex-direction: column;
+  width: 700px;
+  min-height: 350px;
+  max-height: 800px;
+  margin: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+
+}
+
+.flex-notes {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  word-break: break-all;
+
+
+}
+
+.notes-item {
+  margin: 35px 15px 50px 15px;
+  padding: 15px 10px 5px 10px;
+  width: 250px;
+  background-color: white;
+}
+
+#mynotes {
+
+  width: 150px;
+
+}
+
+.buttons-item {
+  margin: 50px 15px 50px 15px;
+  padding: 25px;
+  width: 200px;
+  background-color: white;
+}
+
+.notes_day_background_gen {
+
+  width: 700px;
+  background-blend-mode: overlay;
+  background-position: center;
+  background-image: url(images/day1000x350.jpg), linear-gradient(to right, #2193b0, #6dd5ed);
+  background-size: contain;
+  height: 150px;
+
+
+}
+
+.notes_day_background {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 16px;
+}
+
+.close-save {
+  cursor: pointer;
+  width: 24;
+  padding-right: 7px;
+}
+
+.close-save:hover {
+  transform: scale(1.1);
+}
+
+
+.save_exit_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 7px;
+}
+
+
+/* PROGRESS BAR */
+
+#progressbar {
+
+  border-radius: 8px;
+  width: 100%;
+  height: 27px;
+  background-color: transparent;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding-top: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}
+
+#progressbar_background {
+
+  background: #A4A4A4;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+
+/* TODOS AND ICONS */
+
+i {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-right: 7px;
+}
+
+.icon-task {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.logo_done {
+  margin-left: 5px;
+  display: none;
+}
+
+#task_list,
+#task_list_output {
+  padding-inline-start: 0px;
+}
+
+#task_list>li,
+#task_list_output>li {
+  display: inline-block;
+}
+
+#task_list_output>li {
+  line-height: 2.5;
+  border-bottom: solid 0.3px #f2f2f2;
+}
+
+/* BUTTONS*/
+
+#close-form {
+  padding: 10px;
+}
+
+
+
+.btns_day {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin: 35px 15px 50px 15px;
+
+}
+
+.three-btns {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: space-between;
+
+}
+
+.button_day {
+
+  padding: 5px;
+  background: white;
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+}
+
+.button_day_2 {
+
+  padding: 5px;
+  background: white;
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  margin-left: 10px;
+}
+
+.button_day:nth-child(3):hover {
+  background-color: red;
+
+}
+
+.button_day:nth-child(2):hover {
+  background-color: green;
+
+}
+
+.button_day_2:hover {
+  background-color: green;
+
+}
+
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #8e9eab;
+  display: inline-block;
+  outline: 0;
+  margin-bottom: -0.1px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: orange;
+}
+
+input[type="text"] {
+  font-size: 16px;
+}
+
+input[type="text"] {
+  width: 150px;
+}
+
+input {
+  text-align: center;
+}
