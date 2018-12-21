@@ -1,7 +1,7 @@
 {
-  "name": "weekly-planner-extra",
+  "name": "annual-planner",
   "version": "1.0.0",
-  "description": "Weekly Planner Extra",
+  "description": "Annual Planner",
   "main": "script.js",
   "scripts": {
     "deploy": "gh-pages -d dist",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Suavek85/Weekly-Planner-Extra.git"
+    "url": "https://github.com/Suavek85/Annual-Planner.git"
   },
   "author": "Slawomir Niemiec",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Suavek85/Weekly-Planner-Extra/issues"
+    "url": "https://github.com/Suavek85/Annual-Planner/issues"
   },
-  "homepage": "https://github.com/Suavek85/Weekly-Planner-Extra",
+  "homepage": "https://github.com/Suavek85/Annual-Planner",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "request": "^2.88.0",
