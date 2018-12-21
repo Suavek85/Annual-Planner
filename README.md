@@ -5,6 +5,8 @@ Annual Planner - JS Project
 
 •	Vanilla JS, CSS flexbox and grid, Webpack, OpenweatherMap API, CalendarIndex API
 
+•	preview: https://suavek85.github.io/Annual-Planner/
+
 •	extended version of my weekly planner project https://suavek85.github.io/Weekly-Planner-Extra/
 
 
