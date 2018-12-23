@@ -7,6 +7,8 @@ body {
 
 
 
+
+
 /* CALENDAR - FULL YEAR */
 
 .full_year_gen_wrapper {
@@ -124,8 +126,8 @@ li {
 }
 
 #logo {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   margin: 18px 8px 18px 0px;
 }
 
@@ -352,12 +354,15 @@ h2 {
 #form-container {
   display: none;
   flex-direction: row;
-  width: 700px;
-  height: 300px;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin: auto;
-  background: white;
+    width: 550px;
+    min-height: 250px;
+    max-height: 600px;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: rgba(250, 250, 250, 0.8);
 }
 
 #delete_todo_form {
@@ -417,7 +422,7 @@ h2 {
   width: 700px;
   min-height: 350px;
   max-height: 800px;
-  margin: auto;
+  margin: 50px auto auto auto;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -567,10 +572,14 @@ i {
 /* BUTTONS*/
 
 #close-form {
-  padding: 10px;
+  padding: 7px;
 }
 
+.submit-btn {
 
+padding: 7px;
+
+}
 
 .btns_day {
   display: flex;

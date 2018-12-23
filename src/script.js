@@ -47,7 +47,7 @@ export default class Day {
   }
 }
 
-
+let closeBtnPreviousIds = [];
 
 document.addEventListener(
   "click",
@@ -55,6 +55,8 @@ document.addEventListener(
 
     const day_name = event.target.getAttribute("day-name");
     let dayIndex;
+    
+    let currentId = event.target.id;
 
     if (event.target.id.includes("submit_")) {
       
@@ -84,6 +86,7 @@ else if (event.target.id.includes("calendar")) {
   view.displaySubmitButton();
   event.target.style.borderRadius = "5px";
   event.target.style.backgroundColor = 'green';
+  closeBtnPreviousIds.push(currentId);
   
 } 
 
@@ -120,14 +123,19 @@ else if (event.target.id.includes("close-day")) {
     } 
     
 
-/*
+
 else if (event.target.id.includes("close-form")) {
+      
       view.displayCalendar();
+
+      document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.borderRadius = null;
+      document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.backgroundColor = null;
+    
       view.displayWelcome();
       view.undisplayForm();
       view.removeSubmitButton();  
     } 
-*/  
+
     
 else if (event.target.id.includes("delete_todo_form")) {
       let allTodos = document.getElementsByName("todoscb");
