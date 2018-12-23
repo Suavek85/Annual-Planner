@@ -186,11 +186,11 @@ li {
   position: absolute;
   flex-direction: column;
   align-content: middle;
-  justify-content: flex-start;
-  bottom: -235px;
-  left: -125px;
-  width: 300px;
-  height: 260px;
+  justify-content: space-between;
+  left: -100px;
+  bottom: -410px;
+  width: 250px;
+  height: 430px;
   background-color: black;
   opacity: 0.85;
   border-radius: 4px;
@@ -421,7 +421,7 @@ h2 {
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  background: lightgray;
 
 }
 
@@ -436,7 +436,7 @@ h2 {
 }
 
 .notes-item {
-  margin: 35px 15px 50px 15px;
+  margin: 25px 15px 50px 15px;
   padding: 15px 10px 5px 10px;
   width: 250px;
   background-color: white;
@@ -460,9 +460,9 @@ h2 {
   width: 700px;
   background-blend-mode: overlay;
   background-position: center;
-  background-image: url(images/day1000x350.jpg), linear-gradient(to right, #2193b0, #6dd5ed);
+  background-color: rgba(0, 0, 0, 0.5);
   background-size: contain;
-  height: 150px;
+  height: 100px;
 
 
 }
@@ -472,7 +472,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
+  
   color: white;
   font-size: 16px;
 }
@@ -560,7 +560,7 @@ i {
 }
 
 #task_list_output>li {
-  line-height: 2.5;
+  line-height: 2;
   border-bottom: solid 0.3px #f2f2f2;
 }
 
@@ -578,7 +578,7 @@ i {
   padding: 0;
   border: none;
   background: transparent;
-  margin: 35px 15px 50px 15px;
+  margin: 25px 15px 50px 15px;
 
 }
 
@@ -594,7 +594,7 @@ i {
 
 .button_day {
 
-  padding: 5px;
+  padding: 3px;
   background: white;
   border-radius: 20px;
   width: 28px;
@@ -604,7 +604,7 @@ i {
 
 .button_day_2 {
 
-  padding: 5px;
+  padding: 3px;
   background: white;
   border-radius: 20px;
   width: 28px;
