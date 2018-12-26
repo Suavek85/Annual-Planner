@@ -24,8 +24,42 @@
 
     
     <div class="weather-gen">
-        <p id="login">Login</p>
-        <p id="register">Register</p>
+
+        <div id="btn-login"><p id="btn-login-txt">Sign in</p><div style="display: none" id='login-wrapper'><div id='logbox' class='login-box'>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            
+            
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password" required>
+            
+            <input type="submit" value="Sign in">
+        
+        </div></div>
+        
+        </div>
+
+        <div id="btn-register"><p id='btn-register-txt'>Register</p><div style="display: none" id='register-wrapper'><div id='regbox' class='register-box'>
+            
+            
+            
+                <label type="username" for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                
+                
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="password" required>
+                
+
+                <label for="pass">Repeat password:</label>
+                <input type="password" id="pass" name="password" required>
+                
+                <input type="submit" value="Register">
+        
+        
+        </div></div></div>
+        
         <img src='images/expand.png' id='showmore' style="display:none" alt="Expand">
         <div style="display:none" id='collapsible_weather'>         
         </div>
@@ -59,7 +93,7 @@
     <div id='form-container'>
 
         <div class='flex-form'>
-            <p>Enter your notes:</p>
+            <p id='your-notes-date'></p>
             <textarea id='notes' rows="05" cols="15" class="form-item">
             </textarea>
         </div>
@@ -110,7 +144,7 @@
                 <span class='save_exit_text'>Save & Exit</span></div>
             
             <div id='background_text' class='notes_day_background_text'></div>
-            <div class="card-weather-wrapper"><div class='card-weather' id='card-weather-id'></div><img id='card-weather-icon' src=""></img></div>
+            
         </div>
     </div>
 

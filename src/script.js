@@ -55,15 +55,15 @@ document.addEventListener(
 
     const day_name = event.target.getAttribute("day-name");
     let dayIndex;
-    
+
     let currentId = event.target.id;
 
     if (event.target.id.includes("submit_")) {
-      
+
       view.undisplayForm();
       view.displayCalendar();
       view.displayWelcome();
-     
+
       const dayfull = new Day(day_name);
       mainArray.push(dayfull);
       console.log(mainArray);
@@ -71,44 +71,49 @@ document.addEventListener(
       dayIndex = mainArray.findIndex(element => {
         return element.a === event.target.getAttribute("day-name");
       });
-     
+
       view.removeSubmitButton();
       view.clearTodo();
-    } 
-    
-else if (event.target.id.includes("calendar")) {  
+    } else if (event.target.id.includes("calendar")) {
 
-  view.undisplayCalendar();
+      view.undisplayCalendar();
 
-  if (!event.target.style.borderRadius) {
-  view.displayForm();
-  view.undisplayWelcome();
-  view.displaySubmitButton();
-  event.target.style.borderRadius = "5px";
-  event.target.style.backgroundColor = 'green';
-  closeBtnPreviousIds.push(currentId);
-  
-} 
+      if (!event.target.style.borderRadius) {
+        view.displayForm();
+        view.undisplayWelcome();
+        view.displaySubmitButton();
+        event.target.style.borderRadius = "5px";
+        event.target.style.backgroundColor = 'green';
+        console.log(currentId);
+        const b = " ";
+        const currentDate = [currentId.slice(8, 10), b, currentId.slice(10, 11).toUpperCase(), currentId.slice(11, 13), b, currentId.slice(13)].join('');
+        console.log(currentDate);
+        closeBtnPreviousIds.push(currentId);
+        document.getElementById('your-notes-date').innerHTML = `${currentDate} notes `;
 
-  else {
-    view.displayDay();
-    view.undisplayForm();
-    view.undisplayWelcome();
-    todos.countWeeklyTodos();
-    view.displaySaveExitButton();
+      } else {
+        view.displayDay();
+        view.undisplayForm();
+        view.undisplayWelcome();
+        todos.countWeeklyTodos();
+        view.displaySaveExitButton();
 
-    let dayIndex2 = mainArray.findIndex(element => {
-    return element.a === event.target.getAttribute("day-name");
-    });
+        const c = " ";
+        const currentDate2 = [event.target.id.slice(8, 10), c, event.target.id.slice(10, 11).toUpperCase(), event.target.id.slice(11, 13), c, event.target.id.slice(13)].join('');
+        console.log("open" + currentDate2)
+        document.getElementById("background_text").innerHTML = currentDate2;
 
-    let numberOpen = event.target.id.slice(-9);
-    mainArray[dayIndex2].createDayOnCard(numberOpen);
-    view.calculateProgress();
 
-} }
+        let dayIndex2 = mainArray.findIndex(element => {
+          return element.a === event.target.getAttribute("day-name");
+        });
 
-  
-else if (event.target.id.includes("close-day")) {
+        let numberOpen = event.target.id.slice(-9);
+        mainArray[dayIndex2].createDayOnCard(numberOpen);
+        view.calculateProgress();
+
+      }
+    } else if (event.target.id.includes("close-day")) {
       dayIndex = mainArray.findIndex(element => {
         return element.a === day_name;
       });
@@ -120,23 +125,17 @@ else if (event.target.id.includes("close-day")) {
       view.todoListRemove();
       view.clearProgress();
 
-    } 
-    
+    } else if (event.target.id.includes("close-form")) {
 
-else if (event.target.id.includes("close-form")) {
-      
       view.displayCalendar();
 
       document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.borderRadius = null;
       document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.backgroundColor = null;
-    
+
       view.displayWelcome();
       view.undisplayForm();
-      view.removeSubmitButton();  
-    } 
-
-    
-else if (event.target.id.includes("delete_todo_form")) {
+      view.removeSubmitButton();
+    } else if (event.target.id.includes("delete_todo_form")) {
       let allTodos = document.getElementsByName("todoscb");
       for (let i = 0, length = allTodos.length; i < length; i++) {
         if (allTodos[i].checked) {
@@ -147,12 +146,10 @@ else if (event.target.id.includes("delete_todo_form")) {
           i--;
         }
       }
-    } 
-    
-else if (event.target.id.includes("delete_output")) {
+    } else if (event.target.id.includes("delete_output")) {
       var allTodos = document.getElementsByName("todoscb");
       for (var i = 0, length = allTodos.length; i < length; i++) {
-      if (allTodos[i].checked) {
+        if (allTodos[i].checked) {
           allTodos[i].nextSibling.remove();
           allTodos[i].nextSibling.remove();
           allTodos[i].nextSibling.remove();
@@ -161,12 +158,10 @@ else if (event.target.id.includes("delete_output")) {
         }
         view.calculateProgress();
       }
-    } 
-    
-else if (event.target.id.includes("completed")) {
+    } else if (event.target.id.includes("completed")) {
       var allTodos = document.getElementsByName("todoscb");
       for (var i = 0, length = allTodos.length; i < length; i++) {
-      if (allTodos[i].checked) {
+        if (allTodos[i].checked) {
           allTodos[i].nextSibling.style.textDecoration = "line-through";
           allTodos[i].nextSibling.style.color = "grey";
           allTodos[i].checked = false;
@@ -174,62 +169,72 @@ else if (event.target.id.includes("completed")) {
         }
       }
       view.calculateProgress();
-    } 
-    
-else if (event.target.id.includes("enter")) {
+    } else if (event.target.id.includes("enter")) {
       if (todos.inputLength(todos.input_todo_form()) > 0) {
         todos.createListForm();
       }
-    } 
-    
-else if (event.target.id.includes("enter")) {
-    if (todos.inputLength(todos.input_todo_form()) > 0) {
+    } else if (event.target.id.includes("enter")) {
+      if (todos.inputLength(todos.input_todo_form()) > 0) {
         todos.createListForm();
       }
-    } 
-    
-else if (event.target.id.includes("add")) {
-    if (todos.inputLength(todos.input_todo_day()) > 0) {
+    } else if (event.target.id.includes("add")) {
+      if (todos.inputLength(todos.input_todo_day()) > 0) {
         todos.createListDay();
         view.calculateProgress();
       }
-    } 
-    
-else if (event.target.id.includes("expand")) {
-    var showMoreHols = document.getElementById("collapsible_holidays");
-    if(showMoreHols.style.display === "block") {
+    } else if (event.target.id.includes("expand")) {
+      var showMoreHols = document.getElementById("collapsible_holidays");
+      if (showMoreHols.style.display === "block") {
 
         document.getElementById("collapsible_holidays").style.display = 'none';
-        event.target.src ="images/expand.png";
+        event.target.src = "images/expand.png";
 
       } else {
         document.getElementById("collapsible_holidays").style.display = 'block';
-        event.target.src ="images/collapse.png";
+        event.target.src = "images/collapse.png";
 
-      } 
-    }
-    
-else if (event.target.id.includes("showmore")) {
-    const showMoreWeather = document.getElementById("collapsible_weather");
-    if(showMoreWeather.style.display === "flex") {
+      }
+    } else if (event.target.id.includes("showmore")) {
+      const showMoreWeather = document.getElementById("collapsible_weather");
+      if (showMoreWeather.style.display === "flex") {
         document.getElementById("collapsible_weather").style.display = 'none';
-        event.target.src ="images/expand.png";} 
-    else { 
-      document.getElementById("collapsible_weather").style.display = 'flex';
-      event.target.src ="images/collapse.png";
-      }    
-}
+        event.target.src = "images/expand.png";
+      } else {
+        document.getElementById("collapsible_weather").style.display = 'flex';
+        event.target.src = "images/collapse.png";
+      }
+    } else if (event.target.id === "nextarrow") {
+      Calendar.newMonthsForward();
+    } else if (event.target.id === "backarrow") {
+      Calendar.newMonthsBackward();
 
-else if (event.target.id === "nextarrow") {
-    Calendar.newMonthsForward();
-}
+    } else if (event.target.id === "btn-login-txt") {
 
-else if (event.target.id === "backarrow") {
-    Calendar.newMonthsBackward();
-  
-}
+      if (document.getElementById('login-wrapper').style.display === "none") {
+        document.getElementById('login-wrapper').style.display = "block";
+        document.getElementById('register-wrapper').style.display = "none";
+        
+      } else {
+        document.getElementById('login-wrapper').style.display = "none"
 
-},
+      }
+
+    }
+
+    else if (event.target.id === "btn-register-txt") {
+
+      if (document.getElementById('register-wrapper').style.display === "none") {
+        document.getElementById('register-wrapper').style.display = "block";
+        document.getElementById('login-wrapper').style.display = "none";
+      } else {
+        document.getElementById('register-wrapper').style.display = "none"
+        
+      }
+
+    }
+
+
+  },
   false
 );
 
@@ -258,8 +263,3 @@ window.onload = function () {
   welcome.nowTime();
   todos.countWeeklyTodos();
 };
-
-
-
-
-
