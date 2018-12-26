@@ -4,7 +4,7 @@ export const updateNextHolidays = () => {
   const todaysTS = date.getTime()
 
   const keyHols = 'b26794657e7d4906b15d868c3bb0a5f2abe5f74e'
-  let urlHols = `https://www.calendarindex.com/api/v1/holidays?country=GB&year=2018&api_key=${keyHols}`;
+  let urlHols = `https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`;
 
 
   fetch(urlHols)
@@ -52,6 +52,7 @@ export const updateNextHolidays = () => {
           if (holidaysArray[i] >= 0) {
             moreholsArray.push(i);
             let moredaysleft = Math.ceil(holidaysArray[i] / oneDaySecs);
+            console.log(moreholsDaysLeft)
             moreholsDaysLeft.push(moredaysleft);
           }
         }
@@ -66,7 +67,7 @@ export const updateNextHolidays = () => {
         } else if (moreholsArray.length >= 3) {
           document.getElementById('secondHol').innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`
           document.getElementById('thirdHol').innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]} days`
-          document.getElementById('forthHol').innerHTML = `${res.response.holidays[moreholsArray[3]].name} in ${moreholsDaysLeft[3]} days`
+          document.getElementById('fourthHol').innerHTML = `${res.response.holidays[moreholsArray[3]].name} in ${moreholsDaysLeft[3]} days`
         }
       }
     )

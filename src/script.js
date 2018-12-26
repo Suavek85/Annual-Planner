@@ -123,7 +123,6 @@ else if (event.target.id.includes("close-day")) {
     } 
     
 
-
 else if (event.target.id.includes("close-form")) {
       
       view.displayCalendar();
