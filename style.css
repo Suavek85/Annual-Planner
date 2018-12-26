@@ -5,8 +5,113 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+/*LOGIN */
+
+#btn-login-txt {
+
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+
+}
+
+#btn-login-txt:hover {
+
+  color: orange;
+
+}
+
+#btn-register-txt {
+
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: solid 0.5px grey;
+  cursor: pointer;
+}
+
+#btn-register-txt:hover {
+
+  color: orange;
+}
 
 
+#login-wrapper {
+
+  position: absolute;
+  top: 63px;
+  z-index: 20;
+  display: none;
+  color: black;
+
+}
+
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: space-around;
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  width: 200px;
+  height: 150px;
+
+}
+
+.login-box:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 0;
+  height: 0;
+  border: 9px solid transparent;
+  border-bottom-color: white;
+  border-top: 0;
+  margin-left: -9px;
+  margin-top: -9px;
+}
+
+#register-wrapper {
+
+  position: absolute;
+  top: 63px;
+  left: 0px;
+  z-index: 20;
+  display: none;
+  color: black;
+
+}
+
+
+.register-box {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: space-around;
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  width: 200px;
+  height: 200px;
+
+}
+
+.register-box:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 87px;
+  width: 0;
+  height: 0;
+  border: 9px solid transparent;
+  border-bottom-color: white;
+  border-top: 0;
+  margin-left: -9px;
+  margin-top: -9px;
+}
 
 
 /* CALENDAR - FULL YEAR */
@@ -159,33 +264,6 @@ li {
   align-items: center;
   justify-content: center;
 }
-
-
-#login {
-
-margin-right: 10px;
-cursor: pointer;
-
-}
-
-#login:hover {
-
-  color: orange;
-  
-  }
-
-#register {
-
-  margin-right: 15px;
-  padding-right: 15px;
-  border-right: solid 0.5px grey;
-  cursor: pointer;
-  }
-
-  #register:hover {
-
-   color: orange;
-    }
 
 
 /* HOLIDAYS*/
@@ -405,15 +483,15 @@ h2 {
 #form-container {
   display: none;
   flex-direction: row;
-    width: 550px;
-    min-height: 250px;
-    max-height: 600px;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 50px;
-    background-color: rgba(250, 250, 250, 0.8);
+  width: 550px;
+  min-height: 250px;
+  max-height: 600px;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 50px;
+  background-color: rgba(250, 250, 250, 0.8);
 }
 
 #delete_todo_form {
@@ -523,12 +601,18 @@ h2 {
 
 }
 
+.notes_day_background_text {
+
+  padding-right: 7px;
+
+}
+
 .notes_day_background {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  
+
   color: white;
   font-size: 16px;
 }
@@ -628,7 +712,7 @@ i {
 
 .submit-btn {
 
-padding: 7px;
+  padding: 7px;
 
 }
 
@@ -712,6 +796,15 @@ input[type="text"] {
   width: 150px;
 }
 
+input[type="submit"] {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
 input {
   text-align: center;
+}
+
+label[for="username"] {
+  margin-top: 10px;
 }
