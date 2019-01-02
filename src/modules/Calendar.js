@@ -90,7 +90,7 @@ const currentTimestamp = () => {
  }
 
 
-const removeMonthHtml = () => {
+export const removeMonthHtml = () => {
 
   const fullMonthHtml = document.getElementById("fullcalhtml");
   fullMonthHtml.remove();

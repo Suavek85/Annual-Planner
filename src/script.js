@@ -13,9 +13,35 @@ import * as Weather from './modules/Weather';
 import * as Holidays from './modules/Holidays';
 
 
+const updateProfileTodos = () => {
 
-export default class Day {
+    fetch('http://localhost:3000/todos', {
+  
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+        
+          id: '123',
+          entries: mainArray
+  
+        }
+        ) 
+  
+        })
+        
+       .then(response => response.json()).then(data => {if ( data === 'todos worked') {
+  
+        console.log('All good with todos mate');
+       
+       } 
+      
+      })
 
+}
+
+
+export class Day 
+{
   constructor(a) {
     this.a = a;
     this.b = document.getElementById("notes").value;
@@ -30,7 +56,7 @@ export default class Day {
     this.g = todos.ul_tasks().innerHTML;
   }
 
-  createDayOnCard(dayNumber) {
+  createDayOnCard() {
     document.querySelector("#output8").innerHTML = this.b;
     const word = this.g;
     let todoHtml = `<div id='todolist' class='notes-item'>My tasks:<ul id='task_list_output'>${word}</ul>
@@ -46,6 +72,21 @@ export default class Day {
     this.b = document.querySelector("#output8").innerHTML;
   }
 }
+
+
+export class SavedDay extends Day {
+
+  constructor(a,b,f,g) {
+    super();
+    this.a = a;
+    this.b = b;
+    this.f = f;
+    this.g = g;
+  }
+
+}
+
+
 
 let closeBtnPreviousIds = [];
 
@@ -74,6 +115,11 @@ document.addEventListener(
 
       view.removeSubmitButton();
       view.clearTodo();
+
+      //SHOULD JUST UPDATE WHEN LOGGED IN AND RIGHT USER
+      updateProfileTodos();
+
+     
     } else if (event.target.id.includes("calendar")) {
 
       view.undisplayCalendar();
@@ -108,8 +154,7 @@ document.addEventListener(
           return element.a === event.target.getAttribute("day-name");
         });
 
-        let numberOpen = event.target.id.slice(-9);
-        mainArray[dayIndex2].createDayOnCard(numberOpen);
+        mainArray[dayIndex2].createDayOnCard(); 
         view.calculateProgress();
 
       }
@@ -118,12 +163,18 @@ document.addEventListener(
         return element.a === day_name;
       });
       mainArray[dayIndex].updateDay();
+
+      //SHOULD JUST UPDATE WHEN LOGGED USER AND RIGH USER
+      updateProfileTodos();
+      
       todos.countWeeklyTodos();
       view.displayCalendar();
       view.displayWelcome();
       view.undisplayDay();
       view.todoListRemove();
       view.clearProgress();
+
+  
 
     } else if (event.target.id.includes("close-form")) {
 
@@ -233,6 +284,111 @@ document.addEventListener(
 
     }
 
+    //REGISTER
+
+    else if (event.target.id === "register-button") {
+
+      const newName = document.getElementById('name-input').value;
+      const newPassword = document.getElementById('password-input').value;
+      const newEmail = document.getElementById('email-input').value;
+
+      let newUser = {
+          name: newName,
+          email: newEmail,
+          password: newPassword
+      }
+
+    
+      fetch('http://localhost:3000/register', {
+
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        
+        id: '129',
+        name: newName,
+        email: newEmail,
+        password: newPassword
+
+      }
+      ) 
+
+      })
+      
+      .then(response => response.json()).then(data => {if ( data === 'register worked') {
+
+      console.log('Registering okay');
+      document.getElementById("regbox").style.display = "none";
+      document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newEmail}`
+        
+  
+       } })
+
+    }
+
+    //SIGN IN
+
+    else if (event.target.id === "signin-button") {
+
+      const newPassword2 = document.getElementById('password-input-2').value;
+      const newEmail2 = document.getElementById('email-input-2').value;
+
+      //let newUser2 = {
+          //email: newEmail2,
+         // password: newPassword2
+      //}
+
+    
+      fetch('http://localhost:3000/signin', {
+
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        
+        id: '134',
+        email: newEmail2,
+        password: newPassword2
+
+      }
+      ) 
+
+      })
+      
+     .then(response => response.json()).then( (data) => { 
+
+      console.log('Signing in okay');
+      console.log(data);
+      
+      mainArray.splice(0,mainArray.length);
+      
+
+      if (data) {
+        //mainArray.push.apply(mainArray, data);
+       
+        for (i = 0; i < data.length; i++) {
+          
+          let savedDayFull = new SavedDay (data[i].a, data[i].b,data[i].f, data[i].g);
+          mainArray.push(savedDayFull);
+          
+        }
+        console.log(mainArray);
+        todos.countWeeklyTodos();
+      }
+      
+      Calendar.removeMonthHtml(); 
+      Calendar.loadCurrentYear(); 
+      Calendar.loadCurrentMonthHtml(); 
+
+      document.getElementById("logbox").style.display = "none"; 
+      document.getElementById("top-welcome-message").innerHTML = `Welcome back ${newEmail2}`
+      
+     } )
+
+
+    }
+
+
+    
 
   },
   false
