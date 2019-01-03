@@ -13,6 +13,8 @@ import * as Weather from './modules/Weather';
 import * as Holidays from './modules/Holidays';
 
 
+let signedIn = false;
+
 const updateProfileTodos = () => {
 
     fetch('http://localhost:3000/todos', {
@@ -116,8 +118,11 @@ document.addEventListener(
       view.removeSubmitButton();
       view.clearTodo();
 
-      //SHOULD JUST UPDATE WHEN LOGGED IN AND RIGHT USER
-      updateProfileTodos();
+      //SHOULD UPDATE RIGHT USER NOT FIRST
+      if (signedIn) {
+        updateProfileTodos();
+      }
+   
 
      
     } else if (event.target.id.includes("calendar")) {
@@ -164,8 +169,10 @@ document.addEventListener(
       });
       mainArray[dayIndex].updateDay();
 
-      //SHOULD JUST UPDATE WHEN LOGGED USER AND RIGH USER
-      updateProfileTodos();
+      //SHOULD UPDATE RIGHT USER NOT FIRST
+      if (signedIn) {
+        updateProfileTodos();
+      }
       
       todos.countWeeklyTodos();
       view.displayCalendar();
@@ -259,7 +266,26 @@ document.addEventListener(
     } else if (event.target.id === "backarrow") {
       Calendar.newMonthsBackward();
 
-    } else if (event.target.id === "btn-login-txt") {
+    } 
+    
+    //SIGN IN MENU
+    
+    else if (event.target.id === "btn-login-txt") {
+
+      if(event.target.innerHTML === 'Sign out') { 
+
+      signedIn = false;
+      mainArray.splice(0,mainArray.length);
+      Calendar.removeMonthHtml(); 
+      Calendar.loadCurrentYear(); 
+      Calendar.loadCurrentMonthHtml(); 
+      todos.countWeeklyTodos();
+
+      document.getElementById("top-welcome-message").innerHTML = '';
+      event.target.innerHTML = "Sign in";
+      }
+
+      else {
 
       if (document.getElementById('login-wrapper').style.display === "none") {
         document.getElementById('login-wrapper').style.display = "block";
@@ -270,7 +296,11 @@ document.addEventListener(
 
       }
 
+      }
+
     }
+
+    //REGISTER IN MENU
 
     else if (event.target.id === "btn-register-txt") {
 
@@ -292,13 +322,6 @@ document.addEventListener(
       const newPassword = document.getElementById('password-input').value;
       const newEmail = document.getElementById('email-input').value;
 
-      let newUser = {
-          name: newName,
-          email: newEmail,
-          password: newPassword
-      }
-
-    
       fetch('http://localhost:3000/register', {
 
       method: 'post',
@@ -318,11 +341,12 @@ document.addEventListener(
       .then(response => response.json()).then(data => {if ( data === 'register worked') {
 
       console.log('Registering okay');
+      signedIn = true;
+      document.getElementById("btn-login-txt").innerHTML = 'Sign out';
       document.getElementById("regbox").style.display = "none";
       document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newEmail}`
         
-  
-       } })
+      } })
 
     }
 
@@ -333,11 +357,7 @@ document.addEventListener(
       const newPassword2 = document.getElementById('password-input-2').value;
       const newEmail2 = document.getElementById('email-input-2').value;
 
-      //let newUser2 = {
-          //email: newEmail2,
-         // password: newPassword2
-      //}
-
+    //SHOULD UPDATE RIGHT USER NOT FIRST
     
       fetch('http://localhost:3000/signin', {
 
@@ -358,11 +378,14 @@ document.addEventListener(
 
       console.log('Signing in okay');
       console.log(data);
+
+     signedIn = true;
       
       mainArray.splice(0,mainArray.length);
       
 
       if (data) {
+
         //mainArray.push.apply(mainArray, data);
        
         for (i = 0; i < data.length; i++) {
@@ -377,11 +400,13 @@ document.addEventListener(
       
       Calendar.removeMonthHtml(); 
       Calendar.loadCurrentYear(); 
-      Calendar.loadCurrentMonthHtml(); 
-
-      document.getElementById("logbox").style.display = "none"; 
-      document.getElementById("top-welcome-message").innerHTML = `Welcome back ${newEmail2}`
+      Calendar.loadCurrentMonthHtml();
       
+      document.getElementById("login-wrapper").style.display = "none"; 
+      document.getElementById("top-welcome-message").innerHTML = `Welcome back ${newEmail2}`;
+      document.getElementById("btn-login-txt").innerHTML = 'Sign out';
+      //document.getElementById("logbox").style.display = "none"; 
+
      } )
 
 
