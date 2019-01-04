@@ -18,7 +18,7 @@ export const updateNextHolidays = () => {
 
         console.log(res);
 
-        //NEXY HOLIDAY
+        //NEXT HOLIDAY
 
         const holidaysArray = res.response.holidays.map(el => {
           return Date.parse(el.date) - todaysTS;

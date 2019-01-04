@@ -14,6 +14,7 @@ import * as Holidays from './modules/Holidays';
 
 
 let signedIn = false;
+let userId;
 
 const updateProfileTodos = () => {
 
@@ -23,7 +24,7 @@ const updateProfileTodos = () => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
         
-          id: '123',
+          id: userId,
           entries: mainArray
   
         }
@@ -328,7 +329,7 @@ document.addEventListener(
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         
-        id: '129',
+        //id: userId,
         name: newName,
         email: newEmail,
         password: newPassword
@@ -338,15 +339,18 @@ document.addEventListener(
 
       })
       
-      .then(response => response.json()).then(data => {if ( data === 'register worked') {
+      .then(response => response.json()).then(data => { 
 
       console.log('Registering okay');
+      console.log(data); // PROBLEM
       signedIn = true;
+      userId = data.id;
+      console.log(userId)
       document.getElementById("btn-login-txt").innerHTML = 'Sign out';
       document.getElementById("regbox").style.display = "none";
       document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newEmail}`
         
-      } })
+       })
 
     }
 
