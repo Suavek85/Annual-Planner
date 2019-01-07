@@ -32,13 +32,12 @@ const updateProfileTodos = () => {
   
         })
         
-       .then(response => response.json()).then(data => {if ( data === 'todos worked') {
-  
-        console.log('All good with todos mate');
+       .then(response => response.json()).then(data => {
+         
+        console.log('All good updating entries');
        
-       } 
-      
-      })
+      }
+      )
 
 }
 
@@ -119,7 +118,6 @@ document.addEventListener(
       view.removeSubmitButton();
       view.clearTodo();
 
-      //SHOULD UPDATE RIGHT USER NOT FIRST
       if (signedIn) {
         updateProfileTodos();
       }
@@ -170,7 +168,6 @@ document.addEventListener(
       });
       mainArray[dayIndex].updateDay();
 
-      //SHOULD UPDATE RIGHT USER NOT FIRST
       if (signedIn) {
         updateProfileTodos();
       }
@@ -329,7 +326,6 @@ document.addEventListener(
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         
-        //id: userId,
         name: newName,
         email: newEmail,
         password: newPassword
@@ -348,7 +344,7 @@ document.addEventListener(
       console.log(userId)
       document.getElementById("btn-login-txt").innerHTML = 'Sign out';
       document.getElementById("regbox").style.display = "none";
-      document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newEmail}`
+      document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newName}`
         
        })
 
@@ -361,15 +357,13 @@ document.addEventListener(
       const newPassword2 = document.getElementById('password-input-2').value;
       const newEmail2 = document.getElementById('email-input-2').value;
 
-    //SHOULD UPDATE RIGHT USER NOT FIRST
-    
       fetch('http://localhost:3000/signin', {
 
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         
-        id: '134',
+        //id: '134',
         email: newEmail2,
         password: newPassword2
 
@@ -381,20 +375,18 @@ document.addEventListener(
      .then(response => response.json()).then( (data) => { 
 
       console.log('Signing in okay');
-      console.log(data);
-
-     signedIn = true;
-      
+      signedIn = true;
+      userId = data.id;
       mainArray.splice(0,mainArray.length);
-      
-
-      if (data) {
+    
+     
+      if (data.entries.length > 0) {
 
         //mainArray.push.apply(mainArray, data);
        
-        for (i = 0; i < data.length; i++) {
+        for (i = 0; i < data.entries.length ; i++) {
           
-          let savedDayFull = new SavedDay (data[i].a, data[i].b,data[i].f, data[i].g);
+          let savedDayFull = new SavedDay (data.entries[i].a, data.entries[i].b, data.entries[i].f, data.entries[i].g);
           mainArray.push(savedDayFull);
           
         }
@@ -407,17 +399,14 @@ document.addEventListener(
       Calendar.loadCurrentMonthHtml();
       
       document.getElementById("login-wrapper").style.display = "none"; 
-      document.getElementById("top-welcome-message").innerHTML = `Welcome back ${newEmail2}`;
+      document.getElementById("top-welcome-message").innerHTML = `Welcome back ${data.name}`;
       document.getElementById("btn-login-txt").innerHTML = 'Sign out';
-      //document.getElementById("logbox").style.display = "none"; 
-
+     
      } )
 
 
     }
 
-
-    
 
   },
   false

@@ -11,6 +11,7 @@ body {
 
   margin-right: 10px;
   color: yellow;
+  
 
 }
 
@@ -218,17 +219,13 @@ only main logo, login and register icons;
 */
 
 
-
-
-
-
-
 /* HEADER */
 
 .header-wrapper {
   width: 96vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto 30px auto;
 }
 
