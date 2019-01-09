@@ -126,7 +126,73 @@ const view = {
       
     displayCalendar: function() {
       document.getElementById("full_year_wrapper").style.display = 'grid'; 
+    },
+
+    removeSigninWarning: function() {
+
+      const signinNote = document.getElementById('signin-note');
+
+      if  (signinNote ) {
+        signinNote.remove();
+      }
+
+    },
+
+    removeRegisterWarning: function() {
+
+      const registerNote = document.getElementById('register-note');
+
+      if  (registerNote ) {
+        registerNote.remove();
+      }
+
+    },
+
+    undisplayLoginWrapper: function() {
+
+      const loginWrapper = document.getElementById('login-wrapper');
+      loginWrapper.style.display = "none" ;
+
+    },
+
+    undisplayRegisterWrapper: function() {
+
+      const registerWrapper = document.getElementById('register-wrapper');
+      registerWrapper.style.display = "none" ;
+
+    },
+
+    displayLoginWrapper: function() {
+
+      const logWrapper = document.getElementById('login-wrapper');
+      logWrapper.style.display = "block" ;
+
+    },
+
+    displayRegisterWrapper: function() {
+
+      const regWrapper = document.getElementById('register-wrapper');
+      regWrapper.style.display = "block" ;
+
+    },
+
+    emptyRegisterForm: function() {
+
+      document.getElementById('name-input').value = '';
+      document.getElementById('password-input').value = '';
+      document.getElementById('email-input').value = '';
+
+    },
+
+    emptySigninForm: function() {
+
+      document.getElementById('password-input-2').value = '';
+      document.getElementById('email-input-2').value = '';
+
     }
+
+
+    
   
     
   };

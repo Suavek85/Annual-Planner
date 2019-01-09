@@ -18,32 +18,31 @@ let userId;
 
 const updateProfileTodos = () => {
 
-    fetch('http://localhost:3000/todos', {
-  
-        method: 'post',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-        
-          id: userId,
-          entries: mainArray
-  
-        }
-        ) 
-  
-        })
-        
-       .then(response => response.json()).then(data => {
-         
-        console.log('All good updating entries');
-       
-      }
-      )
+  fetch('http://localhost:3000/todos', {
+
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+
+        id: userId,
+        entries: mainArray
+
+      })
+
+    })
+
+    .then(response => response.json()).then(data => {
+
+      console.log('All good updating entries');
+
+    })
 
 }
 
 
-export class Day 
-{
+export class Day {
   constructor(a) {
     this.a = a;
     this.b = document.getElementById("notes").value;
@@ -78,7 +77,7 @@ export class Day
 
 export class SavedDay extends Day {
 
-  constructor(a,b,f,g) {
+  constructor(a, b, f, g) {
     super();
     this.a = a;
     this.b = b;
@@ -121,9 +120,9 @@ document.addEventListener(
       if (signedIn) {
         updateProfileTodos();
       }
-   
 
-     
+
+
     } else if (event.target.id.includes("calendar")) {
 
       view.undisplayCalendar();
@@ -158,7 +157,7 @@ document.addEventListener(
           return element.a === event.target.getAttribute("day-name");
         });
 
-        mainArray[dayIndex2].createDayOnCard(); 
+        mainArray[dayIndex2].createDayOnCard();
         view.calculateProgress();
 
       }
@@ -171,7 +170,7 @@ document.addEventListener(
       if (signedIn) {
         updateProfileTodos();
       }
-      
+
       todos.countWeeklyTodos();
       view.displayCalendar();
       view.displayWelcome();
@@ -179,7 +178,7 @@ document.addEventListener(
       view.todoListRemove();
       view.clearProgress();
 
-  
+
 
     } else if (event.target.id.includes("close-form")) {
 
@@ -264,204 +263,187 @@ document.addEventListener(
     } else if (event.target.id === "backarrow") {
       Calendar.newMonthsBackward();
 
-    } 
-    
-    //SIGN IN MENU
-    
-    else if (event.target.id === "btn-login-txt") {
-
-      if(event.target.innerHTML === 'Sign out') { 
-
-      signedIn = false;
-      mainArray.splice(0,mainArray.length);
-      Calendar.removeMonthHtml(); 
-      Calendar.loadCurrentYear(); 
-      Calendar.loadCurrentMonthHtml(); 
-      todos.countWeeklyTodos();
-
-      document.getElementById("top-welcome-message").innerHTML = 'Hello guest!';
-      event.target.innerHTML = "Sign in";
-      }
-
-      else {
-
-      if (document.getElementById('login-wrapper').style.display === "none") {
-        document.getElementById('login-wrapper').style.display = "block";
-        document.getElementById('register-wrapper').style.display = "none";
-        
-      } else {
-        document.getElementById('login-wrapper').style.display = "none"
-
-      }
-
-      }
-
     }
 
-    //REGISTER IN MENU
+    //REGISTER SECTION
 
     else if (event.target.id === "btn-register-txt") {
 
       if (document.getElementById('register-wrapper').style.display === "none") {
-        document.getElementById('register-wrapper').style.display = "block";
-        document.getElementById('login-wrapper').style.display = "none";
+        view.displayRegisterWrapper();
+        view.undisplayLoginWrapper();
       } else {
-        document.getElementById('register-wrapper').style.display = "none"
-        
+        view.undisplayRegisterWrapper();
       }
-
     }
 
-    //REGISTER
+    //REGISTER BUTTON
 
     else if (event.target.id === "register-button") {
 
-      const registerNote = document.getElementById('register-note');
-
-      if  (registerNote ) {
-        registerNote.remove();
-      }
-
+      view.removeRegisterWarning();
       const newName = document.getElementById('name-input').value;
       const newPassword = document.getElementById('password-input').value;
       const newEmail = document.getElementById('email-input').value;
 
-      fetch ('http://localhost:3000/register', {
+      fetch('http://localhost:3000/register', {
 
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        
-        name: newName,
-        email: newEmail,
-        password: newPassword
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
 
-      }
-      ) 
+            name: newName,
+            email: newEmail,
+            password: newPassword
 
-      })
-      
-      .then(response => response.json()).then(data => { 
+          })
 
-      if (data === 'Incorrect form submission') {
+        })
 
-        if  (registerNote ) {
-          registerNote.remove();
-        }
+        .then(response => response.json()).then(data => {
 
-        document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">Field cannot be left blank</p>');
-        
-      } 
-      
-      else if (data === 'Unable to register') {
+          if (data === 'Incorrect form submission') {
 
-        if  (registerNote ) {
-          registerNote.remove();
-        }
+          
+            view.removeRegisterWarning();
 
-        document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">User already exists</p>');
+            document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">Field cannot be left blank</p>');
 
-      } 
-      
-      else {
+          } else if (data === 'Unable to register') {
 
-        console.log('Registering okay');
-        console.log(data); 
-        signedIn = true;
-        userId = data.id;
-        mainArray.splice(0,mainArray.length);
-        Calendar.removeMonthHtml(); 
-        Calendar.loadCurrentYear(); 
-        Calendar.loadCurrentMonthHtml();
-        todos.countWeeklyTodos();
-        document.getElementById("btn-login-txt").innerHTML = 'Sign out';
-        document.getElementById("regbox").style.display = "none";
-        document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newName}`;
-        document.getElementById('name-input').value = '';
-        document.getElementById('password-input').value = '';
-        document.getElementById('email-input').value = '';
+            view.removeRegisterWarning();
 
-      }
-   
-      })
+            document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">User already exists</p>');
+
+          } else {
+
+            //console.log('Registering okay');
+            //console.log(data);
+            signedIn = true;
+            userId = data.id;
+            mainArray.splice(0, mainArray.length);
+            Calendar.removeMonthHtml();
+            Calendar.loadCurrentYear();
+            Calendar.loadCurrentMonthHtml();
+            todos.countWeeklyTodos();
+            document.getElementById("btn-login-txt").innerHTML = 'Sign out';
+            view.undisplayRegisterWrapper();
+            document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newName}`;
+            view.emptyRegisterForm();
+
+          }
+
+        })
 
     }
 
-    //SIGN IN
+    //SIGN IN SECTION
+
+    else if (event.target.id === "btn-login-txt") {
+
+      if (event.target.innerHTML === 'Sign out') {
+
+        signedIn = false;
+        mainArray.splice(0, mainArray.length);
+        Calendar.removeMonthHtml();
+        Calendar.loadCurrentYear();
+        Calendar.loadCurrentMonthHtml();
+        todos.countWeeklyTodos();
+
+        document.getElementById("top-welcome-message").innerHTML = 'Hello guest!';
+        event.target.innerHTML = "Sign in";
+      } else {
+
+        if (document.getElementById('login-wrapper').style.display === "none") {
+          view.displayLoginWrapper();
+          view.undisplayRegisterWrapper();
+
+        } else {
+          view.undisplayLoginWrapper();
+
+        }
+
+      }
+
+    }
+
+
+    //SIGN IN BUTTON
 
     else if (event.target.id === "signin-button") {
 
-     const signinNote = document.getElementById('signin-note');
-
-      if  (signinNote ) {
-        signinNote.remove();
-      }
+      view.removeSigninWarning();
 
       const newPassword2 = document.getElementById('password-input-2').value;
       const newEmail2 = document.getElementById('email-input-2').value;
 
       fetch('http://localhost:3000/signin', {
 
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        
-        email: newEmail2,
-        password: newPassword2
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
 
-      }
-      ) 
+            email: newEmail2,
+            password: newPassword2
 
-      })
-      
-     .then(response => response.json()).then( (data) => { 
+          })
 
-      if (data !== 'wrong credentials')
+        })
 
-      {
-        console.log(data);
-        signedIn = true;
-        userId = data.id;
-        mainArray.splice(0,mainArray.length);
-      
-       
-        if (data.entries.length > 0) {
-         
-          for (i = 0; i < data.entries.length ; i++) {
-            
-            let savedDayFull = new SavedDay (data.entries[i].a, data.entries[i].b, data.entries[i].f, data.entries[i].g);
-            mainArray.push(savedDayFull);
-            //mainArray.push.apply(mainArray, data);
-            
+        .then(response => response.json()).then((data) => {
+
+          if (data !== 'wrong credentials') {
+
+            //console.log(data);
+            signedIn = true;
+            userId = data.id;
+            mainArray.splice(0, mainArray.length);
+
+            if (data.entries.length > 0) {
+
+              for (i = 0; i < data.entries.length; i++) {
+
+                let savedDayFull = new SavedDay(data.entries[i].a, data.entries[i].b, data.entries[i].f, data.entries[i].g);
+                mainArray.push(savedDayFull);
+                //mainArray.push.apply(mainArray, data);
+
+              }
+              todos.countWeeklyTodos();
+            }
+
+            Calendar.removeMonthHtml();
+            Calendar.loadCurrentYear();
+            Calendar.loadCurrentMonthHtml();
+            view.undisplayLoginWrapper();
+            view.emptySigninForm();
+            document.getElementById("top-welcome-message").innerHTML = `Welcome back ${data.name}`;
+            document.getElementById("btn-login-txt").innerHTML = 'Sign out';
+
+          } else {
+
+            view.removeSigninWarning();
+            document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p id="signin-note">Wrong credentials</p>');
+
           }
-          console.log(mainArray);
-          todos.countWeeklyTodos();
-        }
-        
-        Calendar.removeMonthHtml(); 
-        Calendar.loadCurrentYear(); 
-        Calendar.loadCurrentMonthHtml();
-        
-        document.getElementById("login-wrapper").style.display = "none"; 
-        document.getElementById("top-welcome-message").innerHTML = `Welcome back ${data.name}`;
-        document.getElementById("btn-login-txt").innerHTML = 'Sign out';
 
-        document.getElementById('password-input-2').value = '';
-        document.getElementById('email-input-2').value = '';
+        })
 
 
-      } else {
+    } else if (event.target.id === "main_pic") {
 
-        if  (signinNote ) {
-          signinNote.remove();
-        }
-       
-       document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p id="signin-note">Wrong credentials</p>');
+      if (document.getElementById('login-wrapper').style.display === "block") {
+        view.undisplayLoginWrapper();
+        view.emptySigninForm();
+        view.removeSigninWarning();
+      } else if (document.getElementById('register-wrapper').style.display === "block") {
+        view.undisplayRegisterWrapper();
+        view.emptyRegisterForm();
+        view.removeRegisterWarning();
       }
-     
-     
-     } )
-
 
     }
 
