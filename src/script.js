@@ -279,7 +279,7 @@ document.addEventListener(
       Calendar.loadCurrentMonthHtml(); 
       todos.countWeeklyTodos();
 
-      document.getElementById("top-welcome-message").innerHTML = '';
+      document.getElementById("top-welcome-message").innerHTML = 'Hello guest!';
       event.target.innerHTML = "Sign in";
       }
 
@@ -316,11 +316,17 @@ document.addEventListener(
 
     else if (event.target.id === "register-button") {
 
+      const registerNote = document.getElementById('register-note');
+
+      if  (registerNote ) {
+        registerNote.remove();
+      }
+
       const newName = document.getElementById('name-input').value;
       const newPassword = document.getElementById('password-input').value;
       const newEmail = document.getElementById('email-input').value;
 
-      fetch('http://localhost:3000/register', {
+      fetch ('http://localhost:3000/register', {
 
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -337,22 +343,59 @@ document.addEventListener(
       
       .then(response => response.json()).then(data => { 
 
-      console.log('Registering okay');
-      console.log(data); // PROBLEM
-      signedIn = true;
-      userId = data.id;
-      console.log(userId)
-      document.getElementById("btn-login-txt").innerHTML = 'Sign out';
-      document.getElementById("regbox").style.display = "none";
-      document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newName}`
+      if (data === 'Incorrect form submission') {
+
+        if  (registerNote ) {
+          registerNote.remove();
+        }
+
+        document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">Field cannot be left blank</p>');
         
-       })
+      } 
+      
+      else if (data === 'Unable to register') {
+
+        if  (registerNote ) {
+          registerNote.remove();
+        }
+
+        document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">User already exists</p>');
+
+      } 
+      
+      else {
+
+        console.log('Registering okay');
+        console.log(data); 
+        signedIn = true;
+        userId = data.id;
+        mainArray.splice(0,mainArray.length);
+        Calendar.removeMonthHtml(); 
+        Calendar.loadCurrentYear(); 
+        Calendar.loadCurrentMonthHtml();
+        todos.countWeeklyTodos();
+        document.getElementById("btn-login-txt").innerHTML = 'Sign out';
+        document.getElementById("regbox").style.display = "none";
+        document.getElementById("top-welcome-message").innerHTML = `Welcome  ${newName}`;
+        document.getElementById('name-input').value = '';
+        document.getElementById('password-input').value = '';
+        document.getElementById('email-input').value = '';
+
+      }
+   
+      })
 
     }
 
     //SIGN IN
 
     else if (event.target.id === "signin-button") {
+
+     const signinNote = document.getElementById('signin-note');
+
+      if  (signinNote ) {
+        signinNote.remove();
+      }
 
       const newPassword2 = document.getElementById('password-input-2').value;
       const newEmail2 = document.getElementById('email-input-2').value;
@@ -363,7 +406,6 @@ document.addEventListener(
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         
-        //id: '134',
         email: newEmail2,
         password: newPassword2
 
@@ -374,33 +416,49 @@ document.addEventListener(
       
      .then(response => response.json()).then( (data) => { 
 
-      console.log('Signing in okay');
-      signedIn = true;
-      userId = data.id;
-      mainArray.splice(0,mainArray.length);
-    
-     
-      if (data.entries.length > 0) {
+      if (data !== 'wrong credentials')
 
-        //mainArray.push.apply(mainArray, data);
+      {
+        console.log(data);
+        signedIn = true;
+        userId = data.id;
+        mainArray.splice(0,mainArray.length);
+      
        
-        for (i = 0; i < data.entries.length ; i++) {
-          
-          let savedDayFull = new SavedDay (data.entries[i].a, data.entries[i].b, data.entries[i].f, data.entries[i].g);
-          mainArray.push(savedDayFull);
-          
+        if (data.entries.length > 0) {
+         
+          for (i = 0; i < data.entries.length ; i++) {
+            
+            let savedDayFull = new SavedDay (data.entries[i].a, data.entries[i].b, data.entries[i].f, data.entries[i].g);
+            mainArray.push(savedDayFull);
+            //mainArray.push.apply(mainArray, data);
+            
+          }
+          console.log(mainArray);
+          todos.countWeeklyTodos();
         }
-        console.log(mainArray);
-        todos.countWeeklyTodos();
+        
+        Calendar.removeMonthHtml(); 
+        Calendar.loadCurrentYear(); 
+        Calendar.loadCurrentMonthHtml();
+        
+        document.getElementById("login-wrapper").style.display = "none"; 
+        document.getElementById("top-welcome-message").innerHTML = `Welcome back ${data.name}`;
+        document.getElementById("btn-login-txt").innerHTML = 'Sign out';
+
+        document.getElementById('password-input-2').value = '';
+        document.getElementById('email-input-2').value = '';
+
+
+      } else {
+
+        if  (signinNote ) {
+          signinNote.remove();
+        }
+       
+       document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p id="signin-note">Wrong credentials</p>');
       }
-      
-      Calendar.removeMonthHtml(); 
-      Calendar.loadCurrentYear(); 
-      Calendar.loadCurrentMonthHtml();
-      
-      document.getElementById("login-wrapper").style.display = "none"; 
-      document.getElementById("top-welcome-message").innerHTML = `Welcome back ${data.name}`;
-      document.getElementById("btn-login-txt").innerHTML = 'Sign out';
+     
      
      } )
 

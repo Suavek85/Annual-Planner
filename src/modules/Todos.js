@@ -82,7 +82,7 @@ const todos = {
       }
   
       if(todosDoneArray.length === 0 && todosAllArray.length === 0) {
-        document.getElementById('outstanding_tasks').innerHTML = "You have no outstanding tasks.";
+        document.getElementById('outstanding_tasks').innerHTML = "You've no outstanding tasks.";
       } else {
   
         var countDone = todosDoneArray.reduce(function(a, b) {
