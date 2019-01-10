@@ -18,7 +18,7 @@ let userId;
 
 const updateProfileTodos = () => {
 
-  fetch('http://localhost:3000/todos', {
+  fetch('https://morning-wave-83831.herokuapp.com/todos', {
 
       method: 'post',
       headers: {
@@ -117,6 +117,8 @@ document.addEventListener(
       view.removeSubmitButton();
       view.clearTodo();
 
+      console.log(signedIn)
+
       if (signedIn) {
         updateProfileTodos();
       }
@@ -166,6 +168,8 @@ document.addEventListener(
         return element.a === day_name;
       });
       mainArray[dayIndex].updateDay();
+
+      console.log(signedIn)
 
       if (signedIn) {
         updateProfileTodos();
@@ -286,7 +290,7 @@ document.addEventListener(
       const newPassword = document.getElementById('password-input').value;
       const newEmail = document.getElementById('email-input').value;
 
-      fetch('http://localhost:3000/register', {
+      fetch('https://morning-wave-83831.herokuapp.com/register', {
 
           method: 'post',
           headers: {
@@ -379,7 +383,7 @@ document.addEventListener(
       const newPassword2 = document.getElementById('password-input-2').value;
       const newEmail2 = document.getElementById('email-input-2').value;
 
-      fetch('http://localhost:3000/signin', {
+      fetch('https://morning-wave-83831.herokuapp.com/signin', {
 
           method: 'post',
           headers: {
