@@ -4,7 +4,7 @@
   "description": "Annual Planner",
   "main": "script.js",
   "scripts": {
-   
+    "start": "node script.js",
     "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "repository": {
