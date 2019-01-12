@@ -1,11 +1,13 @@
+
 {
   "name": "annual-planner",
   "version": "1.0.0",
   "description": "Annual Planner",
   "main": "script.js",
   "scripts": {
-    "start": "node script.js",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+    "postinstall": "webpack -p",
+    "start": "npm run webpack",
+    "webpack": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,8 @@
     "gh-pages": "^2.0.1",
     "request": "^2.88.0",
     "webpack": "^4.26.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
   }
 }
