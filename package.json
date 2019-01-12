@@ -6,7 +6,7 @@
   "main": "script.js",
   "scripts": {
     "postinstall": "webpack -p",
-    "start": "npm run webpack"
+    "webpack": "npm run webpack"
   },
   "repository": {
     "type": "git",
