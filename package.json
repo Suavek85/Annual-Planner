@@ -1,13 +1,14 @@
 
+
 {
   "name": "annual-planner",
   "version": "1.0.0",
   "description": "Annual Planner",
   "main": "script.js",
   "scripts": {
-    "postinstall": "webpack -p",
-    "webpack": "npm run webpack",
-    "start": "node script.js"
+    "deploy": "gh-pages -d dist",
+    "start": "npm run webpack",
+    "webpack": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
