@@ -21,20 +21,26 @@
         <div><img src='images/timeline.png' id='logo' alt="Logo"></div>
         <div class="logo-text"><h1>Annual planner</h1><p>Always ahead of time</p></div>
     </div>
-
+  
     
     <div class="weather-gen">
 
+        <div id="top-welcome-message">Hello guest!</div>
+        
+        <div id='credentials-wrapper'>
+        
         <div id="btn-login"><p id="btn-login-txt">Sign in</p><div style="display: none" id='login-wrapper'><div id='logbox' class='login-box'>
             
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
+            <label for="username">Email:</label>
+            <input type="text" id="email-input-2" name="username">
             
             
             <label for="pass">Password:</label>
-            <input type="password" id="pass" name="password" required>
+            <input type="password" id="password-input-2" name="password" required>
             
-            <input type="submit" value="Sign in">
+            <input id="signin-button" type="submit" value="Sign in">
+
+          
         
         </div></div>
         
@@ -44,21 +50,24 @@
             
             
             
-                <label type="username" for="username">Username:</label>
-                <input type="text" id="username" name="username">
+                <label type="username" for="username">Email:</label>
+                <input type="text" id="email-input" name="email">
                 
                 
                 <label for="pass">Password:</label>
-                <input type="password" id="pass" name="password" required>
+                <input type="password" id="password-input" name="password" required>
                 
 
-                <label for="pass">Repeat password:</label>
-                <input type="password" id="pass" name="password" required>
+                <label for="pass">Name:</label>
+                <input type="name" id="name-input" name="password" required>
                 
-                <input type="submit" value="Register">
-        
+                <input id="register-button" type="submit" value="Register">
+                
         
         </div></div></div>
+    </div>
+
+
         
         <img src='images/expand.png' id='showmore' style="display:none" alt="Expand">
         <div style="display:none" id='collapsible_weather'>         
