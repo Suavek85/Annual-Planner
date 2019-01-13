@@ -258,6 +258,23 @@ only main logo, login and register icons;
   margin: 0 auto 30px auto;
 }
 
+.header-wrapper_left {
+  width: 52vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 30px auto;
+}
+
+.header-wrapper_right {
+  width: 44vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 auto 30px auto;
+}
+
+
 
 .header {
   display: flex;

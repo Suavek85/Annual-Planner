@@ -1,17 +1,19 @@
 # Annual-Planner
 Annual Planner - JS Project
 
-•	to-do app, own idea, not based on an online course, work in progress
+•	to-do app, own idea, not based on an online course,
 
-•	allows creating to-do lists for any day, registering, signing in and saving results (saved automatically on each change and loaded on signin)
+•	allows creating to-do lists for any day, registering, signing in and saving results (saving automatically on each change and loading on signin),
 
-•	Front-end on GitHub Pages, back-end and database on Heroku
+•	Front-end on GitHub Pages, back-end and database on Heroku,
 
-•	Express API server, PostgreSQL, Vanilla JS, CSS flexbox and grid, Webpack, OpenweatherMap API, CalendarIndex API
+•	Express API server, PostgreSQL, Vanilla JS, CSS Flexbox and Grid, Webpack, OpenweatherMap API, CalendarIndex API,
 
 •	preview: https://suavek85.github.io/Annual-Planner/
 
-•	extended version of my weekly planner project https://suavek85.github.io/Weekly-Planner-Extra/
+•	work in progress: no responsiveness, might misbehave on IE
+
+•	extended version of https://suavek85.github.io/Weekly-Planner-Extra/
 
 
 
