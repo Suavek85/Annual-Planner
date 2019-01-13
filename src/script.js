@@ -379,6 +379,7 @@ document.addEventListener(
     else if (event.target.id === "signin-button") {
 
       view.removeSigninWarning();
+      document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p style="color: orange" id="signin-note">Loading...</p>');
 
       const newPassword2 = document.getElementById('password-input-2').value;
       const newEmail2 = document.getElementById('email-input-2').value;
@@ -402,7 +403,7 @@ document.addEventListener(
 
           if (data !== 'wrong credentials') {
 
-            //console.log(data);
+            view.removeSigninWarning();
             signedIn = true;
             userId = data.id;
             mainArray.splice(0, mainArray.length);
