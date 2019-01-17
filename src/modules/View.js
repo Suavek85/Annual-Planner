@@ -189,12 +189,69 @@ const view = {
       document.getElementById('password-input-2').value = '';
       document.getElementById('email-input-2').value = '';
 
+    },
+
+    displaySignOut: function() {
+
+      document.getElementById("btn-login-txt").innerHTML = 'Sign out';
+
+    },
+
+    displayWrongCredentials: function() {
+
+      document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p id="signin-note">Wrong credentials</p>');
+
+    },
+
+    displayLoading: function() {
+
+      document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p style="color: orange" id="signin-note">Loading...</p>');
+
+    },
+
+    displayHelloGuest: function() {
+
+      document.getElementById("top-welcome-message").innerHTML = 'Hello guest!';
+
+    },
+
+    displayNoBlankFields: function() {
+
+      document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">Field cannot be left blank</p>');
+
+    },
+
+    displayUserExists: function() {
+
+      document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">User already exists</p>');
+
+    },
+
+    createGreenCircle: function() {
+
+      const elementStyle = event.target.style;
+      elementStyle.borderRadius = "5px";
+      elementStyle.backgroundColor = 'green';
+
+    },
+
+    takeTypeOfDay: function() {
+
+      const radios = document.getElementsByName("day");
+      for (let i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+          var checkedRadio = radios[i].value;
+          break;
+        }
+      }
+      return checkedRadio
+    },
+
+    takeDailyNotes: function() {
+      return document.getElementById("notes").value;
     }
 
-
-    
   
-    
   };
 
   export {view};

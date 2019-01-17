@@ -1,3 +1,7 @@
+import {
+  view
+} from './View';
+
 let mainArray = [];
 
 const todos = {
@@ -69,33 +73,66 @@ const todos = {
     },
   
     countWeeklyTodos: function() {
-      var todosDoneArray = [];
-      var todosAllArray = [];
+      let todosDoneArray = [];
+      let todosAllArray = [];
       
+      for (let i = 0; i < mainArray.length; i++) {
+      const done_per_day = (mainArray[i].g.match(/through/g) || []).length;
+      todosDoneArray.push(done_per_day);
   
-      for (var i = 0; i < mainArray.length; i++) {
-        var done_per_day = (mainArray[i].g.match(/through/g) || []).length;
-        todosDoneArray.push(done_per_day);
-  
-       var all_per_day = (mainArray[i].g.match(/todoscb/g) || []).length;
-       todosAllArray.push(all_per_day);
+      const all_per_day = (mainArray[i].g.match(/todoscb/g) || []).length;
+      todosAllArray.push(all_per_day);
+
       }
   
-      if(todosDoneArray.length === 0 && todosAllArray.length === 0) {
+      if (todosDoneArray.length === 0 && todosAllArray.length === 0) {
         document.getElementById('outstanding_tasks').innerHTML = "You've no outstanding tasks.";
-      } else {
+      } 
+      
+      else {
   
-        var countDone = todosDoneArray.reduce(function(a, b) {
+        const countDone = todosDoneArray.reduce(function(a, b) {
           return a + b;
         });
     
-        var countAll = todosAllArray.reduce(function(a, b) {
+        const countAll = todosAllArray.reduce(function(a, b) {
           return a + b;
         });
+        
         document.getElementById('outstanding_tasks').innerHTML = countDone + " out of " + countAll + " tasks done.";
       }
   
+    },
+
+    removeTodo: function() {
+
+      const allTodos = document.getElementsByName("todoscb");
+      for (let i = 0, length = allTodos.length - 1; i <= length; i++) {
+        view.calculateProgress();
+        if (allTodos[i].checked) {
+          allTodos[i].nextSibling.remove();
+          allTodos[i].nextSibling.remove();
+          allTodos[i].nextSibling.remove();
+          allTodos[i].remove();
+          i--;
+        }
+
+      }
+    },
+
+    completedTodo: function() {
+      const allTodosList = document.getElementsByName("todoscb");
+      for (var i = 0, length = allTodosList.length; i < length; i++) {
+        if (allTodosList[i].checked) {
+          allTodosList[i].nextSibling.style.textDecoration = "line-through";
+          allTodosList[i].nextSibling.style.color = "grey";
+          allTodosList[i].checked = false;
+          allTodosList[i].nextSibling.nextSibling.style.display = "inline-block";
+        }
+      }
+      
     }
+
   };
 
   export {todos, mainArray};
