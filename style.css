@@ -8,20 +8,14 @@ body {
 /*LOGIN */
 
 #top-welcome-message {
-
   color: yellow;
-
 }
 
 #credentials-wrapper {
-
   position: relative;
   display: inline-flex;
   flex-direction:row;
-
 }
-
-
 
 
 #btn-login-txt {
@@ -32,7 +26,6 @@ body {
   margin-left: 15px;
   padding-left: 15px;
   border-left: solid 0.3px #909090;
-
 
 }
 
@@ -51,7 +44,6 @@ body {
 }
 
 #btn-register-txt:hover {
-
   color: orange;
 }
 
@@ -230,22 +222,6 @@ text-align: center;
   cursor: pointer;
 }
 
-/*
-@media only screen and (max-width: 1000px) {
-  
-only main logo, login and register icons;
-50vw
-
-}
-
-@media only screen and (max-width: 500px) {
-  
-only main logo, login and register icons;
-90vw
-
-}
-
-*/
 
 
 /* HEADER */
@@ -385,7 +361,6 @@ li {
 }
 
 #showmore {
-
   width: 15px;
   height: 15px;
   margin-right: -5px;
@@ -427,7 +402,7 @@ li {
   text-align: center;
   margin: auto;
   align-items: center;
-  margin-top: 30px;
+  
 }
 
 
@@ -858,3 +833,20 @@ input {
 label[for="username"] {
   margin-top: 10px;
 }
+
+/*
+@media only screen and (max-width: 1000px) {
+  
+only main logo, login and register icons;
+50vw
+
+}
+
+@media only screen and (max-width: 500px) {
+  
+only main logo, login and register icons;
+90vw
+
+}
+
+*/

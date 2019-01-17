@@ -4,196 +4,213 @@
     <title>Annual Planner</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    
+
 
 </head>
 
 
 <body>
-    
-<div class='main-image' id='main_pic'>
-    <!-- HEADER -->
-<div id='head-wrap' class='header-wrapper'>
-    
-    <div class="header-wrapper_left">
-    
-    <div class='upcoming_holidays' id='next_holidays'><div id='collapsible_holidays'></div></div>
 
-    <div class="header">
-        <div><img src='images/timeline.png' id='logo' alt="Logo"></div>
-        <div class="logo-text"><h1>Annual planner</h1><p>Always ahead of time</p></div>
-    </div>
-</div>
-<div class="header-wrapper_right">
-    
-    <div class="weather-gen">
+    <div class='main-image' id='main_pic'>
 
-        <div id="top-welcome-message">Hello guest!</div>
-        
-        <div id='credentials-wrapper'>
-        
-        <div id="btn-login"><p id="btn-login-txt">Sign in</p><div style="display: none" id='login-wrapper'><div id='logbox' class='login-box'>
-            
-            <label for="username">Email:</label>
-            <input type="text" id="email-input-2" name="username">
-            
-            
-            <label for="pass">Password:</label>
-            <input type="password" id="password-input-2" name="password" required>
-            
-            <input id="signin-button" type="submit" value="Sign in">
+        <!-- HEADER -->
+        <div id='head-wrap' class='header-wrapper'>
 
-          
-        
-        </div></div>
-        
-        </div>
+            <div class="header-wrapper_left">
 
-        <div id="btn-register"><p id='btn-register-txt'>Register</p><div style="display: none" id='register-wrapper'><div id='regbox' class='register-box'>
-            
-            
-            
-                <label type="username" for="username">Email:</label>
-                <input type="text" id="email-input" name="email">
-                
-                
-                <label for="pass">Password:</label>
-                <input type="password" id="password-input" name="password" required>
-                
+                <div class='upcoming_holidays' id='next_holidays'>
+                    <div id='collapsible_holidays'></div>
+                </div>
 
-                <label for="pass">Name:</label>
-                <input type="name" id="name-input" name="password" required>
-                
-                <input id="register-button" type="submit" value="Register">
-                
-        
-        </div></div></div>
-    </div>
-
-
-        
-        <img src='images/expand.png' id='showmore' style="display:none" alt="Expand">
-        <div style="display:none" id='collapsible_weather'>         
-        </div>
-        <img id="weather-icon" src="" alt=""><p id="weather"></p><span id='weather-city'></span>
-    </div>
-</div>
-</div>
-
-    
- <!-- FULL YEAR -->
-
-
-<div id="full_year_wrapper" class='full_year_gen_wrapper'>
-<div class="year_month_gen"><img src='images/back.png' id="backarrow"><span class='selected_month_year'><span id="selected_month"></span><span id="selected_year"></span></span><img src='images/next.png' id="nextarrow"></div>
-<div id="weekdaysid" class="weekdays_gen">
-<div class="weekdays_item">Mon</div>
-<div class="weekdays_item">Tue</div>
-<div class="weekdays_item">Wed</div>
-<div class="weekdays_item">Thu</div>
-<div class="weekdays_item">Fri</div>
-<div class="weekdays_item">Sat</div>
-<div class="weekdays_item">Sun</div>
-</div>
-
-
-
- </div>
-
-
-    <!-- FORM -->
-
-    <div id='form-container'>
-
-        <div class='flex-form'>
-            <p id='your-notes-date'></p>
-            <textarea id='notes' rows="05" cols="15" class="form-item">
-            </textarea>
-        </div>
-
-        <div class='flex-form'>
-            <p>To-do list:</p>
-            <input id='input_list' type='text' placeholder="enter one by one"><br>
-            <div class='flex-form-2'>
-                <button class="form-item-2" id='enter'>Enter</button>
-                <button class="form-item-2" id='delete_todo_form'>Delete</button>
+                <div class="header">
+                    <div><img src='images/timeline.png' id='logo' alt="Logo"></div>
+                    <div class="logo-text">
+                        <h1>Annual planner</h1>
+                        <p>Always ahead of time</p>
+                    </div>
+                </div>
             </div>
-            <ul id="task_list"></ul>
+            <div class="header-wrapper_right">
+
+                <div class="weather-gen">
+
+                    <div id="top-welcome-message">Hello guest!</div>
+
+                    <div id='credentials-wrapper'>
+
+                        <div id="btn-login">
+                            <p id="btn-login-txt">Sign in</p>
+                            <div style="display: none" id='login-wrapper'>
+                                <div id='logbox' class='login-box'>
+
+                                    <label for="username">Email:</label>
+                                    <input type="text" id="email-input-2" name="username">
+
+
+                                    <label for="pass">Password:</label>
+                                    <input type="password" id="password-input-2" name="password" required>
+
+                                    <input id="signin-button" type="submit" value="Sign in">
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="btn-register">
+                            <p id='btn-register-txt'>Register</p>
+                            <div style="display: none" id='register-wrapper'>
+                                <div id='regbox' class='register-box'>
+
+
+
+                                    <label type="username" for="username">Email:</label>
+                                    <input type="text" id="email-input" name="email">
+
+
+                                    <label for="pass">Password:</label>
+                                    <input type="password" id="password-input" name="password" required>
+
+
+                                    <label for="pass">Name:</label>
+                                    <input type="name" id="name-input" name="password" required>
+
+                                    <input id="register-button" type="submit" value="Register">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <img src='images/expand.png' id='showmore' style="display:none" alt="Expand">
+                    <div style="display:none" id='collapsible_weather'>
+                    </div>
+                    <img id="weather-icon" src="" alt="">
+                    <p id="weather"></p><span id='weather-city'></span>
+                </div>
+            </div>
         </div>
 
 
-        <div class='flex-form'>
-            <p>Type of day:</p>
-            <div class="form-item"><input type="radio" id="work" name="day" value="url(images/work_360x120.jpg)" checked>Work</div>
-            <div class="form-item"><input type="radio" id="holiday" name="day" value="url(images/dayoff_360x120.jpg)">Day off</div>
-            <div id="travel" class="form-item"><input type="radio" id="other" name="day" value="url(images/travel_main_360x120.jpg)">
-                Holidays</div>
+        <!-- FULL YEAR -->
 
-            <div class='flex-form-btns'>
-                
-                <div id='submit-btns' class="form-item">
+
+        <div id="full_year_wrapper" class='full_year_gen_wrapper'>
+            <div class="year_month_gen"><img src='images/back.png' id="backarrow"><span class='selected_month_year'><span
+                        id="selected_month"></span><span id="selected_year"></span></span><img src='images/next.png' id="nextarrow"></div>
+            <div id="weekdaysid" class="weekdays_gen">
+                <div class="weekdays_item">Mon</div>
+                <div class="weekdays_item">Tue</div>
+                <div class="weekdays_item">Wed</div>
+                <div class="weekdays_item">Thu</div>
+                <div class="weekdays_item">Fri</div>
+                <div class="weekdays_item">Sat</div>
+                <div class="weekdays_item">Sun</div>
+            </div>
+        </div>
+
+
+        <!-- FORM -->
+
+        <div id='form-container'>
+
+            <div class='flex-form'>
+                <p id='your-notes-date'></p>
+                <textarea id='notes' rows="05" cols="15" class="form-item">
+            </textarea>
+            </div>
+
+            <div class='flex-form'>
+                <p>To-do list:</p>
+                <input id='input_list' type='text' placeholder="enter one by one"><br>
+                <div class='flex-form-2'>
+                    <button class="form-item-2" id='enter'>Enter</button>
+                    <button class="form-item-2" id='delete_todo_form'>Delete</button>
+                </div>
+                <ul id="task_list"></ul>
+            </div>
+
+
+            <div class='flex-form'>
+                <p>Type of day:</p>
+                <div class="form-item"><input type="radio" id="work" name="day" value="url(images/work_360x120.jpg)"
+                        checked>Work</div>
+                <div class="form-item"><input type="radio" id="holiday" name="day" value="url(images/dayoff_360x120.jpg)">Day
+                    off</div>
+                <div id="travel" class="form-item"><input type="radio" id="other" name="day" value="url(images/travel_main_360x120.jpg)">
+                    Holidays</div>
+
+                <div class='flex-form-btns'>
+
+                    <div id='submit-btns' class="form-item">
+
+                    </div>
+
+                    <div><button id="close-form" class="form-item">Close</button></div>
 
                 </div>
-                
-                 <div><button id="close-form" class="form-item">Close</button></div> 
-
             </div>
-
         </div>
 
 
-    </div>
+        <!-- DAILY NOTES -->
 
+        <div class='notes-box'>
 
-    <!-- DAILY NOTES -->
-
-    <div class='notes-box'>
-
-        <div id="notes_day_background" class='notes_day_background_gen'>
+            <div id="notes_day_background" class='notes_day_background_gen'>
                 <div class='notes_day_background'>
-         
-                <div id='close-day-wrapper'class='save_exit_block'>
-                
-                <span class='save_exit_text'>Save & Exit</span></div>
-            
-            <div id='background_text' class='notes_day_background_text'></div>
-            
-        </div>
-    </div>
 
-       
-        <div id="flexy_notes" class='flex-notes'>
-            
-            <div id='mynotes' class='notes-item'>My notes:
-                <p contentEditable="true" id='output8'></p>
+                    <div id='close-day-wrapper' class='save_exit_block'>
+
+                        <span class='save_exit_text'>Save & Exit</span></div>
+
+                    <div id='background_text' class='notes_day_background_text'></div>
+
+                </div>
             </div>
 
 
+            <div id="flexy_notes" class='flex-notes'>
 
-            <div class='btns_day'>
-                <div class='three-btns'>
-                    <input id='input_list_output' type='text' placeholder="enter to add">
-            <img src='images\new.png' class='button_day_2' id='add'></img>
+                <div id='mynotes' class='notes-item'>My notes:
+                    <p contentEditable="true" id='daily-notes'></p>
+                </div>
+
+
+
+                <div class='btns_day'>
+                    <div class='three-btns'>
+                        <input id='input_list_output' type='text' placeholder="enter to add">
+                        <img src='images\new.png' class='button_day_2' id='add'></img>
+                    </div>
+
+
+                    <div id='progressbar_background'> <span id='progressbar'></span></div>
+
+
+                </div>
+
+            </div>
         </div>
-           
 
-            <div id='progressbar_background'> <span id='progressbar'></span></div>
-            
 
+        <!-- WELCOME section -->
+
+        <div class='welcome'>
+            <p id='welcoming' class='welcome_text'>Good morning.</p>
+            <p class='welcome_text' id='outstanding_tasks'>You have zero outstanding tasks.</p>
         </div>
-  
-    </div>
-</div>
+        <div class='quotes'>
+            <p id='quotes_text'>“I opened two gifts this morning. They were my eyes.”</p>
+        </div>
 
-
- <!-- WELCOME section -->
-
- <div class='welcome'><p id='welcoming' class='welcome_text'>Good morning.</p><p class='welcome_text' id='outstanding_tasks'>You have zero outstanding tasks.</p></div>
- <div class='quotes'><p id='quotes_text'>“I opened two gifts this morning. They were my eyes.”</p></div>
-
-    <script type="text/javascript" src="./bundle.js"></script>
+        <script type="text/javascript" src="./bundle.js"></script>
 
 </body>
 
 </html>
-
