@@ -153,7 +153,7 @@ text-align: center;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
   width: 35vw;
-  height: 350px;
+  height: 400px;
   margin: auto;
   border-radius: 5px;
 }
@@ -161,7 +161,6 @@ text-align: center;
 .year_month_gen {
   color: white;
   text-align: center;
-  padding-top: 15px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -170,8 +169,9 @@ text-align: center;
 
 .weekdays_gen {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto;
-
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  align-items: center;
 }
 
 .weekdays_item {
@@ -181,7 +181,7 @@ text-align: center;
 .month_days_gen {
   display: grid;
   width: 35vw;
-  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-template-columns: repeat(7, auto);
   justify-items: center;
   align-items: center;
 }
@@ -231,7 +231,7 @@ text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 0 auto;
 }
 
 .header-wrapper_left {
@@ -363,7 +363,6 @@ li {
 #showmore {
   width: 15px;
   height: 15px;
-  margin-right: -5px;
   cursor: pointer;
 }
 
@@ -385,7 +384,7 @@ li {
 
   font-family: 'Montserrat', sans-serif;
   color: white;
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
   align-items: center;
 }
@@ -396,7 +395,7 @@ li {
 
 #quotes_text {
   color: white;
-  font-size: 20px;
+  font-size: 17px;
   font-family: cursive;
   font-style: italic;
   text-align: center;
@@ -834,19 +833,48 @@ label[for="username"] {
   margin-top: 10px;
 }
 
-/*
-@media only screen and (max-width: 1000px) {
+
+
+
+@media only screen and (max-width: 1150px) {
   
-only main logo, login and register icons;
-50vw
+  .full_year_gen_wrapper {
+    width: 50vw;
+  
+}
+.month_days_gen {
+  width: 50vw;
+}
+
+
 
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 850px) {
   
-only main logo, login and register icons;
-90vw
+  .full_year_gen_wrapper {
+    width: 70vw;
+  
+}
+.month_days_gen {
+  width: 70vw;
+}
+
+
 
 }
 
-*/
+
+@media only screen and (max-width: 600px) {
+  
+  .full_year_gen_wrapper {
+    width: 90vw;
+  
+}
+
+.month_days_gen {
+  width: 90vw;
+}
+
+}
+
