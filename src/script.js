@@ -119,8 +119,10 @@ document.addEventListener(
       if (!event.target.style.borderRadius) {
         view.displayForm();
         view.undisplayWelcome();
-        view.displaySubmitButton();
-        view.createGreenCircle();
+        const numberAdd = event.target.id.slice(-9);
+        view.displaySubmitButton(numberAdd);
+        const elementStyle = event.target.style;
+        view.createGreenCircle(elementStyle);
 
         const b = " ";
         const currentDate = [currentId.slice(8, 10), b, currentId.slice(10, 11).toUpperCase(), currentId.slice(11, 13), b, currentId.slice(13)].join('');
@@ -134,7 +136,8 @@ document.addEventListener(
         view.undisplayForm();
         view.undisplayWelcome();
         todos.countWeeklyTodos();
-        view.displaySaveExitButton();
+        const numberSave = event.target.id.slice(-9);
+        view.displaySaveExitButton(numberSave);
         const c = " ";
         const currentDate2 = [event.target.id.slice(8, 10), c, event.target.id.slice(10, 11).toUpperCase(), event.target.id.slice(11, 13), c, event.target.id.slice(13)].join('');
         document.getElementById("notes-box-top-right-text").innerHTML = currentDate2;

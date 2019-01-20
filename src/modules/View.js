@@ -27,8 +27,8 @@ const view = {
       document.getElementById("submit_" + el).style.display = "block";
     },
 
-    displaySubmitButton: function() {
-      const numberAdd = event.target.id.slice(-9);
+    displaySubmitButton: function(numberAdd) {
+      
       let submitBtnGen = `<button day-name="dayname${numberAdd}" class="submit-btn" id="submit_${numberAdd}">Submit</button>`;
       document.getElementById("submit-btns").insertAdjacentHTML('afterbegin', submitBtnGen);
     },
@@ -38,8 +38,8 @@ const view = {
       submitBtnsWrapper.removeChild(submitBtnsWrapper.childNodes[0]);
     },
 
-    displaySaveExitButton: function() {
-      const numberSave = event.target.id.slice(-9);
+    displaySaveExitButton: function(numberSave) {
+      
       let saveexitBtnGen = `<img day-name="dayname${numberSave}" src="images\\white-saves.png" class='close-save'id='close-day-${numberSave}'></img>`
       document.getElementById("close-day-wrapper").insertAdjacentHTML('afterbegin', saveexitBtnGen);
 
@@ -227,9 +227,8 @@ const view = {
 
     },
 
-    createGreenCircle: function() {
+    createGreenCircle: function(elementStyle) {
 
-      const elementStyle = event.target.style;
       elementStyle.borderRadius = "5px";
       elementStyle.backgroundColor = 'green';
 
