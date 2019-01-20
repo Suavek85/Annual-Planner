@@ -11,7 +11,7 @@ Annual Planner - JS Project
 
 •	preview: https://suavek85.github.io/Annual-Planner/
 
-•	work in progress: no responsiveness, might misbehave on IE etc.
+•	work in progress: no responsiveness, works on Chrome only atm etc.
 
 •	extended version of https://suavek85.github.io/Weekly-Planner-Extra/
 

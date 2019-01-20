@@ -319,7 +319,7 @@ li {
 
   display: grid;
   grid-template-columns: 1;
-  grid-template-rows: 20% 10% 70%;
+  grid-template-rows: 20% 15% 65%;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
   width: 35vw;
