@@ -5,7 +5,174 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/*LOGIN */
+.background-image {
+  background-image: url(images/mountains_morning_resize.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  max-height: 220vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto;
+}
+
+
+/* TOP MENU */
+
+.menu-wrapper {
+  width: 96vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 0 auto;
+}
+
+.menu-wrapper_left {
+  width: 52vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 30px auto;
+}
+
+.menu-wrapper_right {
+  width: 44vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 auto 30px auto;
+}
+
+/* LOGO */
+
+.logo {
+  display: flex;
+  align-items: center;
+  transform: translateX(30px);
+}
+
+.logo p {
+  color: white;
+  margin-top: -10;
+  font-style: italic;
+  font-family: serif;
+  letter-spacing: 2;
+}
+
+h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+  font-family: monospace;
+  letter-spacing: 2;
+}
+
+li {
+  overflow-wrap: break-word;
+}
+
+#logo-pic {
+  width: 45px;
+  height: 45px;
+  margin: 18px 8px 18px 0px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* HOLIDAYS */
+
+.upcoming_holidays {
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  position: relative;
+}
+
+#collapsible_holidays {
+  position: absolute;
+  bottom: -130px;
+  right: -7px;
+  width: 250px;
+  height: 120px;
+  background-color: black;
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: 10;
+
+}
+
+.collapsible_holidays-text {
+  padding-left: 7px;
+}
+
+#expand-holidays {
+  width: 15px;
+  height: 15px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+/* WEATHER */
+
+
+.weather-gen {
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#collapsible_weather {
+  position: absolute;
+  flex-direction: column;
+  align-content: middle;
+  justify-content: space-between;
+  left: 200px;
+  bottom: -425px;
+  width: 250px;
+  height: 430px;
+  background-color: black;
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: 10;
+
+}
+
+.collapible-weather-text {
+  padding-left: 7px;
+  display: inline-block;
+}
+
+#showmore-weather {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.more-weather-icons {
+  display: inline-block;
+}
+
+.more-weather-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: middle;
+  justify-content: flex-start;
+}
+
+
+/* LOGIN */
 
 #top-welcome-message {
   color: yellow;
@@ -14,7 +181,7 @@ body {
 #credentials-wrapper {
   position: relative;
   display: inline-flex;
-  flex-direction:row;
+  flex-direction: row;
 }
 
 
@@ -52,7 +219,7 @@ body {
 
   position: absolute;
   top: 53px;
-  left:35px;
+  left: 35px;
   z-index: 20;
   display: none;
   color: black;
@@ -75,16 +242,16 @@ body {
 
 #signin-note {
 
-color:red;
-text-align: center;
+  color: red;
+  text-align: center;
 
 }
 
 #register-note {
 
-  color:red;
+  color: red;
   text-align: center;
-  
+
 }
 
 .login-box:after {
@@ -100,6 +267,9 @@ text-align: center;
   margin-left: -9px;
   margin-top: -9px;
 }
+
+
+/* REGISTER */
 
 #register-wrapper {
 
@@ -117,7 +287,7 @@ text-align: center;
 
   display: flex;
   flex-direction: column;
-  align-items: center ;
+  align-items: center;
   justify-content: space-around;
   position: relative;
   background: white;
@@ -143,9 +313,9 @@ text-align: center;
 }
 
 
-/* CALENDAR - FULL YEAR */
+/* CALENDAR */
 
-.full_year_gen_wrapper {
+.box-calendar-main-wrapper {
 
   display: grid;
   grid-template-columns: 1;
@@ -223,161 +393,6 @@ text-align: center;
 }
 
 
-
-/* HEADER */
-
-.header-wrapper {
-  width: 96vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto 0 auto;
-}
-
-.header-wrapper_left {
-  width: 52vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto 30px auto;
-}
-
-.header-wrapper_right {
-  width: 44vw;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 0 auto 30px auto;
-}
-
-
-
-.header {
-  display: flex;
-  align-items: center;
-  transform: translateX(30px);
-}
-
-.header p {
-  color: white;
-  margin-top: -10;
-  font-style: italic;
-  font-family: serif;
-  letter-spacing: 2;
-}
-
-h1 {
-  font-size: 20px;
-  text-transform: uppercase;
-  color: white;
-  font-family: monospace;
-  letter-spacing: 2;
-}
-
-li {
-  overflow-wrap: break-word;
-}
-
-#logo {
-  width: 45px;
-  height: 45px;
-  margin: 18px 8px 18px 0px;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* HOLIDAYS*/
-
-.upcoming_holidays {
-  color: white;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  display: inline-flex;
-  position: relative;
-}
-
-#collapsible_holidays {
-
-  position: absolute;
-    bottom: -130px;
-    right: -7px;
-    width: 250px;
-    height: 120px;
-    background-color: black;
-    opacity: 0.85;
-    border-radius: 4px;
-    z-index: 10;
-
-}
-
-.collapibleText {
-  padding-left: 7px;
-}
-
-#expand {
-  width: 15px;
-  height: 15px;
-  padding-left: 5px;
-  cursor: pointer;
-}
-
-/* WEATHER*/
-
-
-.weather-gen {
-  color: white;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#collapsible_weather {
-  position: absolute;
-    flex-direction: column;
-    align-content: middle;
-    justify-content: space-between;
-    left: 200px;
-    bottom: -425px;
-    width: 250px;
-    height: 430px;
-    background-color: black;
-    opacity: 0.85;
-    border-radius: 4px;
-    z-index: 10;
-
-}
-
-.collapibleText_2 {
-  padding-left: 7px;
-  display: inline-block;
-}
-
-#showmore {
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-}
-
-.moreWeaIcons {
-  display: inline-block;
-}
-
-.moreWeaWrapper {
-  display: flex;
-  flex-direction: row;
-  align-content: middle;
-  justify-content: flex-start;
-}
-
-
 /* WELCOME*/
 
 .welcome_text {
@@ -401,106 +416,9 @@ li {
   text-align: center;
   margin: auto;
   align-items: center;
-  
-}
-
-
-/* DAYS BOX*/
-
-
-.main-image {
-
-  background-image: url(images/mountains_morning_resize.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  width: 100vw;
-  min-height: 100vh;
-  max-height: 220vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: auto;
-}
-
-
-h2 {
-  text-align: center;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  font-size: 16px;
-  flex-basis: 100%;
-  text-transform: uppercase;
-  color: black;
-  padding-top: 5;
-  padding-bottom: 10;
-  background: linear-gradient(to right, #eef2f3, #8e9eab);
-}
-
-
-.flex-days {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding-left: 0;
-}
-
-.day-box {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 165px;
-  height: 120px;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
-}
-
-.day_box_background {
-  flex-basis: 70%;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
-  background-image: url(images/generic_360x120.jpg), linear-gradient(to right, #2193b0, #6dd5ed);
-}
-
-
-.day_box_text {
-  flex-basis: 30%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
-  background: linear-gradient(to right, #eef2f3, #8e9eab);
-  background-size: cover;
-}
-
-
-.day_box_text_sub {
-  flex-basis: 100%;
-  width: 100%;
-  height: 100%;
 
 }
 
-
-.output {
-  font-weight: 600;
-  font-size: 16px;
-  margin: 0;
-  width: 100%;
-  display: block;
-  background-color: #e6e8fa;
-  overflow-wrap: break-word;
-  text-align: center;
-}
 
 /* FORM BOX*/
 
@@ -526,7 +444,7 @@ h2 {
   margin-left: 7px;
 }
 
-.flex-form {
+.form-sub-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -534,7 +452,7 @@ h2 {
   padding: 15px;
 }
 
-.flex-form-2 {
+.form-sub-wrapper-2 {
   display: flex;
   flex-direction: row;
 
@@ -561,7 +479,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 
@@ -569,7 +486,7 @@ h2 {
   margin-left: 5px;
 }
 
-.notes-box {
+.notes-box-wrapper {
   display: none;
   flex-direction: column;
   width: 700px;
@@ -583,17 +500,15 @@ h2 {
 
 }
 
-.flex-notes {
+.notes-box-main-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-start;
   word-break: break-all;
-
-
 }
 
-.notes-item {
+.mynotes-gen {
   margin: 25px 15px 50px 15px;
   padding: 15px 10px 5px 10px;
   width: 250px;
@@ -601,9 +516,7 @@ h2 {
 }
 
 #mynotes {
-
   width: 150px;
-
 }
 
 .buttons-item {
@@ -613,30 +526,24 @@ h2 {
   background-color: white;
 }
 
-.notes_day_background_gen {
-
+.notes-box-top_gen {
   width: 700px;
   background-blend-mode: overlay;
   background-position: center;
   background-color: rgba(0, 0, 0, 0.5);
   background-size: contain;
   height: 100px;
-
-
 }
 
-.notes_day_background_text {
-
+#notes-box-top-right-text {
   padding-right: 7px;
-
 }
 
-.notes_day_background {
+.notes-box-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 50px;
-
   color: white;
   font-size: 16px;
 }
@@ -735,33 +642,27 @@ i {
 }
 
 .submit-btn {
-
   padding: 7px;
-
 }
 
-.btns_day {
+.right-section-day {
   display: flex;
   flex-direction: column;
   padding: 0;
   border: none;
   background: transparent;
   margin: 25px 15px 50px 15px;
-
 }
 
-.three-btns {
-
+.add-todo-day {
   display: flex;
   flex-direction: row;
   justify-content: stretch;
   align-items: stretch;
   align-content: space-between;
-
 }
 
 .button_day {
-
   padding: 3px;
   background: white;
   border-radius: 20px;
@@ -771,7 +672,6 @@ i {
 }
 
 .button_day_2 {
-
   padding: 3px;
   background: white;
   border-radius: 20px;
@@ -782,17 +682,14 @@ i {
 
 .button_day:nth-child(3):hover {
   background-color: red;
-
 }
 
 .button_day:nth-child(2):hover {
   background-color: green;
-
 }
 
 .button_day_2:hover {
   background-color: green;
-
 }
 
 
@@ -834,47 +731,48 @@ label[for="username"] {
 }
 
 
-
+/* MEDIA QUERIES IN PROGRESS*/
 
 @media only screen and (max-width: 1150px) {
-  
-  .full_year_gen_wrapper {
+
+  .box-calendar-main-wrapper {
     width: 50vw;
-  
-}
-.month_days_gen {
-  width: 50vw;
+
+  }
+
+  .month_days_gen {
+    width: 50vw;
+  }
+
 }
 
 
-
-}
 
 @media only screen and (max-width: 850px) {
-  
-  .full_year_gen_wrapper {
+
+  .box-calendar-main-wrapper {
     width: 70vw;
-  
-}
-.month_days_gen {
-  width: 70vw;
+
+  }
+
+  .month_days_gen {
+    width: 70vw;
+  }
+
 }
 
 
-
-}
 
 
 @media only screen and (max-width: 600px) {
-  
-  .full_year_gen_wrapper {
+
+  .box-calendar-main-wrapper {
     width: 90vw;
-  
-}
 
-.month_days_gen {
-  width: 90vw;
-}
+  }
+
+  .month_days_gen {
+    width: 90vw;
+  }
 
 }
-
