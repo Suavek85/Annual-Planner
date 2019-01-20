@@ -11,7 +11,7 @@ const view = {
       document.getElementById("notes").value = "";
       document.getElementById("work").checked = true;
       document.getElementById("form-container").style.display = "flex";
-      document.querySelector(".notes-box").style.display = "none";
+      document.querySelector(".notes-box-wrapper").style.display = "none";
       todos.ul_tasks().innerHTML = "";
     },
   
@@ -46,14 +46,14 @@ const view = {
     },
   
     undisplayDay: function() {
-      document.querySelector(".notes-box").style.display = "none";
+      document.querySelector(".notes-box-wrapper").style.display = "none";
       const closeDayWrapper = document.getElementById('close-day-wrapper');
       closeDayWrapper.removeChild(closeDayWrapper.childNodes[0]);
 
     },
   
     displayDay: function() {
-      document.querySelector(".notes-box").style.display = "flex";
+      document.querySelector(".notes-box-wrapper").style.display = "flex";
     },
   
     startFromToday: function(number) {

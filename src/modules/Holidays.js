@@ -14,7 +14,7 @@ export const updateNextHolidays = () => {
 
     .then(res => {
 
-        let collapsibleHols = `<img src='images/expand.png' id='expand'  alt="Expand"><div style="display:none" id='collapsible_holidays'><p id='secondHol' class='collapibleText' >second holiday</p><p id='thirdHol' class='collapibleText'></p><p id='fourthHol' class='collapibleText'></p></div>`
+        let collapsibleHols = `<img src='images/expand.png' id='expand-holidays'  alt="expand"><div style="display:none" id='collapsible_holidays'><p id='secondHol' class='collapsible_holidays-text' >second holiday</p><p id='thirdHol' class='collapsible_holidays-text'></p><p id='fourthHol' class='collapsible_holidays-text'></p></div>`
 
         console.log(res);
 
@@ -58,7 +58,7 @@ export const updateNextHolidays = () => {
         }
 
         if (moreholsArray.length < 2) {
-          document.getElementById('expand').style.display = 'none';
+          document.getElementById('expand-holidays').style.display = 'none';
         } else if (moreholsArray.length === 2) {
           document.getElementById('secondHol').innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`
         } else if (moreholsArray.length === 3) {

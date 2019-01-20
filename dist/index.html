@@ -11,26 +11,27 @@
 
 <body>
 
-    <div class='main-image' id='main_pic'>
+    <div class='background-image' id='main_pic'>
 
-        <!-- HEADER -->
-        <div id='head-wrap' class='header-wrapper'>
+        <!-- TOP MENU -->
 
-            <div class="header-wrapper_left">
+        <div class='menu-wrapper'>
+
+            <div class="menu-wrapper_left">
 
                 <div class='upcoming_holidays' id='next_holidays'>
                     <div id='collapsible_holidays'></div>
                 </div>
 
-                <div class="header">
-                    <div><img src='images/timeline.png' id='logo' alt="Logo"></div>
+                <div class="logo">
+                    <div><img src='images/timeline.png' id='logo-pic' alt="Logo"></div>
                     <div class="logo-text">
                         <h1>Annual planner</h1>
                         <p>Always ahead of time</p>
                     </div>
                 </div>
             </div>
-            <div class="header-wrapper_right">
+            <div class="menu-wrapper_right">
 
                 <div class="weather-gen">
 
@@ -46,9 +47,8 @@
                                     <label for="username">Email:</label>
                                     <input type="text" id="email-input-2" name="username">
 
-
                                     <label for="pass">Password:</label>
-                                    <input type="password" id="password-input-2" name="password" required>
+                                    <input type="password" id="password-input-2" name="password">
 
                                     <input id="signin-button" type="submit" value="Sign in">
 
@@ -64,15 +64,11 @@
                             <div style="display: none" id='register-wrapper'>
                                 <div id='regbox' class='register-box'>
 
-
-
                                     <label type="username" for="username">Email:</label>
                                     <input type="text" id="email-input" name="email">
 
-
                                     <label for="pass">Password:</label>
-                                    <input type="password" id="password-input" name="password" required>
-
+                                    <input type="password" id="password-input" name="password">
 
                                     <label for="pass">Name:</label>
                                     <input type="name" id="name-input" name="password" required>
@@ -87,7 +83,7 @@
 
 
 
-                    <img src='images/expand.png' id='showmore' style="display:none" alt="Expand">
+                    <img src='images/expand.png' id='showmore-weather' style="display:none" alt="expand">
                     <div style="display:none" id='collapsible_weather'>
                     </div>
                     <img id="weather-icon" src="" alt="">
@@ -97,10 +93,10 @@
         </div>
 
 
-        <!-- FULL YEAR -->
+        <!-- CALENDAR -->
 
 
-        <div id="full_year_wrapper" class='full_year_gen_wrapper'>
+        <div id="full_year_wrapper" class='box-calendar-main-wrapper'>
             <div class="year_month_gen"><img src='images/back.png' id="backarrow"><span class='selected_month_year'><span
                         id="selected_month"></span><span id="selected_year"></span></span><img src='images/next.png' id="nextarrow"></div>
             <div id="weekdaysid" class="weekdays_gen">
@@ -119,16 +115,16 @@
 
         <div id='form-container'>
 
-            <div class='flex-form'>
+            <div class='form-sub-wrapper'>
                 <p id='your-notes-date'></p>
                 <textarea id='notes' rows="05" cols="15" class="form-item">
             </textarea>
             </div>
 
-            <div class='flex-form'>
+            <div class='form-sub-wrapper'>
                 <p>To-do list:</p>
                 <input id='input_list' type='text' placeholder="enter one by one"><br>
-                <div class='flex-form-2'>
+                <div class='form-sub-wrapper-2'>
                     <button class="form-item-2" id='enter'>Enter</button>
                     <button class="form-item-2" id='delete_todo_form'>Delete</button>
                 </div>
@@ -136,7 +132,7 @@
             </div>
 
 
-            <div class='flex-form'>
+            <div class='form-sub-wrapper'>
                 <p>Type of day:</p>
                 <div class="form-item"><input type="radio" id="work" name="day" value="url(images/work_360x120.jpg)"
                         checked>Work</div>
@@ -158,33 +154,33 @@
         </div>
 
 
-        <!-- DAILY NOTES -->
+        <!-- DAILY TODOS AND NOTES -->
 
-        <div class='notes-box'>
+        <div class='notes-box-wrapper'>
 
-            <div id="notes_day_background" class='notes_day_background_gen'>
-                <div class='notes_day_background'>
+            <div id="notes-box-top" class='notes-box-top_gen'>
+                <div class='notes-box-top'>
 
                     <div id='close-day-wrapper' class='save_exit_block'>
 
                         <span class='save_exit_text'>Save & Exit</span></div>
 
-                    <div id='background_text' class='notes_day_background_text'></div>
+                    <div id='notes-box-top-right-text' ></div>
 
                 </div>
             </div>
 
 
-            <div id="flexy_notes" class='flex-notes'>
+            <div class='notes-box-main-wrapper'>
 
-                <div id='mynotes' class='notes-item'>My notes:
+                <div id='mynotes' class='mynotes-gen'>My notes:
                     <p contentEditable="true" id='daily-notes'></p>
                 </div>
 
 
 
-                <div class='btns_day'>
-                    <div class='three-btns'>
+                <div class='right-section-day'>
+                    <div class='add-todo-day'>
                         <input id='input_list_output' type='text' placeholder="enter to add">
                         <img src='images\new.png' class='button_day_2' id='add'></img>
                     </div>
@@ -199,12 +195,13 @@
         </div>
 
 
-        <!-- WELCOME section -->
+        <!-- BOTTOM WELCOME SECTION -->
 
         <div class='welcome'>
             <p id='welcoming' class='welcome_text'>Good morning.</p>
             <p class='welcome_text' id='outstanding_tasks'>You have zero outstanding tasks.</p>
         </div>
+
         <div class='quotes'>
             <p id='quotes_text'>“I opened two gifts this morning. They were my eyes.”</p>
         </div>

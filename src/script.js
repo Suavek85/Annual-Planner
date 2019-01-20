@@ -52,11 +52,11 @@ export class Day {
   createDayOnCard() {
     document.querySelector("#daily-notes").innerHTML = this.b;
     const allTodoListItems = this.g;
-    const todosListHtml = `<div id='todolist' class='notes-item'>My tasks:<ul id='task_list_output'>${allTodoListItems}</ul>
+    const todosListHtml = `<div id='todolist' class='mynotes-gen'>My tasks:<ul id='task_list_output'>${allTodoListItems}</ul>
     <img src='images/completed.png' class='button_day' id='completed'>
     </img><img src='images/trash.png' class='button_day' id='delete_output'></img></div>`;
     mynotes.insertAdjacentHTML("afterend", todosListHtml);
-    document.getElementById("notes_day_background").style.backgroundImage = this.f;
+    document.getElementById("notes-box-top").style.backgroundImage = this.f;
   }
 
   updateDay() {
@@ -137,7 +137,7 @@ document.addEventListener(
         view.displaySaveExitButton();
         const c = " ";
         const currentDate2 = [event.target.id.slice(8, 10), c, event.target.id.slice(10, 11).toUpperCase(), event.target.id.slice(11, 13), c, event.target.id.slice(13)].join('');
-        document.getElementById("background_text").innerHTML = currentDate2;
+        document.getElementById("notes-box-top-right-text").innerHTML = currentDate2;
 
         dayIndexforOpen = mainArray.findIndex(element => {
           return element.a === event.target.getAttribute("day-name");
@@ -217,7 +217,7 @@ document.addEventListener(
 
     //TOGGLE SHOWING MORE BANK HOLS
     
-    else if (event.target.id.includes("expand")) {
+    else if (event.target.id.includes("expand-holidays")) {
       var showMoreHols = document.getElementById("collapsible_holidays");
       if (showMoreHols.style.display === "block") {
 

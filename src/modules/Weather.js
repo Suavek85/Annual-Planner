@@ -30,7 +30,7 @@ export const locationWeather = () => {
 
       //EXPNADABLE DIV
 
-      document.getElementById('showmore').style.display = "block";
+      document.getElementById('showmore-weather').style.display = "block";
 
       const extraWeatherForArray = [
       {a: 2, b: 3},
@@ -59,7 +59,7 @@ export const locationWeather = () => {
       }
 
       const extraWeatherHtml = extraWeatherForArray.map( el => {
-      return `<div class='moreWeaWrapper'><img id='wea_${el.a}_icon' class='moreWeaIcons' src='https://openweathermap.org/img/w/${res.list[el.b].weather[0].icon}.png'><p id='wea_${el.a}' class='collapibleText_2'>${Math.round(res.list[el.b].main.temp)}° ${expandTimes(res.list[el.b].dt)}
+      return `<div class='more-weather-wrapper'><img id='wea_${el.a}_icon' class='more-weather-icons' src='https://openweathermap.org/img/w/${res.list[el.b].weather[0].icon}.png'><p id='wea_${el.a}' class='collapible-weather-text'>${Math.round(res.list[el.b].main.temp)}° ${expandTimes(res.list[el.b].dt)}
       </p> </div>`
 
       })
@@ -122,7 +122,7 @@ export const locationWeather = () => {
           }
     
           const extraWeatherHtml = extraWeatherForArray.map( el => {
-          return `<div class='moreWeaWrapper'><img id='wea_${el.a}_icon' class='moreWeaIcons' src='https://openweathermap.org/img/w/${res.list[el.b].weather[0].icon}.png'><p id='wea_${el.a}' class='collapibleText_2'>${Math.round(res.list[el.b].main.temp)}° ${expandTimes(res.list[el.b].dt)}
+          return `<div class='more-weather-wrapper'><img id='wea_${el.a}_icon' class='more-weather-icons' src='https://openweathermap.org/img/w/${res.list[el.b].weather[0].icon}.png'><p id='wea_${el.a}' class='collapible-weather-text'>${Math.round(res.list[el.b].main.temp)}° ${expandTimes(res.list[el.b].dt)}
           </p> </div>`
     
           })
