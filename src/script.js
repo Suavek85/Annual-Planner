@@ -470,3 +470,4 @@ window.onload = function () {
   welcome.nowTime();
   todos.countWeeklyTodos();
 };
+
