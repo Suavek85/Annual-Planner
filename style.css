@@ -763,7 +763,6 @@ label[for="username"] {
 
 
 
-
 @media only screen and (max-width: 600px) {
 
   .box-calendar-main-wrapper {
@@ -775,4 +774,14 @@ label[for="username"] {
     width: 90vw;
   }
 
+}
+
+
+@-moz-document url-prefix() {
+  #collapsible_weather {
+    
+    bottom: -500px;
+    height: 505px;
+    
+}
 }
