@@ -327,11 +327,11 @@ li {
 .box-calendar-main-wrapper {
   display: grid;
   grid-template-columns: 1;
-  grid-template-rows: 13% 17% 13% 57%;
+  grid-template-rows: 14% 16% 13% 57%;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
   width: 35vw;
-  height: 460px;
+  height: 470px;
   margin: auto;
   border-radius: 5px;
 }
@@ -352,6 +352,9 @@ flex-direction: row;
 align-items: center;
 justify-content: space-around;
 color: blueviolet;
+margin-top:12px;
+margin-bottom: 3px;
+
 }
 
 
@@ -946,3 +949,11 @@ label[for="username"] {
   padding: 10px;
   cursor: pointer;
 }
+
+.lightblue {
+
+   color: #c3e3f0;
+
+
+
+

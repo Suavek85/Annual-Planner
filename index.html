@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script>
+    
 
     
 
@@ -16,7 +16,7 @@
 
     <div class='background-image' id='main_pic'>
 
-        <!-- TOP MENU -->
+        <!-- TOP MENU DESKTOP -->
 
         <div class='menu-wrapper'>
 
@@ -39,6 +39,7 @@
 
                 <div class="weather-gen">
 
+                    
                     <div id="top-welcome-message">Hello guest!</div>
 
                     <div id='credentials-wrapper'>
@@ -47,23 +48,6 @@
                             <p id="btn-login-txt">Sign in</p>
 
                             <div style="display: none" id='login-wrapper'>
-
-                                <!--
-                                    <div id='logbox' class='login-box'>
-
-                                    <label for="username">Email:</label>
-                                    <input type="text" id="email-input-2" name="username">
-
-                                    <label for="pass">Password:</label>
-                                    <input type="password" id="password-input-2" name="password">
-
-                                    <input id="signin-button" type="submit" value="Sign in">
-
-                                </div>
-
-                                -->
-                                
-
 
 
                             </div>
@@ -74,24 +58,6 @@
                             <p id='btn-register-txt'>Register</p>
                             <div style="display: none" id='register-wrapper'>
                                 
-                                <!--
-<                                   div id='regbox' class='register-box'>
-
-                                            <label type="username" for="username">Email:</label>
-                                    <input type="text" id="email-input" name="email">
-
-                                    <label for="pass">Password:</label>
-                                    <input type="password" id="password-input" name="password">
-
-                                    <label for="pass">Name:</label>
-                                    <input type="name" id="name-input" name="password" required>
-
-                                    <input id="register-button" type="submit" value="Register">
-
-                                </div>
-                                -->
-                                
-
                             </div>
                         </div>
                     </div>
@@ -130,8 +96,8 @@
 
                 <div class="weather-gen">
 
-                    <div id="top-welcome-message">Hello guest!</div>
-
+                    
+                    <!-- <div id="top-welcome-message">Hello guest!</div> -->
 
                     <div id='credentials-wrapper-responsive'>
                     <img id='credentials-wrapper-icon' src="images/user.png" ></img>
@@ -179,8 +145,6 @@
 
             <div id="signorregister_form">
 
-                
-
             
             </div>
 
@@ -190,21 +154,25 @@
 
 
 
-
-
-
-
-
-
-
         <!-- CALENDAR -->
 
 
         <div id="full_year_wrapper" class='box-calendar-main-wrapper'>
+            
             <div id="quickadd_stats">
-                    <div>Quick Add</div>
-                    <div>Stats</div>
+
+                    <div style="display: flex; flex-direction: column;align-items: center;">
+                    <img src="images/quick_add.png" style="width: 30px; height: 30px" alt="Quick add">
+                    <div class="lightblue" style="font-size:13px;padding-top: 4px;">Quick Add</div>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                    <img src="images/todo_stats.png" style="width: 30px; height: 30px" alt="Statstics">
+                    <div class="lightblue" style="font-size:13px; padding-top: 4px;" >Stats</div>
+                    </div>
+  
             </div>
+
             <div class="year_month_gen"><img src='images/back.png' id="backarrow"><span class='selected_month_year'><span
                         id="selected_month"></span><span id="selected_year"></span></span><img src='images/next.png' id="nextarrow"></div>
             <div id="weekdaysid" class="weekdays_gen">
