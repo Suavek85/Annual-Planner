@@ -347,13 +347,6 @@ loadMonthHtml();
 }
 
 
-/* TODO
-
-- css
-- refactoring
-- problem with close form btn
-
-*/
 
 
 

@@ -1,5 +1,3 @@
-
-
 {
   "name": "annual-planner",
   "version": "1.0.0",
@@ -21,7 +19,10 @@
   },
   "homepage": "https://github.com/Suavek85/Annual-Planner",
   "dependencies": {
+    "axios-jsonp-pro": "^1.1.4",
+    "fetch-jsonp": "^1.1.3",
     "gh-pages": "^2.0.1",
+    "jsonp": "^0.2.1",
     "request": "^2.88.0",
     "webpack": "^4.26.0"
   },

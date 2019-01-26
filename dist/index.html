@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script>
+
+    
 
 </head>
 
@@ -20,14 +23,15 @@
             <div class="menu-wrapper_left">
 
                 <div class='upcoming_holidays' id='next_holidays'>
-                    <div id='collapsible_holidays'></div>
+                   
                 </div>
 
+
+
                 <div class="logo">
-                    <div><img src='images/timeline.png' id='logo-pic' alt="Logo"></div>
+                    <div><img src='images/logo_11.png' id='logo-pic' alt="Logo"></div>
                     <div class="logo-text">
-                        <h1>Annual planner</h1>
-                        <p>Always ahead of time</p>
+
                     </div>
                 </div>
             </div>
@@ -41,8 +45,11 @@
 
                         <div id="btn-login">
                             <p id="btn-login-txt">Sign in</p>
+
                             <div style="display: none" id='login-wrapper'>
-                                <div id='logbox' class='login-box'>
+
+                                <!--
+                                    <div id='logbox' class='login-box'>
 
                                     <label for="username">Email:</label>
                                     <input type="text" id="email-input-2" name="username">
@@ -52,9 +59,13 @@
 
                                     <input id="signin-button" type="submit" value="Sign in">
 
-
-
                                 </div>
+
+                                -->
+                                
+
+
+
                             </div>
 
                         </div>
@@ -62,9 +73,11 @@
                         <div id="btn-register">
                             <p id='btn-register-txt'>Register</p>
                             <div style="display: none" id='register-wrapper'>
-                                <div id='regbox' class='register-box'>
+                                
+                                <!--
+<                                   div id='regbox' class='register-box'>
 
-                                    <label type="username" for="username">Email:</label>
+                                            <label type="username" for="username">Email:</label>
                                     <input type="text" id="email-input" name="email">
 
                                     <label for="pass">Password:</label>
@@ -75,8 +88,10 @@
 
                                     <input id="register-button" type="submit" value="Register">
 
-
                                 </div>
+                                -->
+                                
+
                             </div>
                         </div>
                     </div>
@@ -93,10 +108,103 @@
         </div>
 
 
+        <!-- TOP MENU RESPONSIVE -->
+
+        <div class='menu-wrapper-responsive'>
+
+
+            <div class="menu-wrapper_left">
+
+                <div class="logo">
+                    <div><img src='images/logo_11.png' id='logo-pic' alt="Logo"></div>
+                    <div class="logo-text">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="menu-wrapper_right">
+
+                <div class="weather-gen">
+
+                    <div id="top-welcome-message">Hello guest!</div>
+
+
+                    <div id='credentials-wrapper-responsive'>
+                    <img id='credentials-wrapper-icon' src="images/user.png" ></img>
+                    <div id='credentials-wrapper-text'>Account</div>
+                    </div>
+                    
+
+
+                    <div id='showmore-weather-responsive'>
+                    <img src='images/weather.png' 
+                    id='showmore-weather-resp-icon' alt="expand">
+                    <div id='showmore-weather-resp-text'>Weather</div>
+                    </div>
+                   
+                    <div style="display:none" id='collapsible_weather_responsive'>
+                        <div id='collapsible_weather_close'>X</div>
+                    </div>
+
+
+                    <div id="expand-holidays-responsive">
+                    <img id="expand-holidays-resp-logo" src="images/holidays.png"
+                     alt="expand">
+                    <div id="expand-holidays-resp-text">Holidays</div>
+                    </div>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+        
+        <!-- CREDENTIALS RESPONSIVE POP UP -->
+
+        <div style="display: none" id="credentials-pop-up">
+
+            <div id="signorregister">
+
+                <p id="btn-login-txt-responsive">Sign in</p>
+                <p id='btn-register-txt-responsive'>Register</p>
+
+            </div>
+
+            <div id="signorregister_form">
+
+                
+
+            
+            </div>
+
+            <div id='credentials-pop-up-close'>X</div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
         <!-- CALENDAR -->
 
 
         <div id="full_year_wrapper" class='box-calendar-main-wrapper'>
+            <div id="quickadd_stats">
+                    <div>Quick Add</div>
+                    <div>Stats</div>
+            </div>
             <div class="year_month_gen"><img src='images/back.png' id="backarrow"><span class='selected_month_year'><span
                         id="selected_month"></span><span id="selected_year"></span></span><img src='images/next.png' id="nextarrow"></div>
             <div id="weekdaysid" class="weekdays_gen">
@@ -165,7 +273,7 @@
 
                         <span class='save_exit_text'>Save & Exit</span></div>
 
-                    <div id='notes-box-top-right-text' ></div>
+                    <div id='notes-box-top-right-text'></div>
 
                 </div>
             </div>
@@ -218,7 +326,7 @@
         });
         </script>
         -->
-        
+
 </body>
 
 </html>

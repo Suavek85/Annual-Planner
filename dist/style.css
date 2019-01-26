@@ -2,7 +2,7 @@ body {
   background: -webkit-linear-gradient(-45deg, #8363a1 0%, #74a8c3 100%);
   background: linear-gradient(135deg, #8363a1 0%, #74a8c3 100%);
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .background-image {
@@ -18,15 +18,13 @@ body {
   margin: auto;
 }
 
-
 /* TOP MENU */
 
 .menu-wrapper {
   width: 96vw;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto 0 auto;
+  margin: 15 auto 0 auto;
 }
 
 .menu-wrapper_left {
@@ -50,7 +48,7 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  transform: translateX(30px);
+  padding-right: 20px;
 }
 
 .logo p {
@@ -74,18 +72,8 @@ li {
 }
 
 #logo-pic {
-  width: 45px;
   height: 45px;
-  margin: 18px 8px 18px 0px;
 }
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 
 /* HOLIDAYS */
 
@@ -108,7 +96,6 @@ li {
   opacity: 0.85;
   border-radius: 4px;
   z-index: 10;
-
 }
 
 .collapsible_holidays-text {
@@ -123,7 +110,6 @@ li {
 }
 
 /* WEATHER */
-
 
 .weather-gen {
   color: white;
@@ -146,19 +132,64 @@ li {
   opacity: 0.85;
   border-radius: 4px;
   z-index: 10;
-
 }
 
 .collapible-weather-text {
-  padding-left: 7px;
   display: inline-block;
 }
+
 
 #showmore-weather {
   width: 15px;
   height: 15px;
   cursor: pointer;
 }
+
+
+
+#showmore-weather-responsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+}
+
+#showmore-weather-resp-icon {
+  width: 30px;
+  height: 30px;
+  padding: 0 10px 5px 10px;
+  cursor:pointer;
+
+}
+
+#showmore-weather-resp-text {
+ color: lightseagreen;
+ font-size: 14px;
+ cursor:pointer;
+}
+
+#expand-holidays-responsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#expand-holidays-resp-logo {
+  width: 30px;
+  height: 30px;
+  padding: 0 10px 5px 10px;
+  cursor:pointer;
+
+}
+
+#expand-holidays-resp-text {
+ color: red;
+ font-size: 14px;
+ cursor:pointer;
+}
+
 
 .more-weather-icons {
   display: inline-block;
@@ -168,9 +199,8 @@ li {
   display: flex;
   flex-direction: row;
   align-content: middle;
-  justify-content: flex-start;
+  justify-content: center;
 }
-
 
 /* LOGIN */
 
@@ -184,26 +214,20 @@ li {
   flex-direction: row;
 }
 
-
 #btn-login-txt {
-
   margin-right: 10px;
   cursor: pointer;
   position: relative;
   margin-left: 15px;
   padding-left: 15px;
   border-left: solid 0.3px #909090;
-
 }
 
 #btn-login-txt:hover {
-
   color: orange;
-
 }
 
 #btn-register-txt {
-
   margin-right: 15px;
   padding-right: 15px;
   border-right: solid 0.3px #909090;
@@ -214,18 +238,14 @@ li {
   color: orange;
 }
 
-
 #login-wrapper {
-
   position: absolute;
   top: 53px;
   left: 35px;
   z-index: 20;
   display: none;
   color: black;
-
 }
-
 
 .login-box {
   display: flex;
@@ -241,21 +261,17 @@ li {
 }
 
 #signin-note {
-
   color: red;
   text-align: center;
-
 }
 
 #register-note {
-
   color: red;
   text-align: center;
-
 }
 
 .login-box:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 25px;
@@ -268,23 +284,18 @@ li {
   margin-top: -9px;
 }
 
-
 /* REGISTER */
 
 #register-wrapper {
-
   position: absolute;
   top: 53px;
   left: 35;
   z-index: 20;
   display: none;
   color: black;
-
 }
 
-
 .register-box {
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -295,11 +306,10 @@ li {
   width: 200px;
   min-height: 250px;
   max-height: 300px;
-
 }
 
 .register-box:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 87px;
@@ -312,18 +322,16 @@ li {
   margin-top: -9px;
 }
 
-
 /* CALENDAR */
 
 .box-calendar-main-wrapper {
-
   display: grid;
   grid-template-columns: 1;
-  grid-template-rows: 20% 15% 65%;
+  grid-template-rows: 13% 17% 13% 57%;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
   width: 35vw;
-  height: 400px;
+  height: 460px;
   margin: auto;
   border-radius: 5px;
 }
@@ -334,8 +342,19 @@ li {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
+
+
+#quickadd_stats {
+
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-around;
+color: blueviolet;
+}
+
+
 
 .weekdays_gen {
   display: grid;
@@ -356,20 +375,16 @@ li {
   align-items: center;
 }
 
-
 .day_in_month_item {
   text-align: center;
   padding: 5px;
   cursor: pointer;
-
 }
 
 .selected_month_year {
   min-width: 150px;
   max-width: 150px;
-
 }
-
 
 #selected_month {
   padding-right: 5px;
@@ -383,7 +398,6 @@ li {
   cursor: pointer;
 }
 
-
 #nextarrow {
   display: inline-block;
   width: 14px;
@@ -392,21 +406,17 @@ li {
   cursor: pointer;
 }
 
-
 /* WELCOME*/
 
 .welcome_text {
-
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: white;
   font-size: 35px;
   text-align: center;
   align-items: center;
 }
 
-
 /* QUOTES*/
-
 
 #quotes_text {
   color: white;
@@ -416,9 +426,7 @@ li {
   text-align: center;
   margin: auto;
   align-items: center;
-
 }
-
 
 /* FORM BOX*/
 
@@ -455,7 +463,6 @@ li {
 .form-sub-wrapper-2 {
   display: flex;
   flex-direction: row;
-
 }
 
 .form-item {
@@ -481,7 +488,6 @@ li {
   align-items: center;
 }
 
-
 #weather-city {
   margin-left: 5px;
 }
@@ -497,7 +503,6 @@ li {
   overflow: hidden;
   position: relative;
   background: lightgray;
-
 }
 
 .notes-box-main-wrapper {
@@ -558,7 +563,6 @@ li {
   transform: scale(1.1);
 }
 
-
 .save_exit_block {
   display: flex;
   align-items: center;
@@ -566,11 +570,9 @@ li {
   padding-left: 7px;
 }
 
-
 /* PROGRESS BAR */
 
 #progressbar {
-
   border-radius: 8px;
   width: 100%;
   height: 27px;
@@ -582,12 +584,10 @@ li {
   padding-top: 8px;
   align-items: flex-start;
   justify-content: flex-start;
-
 }
 
 #progressbar_background {
-
-  background: #A4A4A4;
+  background: #a4a4a4;
   width: 100%;
   display: flex;
   margin-top: 15px;
@@ -598,7 +598,6 @@ li {
   align-content: flex-start;
   align-items: flex-start;
 }
-
 
 /* TODOS AND ICONS */
 
@@ -625,12 +624,12 @@ i {
   padding-inline-start: 0px;
 }
 
-#task_list>li,
-#task_list_output>li {
+#task_list > li,
+#task_list_output > li {
   display: inline-block;
 }
 
-#task_list_output>li {
+#task_list_output > li {
   line-height: 2;
   border-bottom: solid 0.3px #f2f2f2;
 }
@@ -692,7 +691,6 @@ i {
   background-color: green;
 }
 
-
 input[type="checkbox"] {
   -webkit-appearance: none;
   height: 16px;
@@ -730,58 +728,221 @@ label[for="username"] {
   margin-top: 10px;
 }
 
-
 /* MEDIA QUERIES IN PROGRESS*/
 
+@media only screen and (min-width: 980px) {
+  .menu-wrapper-responsive {
+    display: none;
+  }
+
+  .menu-wrapper {
+    display: flex;
+  }
+}
+
 @media only screen and (max-width: 1150px) {
-
   .box-calendar-main-wrapper {
     width: 50vw;
-
   }
 
   .month_days_gen {
     width: 50vw;
   }
 
+  .menu-wrapper-responsive {
+    display: none;
+  }
+
+  .menu-wrapper {
+    display: flex;
+  }
 }
 
-
-
-@media only screen and (max-width: 850px) {
-
+@media only screen and (max-width: 980px) {
   .box-calendar-main-wrapper {
     width: 70vw;
-
   }
 
   .month_days_gen {
     width: 70vw;
   }
 
+  .menu-wrapper-responsive {
+    display: flex;
+  }
+
+  .menu-wrapper {
+    display: none;
+  }
 }
-
-
 
 @media only screen and (max-width: 600px) {
-
   .box-calendar-main-wrapper {
     width: 90vw;
-
   }
 
   .month_days_gen {
     width: 90vw;
   }
-
 }
-
 
 @-moz-document url-prefix() {
   #collapsible_weather {
-    
     bottom: -500px;
     height: 505px;
-    
+  }
 }
+
+/* RESPONSIVE */
+
+.menu-wrapper-responsive {
+  width: 96vw;
+
+  justify-content: space-between;
+  align-items: center;
+  margin: 15 auto 0 auto;
+}
+
+#collapsible_weather_responsive {
+  position: fixed;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  height: 500px;
+  width: 35%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+
+@media only screen and (max-width: 1150px) and (min-width: 980px) {
+
+  .menu-wrapper_left {
+
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  .menu-wrapper_right {
+    width: 50vw;
+   
+}
+
+}
+
+#collapsible_holidays_responsive {
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  background-color: black;
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
+#collapsible_weather_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#credentials-pop-up-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  
+}
+
+#credentials-wrapper-responsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+}
+
+#credentials-wrapper-icon {
+  width: 30px;
+  height: 30px;
+  padding: 0 10px 5px 10px;
+  cursor:pointer;
+
+}
+
+#credentials-wrapper-text {
+ color: yellow;
+ font-size: 14px;
+ cursor:pointer;
+}
+
+#credentials-pop-up {
+  width: 35%;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  top: 0;
+}
+
+#signorregister {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 20%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#signorregister_form {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 80%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#collapsible_holidays_responsive_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#btn-login-txt-responsive {
+  font-weight: 900;
+  transform: scale(1.1);
+  padding: 10px;
+  cursor: pointer;
+}
+
+#btn-register-txt-responsive {
+  padding: 10px;
+  cursor: pointer;
 }

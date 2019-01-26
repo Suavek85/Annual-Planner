@@ -1,3 +1,5 @@
+
+
 import * as Calendar from './modules/Calendar';
 import {
   view
@@ -16,6 +18,41 @@ import * as Holidays from './modules/Holidays';
 let signedIn = false;
 let userId;
 let closeBtnPreviousIds = [];
+
+
+const logBoxHtml = `<div id='logbox' class='login-box'>
+
+<label for="username">Email:</label>
+<input type="text" id="email-input-2" name="username">
+
+<label for="pass">Password:</label>
+<input type="password" id="password-input-2" name="password">
+
+<input id="signin-button" type="submit" value="Sign in">
+
+
+</div>`
+
+const registerBoxHtml = `<div id='regbox' class='register-box'>
+
+<label type="username" for="username">Email:</label>
+<input type="text" id="email-input" name="email">
+
+<label for="pass">Password:</label>
+<input type="password" id="password-input" name="password">
+
+<label for="pass">Name:</label>
+<input type="name" id="name-input" name="password" required>
+
+<input id="register-button" type="submit" value="Register">
+
+
+</div>`
+
+
+
+
+
 
 const updateProfileTodos = () => {
 
@@ -109,12 +146,10 @@ document.addEventListener(
         updateProfileTodos();
       }
 
-    } 
-    
-    else if (event.target.id.includes("calendar")) {
+    } else if (event.target.id.includes("calendar")) {
 
       view.undisplayCalendar();
-      
+
 
       if (!event.target.style.borderRadius) {
         view.displayForm();
@@ -129,9 +164,7 @@ document.addEventListener(
         closeBtnPreviousIds.push(currentId);
         document.getElementById('your-notes-date').innerHTML = `${currentDate} notes `;
 
-      } 
-      
-      else {
+      } else {
         view.displayDay();
         view.undisplayForm();
         view.undisplayWelcome();
@@ -149,10 +182,8 @@ document.addEventListener(
         mainArray[dayIndexforOpen].createDayOnCard();
         view.calculateProgress();
 
-        }
-      } 
-      
-      else if (event.target.id.includes("close-day")) {
+      }
+    } else if (event.target.id.includes("close-day")) {
 
       dayIndex = mainArray.findIndex(element => {
         return element.a === dayNameAttribute;
@@ -171,9 +202,7 @@ document.addEventListener(
       view.todoListRemove();
       view.clearProgress();
 
-    } 
-    
-    else if (event.target.id.includes("close-form")) {
+    } else if (event.target.id.includes("close-form")) {
 
       view.displayCalendar();
 
@@ -183,44 +212,30 @@ document.addEventListener(
       view.displayWelcome();
       view.undisplayForm();
       view.removeSubmitButton();
-    } 
-    
-    
-    else if (event.target.id.includes("delete_todo_form")) {
+    } else if (event.target.id.includes("delete_todo_form")) {
       todos.removeTodo();
-    } 
-    
-    else if (event.target.id.includes("delete_output")) {
+    } else if (event.target.id.includes("delete_output")) {
       todos.removeTodo();
-    } 
-    
-    else if (event.target.id.includes("completed")) {
+    } else if (event.target.id.includes("completed")) {
       todos.completedTodo();
       view.calculateProgress();
-    } 
-    
-    else if (event.target.id.includes("enter")) {
+    } else if (event.target.id.includes("enter")) {
       if (todos.inputLength(todos.input_todo_form()) > 0) {
         todos.createListForm();
       }
-    } 
-    
-    else if (event.target.id.includes("enter")) {
+    } else if (event.target.id.includes("enter")) {
       if (todos.inputLength(todos.input_todo_form()) > 0) {
         todos.createListForm();
       }
-    } 
-    
-    else if (event.target.id.includes("add")) {
+    } else if (event.target.id.includes("add")) {
       if (todos.inputLength(todos.input_todo_day()) > 0) {
         todos.createListDay();
         view.calculateProgress();
       }
-    } 
+    }
 
     //TOGGLE SHOWING MORE BANK HOLS
-    
-    else if (event.target.id.includes("expand-holidays")) {
+    else if (event.target.id === "expand-holidays") {
       var showMoreHols = document.getElementById("collapsible_holidays");
       if (showMoreHols.style.display === "block") {
 
@@ -232,11 +247,10 @@ document.addEventListener(
         event.target.src = "images/collapse.png";
 
       }
-    } 
-    
-    //TOGGLE SHOWING MORE WEATHER
+    }
 
-    else if (event.target.id.includes("showmore")) {
+    //TOGGLE SHOWING MORE WEATHER
+    else if (event.target.id === 'showmore-weather') {
       const showMoreWeather = document.getElementById("collapsible_weather");
       if (showMoreWeather.style.display === "flex") {
         document.getElementById("collapsible_weather").style.display = 'none';
@@ -245,34 +259,51 @@ document.addEventListener(
         document.getElementById("collapsible_weather").style.display = 'flex';
         event.target.src = "images/collapse.png";
       }
-    } 
+    }
 
     //DISPLAY NEXT MONTH
-    
     else if (event.target.id === "nextarrow") {
       Calendar.newMonthsForward();
-    } 
-    
-    //DISPLAY PREVIOUS MONTH
+    }
 
+    //DISPLAY PREVIOUS MONTH
     else if (event.target.id === "backarrow") {
       Calendar.newMonthsBackward();
     }
 
-    //TOGGLE DISPLAYING REGISTER SECTION
 
+
+
+    //TOGGLE DISPLAYING REGISTER SECTION
     else if (event.target.id === "btn-register-txt") {
+     
 
       if (document.getElementById('register-wrapper').style.display === "none") {
-        view.displayRegisterWrapper();
-        view.undisplayLoginWrapper();
-      } else {
-        view.undisplayRegisterWrapper();
+        //view.displayRegisterWrapper();
+        
+        document.getElementById('register-wrapper').style.display ="flex";
+        
+        document.getElementById("register-wrapper").insertAdjacentHTML("afterbegin", registerBoxHtml);
+
+
+        //view.undisplayLoginWrapper();
+
+        if (document.getElementById("login-wrapper").style.display === "flex") {
+          document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
+          document.getElementById("login-wrapper").style.display = "none";
+        }
+        
+      } 
+      
+      
+      else {
+        //view.undisplayRegisterWrapper();
+        document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
+        document.getElementById("register-wrapper").style.display = "none";
       }
     }
 
     //ON REGISTER BUTTON
-
     else if (event.target.id === "register-button") {
 
       view.removeRegisterWarning();
@@ -318,9 +349,13 @@ document.addEventListener(
             Calendar.loadCurrentMonthHtml();
             todos.countWeeklyTodos();
             document.getElementById("btn-login-txt").innerHTML = 'Sign out';
-            view.undisplayRegisterWrapper();
+
+            //view.undisplayRegisterWrapper();
+            document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
+        document.getElementById("register-wrapper").style.display = "none";
+
             document.getElementById("top-welcome-message").innerHTML = `Welcome  ${nameRegister}`;
-            view.emptyRegisterForm();
+            //view.emptyRegisterForm();
 
           }
 
@@ -329,7 +364,6 @@ document.addEventListener(
     }
 
     //TOGGLE DISPLAYING SIGN IN SECTION
-
     else if (event.target.id === "btn-login-txt") {
 
       if (event.target.innerHTML === 'Sign out') {
@@ -340,17 +374,31 @@ document.addEventListener(
         Calendar.loadCurrentYear();
         Calendar.loadCurrentMonthHtml();
         todos.countWeeklyTodos();
-        view.displayHelloGuest(); 
+        view.displayHelloGuest();
         event.target.innerHTML = "Sign in";
-      } 
-      
-      else {
+      } else {
 
         if (document.getElementById('login-wrapper').style.display === "none") {
-          view.displayLoginWrapper();
-          view.undisplayRegisterWrapper();
+          //view.displayLoginWrapper();
+          document.getElementById("login-wrapper").style.display = "flex";
+          document.getElementById("login-wrapper").insertAdjacentHTML("afterbegin", logBoxHtml);
+
+          //view.undisplayRegisterWrapper();
+
+          if (document.getElementById("register-wrapper").style.display === "flex") {
+            document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
+            document.getElementById("register-wrapper").style.display = "none";
+          }
+
+          
+
+
         } else {
-          view.undisplayLoginWrapper();
+
+          //view.undisplayLoginWrapper();
+          document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
+          document.getElementById("login-wrapper").style.display = "none";
+
         }
 
       }
@@ -359,7 +407,6 @@ document.addEventListener(
 
 
     //ON SIGN IN BUTTON
-
     else if (event.target.id === "signin-button") {
 
       view.removeSigninWarning();
@@ -408,11 +455,15 @@ document.addEventListener(
             Calendar.removeMonthHtml();
             Calendar.loadCurrentYear();
             Calendar.loadCurrentMonthHtml();
-            view.undisplayLoginWrapper();
-            view.emptySigninForm();
+
+           // view.undisplayLoginWrapper();
+           document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
+           document.getElementById("login-wrapper").style.display = "none";
+
+            //view.emptySigninForm();
             view.displaySignOut();
             document.getElementById("top-welcome-message").innerHTML = `Welcome back ${nameSignin}`;
-            
+
           } else {
 
             view.removeSigninWarning();
@@ -422,24 +473,112 @@ document.addEventListener(
 
         })
 
-    } 
-    
-    //ON BACKGROUND CLICK
+    }
 
+    //ON BACKGROUND CLICK
     else if (event.target.id === "main_pic") {
 
       if (document.getElementById('login-wrapper').style.display === "block") {
-        view.undisplayLoginWrapper();
-        view.emptySigninForm();
-        view.removeSigninWarning();
+
+        //view.undisplayLoginWrapper();
+        document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
+          document.getElementById("login-wrapper").style.display = "none";
+
+        //view.emptySigninForm();
+        //view.removeSigninWarning();
       } else if (document.getElementById('register-wrapper').style.display === "block") {
-        view.undisplayRegisterWrapper();
-        view.emptyRegisterForm();
-        view.removeRegisterWarning();
+        //view.undisplayRegisterWrapper();
+        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+        document.getElementById("register-wrapper").style.display = "none";
+       // view.emptyRegisterForm();
+        //view.removeRegisterWarning();
       }
 
-    }
+    } else if (event.target.id === "showmore-weather-resp-icon" || event.target.id === "showmore-weather-resp-text"  ) {
 
+      document.getElementById("collapsible_weather_responsive").style.display = "flex";
+
+    } else if (event.target.id === "collapsible_weather_close") {
+
+      document.getElementById("collapsible_weather_responsive").style.display = "none";
+
+    } else if (event.target.id === "expand-holidays-resp-logo" || event.target.id === "expand-holidays-resp-text" ) {
+      document.getElementById("collapsible_holidays_responsive").style.display = "flex";
+
+    } else if (event.target.id === "collapsible_holidays_responsive_close") {
+
+      document.getElementById("collapsible_holidays_responsive").style.display = "none";
+    } else if (event.target.id === "credentials-pop-up-close") {
+
+      document.getElementById("credentials-pop-up").style.display = "none";
+
+      if (document.getElementById("logbox")) {
+        console.log("logbox exist");
+        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+      }
+
+      
+      if (document.getElementById("regbox")) {
+        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+      }
+      
+
+    } else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text' ) {
+
+      document.getElementById("credentials-pop-up").style.display = "flex";
+      if (document.getElementById("logbox")) {
+        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+      }
+      document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", logBoxHtml);
+
+    } 
+    
+    
+    else if (event.target.id === 'btn-login-txt-responsive') {
+
+      const regboxExist = document.getElementById("regbox");
+
+      if (regboxExist) {
+        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+      }
+
+      if (document.getElementById("logbox")) {
+        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+      }
+
+       //remove it from standard view as well in order for server to work
+
+      document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", logBoxHtml);
+
+      document.getElementById("btn-login-txt-responsive").style.fontWeight = "900";
+      document.getElementById("btn-login-txt-responsive").style.transform = "scale(1.1)";
+      document.getElementById("btn-register-txt-responsive").style.transform = "scale(1)";
+      document.getElementById("btn-register-txt-responsive").style.fontWeight = "normal";
+
+    } else if (event.target.id === 'btn-register-txt-responsive') {
+
+      const logboxExist = document.getElementById("logbox");
+
+      if (logboxExist) {
+        console.log("logbox exist");
+        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+      }
+
+      
+      if (document.getElementById("regbox")) {
+        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+      }
+
+      //remove it from standard view as well in order for server to work
+
+      document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", registerBoxHtml);
+
+      document.getElementById("btn-register-txt-responsive").style.fontWeight = "900";
+      document.getElementById("btn-register-txt-responsive").style.transform = "scale(1.1)";
+      document.getElementById("btn-login-txt-responsive").style.transform = "scale(1)";
+      document.getElementById("btn-login-txt-responsive").style.fontWeight = "normal";
+
+    }
 
   },
   false
@@ -470,4 +609,5 @@ window.onload = function () {
   welcome.nowTime();
   todos.countWeeklyTodos();
 };
+
 

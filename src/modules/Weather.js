@@ -24,13 +24,33 @@ export const locationWeather = () => {
       .then(res => {
         
         console.log(res);
-        mainWeatherText.innerHTML = `${Math.round(res.list[0].main.temp_max)}° in `;
-        mainWeatherCity.innerHTML = `${ res.city.name}`;
-        mainWeatherIcon.src = `https://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png`;
+
+        if (mainWeatherCity)
+
+        {
+          mainWeatherText.innerHTML = `${Math.round(res.list[0].main.temp_max)}° in `;
+          mainWeatherCity.innerHTML = `${ res.city.name}`;
+          mainWeatherIcon.src = `https://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png`;
+        }
+        
+
+        const mainWeatherResponsive = `<div class='more-weather-wrapper'><img  class='more-weather-icons' src='https://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png'><p class='collapible-weather-text'>${Math.round(res.list[0].main.temp_max)}° in ${ res.city.name} today
+        </p> </div>`;
+
+
+        
 
       //EXPNADABLE DIV
 
-      document.getElementById('showmore-weather').style.display = "block";
+      const showMW = document.getElementById('showmore-weather');
+
+      if(showMW)
+
+      {
+        document.getElementById('showmore-weather').style.display = "block";
+      }
+
+
 
       const extraWeatherForArray = [
       {a: 2, b: 3},
@@ -62,16 +82,30 @@ export const locationWeather = () => {
       return `<div class='more-weather-wrapper'><img id='wea_${el.a}_icon' class='more-weather-icons' src='https://openweathermap.org/img/w/${res.list[el.b].weather[0].icon}.png'><p id='wea_${el.a}' class='collapible-weather-text'>${Math.round(res.list[el.b].main.temp)}° ${expandTimes(res.list[el.b].dt)}
       </p> </div>`
 
+    
+   
+
       })
 
 
       const extraWeatherHtmltoString = extraWeatherHtml.join("");
+      const extraWeatherHtmltoStringResponsive = mainWeatherResponsive + extraWeatherHtml.join("");
 
-      document.getElementById('collapsible_weather').insertAdjacentHTML('afterbegin', extraWeatherHtmltoString);
+      const colW = document.getElementById('collapsible_weather');
+      
+      
+      if (colW) {
+        document.getElementById('collapsible_weather').insertAdjacentHTML('afterbegin', extraWeatherHtmltoString);
+      }
+
+      document.getElementById('collapsible_weather_responsive').insertAdjacentHTML('afterbegin', extraWeatherHtmltoStringResponsive);
 
       })
 
   }
+
+
+
 
   function error() {
 
@@ -122,7 +156,7 @@ export const locationWeather = () => {
           }
     
           const extraWeatherHtml = extraWeatherForArray.map( el => {
-          return `<div class='more-weather-wrapper'><img id='wea_${el.a}_icon' class='more-weather-icons' src='https://openweathermap.org/img/w/${res.list[el.b].weather[0].icon}.png'><p id='wea_${el.a}' class='collapible-weather-text'>${Math.round(res.list[el.b].main.temp)}° ${expandTimes(res.list[el.b].dt)}
+          return `<div class=' margin: auto;'><img id='wea_${el.a}_icon' class='more-weather-icons' src='https://openweathermap.org/img/w/${res.list[el.b].weather[0].icon}.png'><p id='wea_${el.a}' class='collapible-weather-text'>${Math.round(res.list[el.b].main.temp)}° ${expandTimes(res.list[el.b].dt)}
           </p> </div>`
     
           })
@@ -141,4 +175,9 @@ export const locationWeather = () => {
   navigator.geolocation.getCurrentPosition(success, error);
 
 }
+
+/*
+<img id="weather-icon" src="" alt="">
+                    <p id="weather"></p><span id='weather-city'></span>
+                </div> */
 
