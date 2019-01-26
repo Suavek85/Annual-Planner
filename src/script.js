@@ -1,5 +1,3 @@
-
-
 import * as Calendar from './modules/Calendar';
 import {
   view
@@ -13,13 +11,13 @@ import {
 } from './modules/Welcome';
 import * as Weather from './modules/Weather';
 import * as Holidays from './modules/Holidays';
-
+import * as Account from './modules/Account';
 
 let signedIn = false;
 let userId;
 let closeBtnPreviousIds = [];
 
-
+/*
 const logBoxHtml = `<div id='logbox' class='login-box'>
 
 <label for="username">Email:</label>
@@ -49,8 +47,7 @@ const registerBoxHtml = `<div id='regbox' class='register-box'>
 
 </div>`
 
-
-
+*/
 
 
 
@@ -235,6 +232,7 @@ document.addEventListener(
     }
 
     //TOGGLE SHOWING MORE BANK HOLS
+
     else if (event.target.id === "expand-holidays") {
       var showMoreHols = document.getElementById("collapsible_holidays");
       if (showMoreHols.style.display === "block") {
@@ -249,7 +247,8 @@ document.addEventListener(
       }
     }
 
-    //TOGGLE SHOWING MORE WEATHER
+    //TOGGLE SHOWING MORE WEATHER - DESKTOP
+
     else if (event.target.id === 'showmore-weather') {
       const showMoreWeather = document.getElementById("collapsible_weather");
       if (showMoreWeather.style.display === "flex") {
@@ -262,6 +261,7 @@ document.addEventListener(
     }
 
     //DISPLAY NEXT MONTH
+
     else if (event.target.id === "nextarrow") {
       Calendar.newMonthsForward();
     }
@@ -272,21 +272,17 @@ document.addEventListener(
     }
 
 
+    //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
 
-
-    //TOGGLE DISPLAYING REGISTER SECTION
     else if (event.target.id === "btn-register-txt") {
      
 
       if (document.getElementById('register-wrapper').style.display === "none") {
-        //view.displayRegisterWrapper();
-        
+      
         document.getElementById('register-wrapper').style.display ="flex";
         
-        document.getElementById("register-wrapper").insertAdjacentHTML("afterbegin", registerBoxHtml);
+        Account.insertRegisterWrapperDesktop();
 
-
-        //view.undisplayLoginWrapper();
 
         if (document.getElementById("login-wrapper").style.display === "flex") {
           document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
@@ -297,13 +293,16 @@ document.addEventListener(
       
       
       else {
-        //view.undisplayRegisterWrapper();
+       
         document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
         document.getElementById("register-wrapper").style.display = "none";
       }
     }
 
+
+
     //ON REGISTER BUTTON
+
     else if (event.target.id === "register-button") {
 
       view.removeRegisterWarning();
@@ -349,14 +348,9 @@ document.addEventListener(
             Calendar.loadCurrentMonthHtml();
             todos.countWeeklyTodos();
             document.getElementById("btn-login-txt").innerHTML = 'Sign out';
-
-            //view.undisplayRegisterWrapper();
-            document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
-        document.getElementById("register-wrapper").style.display = "none";
-
+            Account.removeRegisterWrapperDesktop();
             document.getElementById("top-welcome-message").innerHTML = `Welcome  ${nameRegister}`;
-            //view.emptyRegisterForm();
-
+           
           }
 
         })
@@ -364,6 +358,7 @@ document.addEventListener(
     }
 
     //TOGGLE DISPLAYING SIGN IN SECTION
+
     else if (event.target.id === "btn-login-txt") {
 
       if (event.target.innerHTML === 'Sign out') {
@@ -379,25 +374,17 @@ document.addEventListener(
       } else {
 
         if (document.getElementById('login-wrapper').style.display === "none") {
-          //view.displayLoginWrapper();
+        
           document.getElementById("login-wrapper").style.display = "flex";
-          document.getElementById("login-wrapper").insertAdjacentHTML("afterbegin", logBoxHtml);
-
-          //view.undisplayRegisterWrapper();
-
+          Account.insertLoginWrapperDesktop();
+      
           if (document.getElementById("register-wrapper").style.display === "flex") {
-            document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
-            document.getElementById("register-wrapper").style.display = "none";
+            Account.removeRegisterWrapperDesktop();
           }
-
-          
-
 
         } else {
 
-          //view.undisplayLoginWrapper();
-          document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
-          document.getElementById("login-wrapper").style.display = "none";
+          Account.removeLoginWrapperDesktop();
 
         }
 
@@ -407,6 +394,7 @@ document.addEventListener(
 
 
     //ON SIGN IN BUTTON
+
     else if (event.target.id === "signin-button") {
 
       view.removeSigninWarning();
@@ -456,11 +444,9 @@ document.addEventListener(
             Calendar.loadCurrentYear();
             Calendar.loadCurrentMonthHtml();
 
-           // view.undisplayLoginWrapper();
            document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
            document.getElementById("login-wrapper").style.display = "none";
 
-            //view.emptySigninForm();
             view.displaySignOut();
             document.getElementById("top-welcome-message").innerHTML = `Welcome back ${nameSignin}`;
 
@@ -476,107 +462,100 @@ document.addEventListener(
     }
 
     //ON BACKGROUND CLICK
+
     else if (event.target.id === "main_pic") {
 
-      if (document.getElementById('login-wrapper').style.display === "block") {
+    
 
-        //view.undisplayLoginWrapper();
-        document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
-          document.getElementById("login-wrapper").style.display = "none";
+      if (document.getElementById('login-wrapper').style.display === "flex") {
 
-        //view.emptySigninForm();
-        //view.removeSigninWarning();
-      } else if (document.getElementById('register-wrapper').style.display === "block") {
-        //view.undisplayRegisterWrapper();
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-        document.getElementById("register-wrapper").style.display = "none";
-       // view.emptyRegisterForm();
-        //view.removeRegisterWarning();
+       Account.removeLoginWrapperDesktop();
+
+    
+      } else if (document.getElementById('register-wrapper').style.display === "flex") {
+       
+        Account.removeRegisterWrapperDesktop();
+       
       }
 
-    } else if (event.target.id === "showmore-weather-resp-icon" || event.target.id === "showmore-weather-resp-text"  ) {
+    } 
+
+    
+    //SHOW WEATHER RESPONSIVE
+
+    else if (event.target.id === "showmore-weather-resp-icon" || event.target.id === "showmore-weather-resp-text"  ) {
 
       document.getElementById("collapsible_weather_responsive").style.display = "flex";
 
-    } else if (event.target.id === "collapsible_weather_close") {
+    } 
+
+    //CLOSE WEATHER RESPONSIVE
+    
+    else if (event.target.id === "collapsible_weather_close") {
 
       document.getElementById("collapsible_weather_responsive").style.display = "none";
 
-    } else if (event.target.id === "expand-holidays-resp-logo" || event.target.id === "expand-holidays-resp-text" ) {
+    } 
+
+    //SHOW HOLIDAYS RESPONSIVE
+    
+    else if (event.target.id === "expand-holidays-resp-logo" || event.target.id === "expand-holidays-resp-text" ) {
       document.getElementById("collapsible_holidays_responsive").style.display = "flex";
 
-    } else if (event.target.id === "collapsible_holidays_responsive_close") {
+    } 
+
+    //CLOSE HOLIDAYS RESPOSIVE
+    
+    else if (event.target.id === "collapsible_holidays_responsive_close") {
 
       document.getElementById("collapsible_holidays_responsive").style.display = "none";
-    } else if (event.target.id === "credentials-pop-up-close") {
-
-      document.getElementById("credentials-pop-up").style.display = "none";
-
-      if (document.getElementById("logbox")) {
-        console.log("logbox exist");
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-      }
-
-      
-      if (document.getElementById("regbox")) {
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-      }
-      
-
-    } else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text' ) {
-
-      document.getElementById("credentials-pop-up").style.display = "flex";
-      if (document.getElementById("logbox")) {
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-      }
-      document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", logBoxHtml);
-
     } 
     
+    //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
+
+    else if (event.target.id === "credentials-pop-up-close") {
+
+      Account.undisplayAccountPopupResp();
+      Account.removeLogbox();
+      Account.removeRegisterBox();
+
+
+    } 
+
+    //ON ACCOUNT DIV CLICK - RESPONSIVE
+    
+    else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text' ) {
+
+      document.getElementById("credentials-pop-up").style.display = "flex";
+      Account.removeLogbox();
+      Account.insertLogBox();
+      Account.focusSigninResponsive();
+      Account.unfocusRegisterResponsive();
+
+    } 
+   
+    //ON SIGN IN CLICK - RESPONSIVE
     
     else if (event.target.id === 'btn-login-txt-responsive') {
 
-      const regboxExist = document.getElementById("regbox");
+     Account.removeLogbox();
+     Account.removeRegisterBox();
+     Account.insertLogBox();
+     Account.focusSigninResponsive();
+     Account.unfocusRegisterResponsive();
 
-      if (regboxExist) {
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-      }
 
-      if (document.getElementById("logbox")) {
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-      }
+    } 
+    
+     //ON REGISTER CLICK - RESPONSIVE
+    
+    else if (event.target.id === 'btn-register-txt-responsive') {
 
-       //remove it from standard view as well in order for server to work
-
-      document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", logBoxHtml);
-
-      document.getElementById("btn-login-txt-responsive").style.fontWeight = "900";
-      document.getElementById("btn-login-txt-responsive").style.transform = "scale(1.1)";
-      document.getElementById("btn-register-txt-responsive").style.transform = "scale(1)";
-      document.getElementById("btn-register-txt-responsive").style.fontWeight = "normal";
-
-    } else if (event.target.id === 'btn-register-txt-responsive') {
-
-      const logboxExist = document.getElementById("logbox");
-
-      if (logboxExist) {
-        console.log("logbox exist");
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-      }
-
-      
-      if (document.getElementById("regbox")) {
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-      }
-
-      //remove it from standard view as well in order for server to work
-
-      document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", registerBoxHtml);
-
-      document.getElementById("btn-register-txt-responsive").style.fontWeight = "900";
-      document.getElementById("btn-register-txt-responsive").style.transform = "scale(1.1)";
-      document.getElementById("btn-login-txt-responsive").style.transform = "scale(1)";
-      document.getElementById("btn-login-txt-responsive").style.fontWeight = "normal";
+      Account.removeLogbox();
+      Account.removeRegisterBox();
+      Account.insertRegisterBox();
+      Account.focusRegisterResponsive();
+      Account.unfocusSigninResponsive();
 
     }
 

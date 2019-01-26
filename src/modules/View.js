@@ -148,34 +148,6 @@ const view = {
 
     },
 
-    undisplayLoginWrapper: function() {
-
-      const loginWrapper = document.getElementById('login-wrapper');
-      loginWrapper.style.display = "none" ;
-
-    },
-
-    undisplayRegisterWrapper: function() {
-
-      const registerWrapper = document.getElementById('register-wrapper');
-      registerWrapper.style.display = "none" ;
-
-    },
-
-    displayLoginWrapper: function() {
-
-      const logWrapper = document.getElementById('login-wrapper');
-      logWrapper.style.display = "block" ;
-
-    },
-
-    displayRegisterWrapper: function() {
-
-      const regWrapper = document.getElementById('register-wrapper');
-      regWrapper.style.display = "block" ;
-
-    },
-
     emptyRegisterForm: function() {
 
       document.getElementById('name-input').value = '';
