@@ -4,7 +4,7 @@ export const updateNextHolidays = () => {
   const todaysTS = date.getTime()
 
   const keyHols = 'b26794657e7d4906b15d868c3bb0a5f2abe5f74e'
-  let urlHols = `https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`;
+  let urlHols = `https://cors-anywhere.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`;
 
 
   fetch(urlHols)
