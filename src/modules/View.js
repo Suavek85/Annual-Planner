@@ -183,7 +183,7 @@ const view = {
 
     displayHelloGuest: function() {
 
-      document.getElementById("top-welcome-message").innerHTML = 'Hello guest!';
+      document.getElementById("top-welcome-message").innerHTML = 'guest!';
 
     },
 

@@ -16,7 +16,7 @@ const welcome = {
     },
   
     welcomeMessage: function(el) {
-      return (document.getElementById("welcoming").innerHTML = "Good " + el);
+      return (document.getElementById("welcoming").innerHTML = "Good " + el + ",");
     },
   
     morQuote: function() {
@@ -36,15 +36,15 @@ const welcome = {
   
     nowTime: function() {
       if (this.nowHour() >= 5 && this.nowHour() <= 11) {
-        this.welcomeMessage("morning.");
+        this.welcomeMessage("morning");
         this.morQuote();
         this.randomPicGen("mor_1", "mor_2");
       } else if (this.nowHour() >= 12 && this.nowHour() <= 17) {
-        this.welcomeMessage("afternoon.");
+        this.welcomeMessage("afternoon");
         this.aftQuote();
         this.randomPicGen("after_1", "after_2");
       } else {
-        this.welcomeMessage("evening.");
+        this.welcomeMessage("evening");
         this.eveQuote();
         this.randomPicGen("eve_1", "eve_2");
       }

@@ -1,10 +1,10 @@
 export const logBoxHtml = `<div id='logbox' class='login-box'>
 
 <label for="username">Email:</label>
-<input type="text" id="email-input-2" name="username">
+<input placeholder="Email" type="username" id="email-input-2" name="username">
 
 <label for="pass">Password:</label>
-<input type="password" id="password-input-2" name="password">
+<input placeholder="Password" type="password" id="password-input-2" name="password">
 
 <input id="signin-button" type="submit" value="Sign in">
 
@@ -14,13 +14,13 @@ export const logBoxHtml = `<div id='logbox' class='login-box'>
 export const registerBoxHtml = `<div id='regbox' class='register-box'>
 
 <label type="username" for="username">Email:</label>
-<input type="text" id="email-input" name="email">
+<input placeholder="Email" type="username" id="email-input" name="email">
 
 <label for="pass">Password:</label>
-<input type="password" id="password-input" name="password">
+<input placeholder="Password" type="password" id="password-input" name="password">
 
 <label for="pass">Name:</label>
-<input type="name" id="name-input" name="password" required>
+<input placeholder="Name" type="name" id="name-input" name="password" required>
 
 <input id="register-button" type="submit" value="Register">
 

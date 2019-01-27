@@ -164,7 +164,7 @@ li {
 
 #showmore-weather-resp-text {
  color: lightseagreen;
- font-size: 14px;
+ font-size: 13px;
  cursor:pointer;
 }
 
@@ -186,7 +186,7 @@ li {
 
 #expand-holidays-resp-text {
  color: red;
- font-size: 14px;
+ font-size: 13px;
  cursor:pointer;
 }
 
@@ -206,6 +206,7 @@ li {
 
 #top-welcome-message {
   color: yellow;
+  display: inline-block;
 }
 
 #credentials-wrapper {
@@ -417,6 +418,11 @@ margin-bottom: 3px;
   font-size: 35px;
   text-align: center;
   align-items: center;
+}
+
+.welcome_texts {
+  color: yellow;
+  display: inline-block;
 }
 
 /* QUOTES*/
@@ -718,6 +724,11 @@ input[type="text"] {
   width: 150px;
 }
 
+input[type="username"] {
+  width: 150px;
+
+}
+
 input[type="submit"] {
   margin-bottom: 10px;
   margin-top: 5px;
@@ -729,6 +740,201 @@ input {
 
 label[for="username"] {
   margin-top: 10px;
+}
+
+
+
+/* RESPONSIVE */
+
+.menu-wrapper-responsive {
+  width: 96vw;
+
+  justify-content: space-between;
+  align-items: center;
+  margin: 15 auto 0 auto;
+}
+
+#collapsible_weather_responsive {
+  position: fixed;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  height: 500px;
+  width: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+
+@media only screen and (max-width: 1150px) and (min-width: 980px) {
+
+  .menu-wrapper_left {
+
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  .menu-wrapper_right {
+    width: 50vw;
+   
+}
+
+}
+
+#collapsible_holidays_responsive {
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  background-color: black;
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
+#collapsible_weather_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#credentials-pop-up-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  
+}
+
+#credentials-wrapper-responsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+}
+
+#credentials-wrapper-icon {
+  width: 30px;
+  height: 30px;
+  padding: 0 10px 5px 10px;
+  cursor:pointer;
+
+}
+
+#credentials-wrapper-text {
+ color: yellow;
+ font-size: 13px;
+ cursor:pointer;
+}
+
+#credentials-pop-up {
+  width: 50%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  top: 0;
+}
+
+#signorregister {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 20%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#signorregister_form {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 80%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+#collapsible_holidays_responsive_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#btn-login-txt-responsive {
+  font-weight: 900;
+  transform: scale(1.1);
+  padding: 10px;
+  cursor: pointer;
+}
+
+#btn-register-txt-responsive {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.lightblue {
+
+   color: #c3e3f0;
+
+}
+
+#signin-button {
+  margin-top: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  height: 70px;
+  border-radius: 15px;
+  background: #57b846;
+  height: 30px;
+  width: 100px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+#register-button {
+  margin-top: 15px;    
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  height: 70px;
+  border-radius: 15px;
+  background: #4267B2;
+  height: 30px;
+  width: 100px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
 }
 
 /* MEDIA QUERIES IN PROGRESS*/
@@ -787,6 +993,14 @@ label[for="username"] {
   .month_days_gen {
     width: 90vw;
   }
+
+  #credentials-pop-up {
+    width: 80%;
+    height: 80%;
+   
+}
+
+
 }
 
 @-moz-document url-prefix() {
@@ -796,163 +1010,8 @@ label[for="username"] {
   }
 }
 
-/* RESPONSIVE */
-
-.menu-wrapper-responsive {
-  width: 96vw;
-
-  justify-content: space-between;
-  align-items: center;
-  margin: 15 auto 0 auto;
-}
-
-#collapsible_weather_responsive {
-  position: fixed;
-  flex-direction: column;
-  align-content: center;
-  justify-content: space-between;
-  height: 500px;
-  width: 35%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: black;
-  opacity: 0.85;
-  border-radius: 4px;
-  z-index: 10;
-}
 
 
-@media only screen and (max-width: 1150px) and (min-width: 980px) {
-
-  .menu-wrapper_left {
-
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-  }
-
-  .menu-wrapper_right {
-    width: 50vw;
-   
-}
-
-}
-
-#collapsible_holidays_responsive {
-  position: fixed;
-  flex-direction: column;
-  align-items: center;
-  width: 35%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 300px;
-  background-color: black;
-  opacity: 0.85;
-  border-radius: 4px;
-  z-index: 10;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-
-
-#collapsible_weather_close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-#credentials-pop-up-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  
-}
-
-#credentials-wrapper-responsive {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 20px;
-}
-
-#credentials-wrapper-icon {
-  width: 30px;
-  height: 30px;
-  padding: 0 10px 5px 10px;
-  cursor:pointer;
-
-}
-
-#credentials-wrapper-text {
- color: yellow;
- font-size: 14px;
- cursor:pointer;
-}
-
-#credentials-pop-up {
-  width: 35%;
-  height: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  position: fixed;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  background-color: white;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  top: 0;
-}
-
-#signorregister {
-  display: flex;
-  flex-direction: row;
-  flex-basis: 20%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#signorregister_form {
-  display: flex;
-  flex-direction: row;
-  flex-basis: 80%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#collapsible_holidays_responsive_close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-#btn-login-txt-responsive {
-  font-weight: 900;
-  transform: scale(1.1);
-  padding: 10px;
-  cursor: pointer;
-}
-
-#btn-register-txt-responsive {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.lightblue {
-
-   color: #c3e3f0;
 
 
 

@@ -349,7 +349,7 @@ document.addEventListener(
             todos.countWeeklyTodos();
             document.getElementById("btn-login-txt").innerHTML = 'Sign out';
             Account.removeRegisterWrapperDesktop();
-            document.getElementById("top-welcome-message").innerHTML = `Welcome  ${nameRegister}`;
+            document.getElementById("top-welcome-message").innerHTML = `${nameRegister}`;
            
           }
 
@@ -370,6 +370,7 @@ document.addEventListener(
         Calendar.loadCurrentMonthHtml();
         todos.countWeeklyTodos();
         view.displayHelloGuest();
+       
         event.target.innerHTML = "Sign in";
       } else {
 
@@ -448,7 +449,8 @@ document.addEventListener(
            document.getElementById("login-wrapper").style.display = "none";
 
             view.displaySignOut();
-            document.getElementById("top-welcome-message").innerHTML = `Welcome back ${nameSignin}`;
+            document.getElementById("top-welcome-message").innerHTML = `${nameSignin}!`;
+            
 
           } else {
 
