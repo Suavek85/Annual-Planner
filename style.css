@@ -6,7 +6,7 @@ body {
 }
 
 .background-image {
-  background-image: url(images/mountains_morning_resize.jpg);
+  background-image: url(images/mobile-back-1.jpg);
   background-size: cover;
   background-attachment: fixed;
   width: 100vw;
@@ -32,7 +32,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto 30px auto;
+  
 }
 
 .menu-wrapper_right {
@@ -40,7 +40,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 0 auto 30px auto;
+ 
 }
 
 /* LOGO */
@@ -157,7 +157,7 @@ li {
 #showmore-weather-resp-icon {
   width: 30px;
   height: 30px;
-  padding: 0 10px 5px 10px;
+  padding: 0 10px 2px 10px;
   cursor:pointer;
 
 }
@@ -179,7 +179,7 @@ li {
 #expand-holidays-resp-logo {
   width: 30px;
   height: 30px;
-  padding: 0 10px 5px 10px;
+  padding: 0 10px 2px 10px;
   cursor:pointer;
 
 }
@@ -256,7 +256,7 @@ li {
   position: relative;
   background: white;
   border-radius: 5px;
-  width: 200px;
+  width: 240px;
   min-height: 200px;
   max-height: 250px;
 }
@@ -304,7 +304,7 @@ li {
   position: relative;
   background: white;
   border-radius: 5px;
-  width: 200px;
+  width: 240px;
   min-height: 250px;
   max-height: 300px;
 }
@@ -725,9 +725,41 @@ input[type="text"] {
 }
 
 input[type="username"] {
-  width: 150px;
-
+  width: 200px;
+  height: 30px;
+  background-image:url(images/envelope.png);
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 15px;
+  background-position:20px;
+  background-repeat:no-repeat;
+  
 }
+
+input[type="password"] {
+  width: 200px;
+  height: 30px;
+  background-image:url(images/locked-padlock.png);
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 15px;
+  background-position:20px;
+  background-repeat:no-repeat;
+  
+}
+
+input[type="name"] {
+  width: 200px;
+  height: 30px;
+  background-image:url(images/user.png);
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 15px;
+  background-position:20px;
+  background-repeat:no-repeat;
+  
+}
+
 
 input[type="submit"] {
   margin-bottom: 10px;
@@ -742,16 +774,19 @@ label[for="username"] {
   margin-top: 10px;
 }
 
-
+input:focus {
+  outline:none;
+}
 
 /* RESPONSIVE */
 
 .menu-wrapper-responsive {
-  width: 96vw;
-
+  width: 100vw;
+  background-color: #474a51;
   justify-content: space-between;
   align-items: center;
-  margin: 15 auto 0 auto;
+  margin: 0 auto 0 auto;
+  padding: 10px 0px 10px 0px;
 }
 
 #collapsible_weather_responsive {
@@ -774,25 +809,11 @@ label[for="username"] {
 }
 
 
-@media only screen and (max-width: 1150px) and (min-width: 980px) {
 
-  .menu-wrapper_left {
-
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-  }
-
-  .menu-wrapper_right {
-    width: 50vw;
-   
-}
-
-}
 
 #collapsible_holidays_responsive {
   position: fixed;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   width: 50%;
   margin-left: auto;
@@ -835,7 +856,7 @@ label[for="username"] {
 #credentials-wrapper-icon {
   width: 30px;
   height: 30px;
-  padding: 0 10px 5px 10px;
+  padding: 0 10px 2px 10px;
   cursor:pointer;
 
 }
@@ -876,7 +897,7 @@ label[for="username"] {
   display: flex;
   flex-direction: row;
   flex-basis: 80%;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: space-between;
 }
 
@@ -937,17 +958,17 @@ label[for="username"] {
 
 }
 
+
+
+
+
+
 /* MEDIA QUERIES IN PROGRESS*/
 
-@media only screen and (min-width: 980px) {
-  .menu-wrapper-responsive {
-    display: none;
-  }
 
-  .menu-wrapper {
-    display: flex;
-  }
-}
+
+
+/* UP TO 1150*/
 
 @media only screen and (max-width: 1150px) {
   .box-calendar-main-wrapper {
@@ -967,6 +988,43 @@ label[for="username"] {
   }
 }
 
+
+/* BETWEEN 980 and 1150*/
+
+@media only screen and (max-width: 1150px) and (min-width: 980px) {
+
+  .menu-wrapper_left {
+
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    
+  }
+
+  .menu-wrapper_right {
+    width: 50vw;
+   
+}
+
+}
+
+
+
+/* MIN 980*/
+
+@media only screen and (min-width: 980px) {
+  .menu-wrapper-responsive {
+    display: none;
+  }
+
+  .menu-wrapper {
+    display: flex;
+  }
+}
+
+
+/* UP TO 980*/
+
+
 @media only screen and (max-width: 980px) {
   .box-calendar-main-wrapper {
     width: 70vw;
@@ -985,21 +1043,61 @@ label[for="username"] {
   }
 }
 
+
+/* UP TO 600*/
+
 @media only screen and (max-width: 600px) {
-  .box-calendar-main-wrapper {
-    width: 90vw;
-  }
+  
 
   .month_days_gen {
-    width: 90vw;
+    width: 95vw;
   }
 
   #credentials-pop-up {
     width: 80%;
-    height: 80%;
+  
    
 }
 
+.logo {
+
+  padding-left: 10px;
+}
+
+.box-calendar-main-wrapper {
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw;
+  border-radius:0;
+
+}
+
+#collapsible_weather_responsive {
+
+width: 100%;
+
+}
+
+#signin-button {
+
+  height: 35px;
+  width: 150px;
+  margin-top: 30px;
+
+}
+
+#register-button {
+
+  height: 35px;
+  width: 150px;
+  margin-top: 30px;
+
+}
+
+
+
+/* COLLAPSIBLE WEATHER ON MOZILLA */
 
 }
 
