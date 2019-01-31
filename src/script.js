@@ -17,38 +17,6 @@ let signedIn = false;
 let userId;
 let closeBtnPreviousIds = [];
 
-/*
-const logBoxHtml = `<div id='logbox' class='login-box'>
-
-<label for="username">Email:</label>
-<input type="text" id="email-input-2" name="username">
-
-<label for="pass">Password:</label>
-<input type="password" id="password-input-2" name="password">
-
-<input id="signin-button" type="submit" value="Sign in">
-
-
-</div>`
-
-const registerBoxHtml = `<div id='regbox' class='register-box'>
-
-<label type="username" for="username">Email:</label>
-<input type="text" id="email-input" name="email">
-
-<label for="pass">Password:</label>
-<input type="password" id="password-input" name="password">
-
-<label for="pass">Name:</label>
-<input type="name" id="name-input" name="password" required>
-
-<input id="register-button" type="submit" value="Register">
-
-
-</div>`
-
-*/
-
 
 
 const updateProfileTodos = () => {
@@ -560,6 +528,26 @@ document.addEventListener(
       Account.unfocusSigninResponsive();
 
     }
+
+
+    //ON STATS CLICK
+        
+    else if (event.target.id === 'stats_main_logo' || event.target.id === 'stats_main_text') {
+
+     document.getElementById("stats-main").style.display = 'flex';
+     todos.countWeeklyTodos();
+     document.getElementById("full_year_wrapper").style.display = 'none'
+
+    }
+
+     //CLOSE STATS
+        
+     else if (event.target.id === 'close_stats') {
+
+      document.getElementById("stats-main").style.display = 'none';
+      document.getElementById("full_year_wrapper").style.display = 'grid'
+     }
+
 
   },
   false

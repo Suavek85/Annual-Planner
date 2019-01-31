@@ -109,14 +109,14 @@ const view = {
     undisplayWelcome: function() {
       var welcome = document.querySelector(".welcome");
       var quotes = document.querySelector(".quotes");
-      welcome.style.display = "none";
+      //welcome.style.display = "none";
       quotes.style.display = "none";
     },
   
     displayWelcome: function() {
       var welcome = document.querySelector(".welcome");
       var quotes = document.querySelector(".quotes");
-      welcome.style.display = "block";
+      //welcome.style.display = "block";
       quotes.style.display = "block";
     },
 

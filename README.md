@@ -7,7 +7,7 @@ Annual Planner - JS Project
 
 •	Front-end on GitHub Pages, back-end and database on Heroku,
 
-•	Express API server, PostgreSQL, Vanilla JS, CSS Flexbox and Grid, Webpack, OpenweatherMap API, CalendarIndex API,
+•	Express API server, PostgreSQL, Vanilla JS, CSS Flexbox and Grid, Webpack, OpenweatherMap API, CalendarIndex API, Google Charts
 
 •	preview: https://suavek85.github.io/Annual-Planner/
 

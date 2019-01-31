@@ -71,6 +71,48 @@ const todos = {
       this.ul_tasks_day().appendChild(br);
       document.getElementById("delete_todo_form").style.display = "block";
     },
+
+    googChart: function(done, all, intro) {
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+        
+        
+      function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Done', done],
+          ['Not completed', all - done]
+        ]);
+        
+          
+      var options = {
+      title: intro, 
+      titleTextStyle: { 
+        fontSize: 24,
+        bold: true
+      },
+       width:450, 
+       height:300,
+       is3D: true,
+        fontName: 'Montserrat',
+        colors:['orange','#A4A4A4'],
+        fontSize: 16,
+        legend: {
+          position: 'right',
+          alignment: 'center',
+          textStyle: { color: 'black' }
+        }
+      
+      };
+        
+          
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+
+      }
+    },
+
   
     countWeeklyTodos: function() {
       let todosDoneArray = [];
@@ -86,7 +128,10 @@ const todos = {
       }
   
       if (todosDoneArray.length === 0 && todosAllArray.length === 0) {
+        
+        document.getElementById('tooltip_statistics').innerHTML = "You've no outstanding tasks.";
         document.getElementById('outstanding_tasks').innerHTML = "You've no outstanding tasks.";
+        
       } 
       
       else {
@@ -99,7 +144,28 @@ const todos = {
           return a + b;
         });
         
-        document.getElementById('outstanding_tasks').innerHTML = countDone + " out of " + countAll + " tasks done.";
+        document.getElementById('outstanding_tasks').innerHTML = "";
+        document.getElementById('tooltip_statistics').innerHTML = countDone + " out of " + countAll + " tasks done.";
+
+        const introStatsInfo = countDone + " out of " + countAll + " tasks done."
+
+        if (countDone === 0 && countAll === 0 ) {
+
+          return;
+
+        } else {
+
+          this.googChart(countDone, countAll, introStatsInfo);
+          document.getElementById("glow_dot").style.backgroundColor = "orange";
+          document.getElementById("glow_dot").style.boxShadow = "0 0 5px orange";
+        
+
+        }
+
+       
+
+
+
       }
   
     },
@@ -134,6 +200,9 @@ const todos = {
     }
 
   };
+
+
+
 
   export {todos, mainArray};
   

@@ -104,7 +104,7 @@
 
                     <div id='credentials-wrapper-responsive'>
                     <img id='credentials-wrapper-icon' src="images/user-account.png" ></img>
-                    <div id='credentials-wrapper-text'>Account</div>
+                    <div id='credentials-wrapper-text'>Profile</div>
                     </div>
                     
 
@@ -164,14 +164,19 @@
             
             <div id="quickadd_stats">
 
-                    <div style="display: flex; flex-direction: column;align-items: center;">
+                    <div class='quick-add-wrapper'>
                     <img src="images/quick_add.png" style="width: 30px; height: 30px" alt="Quick add">
-                    <div class="lightblue" style="font-size:13px;padding-top: 4px;">Quick Add</div>
+                    <div class="lightblue" >Quick Add</div>
                     </div>
                     
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                    <img src="images/todo_stats.png" style="width: 30px; height: 30px" alt="Statstics">
-                    <div class="lightblue" style="font-size:13px; padding-top: 4px;" >Stats</div>
+                    <div class='stats_main_logo_wrapper'>
+                    <img id='stats_main_logo' src="images/todo_stats.png" style="width: 30px; height: 30px" alt="Statstics">
+                    <div id='stats_main_text' class="lightblue">
+                    Stats
+                    <span id="tooltip_statistics" class="tooltip_stats">Tooltip text</span>
+                    
+                    </div>
+                    <div id="glow_dot"></div>
                     </div>
   
             </div>
@@ -275,26 +280,27 @@
 
 
 
-        <!-- STATS 
+        <!-- STATS  -->
 
-        <div id="stats-main" class="stats-wrapper">
+        <div id="stats-main" style='display: none' class="stats-wrapper">
 
-            <div class='welcome'>
-            <p class='welcome_text' id='outstanding_tasks'>You have zero outstanding tasks.</p>
-            </div>
+           
+            <p class='welcome_text' id='outstanding_tasks'></p>
+          
 
-        <div id="piechart"></div>
+            <div id="piechart"></div>
+            <div id='close_stats'>X</div>
 
         </div>
 
-        -->
+       
 
         <!-- BOTTOM WELCOME SECTION -->
-
+<!--
         <div class='welcome'>
             
             <p class='welcome_text' id='outstanding_tasks'>You have zero outstanding tasks.</p>
-        </div>
+        </div>-->
 
         <div class='quotes'>
             <p id='quotes_text'>“I opened two gifts this morning. They were my eyes.”</p>
@@ -302,8 +308,13 @@
 
         <script type="text/javascript" src="./bundle.js"></script>
         
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-        <!--
+          <!--
+        <script type="text/javascript" src="../src/modules/Googlechart.js">
+       
+        </script>
+      
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script> 
         $(document).ready(function(){
