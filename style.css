@@ -32,7 +32,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 .menu-wrapper_right {
@@ -40,7 +39,6 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
- 
 }
 
 /* LOGO */
@@ -138,14 +136,11 @@ li {
   display: inline-block;
 }
 
-
 #showmore-weather {
   width: 15px;
   height: 15px;
   cursor: pointer;
 }
-
-
 
 #showmore-weather-responsive {
   display: flex;
@@ -154,18 +149,10 @@ li {
   padding-left: 20px;
 }
 
-#showmore-weather-resp-icon {
-  width: 30px;
-  height: 30px;
-  padding: 0 10px 2px 10px;
-  cursor:pointer;
-
-}
-
 #showmore-weather-resp-text {
- color: lightseagreen;
- font-size: 13px;
- cursor:pointer;
+  color: lightseagreen;
+  font-size: 13px;
+  cursor: pointer;
 }
 
 #expand-holidays-responsive {
@@ -176,20 +163,11 @@ li {
   padding-right: 20px;
 }
 
-#expand-holidays-resp-logo {
-  width: 30px;
-  height: 30px;
-  padding: 0 10px 2px 10px;
-  cursor:pointer;
-
-}
-
 #expand-holidays-resp-text {
- color: red;
- font-size: 13px;
- cursor:pointer;
+  color: red;
+  font-size: 13px;
+  cursor: pointer;
 }
-
 
 .more-weather-icons {
   display: inline-block;
@@ -345,20 +323,15 @@ li {
   align-items: center;
 }
 
-
 #quickadd_stats {
-
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-around;
-color: blueviolet;
-margin-top:12px;
-margin-bottom: 3px;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  color: blueviolet;
+  margin-top: 12px;
+  margin-bottom: 3px;
 }
-
-
 
 .weekdays_gen {
   display: grid;
@@ -643,26 +616,22 @@ i {
   border-bottom: solid 0.3px #f2f2f2;
 }
 
-
-
 /* STATS*/
 
 .stats_main_logo_wrapper {
-  
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    padding: 10px 20px 10px 20px;
-    border-radius: 50px;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  border-radius: 50px;
 }
 
 .quick-add-wrapper {
-  
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   padding: 5px 15px 5px 15px;
   border-radius: 40px;
   cursor: pointer;
@@ -670,7 +639,6 @@ i {
 }
 
 .stats-wrapper {
-
   display: none;
   position: relative;
   flex-direction: column;
@@ -681,20 +649,16 @@ i {
   height: 400px;
   margin: auto;
   border-radius: 5px;
-
 }
 
 #close_stats {
-
-position: absolute;
-top: 15px;
-right: 15px;
-cursor: pointer;
-
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
 }
 
 #glow_dot {
-
   position: absolute;
   display: block;
   top: 12px;
@@ -708,16 +672,14 @@ cursor: pointer;
   box-shadow: 0px 0px 5px grey;
 }
 
-
 .lightblue {
   position: relative;
   display: inline-block;
   color: #c3e3f0;
-  font-size:13px;
+  font-size: 13px;
   padding-top: 4px;
   text-align: center;
 }
-
 
 .lightblue .tooltip_stats {
   visibility: hidden;
@@ -746,13 +708,9 @@ cursor: pointer;
 
 .lightblue:hover .tooltip_stats {
   visibility: visible;
-  
 }
 
-
-
 /* BUTTONS*/
-
 
 #close-form {
   padding: 7px;
@@ -838,39 +796,35 @@ input[type="text"] {
 input[type="username"] {
   width: 200px;
   height: 30px;
-  background-image:url(images/envelope.png);
+  background-image: url(images/envelope.png);
   background-color: #e6e6e6;
   border: none;
   border-radius: 15px;
-  background-position:20px;
-  background-repeat:no-repeat;
-  
+  background-position: 20px;
+  background-repeat: no-repeat;
 }
 
 input[type="password"] {
   width: 200px;
   height: 30px;
-  background-image:url(images/locked-padlock.png);
+  background-image: url(images/locked-padlock.png);
   background-color: #e6e6e6;
   border: none;
   border-radius: 15px;
-  background-position:20px;
-  background-repeat:no-repeat;
-  
+  background-position: 20px;
+  background-repeat: no-repeat;
 }
 
 input[type="name"] {
   width: 200px;
   height: 30px;
-  background-image:url(images/user.png);
+  background-image: url(images/user.png);
   background-color: #e6e6e6;
   border: none;
   border-radius: 15px;
-  background-position:20px;
-  background-repeat:no-repeat;
-  
+  background-position: 20px;
+  background-repeat: no-repeat;
 }
-
 
 input[type="submit"] {
   margin-bottom: 10px;
@@ -886,7 +840,7 @@ label[for="username"] {
 }
 
 input:focus {
-  outline:none;
+  outline: none;
 }
 
 /* RESPONSIVE */
@@ -919,9 +873,6 @@ input:focus {
   z-index: 10;
 }
 
-
-
-
 #collapsible_holidays_responsive {
   position: fixed;
   flex-direction: column;
@@ -940,8 +891,6 @@ input:focus {
   right: 0;
 }
 
-
-
 #collapsible_weather_close {
   position: absolute;
   top: 10px;
@@ -954,7 +903,6 @@ input:focus {
   top: 10px;
   right: 10px;
   cursor: pointer;
-  
 }
 
 #credentials-wrapper-responsive {
@@ -964,18 +912,17 @@ input:focus {
   padding-left: 20px;
 }
 
-#credentials-wrapper-icon {
+.menu_left_icon {
   width: 30px;
   height: 30px;
   padding: 0 10px 2px 10px;
-  cursor:pointer;
-
+  cursor: pointer;
 }
 
 #credentials-wrapper-text {
- color: yellow;
- font-size: 13px;
- cursor:pointer;
+  color: yellow;
+  font-size: 13px;
+  cursor: pointer;
 }
 
 #credentials-pop-up {
@@ -1032,7 +979,6 @@ input:focus {
   cursor: pointer;
 }
 
-
 #signin-button {
   margin-top: 15px;
   color: #fff;
@@ -1048,63 +994,45 @@ input:focus {
   cursor: pointer;
 }
 
-
 #register-button {
-  margin-top: 15px;    
+  margin-top: 15px;
   color: #fff;
   text-transform: uppercase;
   width: 100%;
   height: 70px;
   border-radius: 15px;
-  background: #4267B2;
+  background: #4267b2;
   height: 30px;
   width: 100px;
   outline: none;
   border: none;
   cursor: pointer;
-
 }
-
-
-
-
-
 
 /* MEDIA QUERIES IN PROGRESS*/
 
-
-
-
 /* BETWEEN 980 and 1150*/
 
-@media only screen and (min-width: 980px) and  (max-width: 1150px)  {
-
+@media only screen and (min-width: 980px) and (max-width: 1150px) {
   .box-calendar-main-wrapper {
     width: 50vw;
   }
-  
+
   .month_days_gen {
     width: 50vw;
   }
 
   .menu-wrapper_left {
-
     flex-direction: row-reverse;
     justify-content: flex-end;
-    
   }
 
   .menu-wrapper_right {
     width: 50vw;
-   
- }
-
- 
+  }
 }
 
-
-
-/* UP TO 980*/
+/* MORE THAN 980*/
 
 @media only screen and (min-width: 980px) {
   .menu-wrapper-responsive {
@@ -1116,14 +1044,9 @@ input:focus {
   }
 }
 
-
-
-
 /* UP TO 980*/
 
-
-@media only screen and (max-width: 980px)  {
-
+@media only screen and (max-width: 980px) {
   .menu-wrapper-responsive {
     display: flex;
     height: 5vh;
@@ -1132,7 +1055,7 @@ input:focus {
   .menu-wrapper {
     display: none;
   }
-  
+
   .box-calendar-main-wrapper {
     width: 70vw;
     height: 60vh;
@@ -1142,139 +1065,102 @@ input:focus {
     width: 70vw;
   }
 
-
   .stats-wrapper {
     width: 100vw;
   }
 
   #signin-button {
-
     height: 35px;
     width: 150px;
     margin-top: 30px;
-  
   }
-  
+
   #register-button {
-  
     height: 35px;
     width: 150px;
     margin-top: 30px;
-  
   }
 
-  .stats_main_logo_wrapper {
+  .logo {
+    padding-left: 10px;
+  }
+}
+
+/* UP TO 680*/
+
+@media only screen and (max-width: 680px) {
   
+  .stats_main_logo_wrapper {
     padding: 10px 20px 10px 20px;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 50px;
   }
-  
+
   .quick-add-wrapper {
-  
-  padding: 5px 15px 5px 15px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 40px;
-  
+    padding: 5px 15px 5px 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 40px;
   }
 
-  .logo {
-
-    padding-left: 10px;
+  .box-calendar-main-wrapper {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100vw;
+    height: 80vh;
+    border-radius: 0;
   }
-
- 
-}
-
-/* UP TO 600*/
-
-@media only screen and (max-width: 650px)  {
-  
-  /*
 
   .month_days_gen {
-    width: 95vw;
+    width: 100vw;
+  }
+
+  .menu-wrapper-responsive {
+    height: 10vh;
+  }
+
+  #collapsible_weather_responsive {
+    width: 100vw;
   }
 
   .stats-wrapper {
     width: 100vw;
   }
 
-
-
   #credentials-pop-up {
-    width: 80%;
-  
-   
+    width: 100vw;
+  }
+
+  #quotes_text {
+    display: none;
+  }
 }
 
-.logo {
+/* UP TO 320*/
 
-  padding-left: 10px;
+@media only screen and (max-width: 320px) {
+  .menu_left_icon {
+    width: 20px;
+    height: 20px;
+    padding: 0 5px 2px 5px;
+  }
+
+  #logo-pic {
+    height: 35px;
+  }
+
+  #credentials-wrapper-text {
+    font-size: 12px;
+  }
+
+  #expand-holidays-resp-text {
+    font-size: 12px;
+  }
+
+  #showmore-weather-resp-text {
+    font-size: 12px;
+  }
 }
-
-.box-calendar-main-wrapper {
-  margin-top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100vw;
-  height: 70vh;
-  border-radius:0;
-
-}
-
-.menu-wrapper-responsive {
-
-height: 20%;
-
-}
-
-#collapsible_weather_responsive {
-
-width: 100%;
-
-}
-.stats_main_logo_wrapper {
-  
-  padding: 10px 20px 10px 20px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 50px;
-}
-
-.quick-add-wrapper {
-
-padding: 5px 15px 5px 15px;
-background-color: rgba(0, 0, 0, 0.4);
-border-radius: 40px;
-
-}
-
-
-
-#signin-button {
-
-  height: 35px;
-  width: 150px;
-  margin-top: 30px;
-
-}
-
-#register-button {
-
-  height: 35px;
-  width: 150px;
-  margin-top: 30px;
-
-}
-
-
-*/
-
-
-}
-
-
-
 
 /* COLLAPSIBLE WEATHER ON MOZILLA */
 
@@ -1284,10 +1170,3 @@ border-radius: 40px;
     height: 505px;
   }
 }
-
-
-
-
-
-
-
