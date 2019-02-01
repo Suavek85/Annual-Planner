@@ -490,7 +490,7 @@ li {
 .notes-box-main-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content:center;
   align-items: flex-start;
   word-break: break-all;
 }
