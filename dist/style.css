@@ -415,7 +415,7 @@ li {
 #form-container {
   display: none;
   flex-direction: row;
-  width: 60vw;
+  width: 50vw;
   min-height: 250px;
   max-height: 600px;
   justify-content: space-around;
@@ -477,7 +477,7 @@ li {
 .notes-box-wrapper {
   display: none;
   flex-direction: column;
-  width: 70vw;
+  width: 50vw;
   min-height: 350px;
   max-height: 800px;
   margin: 50px auto auto auto;
@@ -514,7 +514,7 @@ li {
 }
 
 .notes-box-top_gen {
-  width: 70vw;
+  width: 50vw;
   background-blend-mode: overlay;
   background-position: center;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1086,11 +1086,11 @@ input:focus {
   }
 
   .notes-box-top_gen {
-    width: 85vw;
+    width: 75vw;
   }
   
   .notes-box-wrapper {
-    width: 85vw;
+    width: 75vw;
   }
 
 
