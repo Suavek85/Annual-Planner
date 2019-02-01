@@ -151,7 +151,7 @@ const todos = {
 
         if (countDone === 0 && countAll === 0 ) {
 
-          return;
+          document.getElementById('outstanding_tasks').innerHTML = "You've no outstanding tasks.";
 
         } else {
 

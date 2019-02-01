@@ -415,10 +415,10 @@ li {
 #form-container {
   display: none;
   flex-direction: row;
-  width: 550px;
+  width: 60vw;
   min-height: 250px;
   max-height: 600px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   border-radius: 5px;
   margin: auto;
@@ -477,7 +477,7 @@ li {
 .notes-box-wrapper {
   display: none;
   flex-direction: column;
-  width: 700px;
+  width: 70vw;
   min-height: 350px;
   max-height: 800px;
   margin: 50px auto auto auto;
@@ -514,7 +514,7 @@ li {
 }
 
 .notes-box-top_gen {
-  width: 700px;
+  width: 70vw;
   background-blend-mode: overlay;
   background-position: center;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1084,6 +1084,17 @@ input:focus {
   .logo {
     padding-left: 10px;
   }
+
+  .notes-box-top_gen {
+    width: 85vw;
+  }
+  
+  .notes-box-wrapper {
+    width: 85vw;
+  }
+
+
+
 }
 
 /* UP TO 680*/
@@ -1131,8 +1142,22 @@ input:focus {
     width: 100vw;
   }
 
+  #form-container {
+    
+    width: 100vw;
+    
+  }
+
   #quotes_text {
     display: none;
+  }
+
+  .notes-box-top_gen {
+    width: 100vw;
+  }
+  
+  .notes-box-wrapper {
+    width: 100vw;
   }
 }
 
@@ -1160,6 +1185,8 @@ input:focus {
   #showmore-weather-resp-text {
     font-size: 12px;
   }
+
+  
 }
 
 /* COLLAPSIBLE WEATHER ON MOZILLA */
