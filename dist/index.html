@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    
-
-    
 
 </head>
 
@@ -24,7 +21,7 @@
             <div class="menu-wrapper_left">
 
                 <div class='upcoming_holidays' id='next_holidays'>
-                   
+
                 </div>
 
 
@@ -40,10 +37,10 @@
 
                 <div class="weather-gen">
 
-                    
+
                     <div>
-                    <div id='welcoming' class='welcome_texts'>Good morning</div>
-                    <div id="top-welcome-message">guest!</div>
+                        <div id='welcoming' class='welcome_texts'>Good morning</div>
+                        <div id="top-welcome-message">guest!</div>
                     </div>
 
                     <div id='credentials-wrapper'>
@@ -61,7 +58,7 @@
                         <div id="btn-register">
                             <p id='btn-register-txt'>Register</p>
                             <div style="display: none" id='register-wrapper'>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -100,33 +97,31 @@
 
                 <div class="weather-gen">
 
-                    
+
                     <!-- <div id="top-welcome-message">Hello guest!</div> -->
 
                     <div id='credentials-wrapper-responsive'>
-                    <img id='credentials-wrapper-icon' class='menu_left_icon' src="images/user-account.png" ></img>
-                    <div id='credentials-wrapper-text'>Profile</div>
+                        <img id='credentials-wrapper-icon' class='menu_left_icon' src="images/user-account.png"></img>
+                        <div id='credentials-wrapper-text'>Profile</div>
                     </div>
-                    
+
 
 
                     <div id='showmore-weather-responsive'>
-                    <img src='images/weather.png' 
-                    id='showmore-weather-resp-icon' class='menu_left_icon' alt="expand">
-                    <div id='showmore-weather-resp-text'>Weather</div>
+                        <img src='images/weather.png' id='showmore-weather-resp-icon' class='menu_left_icon' alt="expand">
+                        <div id='showmore-weather-resp-text'>Weather</div>
                     </div>
-                   
+
                     <div style="display:none" id='collapsible_weather_responsive'>
                         <div id='collapsible_weather_close'>X</div>
                     </div>
 
 
                     <div id="expand-holidays-responsive">
-                    <img id="expand-holidays-resp-logo" class='menu_left_icon' src="images/holidays.png"
-                     alt="expand">
-                    <div id="expand-holidays-resp-text">Holidays</div>
+                        <img id="expand-holidays-resp-logo" class='menu_left_icon' src="images/holidays.png" alt="expand">
+                        <div id="expand-holidays-resp-text">Holidays</div>
                     </div>
-                    
+
 
                 </div>
 
@@ -134,8 +129,8 @@
 
         </div>
 
-        
-        
+
+
         <!-- CREDENTIALS RESPONSIVE POP UP -->
 
         <div style="display: none" id="credentials-pop-up">
@@ -149,7 +144,7 @@
 
             <div id="signorregister_form">
 
-            
+
             </div>
 
             <div id='credentials-pop-up-close'>X</div>
@@ -162,28 +157,28 @@
 
 
         <div id="full_year_wrapper" class='box-calendar-main-wrapper'>
-            
+
             <div id="quickadd_stats">
 
-                    <div class='quick-add-wrapper'>
-                        <img src="images/quick_add.png" style="width: 30px; height: 30px" alt="Quick add">
-                        <div class="lightblue" >Quick Add</div>
-                    </div>
-                    
-                    <div class='stats_main_logo_wrapper'>
-                        <img id='stats_main_logo' src="images/todo_stats.png" style="width: 30px; height: 30px" alt="Statstics">
-                        <div id='stats_main_text' class="lightblue">
+                <div class='quick-add-wrapper'>
+                    <img src="images/quick_add.png" style="width: 30px; height: 30px" alt="Quick add">
+                    <div class="lightblue">Quick Add</div>
+                </div>
+
+                <div class='stats_main_logo_wrapper'>
+                    <img id='stats_main_logo' src="images/todo_stats.png" style="width: 30px; height: 30px" alt="Statstics">
+                    <div id='stats_main_text' class="lightblue">
                         Stats
-                        <span id="tooltip_statistics" class="tooltip_stats">Tooltip text</span>
-                        
-                        </div>
-                        <div id="glow_dot"></div>
+                        <span id="tooltip_statistics" class="tooltip_stats">No outstanding tasks</span>
+
                     </div>
-  
+                    <div id="glow_dot"></div>
+                </div>
+
             </div>
 
-            <div class="year_month_gen"><img src='images/back.png' id="backarrow">  <span class='selected_month_year'><span
-                id="selected_month"></span><span id="selected_year"></span></span><img src='images/next.png' id="nextarrow">
+            <div class="year_month_gen"><img src='images/back.png' id="backarrow"> <span class='selected_month_year'><span
+                        id="selected_month"></span><span id="selected_year"></span></span><img src='images/next.png' id="nextarrow">
             </div>
 
             <div id="weekdaysid" class="weekdays_gen">
@@ -202,83 +197,217 @@
 
         <div id='form-container'>
 
-            <div class='form-sub-wrapper'>
-                <p id='your-notes-date'></p>
-                <textarea id='notes' rows="05" cols="15" class="form-item">
-            </textarea>
-            </div>
+          
+            <!-- MAIN FORM PART  -->
 
-            <div class='form-sub-wrapper'>
-                <p>To-do list:</p>
-                <input id='input_list' type='text' placeholder="enter one by one"><br>
-                <div class='form-sub-wrapper-2'>
-                    <button class="form-item-2" id='enter'>Enter</button>
-                    <button class="form-item-2" id='delete_todo_form'>Delete</button>
-                </div>
-                <ul id="task_list"></ul>
-            </div>
+            <div id='form-2-container'>
+
 
 
             <div class='form-sub-wrapper'>
-                <p>Type of day:</p>
-                <div class="form-item"><input type="radio" id="work" name="day" value="url(images/work_360x120.jpg)"
-                        checked>Work</div>
-                <div class="form-item"><input type="radio" id="holiday" name="day" value="url(images/dayoff_360x120.jpg)">Day
-                    off</div>
-                <div id="travel" class="form-item"><input type="radio" id="other" name="day" value="url(images/travel_main_360x120.jpg)">
-                    Holidays</div>
+                    <p id="create-todos-header">Create todos list:</p>
 
-                <div class='flex-form-btns'>
-
-                    <div id='submit-btns' class="form-item">
-
+                    <div id='todo-type-wrapper'>
+                    <div id="todo-type-selected">Home</div>
+                    <div class="todo-type-dropdown">
+                            <button id='btn-form-dropdown' class="todo-type-dropbtn">Type<img width="12px" height="12px" style="padding-left: 5px;" src="images/expand.png"></button>
+                            <div id="myDropdown" class="dropdown-list">
+                
+                              <div id="drop-down-1" class="dropdown-list-item">Home</div>
+                              <div id="drop-down-2"  class="dropdown-list-item">Shopping</div>
+                              <div id="drop-down-3"  class="dropdown-list-item" >Celebration</div>
+                              <div id="drop-down-4"  class="dropdown-list-item" >Learning</div>
+                              <div id="drop-down-5"  class="dropdown-list-item" >Appointment</div>
+                              <div id="drop-down-6"  class="dropdown-list-item" >Health</div>
+                              <div id="drop-down-7"  class="dropdown-list-item" >Sports</div>
+                            </div>
+                    </div>
                     </div>
 
-                    <div><button id="close-form" class="form-item">Close</button></div>
 
+
+
+                <div id='todo-list-wrapper'>
+                
+
+                <input id='input_list' type='text' placeholder="enter here"><br>
+                <div class='form-sub-wrapper-2'>
+                    <button class="form-item-2" id='enter'>Enter</button>
+                    <button class="form-item-3" id='delete_todo_form'>Delete</button>
                 </div>
+              
             </div>
+            <ul id="task_list"></ul>
+
+            </div>
+
+            
+            <!-- DAY TYPE-->
+
+            <div class='form-sub-wrapper-two'>
+                <p id="type-of-day">Type of day:</p>
+                <div class="form-item-radio"><input type="radio" id="work" name="day" value="images/work_icon.png"
+                        checked>Work</div>
+                <div class="form-item-radio"><input type="radio" id="holiday" name="day" value="images/dayoff_icon.png">Day
+                    off</div>
+                <div id="travel" class="form-item-radio"><input type="radio" id="other" name="day" value="images/holidays_icon.png">
+                    Holidays</div>
+
+            </div>
+        
         </div>
+
+
+
+
+
+
+
+            <!-- BOTTOM BUTTONS-->
+
+            <div class='flex-form-btns'>
+
+                <div id='submit-btns' class="form-item">
+                </div>
+
+                <div class="form-item" >
+                    <button class="button_day_6" id="close-form">Close</button>
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+
 
 
         <!-- DAILY TODOS AND NOTES -->
 
         <div class='notes-box-wrapper'>
 
+
+          <!--MENU-->
+
             <div id="notes-box-top" class='notes-box-top_gen'>
-                <div class='notes-box-top'>
-
-                    <div id='close-day-wrapper' class='save_exit_block'>
-
-                        <span class='save_exit_text'>Save & Exit</span></div>
-
+                
+                <div class='first-thing'>
+                    <img id='type-day-icon' src='images/dayoff_icon.png'></img>
                     <div id='notes-box-top-right-text'></div>
-
                 </div>
-            </div>
+                    
+                    
 
+                    <div class="day-menu-item">
+                    <div class="day-menu-item-text">ALL</div>
+                    </div>
 
-            <div class='notes-box-main-wrapper'>
-
-                <div id='mynotes' class='mynotes-gen'>My notes:
-                    <p contentEditable="true" id='daily-notes'></p>
-                </div>
-
-
-
-                <div class='right-section-day'>
-                    <div class='add-todo-day'>
-                        <input id='input_list_output' type='text' placeholder="enter to add">
-                        <img src='images\new.png' class='button_day_2' id='add'></img>
+                    <div class="day-menu-item">
+                    <div class="day-menu-item-text">A-Z</div>
                     </div>
 
 
-                    <div id='progressbar_background'> <span id='progressbar'></span></div>
+                    <div class="day-menu-item-dropdown">
 
+                    <p class="day-menu-item-text-dropdown">FILTER<img width="16px" height="16px" style="padding-left:10px;" src="images/expand.png"></p>
+                        
+                    <div class="dropdown-content">
+                        
+                                <div class="dropdown-content-item">Home</div>
+                                <div class="dropdown-content-item" >Shopping</div>
+                                <div class="dropdown-content-item" >Celebration</div>
+                                <div class="dropdown-content-item" >Learning</div>
+                                <div class="dropdown-content-item" >Appointment</div>
+                                <div class="dropdown-content-item" >Health</div>
+                                <div class="dropdown-content-item" >Sports</div>
+                    </div>
+                    
+                    
+                    </div>
 
-                </div>
+                    
+                    
 
             </div>
+
+
+
+            <div class='bottom-day-buttons '>
+
+                
+                    <div style='height: 40px;'class='button_row_wrapper'>
+
+                    <input id='input_list_output' type='textday' placeholder="enter here">
+
+
+                    <div id="todo-type-selected-2">Home</div>
+
+                    </div>
+
+
+
+                <div class='button_row_wrapper'>
+
+
+                    <button id='add' class='button_day_2'><img class='button_day_icon' src='images\add-white.png' ></img>Add</button>
+
+
+    
+
+                    <div class="todo-type-dropdown-2">
+                            <button id='btn-form-dropdown-2' class="todo-type-dropbtn-2">Type <img class="button_day_icon_2" src="images/expand.png"></button>
+                            <div id="myDropdown-2" class="dropdown-list">
+                
+                              <div id="day-down-1" class="dropdown-list-item">Home</div>
+                              <div id="day-down-2"  class="dropdown-list-item">Shopping</div>
+                              <div id="day-down-3"  class="dropdown-list-item" >Celebration</div>
+                              <div id="day-down-4"  class="dropdown-list-item" >Learning</div>
+                              <div id="day-down-5"  class="dropdown-list-item" >Appointment</div>
+                              <div id="day-down-6"  class="dropdown-list-item" >Health</div>
+                              <div id="day-down-7"  class="dropdown-list-item" >Sports</div>
+                            </div>
+                    </div>
+
+
+                   
+                </div>
+
+                
+
+                <div class='button_row_wrapper-2'>
+                   <button id='completed' class='button_day_3'><img  src='images/checked_white.png' class='button_day_icon' >
+                   </img>Done</button>
+
+
+                <button id='delete_output' class='button_day_4'><img src='images/rubbish_white.png' class='button_day_icon' ></img>Delete</button>
+                </div>
+
+                <div id='progressbar_background'> <span id='progressbar'></span></div>
+
+                <div id='close-day-wrapper' class='button_row_wrapper'>
+<!--<div id='close-day-wrapper' class='save_exit_block'>
+                            
+                    </div>-->
+                    
+                </div>
+
+                <!--
+                                <div id='mynotes' class='mynotes-gens'>My notes:
+                        <p contentEditable="true" id='daily-notes'></p>
+                    </div>
+                
+
+                -->
+
+            </div>
+
+
+
+
+
         </div>
 
 
@@ -287,19 +416,19 @@
 
         <div id="stats-main" style='display: none' class="stats-wrapper">
 
-           
+
             <p class='welcome_text' id='outstanding_tasks'></p>
-          
+
 
             <div id="piechart"></div>
             <div id='close_stats'>X</div>
 
         </div>
 
-       
+
 
         <!-- BOTTOM WELCOME SECTION -->
-<!--
+        <!--
         <div class='welcome'>
             
             <p class='welcome_text' id='outstanding_tasks'>You have zero outstanding tasks.</p>
@@ -310,10 +439,10 @@
         </div>
 
         <script type="text/javascript" src="./bundle.js"></script>
-        
+
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-          <!--
+        <!--
         <script type="text/javascript" src="../src/modules/Googlechart.js">
        
         </script>

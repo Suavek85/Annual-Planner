@@ -16,6 +16,10 @@ import * as Account from './modules/Account';
 let signedIn = false;
 let userId;
 let closeBtnPreviousIds = [];
+var transArray = [];
+let numberSave;
+
+
 
 
 
@@ -44,42 +48,282 @@ const updateProfileTodos = () => {
 
 
 export class Day {
-  constructor(a) {
+  constructor(a, z) {
     this.a = a;
-    this.b = view.takeDailyNotes();
     this.f = view.takeTypeOfDay();
     this.g = todos.ul_tasks().innerHTML;
+    this.z = z;
   }
 
   createDayOnCard() {
-    document.querySelector("#daily-notes").innerHTML = this.b;
-    const allTodoListItems = this.g;
-    const todosListHtml = `<div id='todolist' class='mynotes-gen'>My tasks:<ul id='task_list_output'>${allTodoListItems}</ul>
-    <img src='images/completed.png' class='button_day' id='completed'>
-    </img><img src='images/trash.png' class='button_day' id='delete_output'></img></div>`;
-    mynotes.insertAdjacentHTML("afterend", todosListHtml);
-    document.getElementById("notes-box-top").style.backgroundImage = this.f;
+    const todosListHtml = `
+    <div style="flex-basis: 4" id='todolist' class='mynotes-gen'>
+    <div style="display: flex; flex-direction: column; min-height: 100px;" id='task_list_output'></div>
+   
+    </div>`;
+   document.getElementById("notes-box-top").insertAdjacentHTML("afterend", todosListHtml);
+   document.getElementById("type-day-icon").src = this.f;
   }
 
-  updateDay() {
-    const ul_tasks_output = document.getElementById("task_list_output").innerHTML;
-    this.g = ul_tasks_output;
-    this.b = document.querySelector("#daily-notes").innerHTML;
-  }
 }
 
 
 export class SavedDay extends Day {
 
-  constructor(a, b, f, g) {
+  constructor(a, f, g, z) {
     super();
     this.a = a;
-    this.b = b;
     this.f = f;
     this.g = g;
+    this.z = z;
   }
 
 }
+
+
+export class Task {
+
+  constructor(text) {
+    this.type = document.getElementById("todo-type-selected").innerHTML;
+    this.done = false;
+    this.text = text;
+    this.g = new Date().getTime();
+  }
+
+}
+
+
+export class TaskDay {
+
+  constructor(text) {
+    this.type = document.getElementById("todo-type-selected-2").innerHTML;
+    this.done = false;
+    this.text = text;
+    this.g = new Date().getTime();
+  }
+
+}
+
+
+
+
+const removeTodoList = () => {
+
+  var list = document.getElementById("task_list");
+  while (list.hasChildNodes()) {
+    list.removeChild(list.firstChild);
+  }
+
+}
+
+const removeTodoListDay = () => {
+
+  var listDay = document.getElementById("task_list_output");
+  while (listDay.hasChildNodes()) {
+    listDay.removeChild(listDay.firstChild);
+  }
+
+}
+
+
+
+const doneTaskStyleCross = (el) => {
+
+if ( el.done === true) {
+
+return 'text-decoration: line-through; color: grey;'
+
+} else {
+
+  return ''
+
+}
+
+}
+
+
+
+const doneTaskStyleIcon = (el) => {
+
+  if ( el.done === true) {
+  
+  return 'display: inline-block;'
+  
+  } else {
+  
+    return " "
+    
+  }
+  
+}
+
+  
+
+const typeDayIcon = (el) => {
+
+
+  if (el.type == "Home") {
+
+    return 'images/home-white.png';
+
+  }
+
+  else if (el.type  == "Sports") {
+
+    return 'images/sports-white.png';
+
+  }
+
+  else if (el.type == "Shopping") {
+
+    return 'images/shopping-white.png';
+
+  }
+
+
+else if (el.type== "Celebration") {
+
+    return 'images/celebrate-white.png';
+
+  }
+
+  else if (el.type == "Learning") {
+
+    return 'images/learn-white.png';
+
+  }
+
+  else if (el.type == "Appointment") {
+
+    return 'images/appointment-white.png';
+
+  }
+
+  else if (el.type == "Health") {
+
+    return 'images/health-white.png';
+
+  }
+
+
+}
+
+
+const typeDayBackground = (el) => {
+
+
+  if (el.type == "Home") {
+
+    return '#6B5B95';
+
+  }
+
+  else if (el.type  == "Sports") {
+
+    return '#BFD641';
+
+  }
+
+  else if (el.type == "Shopping") {
+
+    return '#009B77';
+
+  }
+
+
+else if (el.type== "Celebration") {
+
+    return '#BC70A4';
+
+  }
+
+  else if (el.type == "Learning") {
+
+    return '#663399';
+
+  }
+
+  else if (el.type == "Appointment") {
+
+    return '#A9754F';
+
+  }
+
+  else if (el.type == "Health") {
+
+    return '#DC4C46';
+
+  }
+
+
+}
+
+const isIndexEven = (value) => {
+  if (value % 2 == 0)
+      return '#F5F5F5'
+  else
+      return '#FFFFFF'
+}
+
+
+
+const displayEachTaskForm = () => {
+
+  const mappedtransArray = transArray.map(el => {
+
+    return  `<input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb"><li style=${doneTaskStyleCross(el)} >${el.text} (${el.type})</li><img src="images/completed.png" alt="logo done" class="logo_done" height="16px" width="16px" style=${doneTaskStyleIcon(el)}><br>`
+
+  })
+
+  const joinmappedtransArray = mappedtransArray.join("");
+
+  document.getElementById("task_list").insertAdjacentHTML('afterbegin', joinmappedtransArray);
+
+}
+
+
+
+
+const displayEachTaskDay = (i) => {
+
+  const mappedtransArrayDay = mainArray[i].z.map( (el, ind) => {
+
+    return `
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;background-color:${isIndexEven(ind)}">
+
+    <div style="display: flex; flex-direction: row; align-items: center;" >
+
+    <div style="display: inline-block; width: 50px; height: 50px; background-color: ${typeDayBackground(el)}; margin-right: 10px;">
+    <img src=${typeDayIcon(el)} style='width:38px; height: 38px; padding: 5px;'>
+    </div>
+    
+    <div style="${doneTaskStyleCross(el)}" >${el.text}
+    </div>
+
+    <img src="images/completed.png" alt="logo done" class="logo_done" margin-left="12px" height="30px" width="30px" style="${doneTaskStyleIcon(el)}">
+
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: #E8E8E8;">
+
+    <input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb">
+
+    </div>
+
+    </div>
+
+    `
+
+  })
+
+
+  const joinmappedtransArrayDay = mappedtransArrayDay.join("");
+
+  document.getElementById("task_list_output").insertAdjacentHTML('afterbegin', joinmappedtransArrayDay);
+
+}
+
+
 
 
 document.addEventListener(
@@ -91,15 +335,26 @@ document.addEventListener(
     let dayIndexforOpen;
     const currentId = event.target.id;
 
+    //SUBMIT NEW DAY
+
     if (event.target.id.includes("submit_")) {
 
       view.undisplayForm();
       view.displayCalendar();
       view.displayWelcome();
 
-      const dayfull = new Day(dayNameAttribute);
+      const dayfull = new Day(dayNameAttribute, transArray);
+      console.log(dayfull);
       mainArray.push(dayfull);
-      todos.countWeeklyTodos();
+      todos.countAllTodos();
+
+
+      transArray = [];
+      console.log(mainArray);
+
+
+
+
       dayIndex = mainArray.findIndex(element => {
         return element.a === event.target.getAttribute("day-name");
       });
@@ -111,6 +366,10 @@ document.addEventListener(
         updateProfileTodos();
       }
 
+
+    //ADD OR OPEN DAY
+
+
     } else if (event.target.id.includes("calendar")) {
 
       view.undisplayCalendar();
@@ -120,6 +379,7 @@ document.addEventListener(
         view.displayForm();
         view.undisplayWelcome();
         const numberAdd = event.target.id.slice(-9);
+
         view.displaySubmitButton(numberAdd);
         const elementStyle = event.target.style;
         view.createGreenCircle(elementStyle);
@@ -127,14 +387,16 @@ document.addEventListener(
         const b = " ";
         const currentDate = [currentId.slice(8, 10), b, currentId.slice(10, 11).toUpperCase(), currentId.slice(11, 13), b, currentId.slice(13)].join('');
         closeBtnPreviousIds.push(currentId);
-        document.getElementById('your-notes-date').innerHTML = `${currentDate} notes `;
+      
 
       } else {
         view.displayDay();
         view.undisplayForm();
         view.undisplayWelcome();
-        todos.countWeeklyTodos();
-        const numberSave = event.target.id.slice(-9);
+        todos.countAllTodos();
+        numberSave = event.target.id.slice(-9);
+
+    
         view.displaySaveExitButton(numberSave);
         const c = " ";
         const currentDate2 = [event.target.id.slice(8, 10), c, event.target.id.slice(10, 11).toUpperCase(), event.target.id.slice(11, 13), c, event.target.id.slice(13)].join('');
@@ -145,22 +407,42 @@ document.addEventListener(
         });
 
         mainArray[dayIndexforOpen].createDayOnCard();
-        view.calculateProgress();
+
+
+        for (var i = 0; i < mainArray.length; i++) {
+
+        if (mainArray[i].a.includes(numberSave)) {
+
+          displayEachTaskDay(i);
+          view.calculateProgress(i);
+          
+
+          }
+
+        }
+
+        document.getElementById("input_list_output").value = '';
+
 
       }
+
+
+
+      //CLOSE AND SAVE DAY
+
     } else if (event.target.id.includes("close-day")) {
 
-      dayIndex = mainArray.findIndex(element => {
-        return element.a === dayNameAttribute;
-      });
+      //dayIndex = mainArray.findIndex(element => {
+        //return element.a === dayNameAttribute;
+      //});
 
-      mainArray[dayIndex].updateDay();
+      //mainArray[dayIndex].updateDay();
 
       if (signedIn) {
         updateProfileTodos();
       }
 
-      todos.countWeeklyTodos();
+      todos.countAllTodos();
       view.displayCalendar();
       view.displayWelcome();
       view.undisplayDay();
@@ -177,30 +459,181 @@ document.addEventListener(
       view.displayWelcome();
       view.undisplayForm();
       view.removeSubmitButton();
+
+
+      //DELETE TASK ON FORM
+
     } else if (event.target.id.includes("delete_todo_form")) {
-      todos.removeTodo();
+
+    
+      const allTodos = document.getElementsByName("todoscb");
+
+      for (let i = 0, length = allTodos.length - 1; i <= length; i++) {
+        
+        if (allTodos[i].checked) {
+
+          for (var p = 0; p < transArray.length; p++) {
+
+            if (transArray[p].g == allTodos[i].value) {
+
+              transArray.splice(p, 1);
+              p--;
+
+            }
+
+          }
+
+        }
+
+      }
+
+      removeTodoList();
+      displayEachTaskForm();
+ 
+    
+      //DELETE TASK ON DAY
+
     } else if (event.target.id.includes("delete_output")) {
-      todos.removeTodo();
+
+    
+      var allTodos2 = document.getElementsByName("todoscb");
+
+      var allTodos2Array = Array.prototype.slice.call(allTodos2);
+
+
+      for (var y = 0; y < mainArray.length; y++) {
+
+        if (mainArray[y].a.includes(numberSave)) {
+
+          for (let i = 0;  i < allTodos2Array.length; i++) {
+
+            if (allTodos2Array[i].checked) {
+
+              for (var p = 0; p < mainArray[y].z.length; p++) {
+
+                if (mainArray[y].z[p].g == allTodos2Array[i].value) {
+
+                  mainArray[y].z.splice(p, 1);
+                  p--;
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+        removeTodoListDay();
+        displayEachTaskDay(y);
+        view.calculateProgress(y);
+    
+
+      }
+
+
+      //TASK COMPLETED ON DAY
+
     } else if (event.target.id.includes("completed")) {
-      todos.completedTodo();
-      view.calculateProgress();
-    } else if (event.target.id.includes("enter")) {
-      if (todos.inputLength(todos.input_todo_form()) > 0) {
-        todos.createListForm();
+
+
+      var allTodos3 = document.getElementsByName("todoscb");
+
+      var allTodos3Array = Array.prototype.slice.call(allTodos3);
+
+   
+      for (let y = 0; y < mainArray.length; y++) {
+
+
+        if (mainArray[y].a.includes(numberSave)) {
+
+          for (let i = 0;  i < allTodos3Array.length; i++) {
+
+           
+           
+            if ( allTodos3Array[i].checked == true ) {
+
+
+              for (var p = 0; p < mainArray[y].z.length; p++) {
+
+                if (mainArray[y].z[p].g == allTodos3Array[i].value) {
+
+                  mainArray[y].z[p].done = true;
+                
+                }
+
+              }
+
+            } 
+
+          }
+
+        }
+
+        removeTodoListDay();
+        displayEachTaskDay(y);
+        view.calculateProgress(y);
+
       }
+
+
+
+      //ADD TASK ON FORM
+
     } else if (event.target.id.includes("enter")) {
+
+
       if (todos.inputLength(todos.input_todo_form()) > 0) {
-        todos.createListForm();
+
+        removeTodoList();
+
+        let inputTodoForm = document.getElementById("input_list").value;
+        const taskObj = new Task(inputTodoForm);
+        transArray.push(taskObj);
+       
+        displayEachTaskForm();
+
+        document.getElementById("input_list").value = '';
+
+        document.getElementById("delete_todo_form").style.display = "block";
+
+
       }
+
+
+
+      //ADD TASK ON DAY
+
     } else if (event.target.id.includes("add")) {
+
+
       if (todos.inputLength(todos.input_todo_day()) > 0) {
-        todos.createListDay();
-        view.calculateProgress();
+
+
+        removeTodoListDay();
+      
+        for (var i = 0; i < mainArray.length; i++) {
+
+          if (mainArray[i].a.includes(numberSave)) {
+
+            let inputTodoDay = document.getElementById("input_list_output").value;
+            const taskObj2 = new TaskDay(inputTodoDay);
+            mainArray[i].z.push(taskObj2);
+            displayEachTaskDay(i);
+            view.calculateProgress(i);
+           
+          }
+        }
+
+        document.getElementById("input_list_output").value = '';
+
+
       }
     }
 
     //TOGGLE SHOWING MORE BANK HOLS
-
     else if (event.target.id === "expand-holidays") {
       var showMoreHols = document.getElementById("collapsible_holidays");
       if (showMoreHols.style.display === "block") {
@@ -216,7 +649,6 @@ document.addEventListener(
     }
 
     //TOGGLE SHOWING MORE WEATHER - DESKTOP
-
     else if (event.target.id === 'showmore-weather') {
       const showMoreWeather = document.getElementById("collapsible_weather");
       if (showMoreWeather.style.display === "flex") {
@@ -229,7 +661,6 @@ document.addEventListener(
     }
 
     //DISPLAY NEXT MONTH
-
     else if (event.target.id === "nextarrow") {
       Calendar.newMonthsForward();
     }
@@ -241,14 +672,13 @@ document.addEventListener(
 
 
     //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
-
     else if (event.target.id === "btn-register-txt") {
-     
+
 
       if (document.getElementById('register-wrapper').style.display === "none") {
-      
-        document.getElementById('register-wrapper').style.display ="flex";
-        
+
+        document.getElementById('register-wrapper').style.display = "flex";
+
         Account.insertRegisterWrapperDesktop();
 
 
@@ -256,12 +686,9 @@ document.addEventListener(
           document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
           document.getElementById("login-wrapper").style.display = "none";
         }
-        
-      } 
-      
-      
-      else {
-       
+
+      } else {
+
         document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
         document.getElementById("register-wrapper").style.display = "none";
       }
@@ -270,7 +697,6 @@ document.addEventListener(
 
 
     //ON REGISTER BUTTON
-
     else if (event.target.id === "register-button") {
 
       view.removeRegisterWarning();
@@ -314,12 +740,15 @@ document.addEventListener(
             Calendar.removeMonthHtml();
             Calendar.loadCurrentYear();
             Calendar.loadCurrentMonthHtml();
-            todos.countWeeklyTodos();
+            console.log(mainArray);
+            todos.countAllTodos();
             document.getElementById("btn-login-txt").innerHTML = 'Sign out';
             Account.removeRegisterWrapperDesktop();
             document.getElementById("top-welcome-message").innerHTML = `${nameRegister}`;
-           
+
           }
+
+          todos.countAllTodos();
 
         })
 
@@ -336,17 +765,17 @@ document.addEventListener(
         Calendar.removeMonthHtml();
         Calendar.loadCurrentYear();
         Calendar.loadCurrentMonthHtml();
-        todos.countWeeklyTodos();
+        todos.countAllTodos();
         view.displayHelloGuest();
-       
+
         event.target.innerHTML = "Sign in";
       } else {
 
         if (document.getElementById('login-wrapper').style.display === "none") {
-        
+
           document.getElementById("login-wrapper").style.display = "flex";
           Account.insertLoginWrapperDesktop();
-      
+
           if (document.getElementById("register-wrapper").style.display === "flex") {
             Account.removeRegisterWrapperDesktop();
           }
@@ -363,7 +792,6 @@ document.addEventListener(
 
 
     //ON SIGN IN BUTTON
-
     else if (event.target.id === "signin-button") {
 
       view.removeSigninWarning();
@@ -392,6 +820,8 @@ document.addEventListener(
 
           if (data !== 'wrong credentials') {
 
+            console.log(data);
+
             view.removeSigninWarning();
             signedIn = true;
             userId = data.id;
@@ -402,23 +832,26 @@ document.addEventListener(
 
               for (let i = 0; i < data.entries.length; i++) {
 
-                const savedDayFull = new SavedDay(data.entries[i].a, data.entries[i].b, data.entries[i].f, data.entries[i].g);
+                const savedDayFull = new SavedDay(data.entries[i].a, data.entries[i].f, data.entries[i].g, data.entries[i].z);
+
+                console.log(savedDayFull);
+
                 mainArray.push(savedDayFull);
 
               }
-              todos.countWeeklyTodos();
+              todos.countAllTodos();
             }
 
             Calendar.removeMonthHtml();
             Calendar.loadCurrentYear();
             Calendar.loadCurrentMonthHtml();
 
-           document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
-           document.getElementById("login-wrapper").style.display = "none";
+            document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
+            document.getElementById("login-wrapper").style.display = "none";
 
             view.displaySignOut();
             document.getElementById("top-welcome-message").innerHTML = `${nameSignin}!`;
-            
+
 
           } else {
 
@@ -432,57 +865,51 @@ document.addEventListener(
     }
 
     //ON BACKGROUND CLICK
-
     else if (event.target.id === "main_pic") {
 
-    
+
 
       if (document.getElementById('login-wrapper').style.display === "flex") {
 
-       Account.removeLoginWrapperDesktop();
+        Account.removeLoginWrapperDesktop();
 
-    
+
       } else if (document.getElementById('register-wrapper').style.display === "flex") {
-       
+
         Account.removeRegisterWrapperDesktop();
-       
+
       }
 
-    } 
+    }
 
-    
+
     //SHOW WEATHER RESPONSIVE
-
-    else if (event.target.id === "showmore-weather-resp-icon" || event.target.id === "showmore-weather-resp-text"  ) {
+    else if (event.target.id === "showmore-weather-resp-icon" || event.target.id === "showmore-weather-resp-text") {
 
       document.getElementById("collapsible_weather_responsive").style.display = "flex";
 
-    } 
+    }
 
     //CLOSE WEATHER RESPONSIVE
-    
     else if (event.target.id === "collapsible_weather_close") {
 
       document.getElementById("collapsible_weather_responsive").style.display = "none";
 
-    } 
+    }
 
     //SHOW HOLIDAYS RESPONSIVE
-    
-    else if (event.target.id === "expand-holidays-resp-logo" || event.target.id === "expand-holidays-resp-text" ) {
+    else if (event.target.id === "expand-holidays-resp-logo" || event.target.id === "expand-holidays-resp-text") {
       document.getElementById("collapsible_holidays_responsive").style.display = "flex";
 
-    } 
+    }
 
     //CLOSE HOLIDAYS RESPOSIVE
-    
     else if (event.target.id === "collapsible_holidays_responsive_close") {
 
       document.getElementById("collapsible_holidays_responsive").style.display = "none";
-    } 
-    
-    //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
+    }
 
+    //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
     else if (event.target.id === "credentials-pop-up-close") {
 
       Account.undisplayAccountPopupResp();
@@ -490,11 +917,10 @@ document.addEventListener(
       Account.removeRegisterBox();
 
 
-    } 
+    }
 
     //ON ACCOUNT DIV CLICK - RESPONSIVE
-    
-    else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text' ) {
+    else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text') {
 
       document.getElementById("credentials-pop-up").style.display = "flex";
       Account.removeLogbox();
@@ -502,23 +928,21 @@ document.addEventListener(
       Account.focusSigninResponsive();
       Account.unfocusRegisterResponsive();
 
-    } 
-   
+    }
+
     //ON SIGN IN CLICK - RESPONSIVE
-    
     else if (event.target.id === 'btn-login-txt-responsive') {
 
-     Account.removeLogbox();
-     Account.removeRegisterBox();
-     Account.insertLogBox();
-     Account.focusSigninResponsive();
-     Account.unfocusRegisterResponsive();
+      Account.removeLogbox();
+      Account.removeRegisterBox();
+      Account.insertLogBox();
+      Account.focusSigninResponsive();
+      Account.unfocusRegisterResponsive();
 
 
-    } 
-    
-     //ON REGISTER CLICK - RESPONSIVE
-    
+    }
+
+    //ON REGISTER CLICK - RESPONSIVE
     else if (event.target.id === 'btn-register-txt-responsive') {
 
       Account.removeLogbox();
@@ -526,49 +950,61 @@ document.addEventListener(
       Account.insertRegisterBox();
       Account.focusRegisterResponsive();
       Account.unfocusSigninResponsive();
+      todos.countAllTodos();
 
     }
 
 
     //ON STATS CLICK
-        
     else if (event.target.id === 'stats_main_logo' || event.target.id === 'stats_main_text') {
 
-     document.getElementById("stats-main").style.display = 'flex';
-     todos.countWeeklyTodos();
-     document.getElementById("full_year_wrapper").style.display = 'none'
+      document.getElementById("stats-main").style.display = 'flex';
+      todos.countAllTodos();
+      document.getElementById("full_year_wrapper").style.display = 'none'
 
     }
 
-     //CLOSE STATS
-        
-     else if (event.target.id === 'close_stats') {
+    //CLOSE STATS
+    else if (event.target.id === 'close_stats') {
 
       document.getElementById("stats-main").style.display = 'none';
       document.getElementById("full_year_wrapper").style.display = 'grid'
-     }
-
-
-  },
-  false
-);
-
-
-document.addEventListener(
-  "keypress",
-  function (event) {
-    if (event.target.id.includes("input_list")) {
-      if (
-        todos.inputLength(todos.input_todo_day()) > 0 &&
-        event.keyCode === 13
-      ) {
-        todos.createListForm();
-        view.calculateProgress();
-      }
     }
+
+
+    else if (event.target.id === 'btn-form-dropdown') {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    else if (event.target.id.includes("drop-down-"))  {
+
+      document.getElementById("todo-type-selected").innerHTML = event.target.innerHTML;
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+
+
+    else if (event.target.id === 'btn-form-dropdown-2') {
+      document.getElementById("myDropdown-2").classList.toggle("show");
+    }
+
+    else if (event.target.id.includes("day-down"))  {
+
+      console.log('what the hell')
+
+      document.getElementById("todo-type-selected-2").innerHTML = event.target.innerHTML;
+      document.getElementById("myDropdown-2").classList.toggle("show");
+    }
+
+
+
+
+
   },
   false
 );
+
+
 
 window.onload = function () {
   Calendar.loadCurrentYear();
@@ -576,7 +1012,5 @@ window.onload = function () {
   Holidays.updateNextHolidays()
   Weather.locationWeather();
   welcome.nowTime();
-  todos.countWeeklyTodos();
+  todos.countAllTodos();
 };
-
-
