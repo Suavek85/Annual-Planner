@@ -1,6 +1,6 @@
 body {
-  background: -webkit-linear-gradient(-45deg, #8363a1 0%, #74a8c3 100%);
-  background: linear-gradient(135deg, #8363a1 0%, #74a8c3 100%);
+  /*background: -webkit-linear-gradient(-45deg, #8363a1 0%, #74a8c3 100%);
+  background: linear-gradient(135deg, #8363a1 0%, #74a8c3 100%);*/
   margin: 0;
   font-family: "Montserrat", sans-serif;
 }
@@ -17,6 +17,20 @@ body {
   justify-content: flex-start;
   margin: auto;
 }
+
+h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+  font-family: monospace;
+  letter-spacing: 2;
+}
+
+li {
+  overflow-wrap: break-word;
+}
+
+
 
 /* TOP MENU */
 
@@ -41,7 +55,7 @@ body {
   align-items: center;
 }
 
-/* LOGO */
+/* WEBSITE LOGO */
 
 .logo {
   display: flex;
@@ -49,25 +63,6 @@ body {
   padding-right: 20px;
 }
 
-.logo p {
-  color: white;
-  margin-top: -10;
-  font-style: italic;
-  font-family: serif;
-  letter-spacing: 2;
-}
-
-h1 {
-  font-size: 20px;
-  text-transform: uppercase;
-  color: white;
-  font-family: monospace;
-  letter-spacing: 2;
-}
-
-li {
-  overflow-wrap: break-word;
-}
 
 #logo-pic {
   height: 45px;
@@ -412,7 +407,7 @@ li {
 
 /* FORM BOX*/
 
-#form-container {
+#form-main-wrapper {
   display: none;
   flex-direction: column;
   width: 40vw;
@@ -426,7 +421,7 @@ li {
   background-color: rgba(250, 250, 250, 0.8);
 }
 
-#form-2-container {
+#form-column-wrapper {
   display: flex;
   flex-direction: row;
   width: 40vw;
@@ -477,7 +472,7 @@ li {
   margin-left: 7px;
 }
 
-.form-sub-wrapper {
+.form-create-todo-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -486,7 +481,7 @@ li {
   width: 70%;
 }
 
-.form-sub-wrapper-two {
+.form-todo-type-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -495,7 +490,7 @@ li {
   width: 30%;
 }
 
-.form-sub-wrapper-2 {
+.form-create-buttons-wrapper {
   display: flex;
   flex-direction: row;
   width: 40%;
@@ -542,7 +537,7 @@ li {
   justify-content: center;
 }
 
-.flex-form-btns {
+.form-bottom-buttons {
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -647,11 +642,8 @@ li {
   word-break: break-all;
 }
 
-button > * {
-  pointer-events: none;
-}
 
-.first-thing {
+.day-date-menu-wrapper {
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -850,7 +842,7 @@ i {
   -webkit-transform: rotate(-45deg);
 }
 
-.logo_done {
+.icons_done {
   margin-left: 8px;
   display: none;
 }
@@ -866,9 +858,9 @@ i {
 }
 
 #task_list_output > li {
-  /*line-height: 2; */
   border-bottom: solid 0.3px #f2f2f2;
 }
+
 
 /* STATS*/
 
@@ -891,6 +883,8 @@ i {
   cursor: pointer;
   text-align: middle;
 }
+
+
 
 .stats-wrapper {
   display: none;
@@ -926,7 +920,7 @@ i {
   box-shadow: 0px 0px 5px grey;
 }
 
-.lightblue {
+.quick-add {
   position: relative;
   display: inline-block;
   color: #c3e3f0;
@@ -935,7 +929,16 @@ i {
   text-align: center;
 }
 
-.lightblue .tooltip_stats {
+.stats_main {
+  position: relative;
+  display: inline-block;
+  color: #c3e3f0;
+  font-size: 13px;
+  padding-top: 4px;
+  text-align: center;
+}
+
+.stats_main .tooltip_stats {
   visibility: hidden;
   width: 120px;
   background-color: grey;
@@ -949,7 +952,7 @@ i {
   right: 40px;
 }
 
-.lightblue .tooltip_stats::after {
+.stats_main .tooltip_stats::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -960,9 +963,12 @@ i {
   border-color: transparent transparent transparent grey;
 }
 
-.lightblue:hover .tooltip_stats {
+.stats_main:hover .tooltip_stats {
   visibility: visible;
 }
+
+
+
 
 /* BUTTONS*/
 
@@ -986,7 +992,7 @@ i {
   border-radius: 20px;
 }
 
-.bottom-day-buttons {
+.day-bottom-buttons {
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -1002,14 +1008,8 @@ i {
   margin-bottom: 10px;
 }
 
-.button_row_wrapper-2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom: 10px;
-}
 
-.button_day_icon {
+.button_day_icon_left {
   width: 14px;
   height: 14px;
   margin-right: 7px;
@@ -1017,7 +1017,7 @@ i {
   padding-bottom: 10px;
 }
 
-.button_day_icon_2 {
+.button_day_icon_right {
   width: 14px;
   height: 14px;
   margin-left: 7px;
@@ -1025,63 +1025,54 @@ i {
   padding-bottom: 10px;
 }
 
-.button_day_2 {
+
+
+.button_day {
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40%;
   font-size: 16px;
   color: white;
-  background-color: #257dd1;
   outline: none;
   cursor: pointer;
   border: none;
+
+}
+
+.button_day_2 {
+
+  width: 40%;
+  background-color: #257dd1;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 
 .button_day_3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ 
   width: 40%;
-  font-size: 16px;
   color: white;
   background-color: #92b558;
-  outline: none;
-  cursor: pointer;
-  border: none;
   border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .button_day_4 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   width: 40%;
-  font-size: 16px;
-  color: white;
   background-color: #e15d44;
-  outline: none;
-  cursor: pointer;
-  border: none;
   border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .button_day_6 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 16px;
-  color: white;
+  
   background-color: #e15d44;
-  outline: none;
-  cursor: pointer;
-  border: none;
   border-radius: 20px;
+}
+
+button > * {
+  pointer-events: none;
 }
 
 .day-task-menu-style {
@@ -1089,23 +1080,11 @@ i {
   flex-wrap: wrap;
 }
 
-/*
 
-.button_day:nth-child(3):hover {
-  background-color: red;
-}
 
-.button_day:nth-child(2):hover {
-  background-color: green;
-}
 
-.button_day_2:hover {
-  background-color: green;
-}
 
-*/
-
-/* INPUTS */
+/* INPUT FIELDS */
 
 input[type="checkbox"] {
   -webkit-appearance: none;
@@ -1187,7 +1166,9 @@ input:focus {
   outline: none;
 }
 
-/* RESPONSIVE */
+
+
+/* RESPONSIVE STYLES*/
 
 .menu-wrapper-responsive {
   width: 100vw;
@@ -1478,7 +1459,7 @@ input:focus {
     width: 100vw;
   }
 
-  #form-container {
+  #form-main-wrapper {
     width: 100vw;
   }
 

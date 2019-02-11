@@ -32,7 +32,9 @@
 
                     </div>
                 </div>
+
             </div>
+
             <div class="menu-wrapper_right">
 
                 <div class="weather-gen">
@@ -98,8 +100,6 @@
                 <div class="weather-gen">
 
 
-                    <!-- <div id="top-welcome-message">Hello guest!</div> -->
-
                     <div id='credentials-wrapper-responsive'>
                         <img id='credentials-wrapper-icon' class='menu_left_icon' src="images/user-account.png"></img>
                         <div id='credentials-wrapper-text'>Profile</div>
@@ -156,18 +156,18 @@
         <!-- CALENDAR -->
 
 
-        <div id="full_year_wrapper" class='box-calendar-main-wrapper'>
+        <div id="calendar-main" class='box-calendar-main-wrapper'>
 
             <div id="quickadd_stats">
 
                 <div class='quick-add-wrapper'>
                     <img src="images/quick_add.png" style="width: 30px; height: 30px" alt="Quick add">
-                    <div class="lightblue">Quick Add</div>
+                    <div class="quick-add">Quick Add</div>
                 </div>
 
                 <div class='stats_main_logo_wrapper'>
                     <img id='stats_main_logo' src="images/todo_stats.png" style="width: 30px; height: 30px" alt="Statstics">
-                    <div id='stats_main_text' class="lightblue">
+                    <div id='stats_main_text' class="stats_main">
                         Stats
                         <span id="tooltip_statistics" class="tooltip_stats">No outstanding tasks</span>
 
@@ -195,16 +195,17 @@
 
         <!-- FORM -->
 
-        <div id='form-container'>
+        <div id='form-main-wrapper'>
 
           
             <!-- MAIN FORM PART  -->
 
-            <div id='form-2-container'>
+            <div id='form-column-wrapper'>
 
 
 
-            <div class='form-sub-wrapper'>
+            <div class='form-create-todo-wrapper'>
+
                     <p id="create-todos-header">Create todos list:</p>
 
                     <div id='todo-type-wrapper'>
@@ -231,7 +232,7 @@
                 
 
                 <input id='input_list' type='text' placeholder="enter here"><br>
-                <div class='form-sub-wrapper-2'>
+                <div class='form-create-buttons-wrapper'>
                     <button class="form-item-2" id='enter'>Enter</button>
                     <button class="form-item-3" id='delete_todo_form'>Delete</button>
                 </div>
@@ -244,7 +245,7 @@
             
             <!-- DAY TYPE-->
 
-            <div class='form-sub-wrapper-two'>
+            <div class='form-todo-type-wrapper'>
                 <p id="type-of-day">Type of day:</p>
                 <div class="form-item-radio"><input type="radio" id="work" name="day" value="images/work_icon.png"
                         checked>Work</div>
@@ -265,13 +266,13 @@
 
             <!-- BOTTOM BUTTONS-->
 
-            <div class='flex-form-btns'>
+            <div class='form-bottom-buttons'>
 
                 <div id='submit-btns' class="form-item">
                 </div>
 
                 <div class="form-item" >
-                    <button class="button_day_6" id="close-form">Close</button>
+                    <button class="button_day button_day_6" id="close-form">Close</button>
                 </div>
 
 
@@ -294,7 +295,7 @@
 
             <div id="notes-box-top" class='notes-box-top_gen'>
                 
-                <div class='first-thing'>
+                <div class='day-date-menu-wrapper'>
                     <img id='type-day-icon' src='images/dayoff_icon.png'></img>
                     <div id='notes-box-top-right-text'></div>
                 </div>
@@ -335,7 +336,7 @@
 
 
 
-            <div class='bottom-day-buttons '>
+            <div class='day-bottom-buttons'>
 
                 
                     <div style='height: 40px;'class='button_row_wrapper'>
@@ -352,13 +353,12 @@
                 <div class='button_row_wrapper'>
 
 
-                    <button id='add' class='button_day_2'><img class='button_day_icon' src='images\add-white.png' ></img>Add</button>
+                    <button id='add' class='button_day button_day_2'><img class='button_day_icon_left' src='images\add-white.png' ></img>Add</button>
 
-
-    
 
                     <div class="todo-type-dropdown-2">
-                            <button id='btn-form-dropdown-2' class="todo-type-dropbtn-2">Type <img class="button_day_icon_2" src="images/expand.png"></button>
+
+                            <button id='btn-day-dropdown' class="todo-type-dropbtn-2">Type <img class="button_day_icon_right" src="images/expand.png"></button>
                             <div id="myDropdown-2" class="dropdown-list">
                 
                               <div id="day-down-1" class="dropdown-list-item">Home</div>
@@ -371,36 +371,25 @@
                             </div>
                     </div>
 
-
-                   
                 </div>
 
-                
 
-                <div class='button_row_wrapper-2'>
-                   <button id='completed' class='button_day_3'><img  src='images/checked_white.png' class='button_day_icon' >
+                <div class='button_row_wrapper'>
+                    
+                   <button id='completed' class='button_day button_day_3'><img  src='images/checked_white.png' class='button_day_icon_left' >
                    </img>Done</button>
 
 
-                <button id='delete_output' class='button_day_4'><img src='images/rubbish_white.png' class='button_day_icon' ></img>Delete</button>
+                    <button id='delete_output' class='button_day button_day_4'><img src='images/rubbish_white.png' class='button_day_icon_left' ></img>Delete</button>
+
                 </div>
 
                 <div id='progressbar_background'> <span id='progressbar'></span></div>
 
                 <div id='close-day-wrapper' class='button_row_wrapper'>
-<!--<div id='close-day-wrapper' class='save_exit_block'>
-                            
-                    </div>-->
                     
                 </div>
 
-                <!--
-                                <div id='mynotes' class='mynotes-gens'>My notes:
-                        <p contentEditable="true" id='daily-notes'></p>
-                    </div>
-                
-
-                -->
 
             </div>
 
