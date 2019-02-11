@@ -109,7 +109,7 @@ export class TaskDay {
 
 const removeTodoList = () => {
 
-  var list = document.getElementById("task_list");
+  const list = document.getElementById("task_list");
   while (list.hasChildNodes()) {
     list.removeChild(list.firstChild);
   }
@@ -118,7 +118,7 @@ const removeTodoList = () => {
 
 const removeTodoListDay = () => {
 
-  var listDay = document.getElementById("task_list_output");
+  const listDay = document.getElementById("task_list_output");
   while (listDay.hasChildNodes()) {
     listDay.removeChild(listDay.firstChild);
   }
@@ -129,15 +129,15 @@ const removeTodoListDay = () => {
 
 const doneTaskStyleCross = (el) => {
 
-if ( el.done === true) {
+  if ( el.done === true ) {
 
-return 'text-decoration: line-through; color: grey;'
+  return 'text-decoration: line-through; color: grey;';
 
-} else {
+  } else {
 
-  return ''
+    return '';
 
-}
+  }
 
 }
 
@@ -147,11 +147,11 @@ const doneTaskStyleIcon = (el) => {
 
   if ( el.done === true) {
   
-  return 'display: inline-block;'
+  return 'display: inline-block;';
   
   } else {
   
-    return " "
+    return " ";
     
   }
   
@@ -181,7 +181,7 @@ const typeDayIcon = (el) => {
   }
 
 
-else if (el.type== "Celebration") {
+  else if (el.type== "Celebration") {
 
     return 'images/celebrate-white.png';
 
@@ -231,7 +231,7 @@ const typeDayBackground = (el) => {
   }
 
 
-else if (el.type== "Celebration") {
+  else if (el.type== "Celebration") {
 
     return '#BC70A4';
 
@@ -259,6 +259,7 @@ else if (el.type== "Celebration") {
 }
 
 const isIndexEven = (value) => {
+
   if (value % 2 == 0)
       return '#F5F5F5'
   else
@@ -271,7 +272,7 @@ const displayEachTaskForm = () => {
 
   const mappedtransArray = transArray.map(el => {
 
-    return  `<input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb"><li style=${doneTaskStyleCross(el)} >${el.text} (${el.type})</li><img src="images/completed.png" alt="logo done" class="logo_done" height="16px" width="16px" style=${doneTaskStyleIcon(el)}><br>`
+    return  `<input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb"><li style=${doneTaskStyleCross(el)} >${el.text} (${el.type})</li><img src="images/completed.png" alt="logo done" class="icons_done" height="16px" width="16px" style=${doneTaskStyleIcon(el)}><br>`
 
   })
 
@@ -300,7 +301,7 @@ const displayEachTaskDay = (i) => {
     <div style="${doneTaskStyleCross(el)}" >${el.text}
     </div>
 
-    <img src="images/completed.png" alt="logo done" class="logo_done" margin-left="12px" height="30px" width="30px" style="${doneTaskStyleIcon(el)}">
+    <img src="images/completed.png" alt="logo done" class="icons_done" margin-left="12px" height="30px" width="30px" style="${doneTaskStyleIcon(el)}">
 
     </div>
 
@@ -342,19 +343,11 @@ document.addEventListener(
       view.undisplayForm();
       view.displayCalendar();
       view.displayWelcome();
-
       const dayfull = new Day(dayNameAttribute, transArray);
-      console.log(dayfull);
       mainArray.push(dayfull);
       todos.countAllTodos();
-
-
       transArray = [];
-      console.log(mainArray);
-
-
-
-
+     
       dayIndex = mainArray.findIndex(element => {
         return element.a === event.target.getAttribute("day-name");
       });
@@ -367,7 +360,7 @@ document.addEventListener(
       }
 
 
-    //ADD OR OPEN DAY
+    //ADD DAY OR OPEN DAY
 
 
     } else if (event.target.id.includes("calendar")) {
@@ -376,6 +369,7 @@ document.addEventListener(
 
 
       if (!event.target.style.borderRadius) {
+
         view.displayForm();
         view.undisplayWelcome();
         const numberAdd = event.target.id.slice(-9);
@@ -388,15 +382,15 @@ document.addEventListener(
         const currentDate = [currentId.slice(8, 10), b, currentId.slice(10, 11).toUpperCase(), currentId.slice(11, 13), b, currentId.slice(13)].join('');
         closeBtnPreviousIds.push(currentId);
       
+      } 
+      
+      else {
 
-      } else {
         view.displayDay();
         view.undisplayForm();
         view.undisplayWelcome();
         todos.countAllTodos();
         numberSave = event.target.id.slice(-9);
-
-    
         view.displaySaveExitButton(numberSave);
         const c = " ";
         const currentDate2 = [event.target.id.slice(8, 10), c, event.target.id.slice(10, 11).toUpperCase(), event.target.id.slice(11, 13), c, event.target.id.slice(13)].join('');
@@ -416,7 +410,6 @@ document.addEventListener(
           displayEachTaskDay(i);
           view.calculateProgress(i);
           
-
           }
 
         }
@@ -427,10 +420,11 @@ document.addEventListener(
       }
 
 
-
-      //CLOSE AND SAVE DAY
-
-    } else if (event.target.id.includes("close-day")) {
+    } 
+    
+    //CLOSE DAY
+    
+    else if (event.target.id.includes("close-day")) {
 
       //dayIndex = mainArray.findIndex(element => {
         //return element.a === dayNameAttribute;
@@ -449,7 +443,11 @@ document.addEventListener(
       view.todoListRemove();
       view.clearProgress();
 
-    } else if (event.target.id.includes("close-form")) {
+    } 
+    
+    //CLOSE FORM
+
+    else if (event.target.id.includes("close-form")) {
 
       view.displayCalendar();
 
@@ -460,10 +458,11 @@ document.addEventListener(
       view.undisplayForm();
       view.removeSubmitButton();
 
-
-      //DELETE TASK ON FORM
-
-    } else if (event.target.id.includes("delete_todo_form")) {
+    } 
+    
+    //DELETE TASK - FORM
+    
+    else if (event.target.id.includes("delete_todo_form")) {
 
     
       const allTodos = document.getElementsByName("todoscb");
@@ -489,11 +488,12 @@ document.addEventListener(
 
       removeTodoList();
       displayEachTaskForm();
- 
-    
-      //DELETE TASK ON DAY
 
-    } else if (event.target.id.includes("delete_output")) {
+    } 
+
+    //DELETE TASK - DAY
+    
+    else if (event.target.id.includes("delete_output")) {
 
     
       var allTodos2 = document.getElementsByName("todoscb");
@@ -533,10 +533,11 @@ document.addEventListener(
 
       }
 
-
-      //TASK COMPLETED ON DAY
-
-    } else if (event.target.id.includes("completed")) {
+    }
+    
+    //TASK COMPLETED - DAY
+    
+    else if (event.target.id.includes("completed")) {
 
 
       var allTodos3 = document.getElementsByName("todoscb");
@@ -578,11 +579,11 @@ document.addEventListener(
 
       }
 
+    } 
+    
+    //ADD TASK - FORM
 
-
-      //ADD TASK ON FORM
-
-    } else if (event.target.id.includes("enter")) {
+    else if (event.target.id.includes("enter")) {
 
 
       if (todos.inputLength(todos.input_todo_form()) > 0) {
@@ -602,11 +603,11 @@ document.addEventListener(
 
       }
 
-
-
-      //ADD TASK ON DAY
-
-    } else if (event.target.id.includes("add")) {
+    } 
+    
+    //ADD TASK - DAY
+    
+    else if (event.target.id.includes("add")) {
 
 
       if (todos.inputLength(todos.input_todo_day()) > 0) {
@@ -634,8 +635,11 @@ document.addEventListener(
     }
 
     //TOGGLE SHOWING MORE BANK HOLS
+
     else if (event.target.id === "expand-holidays") {
+
       var showMoreHols = document.getElementById("collapsible_holidays");
+
       if (showMoreHols.style.display === "block") {
 
         document.getElementById("collapsible_holidays").style.display = 'none';
@@ -649,8 +653,11 @@ document.addEventListener(
     }
 
     //TOGGLE SHOWING MORE WEATHER - DESKTOP
+
     else if (event.target.id === 'showmore-weather') {
+
       const showMoreWeather = document.getElementById("collapsible_weather");
+
       if (showMoreWeather.style.display === "flex") {
         document.getElementById("collapsible_weather").style.display = 'none';
         event.target.src = "images/expand.png";
@@ -661,17 +668,20 @@ document.addEventListener(
     }
 
     //DISPLAY NEXT MONTH
+
     else if (event.target.id === "nextarrow") {
       Calendar.newMonthsForward();
     }
 
     //DISPLAY PREVIOUS MONTH
+
     else if (event.target.id === "backarrow") {
       Calendar.newMonthsBackward();
     }
 
 
     //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
+
     else if (event.target.id === "btn-register-txt") {
 
 
@@ -792,6 +802,7 @@ document.addEventListener(
 
 
     //ON SIGN IN BUTTON
+
     else if (event.target.id === "signin-button") {
 
       view.removeSigninWarning();
@@ -865,9 +876,8 @@ document.addEventListener(
     }
 
     //ON BACKGROUND CLICK
+
     else if (event.target.id === "main_pic") {
-
-
 
       if (document.getElementById('login-wrapper').style.display === "flex") {
 
@@ -884,6 +894,7 @@ document.addEventListener(
 
 
     //SHOW WEATHER RESPONSIVE
+
     else if (event.target.id === "showmore-weather-resp-icon" || event.target.id === "showmore-weather-resp-text") {
 
       document.getElementById("collapsible_weather_responsive").style.display = "flex";
@@ -891,6 +902,7 @@ document.addEventListener(
     }
 
     //CLOSE WEATHER RESPONSIVE
+
     else if (event.target.id === "collapsible_weather_close") {
 
       document.getElementById("collapsible_weather_responsive").style.display = "none";
@@ -898,6 +910,7 @@ document.addEventListener(
     }
 
     //SHOW HOLIDAYS RESPONSIVE
+
     else if (event.target.id === "expand-holidays-resp-logo" || event.target.id === "expand-holidays-resp-text") {
       document.getElementById("collapsible_holidays_responsive").style.display = "flex";
 
@@ -910,6 +923,7 @@ document.addEventListener(
     }
 
     //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
+
     else if (event.target.id === "credentials-pop-up-close") {
 
       Account.undisplayAccountPopupResp();
@@ -920,6 +934,7 @@ document.addEventListener(
     }
 
     //ON ACCOUNT DIV CLICK - RESPONSIVE
+
     else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text') {
 
       document.getElementById("credentials-pop-up").style.display = "flex";
@@ -931,6 +946,7 @@ document.addEventListener(
     }
 
     //ON SIGN IN CLICK - RESPONSIVE
+
     else if (event.target.id === 'btn-login-txt-responsive') {
 
       Account.removeLogbox();
@@ -943,6 +959,7 @@ document.addEventListener(
     }
 
     //ON REGISTER CLICK - RESPONSIVE
+
     else if (event.target.id === 'btn-register-txt-responsive') {
 
       Account.removeLogbox();
@@ -956,25 +973,30 @@ document.addEventListener(
 
 
     //ON STATS CLICK
+
     else if (event.target.id === 'stats_main_logo' || event.target.id === 'stats_main_text') {
 
       document.getElementById("stats-main").style.display = 'flex';
       todos.countAllTodos();
-      document.getElementById("full_year_wrapper").style.display = 'none'
+      document.getElementById("calendar-main").style.display = 'none'
 
     }
 
     //CLOSE STATS
+
     else if (event.target.id === 'close_stats') {
 
       document.getElementById("stats-main").style.display = 'none';
-      document.getElementById("full_year_wrapper").style.display = 'grid'
+      document.getElementById("calendar-main").style.display = 'grid'
     }
 
+    //TOGGLE FORM DROPDOWN MENU
 
     else if (event.target.id === 'btn-form-dropdown') {
       document.getElementById("myDropdown").classList.toggle("show");
     }
+
+    //ON DROPDOWN ITEM CLICK - FORM
 
     else if (event.target.id.includes("drop-down-"))  {
 
@@ -982,15 +1004,15 @@ document.addEventListener(
       document.getElementById("myDropdown").classList.toggle("show");
     }
 
+    //TOGGLE DAY DROPDOWN MENU
 
-
-    else if (event.target.id === 'btn-form-dropdown-2') {
+    else if (event.target.id === 'btn-day-dropdown') {
       document.getElementById("myDropdown-2").classList.toggle("show");
     }
 
-    else if (event.target.id.includes("day-down"))  {
+//ON DROPDOWN ITEM CLICK - DAY
 
-      console.log('what the hell')
+    else if (event.target.id.includes("day-down"))  {
 
       document.getElementById("todo-type-selected-2").innerHTML = event.target.innerHTML;
       document.getElementById("myDropdown-2").classList.toggle("show");

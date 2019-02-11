@@ -110,8 +110,6 @@ const todos = {
           document.getElementById("glow_dot").style.boxShadow = "0 0 5px orange";
         
         }
-
-        console.log(todosDone, todosAll);
     
       }
   

@@ -10,7 +10,7 @@ const view = {
     displayForm: function() {
       //document.getElementById("notes").value = "";
       document.getElementById("work").checked = true;
-      document.getElementById("form-container").style.display = "flex";
+      document.getElementById("form-main-wrapper").style.display = "flex";
       document.querySelector(".notes-box-wrapper").style.display = "none";
       todos.ul_tasks().innerHTML = "";
     },
@@ -20,7 +20,7 @@ const view = {
     },
   
     undisplayForm: function() {
-      document.getElementById("form-container").style.display = "none"; 
+      document.getElementById("form-main-wrapper").style.display = "none"; 
     },
   
     displaySubmit: function(el) {
@@ -125,11 +125,11 @@ const view = {
     },
 
     undisplayCalendar: function() {
-      document.getElementById("full_year_wrapper").style.display = 'none';
+      document.getElementById("calendar-main").style.display = 'none';
     },
       
     displayCalendar: function() {
-      document.getElementById("full_year_wrapper").style.display = 'grid'; 
+      document.getElementById("calendar-main").style.display = 'grid'; 
     },
 
     removeSigninWarning: function() {
