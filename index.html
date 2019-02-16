@@ -68,7 +68,8 @@
 
 
                     <img src='images/expand.png' id='showmore-weather' style="display:none" alt="expand">
-                    <div style="display:none" id='collapsible_weather'>
+                    <div 
+                     id='collapsible_weather'>
                     </div>
                     <img id="weather-icon" src="" alt="">
                     <p id="weather"></p><span id='weather-city'></span>
@@ -233,8 +234,8 @@
 
                 <input id='input_list' type='text' placeholder="enter here"><br>
                 <div class='form-create-buttons-wrapper'>
-                    <button class="form-item-2" id='enter'>Enter</button>
-                    <button class="form-item-3" id='delete_todo_form'>Delete</button>
+                    <button class="form-item-2 highlight" id='enter'>Enter</button>
+                    <button class="form-item-3 highlight" id='delete_todo_form'>Delete</button>
                 </div>
               
             </div>
@@ -272,7 +273,7 @@
                 </div>
 
                 <div class="form-item" >
-                    <button class="button_day button_day_6" id="close-form">Close</button>
+                    <button class="button_day button_day_6 highlight" id="close-form">Close</button>
                 </div>
 
 
@@ -302,16 +303,16 @@
                     
                     
 
-                    <div class="day-menu-item">
+                    <div class="day-menu-item highlight">
                     <div class="day-menu-item-text">ALL</div>
                     </div>
 
-                    <div class="day-menu-item">
+                    <div class="day-menu-item highlight">
                     <div class="day-menu-item-text">A-Z</div>
                     </div>
 
 
-                    <div class="day-menu-item-dropdown">
+                    <div class="day-menu-item-dropdown highlight">
 
                     <p class="day-menu-item-text-dropdown">FILTER<img width="16px" height="16px" style="padding-left:10px;" src="images/expand.png"></p>
                         
@@ -353,7 +354,7 @@
                 <div class='button_row_wrapper'>
 
 
-                    <button id='add' class='button_day button_day_2'><img class='button_day_icon_left' src='images\add-white.png' ></img>Add</button>
+                    <button id='add' class='button_day button_day_2 highlight'><img class='button_day_icon_left' src='images\add-white.png' ></img>Add</button>
 
 
                     <div class="todo-type-dropdown-2">
@@ -376,17 +377,17 @@
 
                 <div class='button_row_wrapper'>
                     
-                   <button id='completed' class='button_day button_day_3'><img  src='images/checked_white.png' class='button_day_icon_left' >
+                   <button id='completed' class='button_day button_day_3 highlight'><img  src='images/checked_white.png' class='button_day_icon_left' >
                    </img>Done</button>
 
 
-                    <button id='delete_output' class='button_day button_day_4'><img src='images/rubbish_white.png' class='button_day_icon_left' ></img>Delete</button>
+                    <button id='delete_output' class='button_day button_day_4 highlight'><img src='images/rubbish_white.png' class='button_day_icon_left' ></img>Delete</button>
 
                 </div>
 
                 <div id='progressbar_background'> <span id='progressbar'></span></div>
 
-                <div id='close-day-wrapper' class='button_row_wrapper'>
+                <div id='close-day-wrapper' class='button_row_wrapper highlight'>
                     
                 </div>
 
