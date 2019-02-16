@@ -29,7 +29,7 @@ const view = {
 
     displaySubmitButton: function(numberAdd) {
       
-      let submitBtnGen = `<button day-name="dayname${numberAdd}" class="submit-btn" style="width: 90%" id="submit_${numberAdd}">Submit</button>`;
+      let submitBtnGen = `<button day-name="dayname${numberAdd}" class="submit-btn highlight" style="width: 90%" id="submit_${numberAdd}">Submit</button>`;
       document.getElementById("submit-btns").insertAdjacentHTML('afterbegin', submitBtnGen);
     },
 

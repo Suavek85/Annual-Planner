@@ -170,7 +170,7 @@ const typeDayIcon = (el) => {
 
   else if (el.type  == "Sports") {
 
-    return 'images/sports-white.png';
+    return 'images/barbell-white.png';
 
   }
 
@@ -220,7 +220,7 @@ const typeDayBackground = (el) => {
 
   else if (el.type  == "Sports") {
 
-    return '#BFD641';
+    return '#2E4A62';
 
   }
 
@@ -657,14 +657,16 @@ document.addEventListener(
     else if (event.target.id === 'showmore-weather') {
 
       const showMoreWeather = document.getElementById("collapsible_weather");
+      
 
-      if (showMoreWeather.style.display === "flex") {
-        document.getElementById("collapsible_weather").style.display = 'none';
+      if (showMoreWeather.style.transform == "scaleY(1)") {
+        showMoreWeather.style.transform = "scaleY(0)";
         event.target.src = "images/expand.png";
       } else {
-        document.getElementById("collapsible_weather").style.display = 'flex';
+        showMoreWeather.style.transform = "scaleY(1)";
         event.target.src = "images/collapse.png";
       }
+      
     }
 
     //DISPLAY NEXT MONTH
