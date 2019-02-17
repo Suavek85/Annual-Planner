@@ -303,22 +303,18 @@
                     
                     
 
-                    <div class="day-menu-item highlight">
-                    <div class="day-menu-item-text">ALL</div>
-                    </div>
-
-                    <div class="day-menu-item highlight">
-                    <div class="day-menu-item-text">A-Z</div>
-                    </div>
+                    
 
 
-                    <div class="day-menu-item-dropdown highlight">
+                    <div class="day-menu-item-dropdown">
 
-                    <p class="day-menu-item-text-dropdown">FILTER<img width="16px" height="16px" style="padding-left:10px;" src="images/expand.png"></p>
+                    <p class="day-menu-item-text-dropdown">Filter<img width="16px" height="16px" style="padding-left:10px;" src="images/expand.png"></p>
                         
                     <div class="dropdown-content">
                         
-                                <div class="dropdown-content-item">Home</div>
+                            <div class="dropdown-content-item">All</div>
+                            <div class="dropdown-content-item">A-Z</div>
+                        <div class="dropdown-content-item">Home</div>
                                 <div class="dropdown-content-item" >Shopping</div>
                                 <div class="dropdown-content-item" >Celebration</div>
                                 <div class="dropdown-content-item" >Learning</div>
@@ -339,58 +335,60 @@
 
             <div class='day-bottom-buttons'>
 
+                    <div class='button_row_wrapper'>
+                    
+                            <button id='completed' class='button_day button_day_3 highlight'><img  src='images/checked_white.png' class='button_day_icon_left' >
+                            </img>Done</button>
+         
+         
+                             <button id='delete_output' class='button_day button_day_4 highlight'><img src='images/rubbish_white.png' class='button_day_icon_left' ></img>Delete</button>
+         
+                         </div>
+
                 
                     <div class='day_input_wrapper'>
 
+                            <button id='add' class='button_day button_day_2 highlight'><img class='button_day_icon_left' src='images\add-white.png' ></img>Add</button>
+
                     <input id='input_list_output' type='textday' placeholder="enter here">
-
-
-                    <div id="todo-type-selected-2">Home</div>
-
-                    </div>
-
-
-
-                <div class='button_row_wrapper'>
-
-
-                    <button id='add' class='button_day button_day_2 highlight'><img class='button_day_icon_left' src='images\add-white.png' ></img>Add</button>
-
-
-                    <div class="todo-type-dropdown-2">
-
-                            <button id='btn-day-dropdown' class="todo-type-dropbtn-2">Type <img class="button_day_icon_right" src="images/expand.png"></button>
-                            <div id="myDropdown-2" class="dropdown-list">
-                
-                              <div id="day-down-1" class="dropdown-list-item">Home</div>
-                              <div id="day-down-2"  class="dropdown-list-item">Shopping</div>
-                              <div id="day-down-3"  class="dropdown-list-item" >Celebration</div>
-                              <div id="day-down-4"  class="dropdown-list-item" >Learning</div>
-                              <div id="day-down-5"  class="dropdown-list-item" >Appointment</div>
-                              <div id="day-down-6"  class="dropdown-list-item" >Health</div>
-                              <div id="day-down-7"  class="dropdown-list-item" >Sports</div>
-                            </div>
-                    </div>
-
-                </div>
-
-
-                <div class='button_row_wrapper'>
+                        
                     
-                   <button id='completed' class='button_day button_day_3 highlight'><img  src='images/checked_white.png' class='button_day_icon_left' >
-                   </img>Done</button>
+
+                    <div id='todo-type-selected-2-wrapper'>
+
+                            <div id="todo-type-selected-2">Home</div>
 
 
-                    <button id='delete_output' class='button_day button_day_4 highlight'><img src='images/rubbish_white.png' class='button_day_icon_left' ></img>Delete</button>
+                            <div id='todo-day-dropdown-area' class="todo-type-dropdown-2">
 
-                </div>
+                                    <button  id='todo-day-dropdown-area-2'class="todo-type-dropbtn-2"> <img class="button_day_icon_right" src="images/expand.png"></button>
+                                    <div id="myDropdown-2" class="dropdown-list">
+                        
+                                      <div id="day-down-1" class="dropdown-list-item">Home</div>
+                                      <div id="day-down-2"  class="dropdown-list-item">Shopping</div>
+                                      <div id="day-down-3"  class="dropdown-list-item" >Celebration</div>
+                                      <div id="day-down-4"  class="dropdown-list-item" >Learning</div>
+                                      <div id="day-down-5"  class="dropdown-list-item" >Appointment</div>
+                                      <div id="day-down-6"  class="dropdown-list-item" >Health</div>
+                                      <div id="day-down-7"  class="dropdown-list-item" >Sports</div>
+                                    </div>
+                            </div>
 
-                <div id='progressbar_background'> <span id='progressbar'></span></div>
+
+
+                        </div>
+                    </div>
+
+
+
+                
+
+                
 
                 <div id='close-day-wrapper' class='button_row_wrapper highlight'>
                     
                 </div>
-
+                <div id='progressbar_background'> <span id='progressbar'></span></div>
 
             </div>
 
