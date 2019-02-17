@@ -20,9 +20,6 @@ var transArray = [];
 let numberSave;
 
 
-
-
-
 const updateProfileTodos = () => {
 
   fetch('https://morning-wave-83831.herokuapp.com/todos', {
@@ -105,8 +102,6 @@ export class TaskDay {
 }
 
 
-
-
 const removeTodoList = () => {
 
   const list = document.getElementById("task_list");
@@ -126,7 +121,6 @@ const removeTodoListDay = () => {
 }
 
 
-
 const doneTaskStyleCross = (el) => {
 
   if ( el.done === true ) {
@@ -140,7 +134,6 @@ const doneTaskStyleCross = (el) => {
   }
 
 }
-
 
 
 const doneTaskStyleIcon = (el) => {
@@ -161,100 +154,62 @@ const doneTaskStyleIcon = (el) => {
 
 const typeDayIcon = (el) => {
 
-
-  if (el.type == "Home") {
-
+  switch(el.type) {
+    case "Home":
     return 'images/home-white.png';
-
-  }
-
-  else if (el.type  == "Sports") {
-
+    break;
+    case "Sports":
     return 'images/barbell-white.png';
-
-  }
-
-  else if (el.type == "Shopping") {
-
+    break;
+    case "Shopping":
     return 'images/shopping-white.png';
-
-  }
-
-
-  else if (el.type== "Celebration") {
-
+    break;
+    case "Celebration":
     return 'images/celebrate-white.png';
-
-  }
-
-  else if (el.type == "Learning") {
-
+    break;
+    case "Learning":
     return 'images/learn-white.png';
-
-  }
-
-  else if (el.type == "Appointment") {
-
+    break;
+    case "Appointment":
     return 'images/appointment-white.png';
-
-  }
-
-  else if (el.type == "Health") {
-
+    break;
+    case "Health":
     return 'images/health-white.png';
-
+    break;
+    default:
+    return 'images/home-white.png';
   }
-
 
 }
 
 
 const typeDayBackground = (el) => {
 
-
-  if (el.type == "Home") {
-
+  switch(el.type) {
+    case "Home":
     return '#6B5B95';
-
-  }
-
-  else if (el.type  == "Sports") {
-
+    break;
+    case "Sports":
     return '#2E4A62';
-
-  }
-
-  else if (el.type == "Shopping") {
-
+    break;
+    case "Shopping":
     return '#009B77';
-
-  }
-
-
-  else if (el.type== "Celebration") {
-
+    break;
+    case "Celebration":
     return '#BC70A4';
-
-  }
-
-  else if (el.type == "Learning") {
-
+    break;
+    case "Learning":
     return '#663399';
-
-  }
-
-  else if (el.type == "Appointment") {
-
+    break;
+    case "Appointment":
     return '#A9754F';
-
-  }
-
-  else if (el.type == "Health") {
-
+    break;
+    case "Health":
     return '#DC4C46';
-
+    break;
+    default:
+    return '#6B5B95';
   }
-
 
 }
 
@@ -274,7 +229,8 @@ const displayEachTaskForm = () => {
 
     return  `<input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb"><li style=${doneTaskStyleCross(el)} >${el.text} (${el.type})</li><img src="images/completed.png" alt="logo done" class="icons_done" height="16px" width="16px" style=${doneTaskStyleIcon(el)}><br>`
 
-  })
+    }
+  )
 
   const joinmappedtransArray = mappedtransArray.join("");
 
@@ -314,9 +270,8 @@ const displayEachTaskDay = (i) => {
     </div>
 
     `
-
-  })
-
+    }
+  )
 
   const joinmappedtransArrayDay = mappedtransArrayDay.join("");
 
@@ -325,7 +280,7 @@ const displayEachTaskDay = (i) => {
 }
 
 
-
+//CLICK EVENT LISTENER
 
 document.addEventListener(
   "click",
@@ -957,7 +912,6 @@ document.addEventListener(
       Account.focusSigninResponsive();
       Account.unfocusRegisterResponsive();
 
-
     }
 
     //ON REGISTER CLICK - RESPONSIVE
@@ -1008,11 +962,11 @@ document.addEventListener(
 
     //TOGGLE DAY DROPDOWN MENU
 
-    else if (event.target.id === 'btn-day-dropdown') {
+    else if (event.target.id === 'todo-day-dropdown-area' || event.target.id === 'todo-day-dropdown-area-2' ) {
       document.getElementById("myDropdown-2").classList.toggle("show");
     }
 
-//ON DROPDOWN ITEM CLICK - DAY
+    //ON DROPDOWN ITEM CLICK - DAY
 
     else if (event.target.id.includes("day-down"))  {
 
@@ -1028,7 +982,7 @@ document.addEventListener(
   false
 );
 
-
+//ON WINDOW LOAD
 
 window.onload = function () {
   Calendar.loadCurrentYear();

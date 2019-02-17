@@ -421,7 +421,6 @@ li {
   max-height: 600px;
   justify-content: space-around;
   align-items: baseline;
-  border-radius: 5px;
   margin: auto;
   margin-top: 50px;
   background-color: rgba(250, 250, 250, 0.8);
@@ -451,6 +450,15 @@ li {
   background-color: white;
 }
 
+#todo-type-selected-2-wrapper {
+
+display: flex;
+flex-direction: column;
+width: 20%;
+
+}
+
+
 #todo-type-selected-2 {
   color: black;
   display: flex;
@@ -459,7 +467,7 @@ li {
   font-size: 16px;
   border-top: solid 1px lightgrey;
   background-color: white;
-  width: 20%;
+  height: 60%;
   box-sizing: border-box;
 }
 
@@ -557,7 +565,7 @@ li {
 }
 
 .todo-type-dropbtn-2 {
-  background-color: #3498db;
+  background-color:#6f9fd8;
   color: white;
   display: flex;
   align-items: center;
@@ -581,15 +589,14 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  height:40%;
   font-size: 16px;
   color: white;
-  background-color: #3498db;
+  background-color: #6f9fd8;
   outline: none;
   cursor: pointer;
   border: none;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+ 
 }
 
 .dropdown-list {
@@ -685,8 +692,8 @@ li {
   min-height: 200px;
   max-height: 1000px;
   margin: 50px auto auto auto;
-  overflow: hidden;
-  border-radius: 10px;
+  /*overflow: hidden; 
+  border-radius: 10px;*/
   background-color: rgba(250, 250, 250, 0.8);
 }
 
@@ -702,7 +709,7 @@ li {
   display: flex;
   flex-direction: row;
   height: 100%;
-  width: 40%;
+  width: 55%;
   background-color: #6f9fd8;
   justify-content: center;
   align-items: center;
@@ -726,11 +733,11 @@ li {
   align-items: center;
   color: white;
   font-size: 16px;
-  height: 80px;
+  height: 60px;
 }
 
 #notes-box-top-right-text {
-  padding-right: 7px;
+  padding-left: 7px;
 }
 
 #type-day-icon {
@@ -751,9 +758,9 @@ li {
   cursor: pointer;
   border: none;
   border-radius: 20px;
-  margin-top: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-top: 5px;
+  padding-top: 8.5px;
+  padding-bottom: 8.5px;
 }
 
 .save_exit_block {
@@ -812,7 +819,7 @@ li {
 .day-menu-item-dropdown {
   height: 100%;
   background-color: #6f9fd8;
-  width: 30%;
+  width: 45%;
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -832,7 +839,7 @@ li {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 75px;
+  top: 60px;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -841,7 +848,7 @@ li {
 
 .dropdown-content-item {
   color: black;
-  padding: 12px 16px;
+  padding: 5px 12px;
   text-decoration: none;
   display: block;
 }
@@ -1062,16 +1069,17 @@ i {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .day_input_wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 25px;
-  height: 40px;
-  margin-top: 10px;
+ 
+  height: 50px;
+  
 }
 
 
@@ -1087,8 +1095,7 @@ i {
   width: 14px;
   height: 14px;
   margin-left: 7px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  
 }
 
 
@@ -1108,10 +1115,9 @@ i {
 
 .button_day_2 {
 
-  width: 30%;
-  background-color: #257dd1;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  width: 15%;
+  background-color: #6f9fd8;
+  
 }
 
 .button_day_3 {
@@ -1179,12 +1185,18 @@ input[type="text"] {
 }
 
 input[type="textday"] {
-  width: 80%;
+  width: 65%;
   box-sizing: content-box;
   border: none;
   background-color: #f0f0f0;
   border-top: solid 0.5px lightgrey;
 }
+
+input[type="textday"]::-webkit-input-placeholder {
+ font-size: 16px;
+
+}
+
 
 input[type="username"] {
   width: 200px;
