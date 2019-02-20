@@ -453,8 +453,8 @@ li {
 #todo-type-selected-2-wrapper {
 
 display: flex;
-flex-direction: row;
-width: 23%;
+flex-direction: column;
+width: 20%;
 
 }
 
@@ -467,7 +467,7 @@ width: 23%;
   font-size: 16px;
   border-top: solid 1px lightgrey;
   background-color: white;
-  width: 80%;
+  height: 60%;
   box-sizing: border-box;
 }
 
@@ -589,7 +589,7 @@ width: 23%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width:20%;
+  height:40%;
   font-size: 16px;
   color: white;
   background-color: #6f9fd8;
@@ -1077,8 +1077,7 @@ i {
   display: flex;
   flex-direction: row;
   justify-content: center;
- 
-  height: 40px;
+  height: 45px;
   
 }
 
@@ -1185,7 +1184,7 @@ input[type="text"] {
 }
 
 input[type="textday"] {
-  width: 62%;
+  width: 65%;
   box-sizing: content-box;
   border: none;
   background-color: #f0f0f0;
