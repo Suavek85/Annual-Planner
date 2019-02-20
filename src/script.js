@@ -280,6 +280,62 @@ const displayEachTaskDay = (i) => {
 }
 
 
+
+const displaySelectedTaskDay = (i, filteredType) => {
+
+  const mappedArraySelectedDay = mainArray[i].z.map( (el, ind) => {
+
+    if (el.type == filteredType) {
+      
+      return `
+      <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;background-color:${isIndexEven(ind)}">
+
+      <div style="display: flex; flex-direction: row; align-items: center;" >
+
+      <div style="display: inline-block; width: 50px; height: 50px; background-color: ${typeDayBackground(el)}; margin-right: 10px;">
+      <img src=${typeDayIcon(el)} style='width:38px; height: 38px; padding: 5px;'>
+      </div>
+      
+      <div style="${doneTaskStyleCross(el)}" >${el.text}
+      </div>
+
+      <img src="images/completed.png" alt="logo done" class="icons_done" margin-left="12px" height="30px" width="30px" style="${doneTaskStyleIcon(el)}">
+
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: #E8E8E8;">
+
+      <input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb">
+
+      </div>
+
+      </div>
+
+      `
+
+    } else {
+
+      return;
+
+    }
+
+
+    
+    }
+  )
+
+  const joinmappedtransArrayDay3 = mappedArraySelectedDay.join("");
+
+  document.getElementById("task_list_output").insertAdjacentHTML('afterbegin', joinmappedtransArrayDay3);
+
+}
+
+
+
+
+
+
+
 //CLICK EVENT LISTENER
 
 document.addEventListener(
@@ -972,6 +1028,31 @@ document.addEventListener(
 
       document.getElementById("todo-type-selected-2").innerHTML = event.target.innerHTML;
       document.getElementById("myDropdown-2").classList.toggle("show");
+    }
+
+    else if (event.target.id.includes('filtered')) {
+
+      let filteredType = event.target.innerHTML;
+
+      removeTodoListDay();
+      
+      for (var i = 0; i < mainArray.length; i++) {
+
+        if (mainArray[i].a.includes(numberSave)) {
+
+          if (event.target.id === "filtered-all" ) {
+
+            displayEachTaskDay(i);
+
+          } else {
+
+            displaySelectedTaskDay(i, filteredType);
+
+          }
+          
+        }
+      }
+
     }
 
 
