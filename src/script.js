@@ -20,6 +20,10 @@ var transArray = [];
 let numberSave;
 
 
+
+
+
+
 const updateProfileTodos = () => {
 
   fetch('https://morning-wave-83831.herokuapp.com/todos', {
@@ -77,6 +81,19 @@ export class SavedDay extends Day {
 
 }
 
+export class QuickdDayNew extends Day {
+
+  constructor(a, z) {
+    super();
+    this.a = a;
+    this.f = "images/work_icon.png";
+    this.g = 'nada';
+    this.z = z;
+  }
+
+}
+
+
 
 export class Task {
 
@@ -84,7 +101,7 @@ export class Task {
     this.type = document.getElementById("todo-type-selected").innerHTML;
     this.done = false;
     this.text = text;
-    this.g = new Date().getTime();
+    this.g = Math.random()
   }
 
 }
@@ -96,10 +113,164 @@ export class TaskDay {
     this.type = document.getElementById("todo-type-selected-2").innerHTML;
     this.done = false;
     this.text = text;
-    this.g = new Date().getTime();
+    this.g = Math.random()
   }
 
 }
+
+
+export class TaskQuick {
+
+  constructor() {
+    this.type = document.getElementById('quick-todo-selected-2').innerHTML;
+    this.done = false;
+    this.text = document.getElementById('quick_input_list').value;
+    this.g = Math.random()
+  }
+
+}
+
+
+
+//QUICK ADD
+
+
+
+const whichMonth = (n) => {
+
+  switch(n) {
+    case 0:
+    return 'jan';
+    break;
+    case 1:
+    return 'feb';
+    break;
+    case 2:
+    return 'mar';
+    break;
+    case 3:
+    return 'apr';
+    break;
+    case 4:
+    return 'may';
+    break;
+    case 5:
+    return 'jun';
+    break;
+    case 6:
+    return 'jul';
+    break;
+    case 7:
+    return 'aug';
+    break;
+    case 8:
+    return 'sep';
+    break;
+    case 9:
+    return 'oct';
+    break;
+    case 10:
+    return 'nov';
+    break;
+    case 11:
+    return 'dec';
+    break;
+    default:
+    return '#6B5B95';
+  }
+
+}
+
+const makeTwoDigit = (no) => {
+
+  if (no < 10) {no = '0' + no;}
+
+return no;
+
+}
+
+const pickRangeDate = () => {
+
+
+  //GET QUICK-ADD DATES SEPERATELY INTO ARRAY FROM DATE RANGE INPUT FIELD
+
+  const fromDate = document.getElementById("quick-from-date").value;
+  const untilDate = document.getElementById("quick-until-date").value;
+
+  const startDate = new Date(fromDate);
+  const endDate = new Date(untilDate);
+
+
+  const getDateArray = (start, end) => {
+      const arr = new Array();
+      const dt = new Date(start);
+      while (dt <= end) {
+          arr.push(new Date(dt));
+          dt.setDate(dt.getDate() + 1);
+      }
+      return arr;
+  }
+  
+  const dateArr = getDateArray(startDate, endDate);
+
+  let i, j, h, n;
+ 
+
+  //CONVERT QUICK-ADD DATES ARRAY TO DATA-ATTRIBUTE DATES ARRAY
+
+  const quickDatesArray =  new Array();
+
+  for (i = 0; i < dateArr.length; i++) { 
+
+    const toDataAttrFormat = `dayname${makeTwoDigit(dateArr[i].getDate())}${whichMonth(dateArr[i].getMonth())}${dateArr[i].getFullYear()}`;
+
+    quickDatesArray.push(toDataAttrFormat);
+  
+  }
+
+
+
+  //EXISTING DAYS - ADD NEW TASK
+
+  for (j = 0; j < quickDatesArray.length; j++) {
+
+    for (h = 0; h < mainArray.length; h++)  {
+
+      if (quickDatesArray[j] == mainArray[h].a) {
+
+        const taskQuick = new TaskQuick();
+        mainArray[h].z.push(taskQuick);
+        quickDatesArray.splice(j, 1);
+        h--;
+
+      }
+    }
+  }
+  
+  console.log(quickDatesArray);
+
+
+  //NEW DAYS - CREATE NEW DAY WITH NEW TASK
+
+  for (n = 0; n < quickDatesArray.length; n++) {
+
+    let temporaryArr = [];
+    const taskQuick2 = new TaskQuick();
+    temporaryArr.push(taskQuick2);
+    const quickday = new QuickdDayNew (quickDatesArray[n], temporaryArr);
+    mainArray.push(quickday);
+    temporaryArr = [];
+   
+  }
+
+  Calendar.removeMonthHtml();
+  Calendar.loadMonthHtml();
+
+
+}
+
+
+//DISPLAYING TODO LIST FROM OBJECTS ARRAY
 
 
 const removeTodoList = () => {
@@ -313,14 +484,12 @@ const displaySelectedTaskDay = (i, filteredType) => {
 
       `
 
-    } else {
+      } else {
 
       return;
 
-    }
+      }
 
-
-    
     }
   )
 
@@ -329,6 +498,8 @@ const displaySelectedTaskDay = (i, filteredType) => {
   document.getElementById("task_list_output").insertAdjacentHTML('afterbegin', joinmappedtransArrayDay3);
 
 }
+
+
 
 
 
@@ -356,6 +527,7 @@ document.addEventListener(
       view.displayWelcome();
       const dayfull = new Day(dayNameAttribute, transArray);
       mainArray.push(dayfull);
+      console.log(mainArray);
       todos.countAllTodos();
       transArray = [];
      
@@ -422,14 +594,11 @@ document.addEventListener(
           view.calculateProgress(i);
           
           }
-
         }
 
         document.getElementById("input_list_output").value = '';
 
-
       }
-
 
     } 
     
@@ -535,12 +704,11 @@ document.addEventListener(
 
           }
 
-        }
+          removeTodoListDay();
+          displayEachTaskDay(y);
+          view.calculateProgress(y);
 
-        removeTodoListDay();
-        displayEachTaskDay(y);
-        view.calculateProgress(y);
-    
+        }
 
       }
 
@@ -558,15 +726,11 @@ document.addEventListener(
    
       for (let y = 0; y < mainArray.length; y++) {
 
-
         if (mainArray[y].a.includes(numberSave)) {
 
           for (let i = 0;  i < allTodos3Array.length; i++) {
-
-           
            
             if ( allTodos3Array[i].checked == true ) {
-
 
               for (var p = 0; p < mainArray[y].z.length; p++) {
 
@@ -582,11 +746,11 @@ document.addEventListener(
 
           }
 
-        }
+          removeTodoListDay();
+          displayEachTaskDay(y);
+          view.calculateProgress(y);
 
-        removeTodoListDay();
-        displayEachTaskDay(y);
-        view.calculateProgress(y);
+        }
 
       }
 
@@ -600,17 +764,12 @@ document.addEventListener(
       if (todos.inputLength(todos.input_todo_form()) > 0) {
 
         removeTodoList();
-
         let inputTodoForm = document.getElementById("input_list").value;
         const taskObj = new Task(inputTodoForm);
         transArray.push(taskObj);
-       
         displayEachTaskForm();
-
         document.getElementById("input_list").value = '';
-
         document.getElementById("delete_todo_form").style.display = "block";
-
 
       }
 
@@ -640,7 +799,6 @@ document.addEventListener(
         }
 
         document.getElementById("input_list_output").value = '';
-
 
       }
     }
@@ -1030,6 +1188,8 @@ document.addEventListener(
       document.getElementById("myDropdown-2").classList.toggle("show");
     }
 
+    //FILTERING
+
     else if (event.target.id.includes('filtered')) {
 
       let filteredType = event.target.innerHTML;
@@ -1055,7 +1215,74 @@ document.addEventListener(
 
     }
 
+// QUICK ADD
 
+
+//CHOOSE QUICK ADD FORM
+
+
+else if (event.target.id === "sombrero" || event.target.id === "queso")  {
+  document.getElementById("calendar-main").style.display = 'none';
+  document.getElementById("quick-add-form-wrapper").style.display = "flex";
+}
+
+
+//SELECT TODO TYPE DROPDOWN
+
+else if (event.target.id == 'quick-dropdown-area' || event.target.id == 'quick-drp-inside')
+
+{
+
+  if ( document.getElementById("quick-drp-list-2").style.display == "none") {
+
+    document.getElementById("quick-drp-list-2").style.display = "block";
+
+  }  
+
+  else {
+
+    document.getElementById("quick-drp-list-2").style.display = "none";
+
+  }
+
+}
+
+//SELECT TODO TYPE
+
+else if (event.target.id.includes("qck"))  {
+
+  document.getElementById("quick-todo-selected-2").innerHTML = event.target.innerHTML;
+  document.getElementById("quick-drp-list-2").style.display = "none";
+}
+
+//CLOSE QUICK ADD FORM
+
+else if (event.target.id.includes("btn-close-quick"))  {
+
+  document.getElementById("quick-add-form-wrapper").style.display = "none";
+  document.getElementById("calendar-main").style.display = 'grid';
+}
+
+//SUBMIT
+
+else if (event.target.id == 'btn-sbn-quick') {
+
+  const inputQuickTask = document.getElementById('quick_input_list').value;
+
+  if (inputQuickTask) {
+    
+    pickRangeDate();
+
+    document.getElementById("quick-add-form-wrapper").style.display = "none";
+    document.getElementById("calendar-main").style.display = 'grid';
+
+    } else {
+
+    console.log('empty input field');
+
+    }
+
+  }
 
 
 

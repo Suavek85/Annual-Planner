@@ -306,12 +306,13 @@ li {
 
 .box-calendar-main-wrapper {
   display: grid;
+  position: relative;
   grid-template-columns: 1;
   grid-template-rows: 14% 16% 13% 57%;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
   width: 35vw;
-  height: 470px;
+  height: 500px;
   margin: auto;
   border-radius: 5px;
 }
@@ -328,10 +329,10 @@ li {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   color: blueviolet;
   margin-top: 12px;
-  margin-bottom: 3px;
+  margin-bottom: 12px;
 }
 
 .weekdays_gen {
@@ -410,6 +411,157 @@ li {
   margin: auto;
   align-items: center;
 }
+
+
+/* QUICK ADD FORM BOX*/
+
+#quick-add-form-wrapper {
+
+  display: none;
+  flex-direction: column;
+  width: 40vw;
+  min-height: 250px;
+  max-height: 600px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 50px;
+  background-color: rgba(250, 250, 250, 0.8);
+
+
+}
+
+.quick-add-form-item {
+
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  margin-bottom: 15px;
+
+}
+
+.quickadd_input_wrapper {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 45px;
+  width: 100%;
+
+
+}
+
+
+#quick-todo-type-selected-2-wrapper {
+
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  
+  }
+
+
+  #quick-todo-type-selected-2 {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border-top: solid 1px lightgrey;
+    background-color: white;
+    height: 60%;
+    box-sizing: border-box;
+  }
+
+
+  #quick-from-date {
+
+    height: 45px;
+    margin-left: 10px;
+
+  }
+
+  #quick-until-date {
+
+    height: 45px;
+    margin-left: 10px;
+
+  }
+
+  .quickadd-bottom-buttons {
+
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 15px;
+
+  }
+
+  #btn-sbn-quick{
+
+   width: 90%;
+   background-color: #92b558;
+   padding: 7px;
+   border-radius: 20px;
+  }
+
+  #sbm-quick-wrappper{
+
+    padding: 8px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+ 
+
+  #btn-close-quick{
+
+    width: 90%;
+    background-color: #e15d44;
+    border-radius: 20px;
+    padding: 7px;
+   }
+ 
+   #close-btn-quick-wrapper{
+
+    padding: 8px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+
+
+
+   .quick-todos-header {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+  }
+
+  #quick-todo-selected-2 {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border-top: solid 1px lightgrey;
+    background-color: white;
+    height: 60%;
+    box-sizing: border-box;
+}
+
+
 
 /* FORM BOX*/
 
@@ -611,6 +763,19 @@ width: 20%;
   z-index: 1;
 }
 
+.quick-dropdown-list {
+  display: none;
+  position: absolute;
+  bottom: -203px;
+ 
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+
 .dropdown-list-item {
   color: black;
   padding: 5px 12px;
@@ -788,7 +953,7 @@ width: 20%;
   text-align: center;
 }
 
-#create-todos-header {
+.create-todos-header {
   background: rgba(0, 0, 0, 0.3);
   color: white;
   font-size: 16px;
@@ -933,10 +1098,19 @@ i {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  position: relative;
-  padding: 10px 20px 10px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px 5px 10px;
   border-radius: 50px;
 }
+
+#stats_main_logo {
+  width: 30px; 
+  height: 30px;
+  opacity: 0.7;
+}
+
 
 .quick-add-wrapper {
   display: flex;
@@ -970,19 +1144,6 @@ i {
   cursor: pointer;
 }
 
-#glow_dot {
-  position: absolute;
-  display: block;
-  top: 12px;
-  right: 13px;
-  width: 5px;
-  height: 5px;
-  background-color: grey;
-  border-radius: 4px;
-  -moz-box-shadow: 0 0 5px grey;
-  -webkit-box-shadow: 0 0 5px grey;
-  box-shadow: 0px 0px 5px grey;
-}
 
 .quick-add {
   position: relative;
@@ -998,13 +1159,12 @@ i {
   display: inline-block;
   color: #c3e3f0;
   font-size: 13px;
-  padding-top: 4px;
   text-align: center;
 }
 
 .stats_main .tooltip_stats {
   visibility: hidden;
-  width: 120px;
+  width: 160px;
   background-color: grey;
   color: #fff;
   text-align: center;
@@ -1012,7 +1172,7 @@ i {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  top: -7px;
+  top: 0px;
   right: 40px;
 }
 
@@ -1197,6 +1357,20 @@ input[type="textday"]::-webkit-input-placeholder {
 }
 
 
+input[type="textday-quick"] {
+  width: 80%;
+  box-sizing: content-box;
+  border: none;
+  background-color: #f0f0f0;
+  border-top: solid 0.5px lightgrey;
+}
+
+input[type="textday-quick"]::-webkit-input-placeholder {
+ font-size: 16px;
+
+}
+
+
 input[type="username"] {
   width: 200px;
   height: 30px;
@@ -1247,7 +1421,16 @@ input:focus {
   outline: none;
 }
 
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
 
+input[type=date]::-webkit-clear-button
+{
+    display: none; 
+    -webkit-appearance: none; 
+}
 
 
 
@@ -1504,7 +1687,7 @@ input:focus {
 
 @media only screen and (max-width: 680px) {
   .stats_main_logo_wrapper {
-    padding: 10px 20px 10px 20px;
+    padding: 5px 10px 5px 10px;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 50px;
   }
@@ -1517,6 +1700,7 @@ input:focus {
 
   .box-calendar-main-wrapper {
     margin-top: 0;
+    
     margin-left: auto;
     margin-right: auto;
     width: 100vw;

@@ -96,7 +96,7 @@ export const removeMonthHtml = () => {
 
 }
 
-const loadMonthHtml = () => {
+export const loadMonthHtml = () => {
 
   selectedYear = document.getElementById("selected_year").innerHTML;
   selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();

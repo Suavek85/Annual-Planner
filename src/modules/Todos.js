@@ -106,8 +106,7 @@ const todos = {
           const introStatsInfo = todosDone + " out of " + todosAll + " tasks done."
 
           this.googChart(todosDone, todosAll, introStatsInfo);
-          document.getElementById("glow_dot").style.backgroundColor = "orange";
-          document.getElementById("glow_dot").style.boxShadow = "0 0 5px orange";
+          
         
         }
     
