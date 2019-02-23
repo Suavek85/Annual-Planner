@@ -159,42 +159,114 @@
 
         <div id="calendar-main" class='box-calendar-main-wrapper'>
 
-            <div id="quickadd_stats">
-
-                <div class='quick-add-wrapper'>
-                    <img src="images/quick_add.png" style="width: 30px; height: 30px" alt="Quick add">
-                    <div class="quick-add">Quick Add</div>
-                </div>
-
                 <div class='stats_main_logo_wrapper'>
-                    <img id='stats_main_logo' src="images/todo_stats.png" style="width: 30px; height: 30px" alt="Statstics">
-                    <div id='stats_main_text' class="stats_main">
-                        Stats
-                        <span id="tooltip_statistics" class="tooltip_stats">No outstanding tasks</span>
 
-                    </div>
-                    <div id="glow_dot"></div>
+                        <div id='stats_main_text' class="stats_main">
+                                <img id='stats_main_logo' src="images/todo_stats.png"  alt="Statstics">
+                            <span id="tooltip_statistics" class="tooltip_stats">No outstanding tasks</span>
+    
+                        </div>
+
                 </div>
 
-            </div>
+                <div id="quickadd_stats">
 
-            <div class="year_month_gen"><img src='images/back.png' id="backarrow"> <span class='selected_month_year'><span
-                        id="selected_month"></span><span id="selected_year"></span></span><img src='images/next.png' id="nextarrow">
-            </div>
+                    <div class='quick-add-wrapper'>
+                        <img id='sombrero' src="images/quick_add.png" style="width: 40px; height: 40px" alt="Quick add">
+                    
+                    </div>
 
-            <div id="weekdaysid" class="weekdays_gen">
-                <div class="weekdays_item">Mon</div>
-                <div class="weekdays_item">Tue</div>
-                <div class="weekdays_item">Wed</div>
-                <div class="weekdays_item">Thu</div>
-                <div class="weekdays_item">Fri</div>
-                <div class="weekdays_item">Sat</div>
-                <div class="weekdays_item">Sun</div>
-            </div>
+                </div>
+
+                <div class="year_month_gen"><img src='images/back.png' id="backarrow">          <span class='selected_month_year'>
+                        <span id="selected_month"></span>
+                        <span id="selected_year"></span>
+                    </span>
+                    <img src='images/next.png' id="nextarrow">
+               </div>
+
+                <div id="weekdaysid" class="weekdays_gen">
+                    <div class="weekdays_item">Mon</div>
+                    <div class="weekdays_item">Tue</div>
+                    <div class="weekdays_item">Wed</div>
+                    <div class="weekdays_item">Thu</div>
+                    <div class="weekdays_item">Fri</div>
+                    <div class="weekdays_item">Sat</div>
+                    <div class="weekdays_item">Sun</div>
+                </div>
         </div>
 
 
-        <!-- FORM -->
+
+
+
+        <!-- QUICK ADD FORM -->
+
+        <div id="quick-add-form-wrapper">
+
+            <p class="quick-todos-header">Quick add todo:</p>
+
+
+
+            <div class="quick-add-form-item"> 
+                    <p>From:</p>
+                    <input id='quick-from-date' type='date' >
+            </div>
+
+
+            <div class="quick-add-form-item" >
+                    <p>Until:</p>
+                    <input id='quick-until-date' type='date' >
+            </div>
+
+           
+
+
+
+
+
+
+            <div class='quickadd_input_wrapper'>
+
+                <input id='quick_input_list' type='textday-quick' placeholder="enter here">
+                <div id='quick-todo-type-selected-2-wrapper'>
+
+                    <div id="quick-todo-selected-2">Home</div>
+                    <div id='quick-dropdown-area' class="todo-type-dropdown-2">
+
+                            <button  id='quick-drp-inside' class="todo-type-dropbtn-2"> <img class="button_day_icon_right" src="images/expand.png"></button>
+                            <div id="quick-drp-list-2" class="quick-dropdown-list">
+                
+                                <div id="qck-1" class="dropdown-list-item">Home</div>
+                                <div id="qck-2"  class="dropdown-list-item">Shopping</div>
+                                <div id="qck-3"  class="dropdown-list-item" >Celebration</div>
+                                <div id="qck-4"  class="dropdown-list-item" >Learning</div>
+                                <div id="qck-5"  class="dropdown-list-item" >Appointment</div>
+                                <div id="qck-6"  class="dropdown-list-item" >Health</div>
+                                <div id="qck-7"  class="dropdown-list-item" >Sports</div>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+                <div class='quickadd-bottom-buttons'>
+
+                    <div id='sbm-quick-wrappper'>
+                        <button id="btn-sbn-quick" class="button_day highlight" >Submit</button>
+                    </div>
+
+                        <div id='close-btn-quick-wrapper'>
+                        <button class="button_day highlight" id="btn-close-quick">Close</button>
+                    </div>
+
+                </div>
+
+        </div>
+
+        <!-- MAIN FORM -->
 
         <div id='form-main-wrapper'>
 
@@ -207,7 +279,7 @@
 
             <div class='form-create-todo-wrapper'>
 
-                    <p id="create-todos-header">Create todos list:</p>
+                    <p class="create-todos-header">Create todos list:</p>
 
                     <div id='todo-type-wrapper'>
                     <div id="todo-type-selected">Home</div>
@@ -415,18 +487,14 @@
 
 
         <!-- BOTTOM WELCOME SECTION -->
-        <!--
-        <div class='welcome'>
-            
-            <p class='welcome_text' id='outstanding_tasks'>You have zero outstanding tasks.</p>
-        </div>-->
+       
 
         <div class='quotes'>
             <p id='quotes_text'>“I opened two gifts this morning. They were my eyes.”</p>
         </div>
 
+        
         <script type="text/javascript" src="./bundle.js"></script>
-
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
         <!--
