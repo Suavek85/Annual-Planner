@@ -16,7 +16,7 @@ import * as Account from './modules/Account';
 let signedIn = false;
 let userId;
 let closeBtnPreviousIds = [];
-var transArray = [];
+let tasksArray = [];
 let numberSave;
 
 
@@ -52,7 +52,6 @@ export class Day {
   constructor(a, z) {
     this.a = a;
     this.f = view.takeTypeOfDay();
-    this.g = todos.ul_tasks().innerHTML;
     this.z = z;
   }
 
@@ -60,7 +59,6 @@ export class Day {
     const todosListHtml = `
     <div style="flex-basis: 4" id='todolist' class='mynotes-gen'>
     <div style="display: flex; flex-direction: column; min-height: 100px;" id='task_list_output'></div>
-   
     </div>`;
    document.getElementById("notes-box-top").insertAdjacentHTML("afterend", todosListHtml);
    document.getElementById("type-day-icon").src = this.f;
@@ -71,11 +69,10 @@ export class Day {
 
 export class SavedDay extends Day {
 
-  constructor(a, f, g, z) {
+  constructor(a, f, z) {
     super();
     this.a = a;
     this.f = f;
-    this.g = g;
     this.z = z;
   }
 
@@ -87,44 +84,18 @@ export class QuickdDayNew extends Day {
     super();
     this.a = a;
     this.f = "images/work_icon.png";
-    this.g = 'nada';
     this.z = z;
   }
 
 }
 
 
-
 export class Task {
 
-  constructor(text) {
-    this.type = document.getElementById("todo-type-selected").innerHTML;
+  constructor(type, text) {
+    this.type = type;
     this.done = false;
     this.text = text;
-    this.g = Math.random()
-  }
-
-}
-
-
-export class TaskDay {
-
-  constructor(text) {
-    this.type = document.getElementById("todo-type-selected-2").innerHTML;
-    this.done = false;
-    this.text = text;
-    this.g = Math.random()
-  }
-
-}
-
-
-export class TaskQuick {
-
-  constructor() {
-    this.type = document.getElementById('quick-todo-selected-2').innerHTML;
-    this.done = false;
-    this.text = document.getElementById('quick_input_list').value;
     this.g = Math.random()
   }
 
@@ -238,7 +209,10 @@ const pickRangeDate = () => {
 
       if (quickDatesArray[j] == mainArray[h].a) {
 
-        const taskQuick = new TaskQuick();
+        let one = document.getElementById('quick-todo-selected-2').innerHTML;
+        let two  = document.getElementById('quick_input_list').value;
+
+        const taskQuick = new Task (one, two);
         mainArray[h].z.push(taskQuick);
         quickDatesArray.splice(j, 1);
         h--;
@@ -255,8 +229,10 @@ const pickRangeDate = () => {
   for (n = 0; n < quickDatesArray.length; n++) {
 
     let temporaryArr = [];
-    const taskQuick2 = new TaskQuick();
-    temporaryArr.push(taskQuick2);
+    let one = document.getElementById('quick-todo-selected-2').innerHTML;
+    let two  = document.getElementById('quick_input_list').value;
+    const taskQuick = new Task(one, two);
+    temporaryArr.push(taskQuick);
     const quickday = new QuickdDayNew (quickDatesArray[n], temporaryArr);
     mainArray.push(quickday);
     temporaryArr = [];
@@ -396,16 +372,16 @@ const isIndexEven = (value) => {
 
 const displayEachTaskForm = () => {
 
-  const mappedtransArray = transArray.map(el => {
+  const mappedtasksArray = tasksArray.map(el => {
 
     return  `<input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb"><li style=${doneTaskStyleCross(el)} >${el.text} (${el.type})</li><img src="images/completed.png" alt="logo done" class="icons_done" height="16px" width="16px" style=${doneTaskStyleIcon(el)}><br>`
 
     }
   )
 
-  const joinmappedtransArray = mappedtransArray.join("");
+  const joinmappedtasksArray = mappedtasksArray.join("");
 
-  document.getElementById("task_list").insertAdjacentHTML('afterbegin', joinmappedtransArray);
+  document.getElementById("task_list").insertAdjacentHTML('afterbegin', joinmappedtasksArray);
 
 }
 
@@ -414,7 +390,7 @@ const displayEachTaskForm = () => {
 
 const displayEachTaskDay = (i) => {
 
-  const mappedtransArrayDay = mainArray[i].z.map( (el, ind) => {
+  const mappedtasksArrayDay = mainArray[i].z.map( (el, ind) => {
 
     return `
     <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;background-color:${isIndexEven(ind)}">
@@ -444,9 +420,9 @@ const displayEachTaskDay = (i) => {
     }
   )
 
-  const joinmappedtransArrayDay = mappedtransArrayDay.join("");
+  const joinmappedtasksArrayDay = mappedtasksArrayDay.join("");
 
-  document.getElementById("task_list_output").insertAdjacentHTML('afterbegin', joinmappedtransArrayDay);
+  document.getElementById("task_list_output").insertAdjacentHTML('afterbegin', joinmappedtasksArrayDay);
 
 }
 
@@ -493,9 +469,9 @@ const displaySelectedTaskDay = (i, filteredType) => {
     }
   )
 
-  const joinmappedtransArrayDay3 = mappedArraySelectedDay.join("");
+  const joinmappedtasksArrayDay3 = mappedArraySelectedDay.join("");
 
-  document.getElementById("task_list_output").insertAdjacentHTML('afterbegin', joinmappedtransArrayDay3);
+  document.getElementById("task_list_output").insertAdjacentHTML('afterbegin', joinmappedtasksArrayDay3);
 
 }
 
@@ -525,11 +501,11 @@ document.addEventListener(
       view.undisplayForm();
       view.displayCalendar();
       view.displayWelcome();
-      const dayfull = new Day(dayNameAttribute, transArray);
+      const dayfull = new Day(dayNameAttribute, tasksArray);
       mainArray.push(dayfull);
       console.log(mainArray);
       todos.countAllTodos();
-      transArray = [];
+      tasksArray = [];
      
       dayIndex = mainArray.findIndex(element => {
         return element.a === event.target.getAttribute("day-name");
@@ -651,11 +627,11 @@ document.addEventListener(
         
         if (allTodos[i].checked) {
 
-          for (var p = 0; p < transArray.length; p++) {
+          for (var p = 0; p < tasksArray.length; p++) {
 
-            if (transArray[p].g == allTodos[i].value) {
+            if (tasksArray[p].g == allTodos[i].value) {
 
-              transArray.splice(p, 1);
+              tasksArray.splice(p, 1);
               p--;
 
             }
@@ -765,8 +741,9 @@ document.addEventListener(
 
         removeTodoList();
         let inputTodoForm = document.getElementById("input_list").value;
-        const taskObj = new Task(inputTodoForm);
-        transArray.push(taskObj);
+        let typesTodo = document.getElementById("todo-type-selected").innerHTML;
+        const taskObj = new Task(typesTodo, inputTodoForm);
+        tasksArray.push(taskObj);
         displayEachTaskForm();
         document.getElementById("input_list").value = '';
         document.getElementById("delete_todo_form").style.display = "block";
@@ -790,7 +767,8 @@ document.addEventListener(
           if (mainArray[i].a.includes(numberSave)) {
 
             let inputTodoDay = document.getElementById("input_list_output").value;
-            const taskObj2 = new TaskDay(inputTodoDay);
+            let types = document.getElementById("todo-type-selected-2").innerHTML;
+            const taskObj2 = new Task(types, inputTodoDay);
             mainArray[i].z.push(taskObj2);
             displayEachTaskDay(i);
             view.calculateProgress(i);
@@ -1014,7 +992,7 @@ document.addEventListener(
 
               for (let i = 0; i < data.entries.length; i++) {
 
-                const savedDayFull = new SavedDay(data.entries[i].a, data.entries[i].f, data.entries[i].g, data.entries[i].z);
+                const savedDayFull = new SavedDay(data.entries[i].a, data.entries[i].f,  data.entries[i].z);
 
                 console.log(savedDayFull);
 
@@ -1221,7 +1199,7 @@ document.addEventListener(
 //CHOOSE QUICK ADD FORM
 
 
-else if (event.target.id === "sombrero" || event.target.id === "queso")  {
+else if (event.target.id === "fast-increase")  {
   document.getElementById("calendar-main").style.display = 'none';
   document.getElementById("quick-add-form-wrapper").style.display = "flex";
 }
