@@ -561,7 +561,10 @@ li {
     box-sizing: border-box;
 }
 
-
+#fast-increase {
+  width: 40px;
+   height: 40px";
+}
 
 /* FORM BOX*/
 
