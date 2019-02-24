@@ -21,9 +21,6 @@ let numberSave;
 
 
 
-
-
-
 const updateProfileTodos = () => {
 
   fetch('https://morning-wave-83831.herokuapp.com/todos', {
@@ -49,9 +46,9 @@ const updateProfileTodos = () => {
 
 
 export class Day {
-  constructor(a, z) {
+  constructor(a, f, z) {
     this.a = a;
-    this.f = view.takeTypeOfDay();
+    this.f = f;
     this.z = z;
   }
 
@@ -62,29 +59,6 @@ export class Day {
     </div>`;
    document.getElementById("notes-box-top").insertAdjacentHTML("afterend", todosListHtml);
    document.getElementById("type-day-icon").src = this.f;
-  }
-
-}
-
-
-export class SavedDay extends Day {
-
-  constructor(a, f, z) {
-    super();
-    this.a = a;
-    this.f = f;
-    this.z = z;
-  }
-
-}
-
-export class QuickdDayNew extends Day {
-
-  constructor(a, z) {
-    super();
-    this.a = a;
-    this.f = "images/work_icon.png";
-    this.z = z;
   }
 
 }
@@ -102,9 +76,7 @@ export class Task {
 }
 
 
-
 //QUICK ADD
-
 
 
 const whichMonth = (n) => {
@@ -233,7 +205,8 @@ const pickRangeDate = () => {
     let two  = document.getElementById('quick_input_list').value;
     const taskQuick = new Task(one, two);
     temporaryArr.push(taskQuick);
-    const quickday = new QuickdDayNew (quickDatesArray[n], temporaryArr);
+    let imageicon = 'images/work_icon.png';
+    const quickday = new Day (quickDatesArray[n], imageicon, temporaryArr);
     mainArray.push(quickday);
     temporaryArr = [];
    
@@ -501,7 +474,8 @@ document.addEventListener(
       view.undisplayForm();
       view.displayCalendar();
       view.displayWelcome();
-      const dayfull = new Day(dayNameAttribute, tasksArray);
+      const typeOfDay = view.takeTypeOfDay();
+      const dayfull = new Day(dayNameAttribute, typeOfDay, tasksArray);
       mainArray.push(dayfull);
       console.log(mainArray);
       todos.countAllTodos();
@@ -992,7 +966,7 @@ document.addEventListener(
 
               for (let i = 0; i < data.entries.length; i++) {
 
-                const savedDayFull = new SavedDay(data.entries[i].a, data.entries[i].f,  data.entries[i].z);
+                const savedDayFull = new Day(data.entries[i].a, data.entries[i].f,  data.entries[i].z);
 
                 console.log(savedDayFull);
 

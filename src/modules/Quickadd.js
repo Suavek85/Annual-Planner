@@ -1,0 +1,1 @@
+//import * as Main from '../script';
