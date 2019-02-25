@@ -791,6 +791,16 @@ width: 20%;
 }
 
 
+.type-of-day-wrapper {
+
+display: flex;
+align-items: center;
+justify-content: middle;
+
+}
+
+
+
 /* FORM RADIO - TYPE OF DAY */
 
 .form-item-radio {
@@ -879,7 +889,7 @@ width: 20%;
   height: 100%;
   width: 55%;
   background-color: #6f9fd8;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   border-right: 1px solid white;
   box-sizing: border-box;
@@ -911,7 +921,7 @@ width: 20%;
 #type-day-icon {
   width: 44px;
   height: 44px;
-  padding-right: 8px;
+  padding-right: 7px;
 }
 
 .close-save {
