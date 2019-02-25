@@ -61,6 +61,12 @@ export class Day {
    document.getElementById("type-day-icon").src = this.f;
   }
 
+  updateDay() {
+
+    this.f = document.getElementById("type-day-icon").src;
+  }
+  
+
 }
 
 
@@ -556,11 +562,14 @@ document.addEventListener(
     
     else if (event.target.id.includes("close-day")) {
 
-      //dayIndex = mainArray.findIndex(element => {
-        //return element.a === dayNameAttribute;
-      //});
+      dayIndex = mainArray.findIndex(element => {
+        return element.a === dayNameAttribute;
+      });
 
-      //mainArray[dayIndex].updateDay();
+      console.log(mainArray[dayIndex]);
+      console.log(document.getElementById("type-day-icon").src)
+
+      mainArray[dayIndex].updateDay();
 
       if (signedIn) {
         updateProfileTodos();
@@ -1236,7 +1245,77 @@ else if (event.target.id == 'btn-sbn-quick') {
 
   }
 
+  else if (event.target.id === 'right-change-day') {
 
+
+    
+    const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"]
+
+    var i;
+
+    for (i = 0; i < dayTypesArray.length; i++) {
+
+      
+
+    if ( document.getElementById('type-day-icon').src.includes(dayTypesArray[i]))  {
+
+
+
+      if (i === 2) {
+        document.getElementById('type-day-icon').src = dayTypesArray[0];
+      } else {
+        console.log(dayTypesArray[i++])
+
+        document.getElementById('type-day-icon').src = dayTypesArray[i++];
+
+      } 
+
+    }
+
+}
+
+
+
+  
+    }
+
+
+    else if (event.target.id == 'left-change-day') {
+
+    
+
+      const dayTypesArray2 = ["images/holidays_icon.png","images/dayoff_icon.png","images/work_icon.png" ]
+
+      var i;
+  
+      for (i = 0; i < dayTypesArray2.length; i++) {
+  
+        
+  
+      if ( document.getElementById('type-day-icon').src.includes(dayTypesArray2[i]))  {
+  
+        console.log('hehe')
+  
+        if (i === 2) {
+          document.getElementById('type-day-icon').src = dayTypesArray2[0];
+        } else {
+          console.log(dayTypesArray2[i++])
+  
+          document.getElementById('type-day-icon').src = dayTypesArray2[i++];
+  
+        } 
+  
+      }
+  
+  }
+
+  
+    
+      }
+
+
+
+  
 
   },
   false
