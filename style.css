@@ -850,7 +850,7 @@ justify-content: middle;
 }
 
 
-/* NOTES BOX*/
+/* DAY - NOTES BOX*/
 
 .card-weather-wrapper {
   display: flex;
@@ -1042,6 +1042,30 @@ justify-content: middle;
 .dropdown:hover .day-menu-item-dropdown {
   background-color: #3e8e41;
 }
+
+
+#left-change-day {
+
+  transform: rotate(90deg);
+  margin-right: 7px;
+  opacity: 0.7;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+
+}
+
+#right-change-day {
+
+  transform: rotate(-90deg);
+  opacity: 0.7;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+
+}
+
+
 
 /* PROGRESS BAR */
 
