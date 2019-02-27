@@ -224,6 +224,29 @@ const view = {
 
     takeDailyNotes: function() {
       return document.getElementById("notes").value;
+    },
+
+    rotateDayTypes: function(dayTypesArray) {
+
+      let i;
+
+      for (i = 0; i < dayTypesArray.length; i++) {
+
+        if ( document.getElementById('type-day-icon').src.includes(dayTypesArray[i]))  {
+  
+          if (i ===  dayTypesArray.length -1)  {
+            document.getElementById('type-day-icon').src = dayTypesArray[0];
+          } 
+            
+          else {
+            document.getElementById('type-day-icon').src = dayTypesArray[i + 1];
+   
+          } 
+  
+          break;
+  
+        } 
+      }
     }
 
   
