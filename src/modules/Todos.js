@@ -46,8 +46,6 @@ export class Task {
 }
 
 
-
-
 export const todos = {
 
     input_todo_form: function() {
@@ -473,8 +471,8 @@ export const addTheTaskDay = (numberSave) => {
   
       <div style="display: flex; flex-direction: row; align-items: center;" >
   
-      <div style="display: inline-block; width: 50px; height: 50px; background-color: ${typeDayBackground(el)}; margin-right: 10px;">
-      <img src=${typeDayIcon(el)} style='width:38px; height: 38px; padding: 5px;'>
+      <div style="display: inline-block; width: 45px; height: 45px; background-color: ${typeDayBackground(el)}; margin: 5px 10px 5px 5px;">
+      <img src=${typeDayIcon(el)} style='width:35px; height: 35px; padding: 5px;'>
       </div>
       
       <div style="${doneTaskStyleCross(el)}" >${el.text}
@@ -484,7 +482,7 @@ export const addTheTaskDay = (numberSave) => {
   
       </div>
   
-      <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: #E8E8E8;">
+      <div style="display: flex; align-items: center; justify-content: center; width: 60px; height: 55px; background-color: #E8E8E8;">
   
       <input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb">
   
@@ -512,28 +510,28 @@ export const addTheTaskDay = (numberSave) => {
         
         return `
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;background-color:${isIndexEven(ind)}">
-  
+    
         <div style="display: flex; flex-direction: row; align-items: center;" >
-  
-        <div style="display: inline-block; width: 50px; height: 50px; background-color: ${typeDayBackground(el)}; margin-right: 10px;">
-        <img src=${typeDayIcon(el)} style='width:38px; height: 38px; padding: 5px;'>
+    
+        <div style="display: inline-block; width: 45px; height: 45px; background-color: ${typeDayBackground(el)}; margin: 5px 10px 5px 5px;">
+        <img src=${typeDayIcon(el)} style='width:35px; height: 35px; padding: 5px;'>
         </div>
         
         <div style="${doneTaskStyleCross(el)}" >${el.text}
         </div>
-  
+    
         <img src="images/completed.png" alt="logo done" class="icons_done" margin-left="12px" height="30px" width="30px" style="${doneTaskStyleIcon(el)}">
-  
+    
         </div>
-  
-        <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: #E8E8E8;">
-  
+    
+        <div style="display: flex; align-items: center; justify-content: center; width: 60px; height: 55px; background-color: #E8E8E8;">
+    
         <input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb">
-  
+    
         </div>
-  
+    
         </div>
-  
+    
         `
   
         } 

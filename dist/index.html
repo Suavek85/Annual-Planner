@@ -278,38 +278,44 @@
 
             <div class='form-create-todo-wrapper'>
 
-                    <p class="create-todos-header">Create todos list:</p>
+                    <p class="create-todos-header">Create a todo list:</p>
+
+                    <input id='input_list' type='text' placeholder="enter here">
+
+                    
+
+
+
+
+
+                <div class='form-create-buttons-wrapper'>
+
+                    <button class="form-item-2 highlight" id='enter'>Add</button>
 
                     <div id='todo-type-wrapper'>
-                    <div id="todo-type-selected">Home</div>
-                    <div class="todo-type-dropdown">
-                            <button id='btn-form-dropdown' class="todo-type-dropbtn">Type<img width="12px" height="12px" style="padding-left: 5px;" src="images/expand.png"></button>
-                            <div id="myDropdown" class="dropdown-list">
-                
-                              <div id="drop-down-1" class="dropdown-list-item">Home</div>
-                              <div id="drop-down-2"  class="dropdown-list-item">Shopping</div>
-                              <div id="drop-down-3"  class="dropdown-list-item" >Celebration</div>
-                              <div id="drop-down-4"  class="dropdown-list-item" >Learning</div>
-                              <div id="drop-down-5"  class="dropdown-list-item" >Appointment</div>
-                              <div id="drop-down-6"  class="dropdown-list-item" >Health</div>
-                              <div id="drop-down-7"  class="dropdown-list-item" >Sports</div>
-                            </div>
-                    </div>
-                    </div>
+                        <div id="todo-type-selected">Home</div>
+                        <div class="todo-type-dropdown">
+                                <button id='btn-form-dropdown' class="todo-type-dropbtn"><img width="12px" height="12px" style="padding-left: 5px;" src="images/expand.png"></button>
+                                <div id="myDropdown" class="dropdown-list">
+                    
+                                  <div id="drop-down-1" class="dropdown-list-item">Home</div>
+                                  <div id="drop-down-2"  class="dropdown-list-item">Shopping</div>
+                                  <div id="drop-down-3"  class="dropdown-list-item" >Celebration</div>
+                                  <div id="drop-down-4"  class="dropdown-list-item" >Learning</div>
+                                  <div id="drop-down-5"  class="dropdown-list-item" >Appointment</div>
+                                  <div id="drop-down-6"  class="dropdown-list-item" >Health</div>
+                                  <div id="drop-down-7"  class="dropdown-list-item" >Sports</div>
+                                </div>
+                        </div>
+                        </div>
 
+                        <button class="form-item-3 highlight" id='delete_todo_form'><img src="images/rubbish_white.png" class="form_delete_todo_icon"></button>
 
-
-
-                <div id='todo-list-wrapper'>
-                
-
-                <input id='input_list' type='text' placeholder="enter here"><br>
-                <div class='form-create-buttons-wrapper'>
-                    <button class="form-item-2 highlight" id='enter'>Enter</button>
-                    <button class="form-item-3 highlight" id='delete_todo_form'>Delete</button>
                 </div>
               
-            </div>
+          
+
+
             <ul id="task_list"></ul>
 
             </div>
@@ -404,9 +410,23 @@
                             <div id="filtered-health" class="dropdown-content-item" >Health</div>
                             <div id="filtered-sports" class="dropdown-content-item" >Sports</div>
                     </div>
-                    
+
                     
                     </div>
+
+                    
+
+                    <div class='button_row_wrapper-2'>
+                    
+                            <button id='delete_output' class='button_day button_day_4 highlight'><img src='images/rubbish_red.png' class='button_day_icon_left' ></img></button>
+                        
+                            <button id='completed' class='button_day button_day_3 highlight'><img  src='images/checked-white.png' class='button_day_icon_left' >
+                                </img></button>
+         
+         
+                            
+         
+                         </div>
 
                     
                     
@@ -414,23 +434,19 @@
             </div>
 
 
+           
+            
+
+
+
+
 
             <div class='day-bottom-buttons'>
-
-                    <div class='button_row_wrapper'>
-                    
-                            <button id='completed' class='button_day button_day_3 highlight'><img  src='images/checked_white.png' class='button_day_icon_left' >
-                            </img>Done</button>
-         
-         
-                             <button id='delete_output' class='button_day button_day_4 highlight'><img src='images/rubbish_white.png' class='button_day_icon_left' ></img>Delete</button>
-         
-                         </div>
-
+            
                 
                     <div class='day_input_wrapper'>
 
-                            <button id='add' class='button_day button_day_2 highlight'><img class='button_day_icon_left' src='images\add-white.png' ></img>Add</button>
+                            <button id='add' class='button_day button_day_2 highlight'><img class='button_day_icon_add' src='images\add-white.png' ></img>Add</button>
 
                     <input id='input_list_output' type='textday' placeholder="enter here">
                         
