@@ -166,8 +166,6 @@ export const locationWeather = () => {
     
           document.getElementById('collapsible_weather').insertAdjacentHTML('afterbegin', extraWeatherHtmltoString);
 
-
-      
       })
 
   }
@@ -176,8 +174,5 @@ export const locationWeather = () => {
 
 }
 
-/*
-<img id="weather-icon" src="" alt="">
-                    <p id="weather"></p><span id='weather-city'></span>
-                </div> */
+
 

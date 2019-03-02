@@ -124,13 +124,6 @@ const view = {
       quotes.style.display = "block";
     },
 
-    undisplayCalendar: function() {
-      document.getElementById("calendar-main").style.display = 'none';
-    },
-      
-    displayCalendar: function() {
-      document.getElementById("calendar-main").style.display = 'grid'; 
-    },
 
     removeSigninWarning: function() {
 
@@ -247,9 +240,118 @@ const view = {
   
         } 
       }
+    },
+
+
+    displayCalendar: function() {
+
+      document.getElementById("calendar-main").style.display = 'grid';
+
+    },
+
+    undisplayCalendar: function() {
+
+      document.getElementById("calendar-main").style.display = 'none';
+
+    },
+
+    displayQuickAddForm: function() {
+
+      document.getElementById("quick-add-form-wrapper").style.display = 'flex';
+
+    },
+
+    undisplayQuickAddForm: function() {
+
+      document.getElementById("quick-add-form-wrapper").style.display = 'none';
+
+    },
+
+    toggleShowTasksDropdownDay: function(){
+
+      document.getElementById("myDropdown-2").classList.toggle("show");
+    },
+
+    toggleShowTasksDropdownForm: function(){
+
+      document.getElementById("myDropdown").classList.toggle("show");
+    },
+
+    displayDeleteForm: function() {
+
+      document.getElementById("delete_todo_form").style.display = "block";
+    },
+
+    emptyInputForm: function() {
+
+      document.getElementById("input_list").value = '';
+    },
+
+    emptyInputDay: function() {
+
+      document.getElementById("input_list_output").value = '';
+    },
+
+    displayMoreWeather: function(event) {
+
+      const showMoreWeather = document.getElementById("collapsible_weather");
+      
+      if (showMoreWeather.style.transform == "scaleY(1)") {
+        showMoreWeather.style.transform = "scaleY(0)";
+        event = "images/expand.png";
+      } 
+      
+      else {
+        showMoreWeather.style.transform = "scaleY(1)";
+        event = "images/collapse.png";
+      }
+
+    },
+
+    displayMoreWeatherResp: function() {
+      document.getElementById("collapsible_weather_responsive").style.display = "flex";
+    },
+
+    undisplayMoreWeatherResp: function() {
+      document.getElementById("collapsible_weather_responsive").style.display = "none";
+    },
+
+    displayMoreHolidaysResp: function() {
+      document.getElementById("collapsible_holidays_responsive").style.display = "flex";
+    },
+
+    undisplayMoreHolidaysrResp: function() {
+      document.getElementById("collapsible_holidays_responsive").style.display = "none";
+    },
+
+    displayStatsBox: function() {
+      document.getElementById("stats-main").style.display = 'flex';
+    },
+
+    undisplayStatsBox: function() {
+      document.getElementById("stats-main").style.display = 'none';
+    },
+
+    toggleDropdownForm: function() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    },
+
+    toggleDropdownDay: function() {
+      document.getElementById("myDropdown-2").classList.toggle("show");
+    },
+
+    toggleDropdownQuick: function() {
+      if ( document.getElementById("quick-drp-list-2").style.display == "none") {
+        document.getElementById("quick-drp-list-2").style.display = "block";
+      }  else {
+        document.getElementById("quick-drp-list-2").style.display = "none";
+      }
+    },
+
+    undisplayDropdownQuick: function() {
+      document.getElementById("quick-drp-list-2").style.display = "none";
     }
 
-  
   };
 
   export {view};

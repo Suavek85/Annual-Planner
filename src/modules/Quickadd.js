@@ -62,7 +62,7 @@ const whichMonth = (n) => {
   
   }
   
-  export const pickRangeDate = () => {
+  export const daysFromDateRange = () => {
   
   
     //GET QUICK-ADD DATES SEPERATELY INTO ARRAY FROM DATE RANGE INPUT FIELD

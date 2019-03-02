@@ -17,7 +17,6 @@ import {
   onSignOut,
   updateProfileTodos
   
-  
 } from './modules/Todos';
 import {
   welcome
@@ -32,10 +31,8 @@ import * as Quickadd from './modules/Quickadd';
 import * as Calendar from './modules/Calendar';
 
 
-
 let closeBtnPreviousIds = [];
 let numberSave;
-
 
 
 //CLICK EVENT LISTENER
@@ -46,8 +43,8 @@ document.addEventListener(
 
     const dayNameAttribute = event.target.getAttribute("day-name");
     let dayIndex;
-    //let dayIndexforOpen;
     const currentId = event.target.id;
+    //let dayIndexforOpen;
 
 
     //SUBMIT NEW DAY
@@ -60,18 +57,16 @@ document.addEventListener(
       submitTheNewDay(dayIndex , dayNameAttribute);
       view.removeSubmitButton();
       view.clearTodo();
-
       updateProfileTodos();
-      
-
+    
+    } 
+    
 
     //ADD DAY OR OPEN DAY
-
-
-    } else if (event.target.id.includes("calendar")) {
+    
+    else if (event.target.id.includes("calendar")) {
 
       view.undisplayCalendar();
-
 
       if (!event.target.style.borderRadius) {
 
@@ -143,7 +138,6 @@ document.addEventListener(
     
     else if (event.target.id.includes("delete_todo_form")) {
 
-
       deleteTaskForm();
       removeTodoList();
       displayEachTaskForm();
@@ -174,12 +168,10 @@ document.addEventListener(
 
         removeTodoList();
         addTheTaskForm();
-
-        document.getElementById("input_list").value = '';
-        document.getElementById("delete_todo_form").style.display = "block";
+        view.emptyInputForm();
+        view.displayDeleteForm();
 
       }
-
     } 
     
     //ADD TASK - DAY
@@ -191,9 +183,7 @@ document.addEventListener(
 
         removeTodoListDay();
         addTheTaskDay(numberSave);
-
-        document.getElementById("input_list_output").value = '';
-
+        view.emptyInputDay();   
       }
     }
 
@@ -219,17 +209,8 @@ document.addEventListener(
 
     else if (event.target.id === 'showmore-weather') {
 
-      const showMoreWeather = document.getElementById("collapsible_weather");
-      
-      if (showMoreWeather.style.transform == "scaleY(1)") {
-        showMoreWeather.style.transform = "scaleY(0)";
-        event.target.src = "images/expand.png";
-      } 
-      
-      else {
-        showMoreWeather.style.transform = "scaleY(1)";
-        event.target.src = "images/collapse.png";
-      }
+      const evtSource = event.target.src;
+      view.displayMoreWeather(evtSource);
       
     }
 
@@ -258,6 +239,7 @@ document.addEventListener(
 
 
         if (document.getElementById("login-wrapper").style.display === "flex") {
+
           document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
           document.getElementById("login-wrapper").style.display = "none";
         }
@@ -302,7 +284,6 @@ document.addEventListener(
           if (document.getElementById("register-wrapper").style.display === "flex") {
             Account.removeRegisterWrapperDesktop();
           }
-
         } 
         
         else {
@@ -331,14 +312,11 @@ document.addEventListener(
       if (document.getElementById('login-wrapper').style.display === "flex") {
 
         Account.removeLoginWrapperDesktop();
-
-
-      } else if (document.getElementById('register-wrapper').style.display === "flex") {
-
+      } 
+      
+      else if (document.getElementById('register-wrapper').style.display === "flex") {
         Account.removeRegisterWrapperDesktop();
-
       }
-
     }
 
 
@@ -346,7 +324,7 @@ document.addEventListener(
 
     else if (event.target.id === "showmore-weather-resp-icon" || event.target.id === "showmore-weather-resp-text") {
 
-      document.getElementById("collapsible_weather_responsive").style.display = "flex";
+      view.displayMoreWeatherResp();
 
     }
 
@@ -354,21 +332,22 @@ document.addEventListener(
 
     else if (event.target.id === "collapsible_weather_close") {
 
-      document.getElementById("collapsible_weather_responsive").style.display = "none";
+      view.undisplayMoreWeatherResp();
 
     }
 
     //SHOW HOLIDAYS RESPONSIVE
 
     else if (event.target.id === "expand-holidays-resp-logo" || event.target.id === "expand-holidays-resp-text") {
-      document.getElementById("collapsible_holidays_responsive").style.display = "flex";
+
+      view.displayMoreHolidaysResp();
 
     }
 
-    //CLOSE HOLIDAYS RESPOSIVE
+    //CLOSE HOLIDAYS RESPONSIVE
     else if (event.target.id === "collapsible_holidays_responsive_close") {
 
-      document.getElementById("collapsible_holidays_responsive").style.display = "none";
+      view.undisplayMoreHolidaysrResp();
     }
 
     //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
@@ -378,15 +357,13 @@ document.addEventListener(
       Account.undisplayAccountPopupResp();
       Account.removeLogbox();
       Account.removeRegisterBox();
-
-
     }
 
     //ON ACCOUNT DIV CLICK - RESPONSIVE
 
     else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text') {
 
-      document.getElementById("credentials-pop-up").style.display = "flex";
+      Account.displayAccountPopupResp();
       Account.removeLogbox();
       Account.insertLogBox();
       Account.focusSigninResponsive();
@@ -424,9 +401,9 @@ document.addEventListener(
 
     else if (event.target.id === 'stats_main_logo' || event.target.id === 'stats_main_text') {
 
-      document.getElementById("stats-main").style.display = 'flex';
+      view.displayStatsBox();
       todos.countAllTodos();
-      document.getElementById("calendar-main").style.display = 'none'
+      view.undisplayCalendar();
 
     }
 
@@ -434,14 +411,14 @@ document.addEventListener(
 
     else if (event.target.id === 'close_stats') {
 
-      document.getElementById("stats-main").style.display = 'none';
-      document.getElementById("calendar-main").style.display = 'grid'
+      view.undisplayStatsBox();
+      view.displayCalendar();
     }
 
     //TOGGLE FORM DROPDOWN MENU
 
     else if (event.target.id === 'btn-form-dropdown') {
-      document.getElementById("myDropdown").classList.toggle("show");
+      view.toggleDropdownForm();
     }
 
     //ON DROPDOWN ITEM CLICK - FORM
@@ -449,13 +426,13 @@ document.addEventListener(
     else if (event.target.id.includes("drop-down-"))  {
 
       document.getElementById("todo-type-selected").innerHTML = event.target.innerHTML;
-      document.getElementById("myDropdown").classList.toggle("show");
+      view.toggleShowTasksDropdownForm();
     }
 
     //TOGGLE DAY DROPDOWN MENU
 
     else if (event.target.id === 'todo-day-dropdown-area' || event.target.id === 'todo-day-dropdown-area-2' ) {
-      document.getElementById("myDropdown-2").classList.toggle("show");
+      view.toggleShowTasksDropdownDay();
     }
 
     //ON DROPDOWN ITEM CLICK - DAY
@@ -463,7 +440,7 @@ document.addEventListener(
     else if (event.target.id.includes("day-down"))  {
 
       document.getElementById("todo-type-selected-2").innerHTML = event.target.innerHTML;
-      document.getElementById("myDropdown-2").classList.toggle("show");
+      view.toggleDropdownDay();
     }
 
     //FILTERING
@@ -484,43 +461,31 @@ document.addEventListener(
 
 
 else if (event.target.id === "fast-increase")  {
-  document.getElementById("calendar-main").style.display = 'none';
-  document.getElementById("quick-add-form-wrapper").style.display = "flex";
+  view.undisplayCalendar();
+  view.displayQuickAddForm();
 }
 
 
 //SELECT TODO TYPE DROPDOWN
 
-else if (event.target.id == 'quick-dropdown-area' || event.target.id == 'quick-drp-inside')
-
-{
-
-  if ( document.getElementById("quick-drp-list-2").style.display == "none") {
-
-    document.getElementById("quick-drp-list-2").style.display = "block";
-  }  
-
-  else {
-
-    document.getElementById("quick-drp-list-2").style.display = "none";
+else if (event.target.id == 'quick-dropdown-area' || event.target.id == 'quick-drp-inside'){
+view.toggleDropdownQuick();
   }
-
-}
 
 //SELECT TODO TYPE
 
 else if (event.target.id.includes("qck"))  {
 
   document.getElementById("quick-todo-selected-2").innerHTML = event.target.innerHTML;
-  document.getElementById("quick-drp-list-2").style.display = "none";
+  view.undisplayDropdownQuick();
 }
 
 //CLOSE QUICK ADD FORM
 
 else if (event.target.id.includes("btn-close-quick"))  {
 
-  document.getElementById("quick-add-form-wrapper").style.display = "none";
-  document.getElementById("calendar-main").style.display = 'grid';
+  view.undisplayQuickAddForm();
+  view.displayCalendar();
 }
 
 //SUBMIT
@@ -531,28 +496,25 @@ else if (event.target.id == 'btn-sbn-quick') {
 
   if (inputQuickTask) {
     
-    Quickadd.pickRangeDate();
-
-    document.getElementById("quick-add-form-wrapper").style.display = "none";
-    document.getElementById("calendar-main").style.display = 'grid';
-
-    } else {
-
+    Quickadd.daysFromDateRange();
+    view.undisplayQuickAddForm();
+    view.displayCalendar();
+  } 
+    
+  else {
     console.log('empty input field');
-
-    }
-
   }
+}
 
   //CHANGE DAY TYPE- RIGHT ARROW
 
-  else if (event.target.id === 'right-change-day') {
+else if (event.target.id === 'right-change-day') {
 
     const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"]
 
     view.rotateDayTypes(dayTypesArray);
 
-  } 
+} 
   
 //CHANGE DAY TYPE- LEFT ARROW
 
@@ -563,9 +525,10 @@ else if (event.target.id == 'left-change-day') {
 
   view.rotateDayTypes(dayTypesArray);
 
-    }
+}
 
-  },
+},
+
   false
 );
 

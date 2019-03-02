@@ -121,3 +121,9 @@ export const undisplayAccountPopupResp = () => {
     document.getElementById("credentials-pop-up").style.display = "none";
 
 }
+
+export const displayAccountPopupResp = () => {
+
+    document.getElementById("credentials-pop-up").style.display = "flex";
+
+}
