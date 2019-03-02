@@ -174,7 +174,7 @@ export const loadMonthHtml = () => {
 
     const joinHtmlArray = addHtmlToDaysArray.join("");
     
-    const emptyDays = `<div></div>`.repeat(monthStartDay - 1);
+    const emptyDays = `<div style='padding: 5px;'></div>`.repeat(monthStartDay - 1);
     
     const fullCalendarHtml = `
     <div id="fullcalhtml" class="month_days_gen">
