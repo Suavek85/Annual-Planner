@@ -130,11 +130,25 @@ export const loadMonthHtml = () => {
     else { return ''}
     }
 
+    const calcMonthNumber = () => {
 
-    monthStartDay = (new Date(selectedYear + "-" + monthNumber + "-01").getDay());
+      if (monthNumber < 10) {
+
+        '0' + monthNumber
+
+      }
+
+      return monthNumber;
+      
+    }
+
+
+    monthStartDay = (new Date(selectedYear + "-" + calcMonthNumber() + "-01").getDay());
     if (monthStartDay === 0) {
     monthStartDay = 7
     }
+
+    
 
 
     let i;
