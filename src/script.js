@@ -261,7 +261,6 @@ document.addEventListener(
 
       view.removeRegisterWarning();
       onRegisterButton();
-
     }
 
     //TOGGLE DISPLAYING SIGN IN SECTION

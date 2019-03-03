@@ -269,7 +269,7 @@ li {
 #register-wrapper {
   position: absolute;
   top: 53px;
-  left: 35;
+  left: 35px;
   z-index: 20;
   display: none;
   color: black;
@@ -1600,7 +1600,7 @@ input[type=date]::-webkit-clear-button
 }
 
 #credentials-pop-up {
-  width: 50%;
+  width: 100vw;
   height: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -1763,6 +1763,21 @@ input[type=date]::-webkit-clear-button
     width: 70vw;
   }
 
+  #form-main-wrapper {
+    width: 70vw;
+  }
+
+  #quick-add-form-wrapper{
+    width: 70vw;
+  }
+
+
+  #form-column-wrapper {
+    width: 70vw;
+   
+  }
+
+
   .stats-wrapper {
     width: 100vw;
   }
@@ -1784,7 +1799,7 @@ input[type=date]::-webkit-clear-button
   }
 
   .notes-box-wrapper {
-    width: 50vw;
+    width: 70vw;
   }
 }
 

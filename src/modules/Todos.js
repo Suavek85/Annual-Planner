@@ -648,6 +648,7 @@ export const addTheTaskDay = (numberSave) => {
         todos.countAllTodos();
         document.getElementById("btn-login-txt").innerHTML = 'Sign out';
         Account.removeRegisterWrapperDesktop();
+        Account.undisplayAccountPopupResp();
         document.getElementById("top-welcome-message").innerHTML = `${nameRegister}`;
 
       }
@@ -709,12 +710,16 @@ export const addTheTaskDay = (numberSave) => {
         Calendar.loadCurrentYear();
         Calendar.loadCurrentMonthHtml();
 
+        /*
+        if (document.getElementById("login-wrapper").hasChildNodes()) {
         document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
+        }
         document.getElementById("login-wrapper").style.display = "none";
-
+        */
+        Account.removeLoginWrapperDesktop();
+        Account.undisplayAccountPopupResp();
         view.displaySignOut();
         document.getElementById("top-welcome-message").innerHTML = `${nameSignin}!`;
-
 
       } 
       

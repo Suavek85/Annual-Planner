@@ -69,17 +69,21 @@ export const insertLoginWrapperDesktop = () => {
 }
 
 export const removeRegisterWrapperDesktop = () => {
+
+    if (document.getElementById("register-wrapper").hasChildNodes()) {
     document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
+    }
     document.getElementById("register-wrapper").style.display = "none";
 
 }
   
 
 export const removeLoginWrapperDesktop = () => {
+
+    if (document.getElementById("login-wrapper").hasChildNodes()) {
     document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
-
-          document.getElementById("login-wrapper").style.display = "none";
-
+    }
+    document.getElementById("login-wrapper").style.display = "none";
 }
 
 
@@ -126,4 +130,10 @@ export const displayAccountPopupResp = () => {
 
     document.getElementById("credentials-pop-up").style.display = "flex";
 
+}
+
+export const undisplayProfileBoxResposive = () => {
+      if (document.getElementById('credentials-pop-up').style.display === 'flex') {
+        document.getElementById('credentials-pop-up').style.display = 'none';
+      }
 }

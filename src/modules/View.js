@@ -166,6 +166,7 @@ const view = {
 
     },
 
+    
     displayWrongCredentials: function() {
 
       document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p id="signin-note">Wrong credentials</p>');
@@ -352,6 +353,7 @@ const view = {
       document.getElementById("quick-drp-list-2").style.display = "none";
     }
 
+    
   };
 
   export {view};
