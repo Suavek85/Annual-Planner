@@ -354,8 +354,7 @@ document.addEventListener(
     else if (event.target.id === "credentials-pop-up-close") {
 
       Account.undisplayAccountPopupResp();
-      Account.removeLogbox();
-      Account.removeRegisterBox();
+      Account.removeLogOrRegisterBoxResponsive();
     }
 
     //ON ACCOUNT DIV CLICK - RESPONSIVE
@@ -363,8 +362,8 @@ document.addEventListener(
     else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text') {
 
       Account.displayAccountPopupResp();
-      Account.removeLogbox();
-      Account.insertLogBox();
+      Account.removeLogOrRegisterBoxResponsive();
+      Account.insertLogBoxResponsive();
       Account.focusSigninResponsive();
       Account.unfocusRegisterResponsive();
 
@@ -374,9 +373,8 @@ document.addEventListener(
 
     else if (event.target.id === 'btn-login-txt-responsive') {
 
-      Account.removeLogbox();
-      Account.removeRegisterBox();
-      Account.insertLogBox();
+      Account.removeLogOrRegisterBoxResponsive();
+      Account.insertLogBoxResponsive();
       Account.focusSigninResponsive();
       Account.unfocusRegisterResponsive();
 
@@ -386,9 +384,8 @@ document.addEventListener(
 
     else if (event.target.id === 'btn-register-txt-responsive') {
 
-      Account.removeLogbox();
-      Account.removeRegisterBox();
-      Account.insertRegisterBox();
+      Account.removeLogOrRegisterBoxResponsive();
+      Account.insertRegisterBoxResponsive();
       Account.focusRegisterResponsive();
       Account.unfocusSigninResponsive();
       todos.countAllTodos();

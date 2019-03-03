@@ -28,30 +28,20 @@ export const registerBoxHtml = `<div id='regbox' class='register-box'>
 </div>`
 
 
-const logboxExist = document.getElementById("logbox");
+export const removeLogOrRegisterBoxResponsive = () => {
 
-const regboxExist = document.getElementById("regbox");
-
-export const removeLogbox = () => {
-    if (document.getElementById("logbox")) {
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
-      }
-}
-
-export const removeRegisterBox = () => {
-
-    if (document.getElementById("regbox")) {
+    if (document.getElementById("signorregister_form").hasChildNodes()) {
         document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
     }
 }
 
-export const insertLogBox = () => {
+export const insertLogBoxResponsive = () => {
 
     document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", logBoxHtml);
 
 }
 
-export const insertRegisterBox = () => {
+export const insertRegisterBoxResponsive = () => {
 
     document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", registerBoxHtml);
 

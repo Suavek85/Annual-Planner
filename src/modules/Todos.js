@@ -709,13 +709,6 @@ export const addTheTaskDay = (numberSave) => {
         Calendar.removeMonthHtml();
         Calendar.loadCurrentYear();
         Calendar.loadCurrentMonthHtml();
-
-        /*
-        if (document.getElementById("login-wrapper").hasChildNodes()) {
-        document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
-        }
-        document.getElementById("login-wrapper").style.display = "none";
-        */
         Account.removeLoginWrapperDesktop();
         Account.undisplayAccountPopupResp();
         view.displaySignOut();
