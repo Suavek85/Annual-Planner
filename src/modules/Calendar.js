@@ -24,6 +24,46 @@ const currentMonthLenghtCalc = () => {
   
   let currentMonthName = document.getElementById("selected_month").innerHTML;
   let currentYearTake = parseFloat(document.getElementById("selected_year").innerHTML)
+
+  switch(currentMonthName ) {
+    case "December":
+     monthNumber = 12;
+    break;
+    case "January":
+    monthNumber = 1;
+    break;
+    case "February":
+    monthNumber = 2;
+    break;
+    case "March":
+    monthNumber = 3;
+    break;
+    case "April":
+    monthNumber = 4;
+    break;
+    case "May":
+    monthNumber = 5;
+    break;
+    case "June":
+    monthNumber = 6;
+    break;
+    case "July":
+    monthNumber = 7;
+    break;
+    case "August":
+    monthNumber = 8;
+    break;
+    case "September":
+    monthNumber = 9;
+    break;
+    case "November":
+    monthNumber = 11;
+    break;
+    default:
+     monthNumber = 12;
+  }
+  
+/*
   
   if (currentMonthName === "December") {
     monthNumber = 12;
@@ -72,6 +112,7 @@ const currentMonthLenghtCalc = () => {
   else if (currentMonthName === "November") {
     monthNumber = 11;
   }
+  */
     
   daysInMonth(monthNumber, currentYearTake);
  
@@ -96,50 +137,53 @@ export const removeMonthHtml = () => {
 
 }
 
+
+//LOAD MONTH HTML
+
+
 export const loadMonthHtml = () => {
 
   selectedYear = document.getElementById("selected_year").innerHTML;
   selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
 
 
-  const addPastDaysStyle = (el) => {
+    const addPastDaysStyle = (el) => {
 
-    const toOneDigit = el => {  
-  
-    let startsWithZero = el.startsWith("0"); 
-    let slicedEl;
-
-    if (startsWithZero == true) 
-      { slicedEl = el.slice(1); 
+      const toOneDigit = el => {  
     
-    } 
-      else { slicedEl = el;}
-      return slicedEl;
-    }
+      let startsWithZero = el.startsWith("0"); 
+      let slicedEl;
+
+      if (startsWithZero == true) 
+        { slicedEl = el.slice(1); 
+      
+      } 
+        else { slicedEl = el;}
+        return slicedEl;
+      }
 
 
-    const toTimestamp = (el) => {
-      const fullDate = new Date(selectedYear, monthNumber - 1, toOneDigit(el), '23', '59', '59');
-      return fullDate.getTime()/1000;
-     }
-     
-    
-    if (toTimestamp(el) < currentTimestamp()) { 
-      return 'color: darkgray;';
-    }
-    else { return ''}
-    }
+      const toTimestamp = (el) => {
+        const fullDate = new Date(selectedYear, monthNumber - 1, toOneDigit(el), '23', '59', '59');
+        return fullDate.getTime()/1000;
+      }
+      
+      
+      if (toTimestamp(el) < currentTimestamp()) { 
+        return 'color: darkgray;';
+      }
+      else { return ''}
+      }
+
+
 
     const calcMonthNumber = () => {
 
-      if (monthNumber < 10) {
+      if (monthNumber < 10  ){
 
-        '0' + monthNumber
-
+       monthNumber = '0' + monthNumber;
       }
-
       return monthNumber;
-      
     }
 
 
@@ -147,8 +191,9 @@ export const loadMonthHtml = () => {
     if (monthStartDay === 0) {
     monthStartDay = 7
     }
-
     
+    console.log(monthNumber);
+    console.log(monthStartDay);
 
 
     let i;
@@ -189,6 +234,8 @@ export const loadMonthHtml = () => {
     const joinHtmlArray = addHtmlToDaysArray.join("");
     
     const emptyDays = `<div style='padding: 5px;'>&nbsp</div>`.repeat(monthStartDay - 1);
+
+   
     
     const fullCalendarHtml = `
     <div id="fullcalhtml" class="month_days_gen">
@@ -199,6 +246,20 @@ export const loadMonthHtml = () => {
     document.getElementById("weekdaysid").insertAdjacentHTML('afterend', fullCalendarHtml);
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export const loadCurrentMonthHtml = () => {
@@ -285,11 +346,16 @@ monthNumber = 11 }
   {  selectedMo.innerHTML = "December";
 monthNumber = 12 }
 
+
+
+
 daysInMonth (monthNumber, selectedYe.innerHTML); 
 selectedYear = document.getElementById("selected_year").innerHTML;
 selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
 removeMonthHtml();
 loadMonthHtml();
+
+
 
 }
 
