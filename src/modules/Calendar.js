@@ -16,9 +16,13 @@ export const loadCurrentYear = () => {
   document.getElementById("selected_year").innerHTML = year;
 }
 
+
 const daysInMonth = (month, year) => {
   daysInMonthNumber = new Date(year, month, 0).getDate();
 }
+
+
+//CURRENT MONTH LENGTH
 
 const currentMonthLenghtCalc = () => {
   
@@ -60,85 +64,29 @@ const currentMonthLenghtCalc = () => {
     monthNumber = 11;
     break;
     default:
-     monthNumber = 12;
-  }
-  
-/*
-  
-  if (currentMonthName === "December") {
     monthNumber = 12;
   }
-    
-  else if (currentMonthName === "January") {
-    monthNumber = 1;
-  }
-
-  else if (currentMonthName === "February") {
-    monthNumber = 2;
-  }
-
-  else if (currentMonthName === "March") {
-    monthNumber = 3;
-  }
-  
-  else if (currentMonthName === "April") {
-    monthNumber = 4;
-  }
-
-  else if (currentMonthName === "May") {
-    monthNumber = 5;
-  }
-  
-  else if (currentMonthName === "June") {
-    monthNumber = 6;
-  }
-  
-  else if (currentMonthName === "July") {
-    monthNumber = 7;
-  }
-    
-  else if (currentMonthName === "August") {
-    monthNumber = 8;
-  }
-
-  else if (currentMonthName === "September") {
-    monthNumber = 9;
-  }
-
-  else if (currentMonthName === "October") {
-    monthNumber = 10;
-  }
-  
-  else if (currentMonthName === "November") {
-    monthNumber = 11;
-  }
-  */
-    
   daysInMonth(monthNumber, currentYearTake);
- 
 }
 
 
 const currentTimestamp = () => {
-
-  const d = new Date();
-  const fullYear = d.getFullYear();
-  const fullMonth = d.getMonth() 
-  const fullDay = d.getDate()
+  const newD = new Date();
+  const fullYear = newD.getFullYear();
+  const fullMonth = newD.getMonth() 
+  const fullDay = newD.getDate()
   const fullDate = new Date(fullYear,fullMonth,fullDay);
   return fullDate.getTime()/1000;
  }
 
 
 export const removeMonthHtml = () => {
-
   const fullMonthHtml = document.getElementById("fullcalhtml");
   fullMonthHtml.remove();
-
 }
 
 
-//LOAD MONTH HTML
+//LOAD ANY MONTH - HTML
 
 
 export const loadMonthHtml = () => {
@@ -149,39 +97,41 @@ export const loadMonthHtml = () => {
 
     const addPastDaysStyle = (el) => {
 
-      const toOneDigit = el => {  
+        const toOneDigit = el => {  
+      
+          let startsWithZero = el.startsWith("0"); 
+          let slicedEl;
+
+          if (startsWithZero == true) { 
+            slicedEl = el.slice(1); 
+          } 
+          else { slicedEl = el;}
+
+          return slicedEl;
+        }
+
+
+        const toTimestamp = (el) => {
+          const fullDate = new Date(selectedYear, monthNumber - 1, toOneDigit(el), '23', '59', '59');
+          return fullDate.getTime()/1000;
+        }
+      
+        if (toTimestamp(el) < currentTimestamp()) { 
+          return 'color: darkgray;';
+        }
+        
+        else { return ''}
+    }
+
+
     
-      let startsWithZero = el.startsWith("0"); 
-      let slicedEl;
-
-      if (startsWithZero == true) 
-        { slicedEl = el.slice(1); 
-      
-      } 
-        else { slicedEl = el;}
-        return slicedEl;
-      }
-
-
-      const toTimestamp = (el) => {
-        const fullDate = new Date(selectedYear, monthNumber - 1, toOneDigit(el), '23', '59', '59');
-        return fullDate.getTime()/1000;
-      }
-      
-      
-      if (toTimestamp(el) < currentTimestamp()) { 
-        return 'color: darkgray;';
-      }
-      else { return ''}
-      }
-
-
 
     const calcMonthNumber = () => {
 
       if (monthNumber < 10  ){
-
-       monthNumber = '0' + monthNumber;
+        if (typeof monthNumber !== 'string') {
+          monthNumber = '0' + monthNumber;
+        }
       }
       return monthNumber;
     }
@@ -192,10 +142,7 @@ export const loadMonthHtml = () => {
     monthStartDay = 7
     }
     
-    console.log(monthNumber);
-    console.log(monthStartDay);
-
-
+  
     let i;
     let daysInMonthArray = [];
 
@@ -248,19 +195,7 @@ export const loadMonthHtml = () => {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//LOAD CURRENT MONTH 
 
 export const loadCurrentMonthHtml = () => {
   
@@ -286,143 +221,143 @@ export const loadCurrentMonthHtml = () => {
   loadMonthHtml();
 }
 
+//LOAD MONTH FORWRD
 
 export const newMonthsForward = () => {
 
-let selectedMo = document.getElementById("selected_month");
-let selectedYe = document.getElementById("selected_year");
+  let selectedMo = document.getElementById("selected_month");
+  let selectedYe = document.getElementById("selected_year");
 
-if (selectedMo.innerHTML === "December") 
-
-{ selectedMo.innerHTML = "January";
-selectedYe.innerHTML = parseFloat(selectedYe.innerHTML) + 1;
-monthNumber = 1;
-}
-
-else if (selectedMo.innerHTML === "January") 
-{ selectedMo.innerHTML = "February";
- monthNumber = 2;
-} 
-
-else if (selectedMo.innerHTML === "February") 
-{ selectedMo.innerHTML = "March"; 
-monthNumber = 3;
-}
-
-else if (selectedMo.innerHTML === "March") 
-{  selectedMo.innerHTML = "April";
-monthNumber = 4
-}
-
- else if (selectedMo.innerHTML === "April") 
- {  selectedMo.innerHTML = "May";
-monthNumber = 5 }
-
- else if (selectedMo.innerHTML === "May") 
- {  selectedMo.innerHTML = "June";
-monthNumber = 6}
-
- else if (selectedMo.innerHTML === "June") 
- {  selectedMo.innerHTML = "July";
-monthNumber = 7}
-
- else if (selectedMo.innerHTML === "July") 
- {  selectedMo.innerHTML = "August";
-monthNumber = 8 }
-
- else if (selectedMo.innerHTML === "August") 
- {  selectedMo.innerHTML = "September";
-monthNumber = 9 }
-
- else if (selectedMo.innerHTML === "September") 
- {  selectedMo.innerHTML = "October";
-monthNumber = 10 }
-
- else if (selectedMo.innerHTML === "October") 
- {  selectedMo.innerHTML = "November";
-monthNumber = 11 }
-
- else if (selectedMo.innerHTML === "November")
-  {  selectedMo.innerHTML = "December";
-monthNumber = 12 }
-
-
-
-
-daysInMonth (monthNumber, selectedYe.innerHTML); 
-selectedYear = document.getElementById("selected_year").innerHTML;
-selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
-removeMonthHtml();
-loadMonthHtml();
-
-
+  switch(selectedMo.innerHTML) {
+      case "December":
+      selectedMo.innerHTML = "January";
+      selectedYe.innerHTML = parseFloat(selectedYe.innerHTML) + 1;
+      monthNumber = 1;
+      break;
+      case "January":
+      selectedMo.innerHTML = "February";
+      monthNumber = 2;
+      break;
+      case "February":
+      selectedMo.innerHTML = "March"; 
+      monthNumber = 3;
+      break;
+      case "March":
+      selectedMo.innerHTML = "April";
+      monthNumber = 4
+      break;
+      case "April":
+      selectedMo.innerHTML = "May";
+      monthNumber = 5 
+      break;
+      case "May":
+      selectedMo.innerHTML = "June";
+      monthNumber = 6
+      break;
+      case "June":
+      selectedMo.innerHTML = "July";
+      monthNumber = 7
+      break;
+      case "July":
+      selectedMo.innerHTML = "August";
+      monthNumber = 8
+      break;
+      case "August":
+      selectedMo.innerHTML = "September";
+      monthNumber = 9
+      break;
+      case "September":
+      selectedMo.innerHTML = "October";
+      monthNumber = 10 
+      break;
+      case "October":
+      selectedMo.innerHTML = "November";
+      monthNumber = 11
+      break;
+      case "November":
+      selectedMo.innerHTML = "December";
+      monthNumber = 12
+      break;
+      default:
+      selectedMo.innerHTML = "December";
+      monthNumber = 12
+    }
+  
+  daysInMonth (monthNumber, selectedYe.innerHTML); 
+  selectedYear = document.getElementById("selected_year").innerHTML;
+  selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
+  removeMonthHtml();
+  loadMonthHtml();
 
 }
 
+//LOAD MONTH BACKWARD
 
 export const newMonthsBackward = () => {
 
-let selectedMoBack = document.getElementById("selected_month");
-let selectedYeBack = document.getElementById("selected_year");
+  let selectedMoBack = document.getElementById("selected_month");
+  let selectedYeBack = document.getElementById("selected_year");
 
-if (selectedMoBack.innerHTML === "December") 
-{ selectedMoBack.innerHTML = "November";
-monthNumber = 11;
-}
+  switch(selectedMoBack.innerHTML) {
+      case "December":
+      selectedMoBack.innerHTML = "November";
+      monthNumber = 11;
+      break;
+      case "January":
+      selectedMoBack.innerHTML = "December";
+      selectedYeBack.innerHTML = parseFloat(selectedYeBack.innerHTML) - 1;
+      monthNumber = 12;
+      break;
+      case "February":
+      selectedMoBack.innerHTML = "January"; 
+      monthNumber = 1;
+      break;
+      case "March":
+      selectedMoBack.innerHTML = "February";
+      monthNumber = 2;
+      break;
+      case "April":
+      selectedMoBack.innerHTML = "March";
+      monthNumber = 3;
+      break;
+      case "May":
+      selectedMoBack.innerHTML = "April";
+      monthNumber = 4;
+      break;
+      case "June":
+      selectedMoBack.innerHTML = "May";
+      monthNumber = 5;
+      break;
+      case "July":
+      selectedMoBack.innerHTML = "June";
+      monthNumber = 6;
+      break;
+      case "August":
+      selectedMoBack.innerHTML = "July";
+      monthNumber = 7;
+      break;
+      case "September":
+      selectedMoBack.innerHTML = "August";
+      monthNumber = 8;
+      break;
+      case "October":
+      selectedMoBack.innerHTML = "September";
+      monthNumber = 9;
+      break;
+      case "November":
+      selectedMoBack.innerHTML = "October";
+      monthNumber = 10;
+      break;
+      default:
+      selectedMoBack.innerHTML = "October";
+      monthNumber = 10;
+  }
 
-else if (selectedMoBack.innerHTML === "January") 
-{ selectedMoBack.innerHTML = "December";
-selectedYeBack.innerHTML = parseFloat(selectedYeBack.innerHTML) - 1;
- monthNumber = 12;
-} 
-
-else if (selectedMoBack.innerHTML === "February") 
-{ selectedMoBack.innerHTML = "January"; 
-monthNumber = 1;
-}
-
-else if (selectedMoBack.innerHTML === "March") 
-{  selectedMoBack.innerHTML = "February";
-monthNumber = 2;
-}
-
- else if (selectedMoBack.innerHTML === "April") 
- {  selectedMoBack.innerHTML = "March";
-monthNumber = 3; }
-
- else if (selectedMoBack.innerHTML === "May") 
- {  selectedMoBack.innerHTML = "April";
-monthNumber = 4;}
-
- else if (selectedMoBack.innerHTML === "June") 
- {  selectedMoBack.innerHTML = "May";
-monthNumber = 5;}
-
- else if (selectedMoBack.innerHTML === "July") 
- {  selectedMoBack.innerHTML = "June";
-monthNumber = 6; }
-
- else if (selectedMoBack.innerHTML === "August") 
- {  selectedMoBack.innerHTML = "July";
-monthNumber = 7; }
-
- else if (selectedMoBack.innerHTML === "September") 
- {  selectedMoBack.innerHTML = "August";
-monthNumber = 8; }
-
- else if (selectedMoBack.innerHTML === "October") 
- {  selectedMoBack.innerHTML = "September";
-monthNumber = 9; }
-
- else if (selectedMoBack.innerHTML === "November")
-  {  selectedMoBack.innerHTML = "October";
-monthNumber = 10; }
-
-daysInMonth (monthNumber, selectedYeBack.innerHTML); 
-selectedYear = document.getElementById("selected_year").innerHTML;
-selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
-removeMonthHtml();
-loadMonthHtml();
+  daysInMonth (monthNumber, selectedYeBack.innerHTML); 
+  selectedYear = document.getElementById("selected_year").innerHTML;
+  selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
+  removeMonthHtml();
+  loadMonthHtml();
 
 }
 

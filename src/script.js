@@ -417,7 +417,7 @@ document.addEventListener(
 
     //TOGGLE FORM DROPDOWN MENU
 
-    else if (event.target.id === 'btn-form-dropdown') {
+    else if (event.target.id === 'btn-form-dropdown' || event.target.id === 'wrap-drpdn-area' ) {
       view.toggleDropdownForm();
     }
 
