@@ -9,6 +9,7 @@ export let mainArray = [];
 export let tasksArray = [];
 let signedIn = false;
 let userId;
+//let dayIndex;
 
 
 export class Day {
@@ -156,22 +157,22 @@ export const todos = {
   };
 
 
-export const submitTheNewDay = (dayIndex, dayNameAttribute) => {
+export const submitTheNewDay = (dayNameAttribute) => {
 
   const typeOfDay = view.takeTypeOfDay();
   const dayfull = new Day(dayNameAttribute, typeOfDay, tasksArray);
   mainArray.push(dayfull);
   todos.countAllTodos();
   tasksArray = [];
-  dayIndex = mainArray.findIndex(element => {
-    return element.a === event.target.getAttribute("day-name");
-  });
+  //let dayIndex = mainArray.findIndex(element => {
+    //return element.a === event.target.getAttribute("day-name");
+ // });
 }
 
-export const openTheDay = (numberSave) => {
+export const openTheDay = (numberSave, dayNameAttribute) => {
 
   let dayIndexforOpen = mainArray.findIndex(element => {
-    return element.a === event.target.getAttribute("day-name");
+    return element.a === dayNameAttribute;
   });
 
   mainArray[dayIndexforOpen].createDayOnCard();
@@ -188,9 +189,9 @@ export const openTheDay = (numberSave) => {
 }
   
 
-export const updateTheDay = (dayIndex, dayNameAttribute) => {
+export const updateTheDay = (dayNameAttribute) => {
 
-  dayIndex = mainArray.findIndex(element => {
+  let dayIndex = mainArray.findIndex(element => {
     return element.a === dayNameAttribute;
   });
 

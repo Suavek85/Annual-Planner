@@ -42,7 +42,7 @@ document.addEventListener(
   event => {
 
     const dayNameAttribute = event.target.getAttribute("day-name");
-    let dayIndex;
+    //let dayIndex;
     const currentId = event.target.id;
     //let dayIndexforOpen;
 
@@ -54,7 +54,9 @@ document.addEventListener(
       view.undisplayForm();
       view.displayCalendar();
       view.displayWelcome();
-      submitTheNewDay(dayIndex , dayNameAttribute);
+      submitTheNewDay(
+        //dayIndex , 
+        dayNameAttribute);
       view.removeSubmitButton();
       view.clearTodo();
       updateProfileTodos();
@@ -96,7 +98,7 @@ document.addEventListener(
         const currentDate = [event.target.id.slice(8, 10), c, event.target.id.slice(10, 11).toUpperCase(), event.target.id.slice(11, 13), c, event.target.id.slice(13)].join('');
         document.getElementById("notes-box-top-right-text").innerHTML = currentDate;
 
-        openTheDay( numberSave);  
+        openTheDay( numberSave, dayNameAttribute);  
 
         document.getElementById("input_list_output").value = '';
 
@@ -108,7 +110,9 @@ document.addEventListener(
     
     else if (event.target.id.includes("close-day")) {
 
-      updateTheDay(dayIndex , dayNameAttribute);
+      updateTheDay(
+        //dayIndex , 
+        dayNameAttribute);
       updateProfileTodos();
       todos.countAllTodos();
       view.displayCalendar();
