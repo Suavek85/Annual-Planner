@@ -9,7 +9,6 @@ export let mainArray = [];
 export let tasksArray = [];
 let signedIn = false;
 let userId;
-//let dayIndex;
 
 
 export class Day {
@@ -164,9 +163,6 @@ export const submitTheNewDay = (dayNameAttribute) => {
   mainArray.push(dayfull);
   todos.countAllTodos();
   tasksArray = [];
-  //let dayIndex = mainArray.findIndex(element => {
-    //return element.a === event.target.getAttribute("day-name");
- // });
 }
 
 export const openTheDay = (numberSave, dayNameAttribute) => {

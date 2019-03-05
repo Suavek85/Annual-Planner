@@ -293,18 +293,35 @@ const view = {
       document.getElementById("input_list_output").value = '';
     },
 
-    displayMoreWeather: function(event) {
+    displayMoreWeather: function(evtSource) {
 
       const showMoreWeather = document.getElementById("collapsible_weather");
       
       if (showMoreWeather.style.transform == "scaleY(1)") {
         showMoreWeather.style.transform = "scaleY(0)";
-        event = "images/expand.png";
+        evtSource = "images/expand.png";
       } 
       
       else {
         showMoreWeather.style.transform = "scaleY(1)";
-        event = "images/collapse.png";
+        evtSource = "images/collapse.png";
+      }
+
+    },
+
+    displayMoreHolidays: function(evtSource) {
+
+      const showMoreHols = document.getElementById("collapsible_holidays");
+
+      if (showMoreHols.style.display === "block") {
+
+        document.getElementById("collapsible_holidays").style.display = 'none';
+        evtSource = "images/expand.png";
+
+      } else {
+        document.getElementById("collapsible_holidays").style.display = 'block';
+        evtSource= "images/collapse.png";
+
       }
 
     },
@@ -351,6 +368,10 @@ const view = {
 
     undisplayDropdownQuick: function() {
       document.getElementById("quick-drp-list-2").style.display = "none";
+    },
+
+    clearInputFieldDay: function() {
+      document.getElementById("input_list_output").value = '';
     }
 
     

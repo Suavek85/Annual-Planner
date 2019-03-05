@@ -47,13 +47,26 @@ export const insertRegisterBoxResponsive = () => {
 
 }
 
+
+export const displayRegisterWrapperDesktop = () => {
+
+    document.getElementById('register-wrapper').style.display = "flex";
+}
+
+
 export const insertRegisterWrapperDesktop = () => {
     document.getElementById("register-wrapper").insertAdjacentHTML("afterbegin", registerBoxHtml);
 
 }
   
 
+export const displayLoginWrapperDesktop = () => {
+
+    document.getElementById("login-wrapper").style.display = "flex";
+}
+
 export const insertLoginWrapperDesktop = () => {
+
     document.getElementById("login-wrapper").insertAdjacentHTML("afterbegin", logBoxHtml);
 
 }
@@ -126,4 +139,17 @@ export const undisplayProfileBoxResposive = () => {
       if (document.getElementById('credentials-pop-up').style.display === 'flex') {
         document.getElementById('credentials-pop-up').style.display = 'none';
       }
+}
+
+export const undisplayOnWindowResize = () => {
+
+    if (window.innerWidth > 980) {
+        undisplayProfileBoxResposive();
+        removeLogOrRegisterBoxResponsive();
+    }
+      
+    else {
+        removeLoginWrapperDesktop();
+        removeRegisterWrapperDesktop()
+    }
 }

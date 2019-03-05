@@ -34,7 +34,6 @@ import * as Calendar from './modules/Calendar';
 let closeBtnPreviousIds = [];
 let numberSave;
 
-
 //CLICK EVENT LISTENER
 
 document.addEventListener(
@@ -42,11 +41,8 @@ document.addEventListener(
   event => {
 
     const dayNameAttribute = event.target.getAttribute("day-name");
-    //let dayIndex;
     const currentId = event.target.id;
-    //let dayIndexforOpen;
-
-
+  
     //SUBMIT NEW DAY
 
     if (event.target.id.includes("submit_")) {
@@ -54,9 +50,7 @@ document.addEventListener(
       view.undisplayForm();
       view.displayCalendar();
       view.displayWelcome();
-      submitTheNewDay(
-        //dayIndex , 
-        dayNameAttribute);
+      submitTheNewDay(dayNameAttribute);
       view.removeSubmitButton();
       view.clearTodo();
       updateProfileTodos();
@@ -80,6 +74,7 @@ document.addEventListener(
         const elementStyle = event.target.style;
         view.createGreenCircle(elementStyle);
 
+        //refact
         const b = " ";
         const currentDate = [currentId.slice(8, 10), b, currentId.slice(10, 11).toUpperCase(), currentId.slice(11, 13), b, currentId.slice(13)].join('');
         closeBtnPreviousIds.push(currentId);
@@ -94,13 +89,18 @@ document.addEventListener(
         todos.countAllTodos();
         numberSave = event.target.id.slice(-9);
         view.displaySaveExitButton(numberSave);
+
+
+        //refact
         const c = " ";
         const currentDate = [event.target.id.slice(8, 10), c, event.target.id.slice(10, 11).toUpperCase(), event.target.id.slice(11, 13), c, event.target.id.slice(13)].join('');
         document.getElementById("notes-box-top-right-text").innerHTML = currentDate;
 
+
+
         openTheDay( numberSave, dayNameAttribute);  
 
-        document.getElementById("input_list_output").value = '';
+        view.clearInputFieldDay();
 
       }
 
@@ -110,9 +110,7 @@ document.addEventListener(
     
     else if (event.target.id.includes("close-day")) {
 
-      updateTheDay(
-        //dayIndex , 
-        dayNameAttribute);
+      updateTheDay(dayNameAttribute);
       updateProfileTodos();
       todos.countAllTodos();
       view.displayCalendar();
@@ -129,6 +127,7 @@ document.addEventListener(
 
       view.displayCalendar();
 
+      //refact      
       document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.borderRadius = null;
       document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.backgroundColor = null;
 
@@ -195,18 +194,8 @@ document.addEventListener(
 
     else if (event.target.id === "expand-holidays") {
 
-     const showMoreHols = document.getElementById("collapsible_holidays");
-
-      if (showMoreHols.style.display === "block") {
-
-        document.getElementById("collapsible_holidays").style.display = 'none';
-        event.target.src = "images/expand.png";
-
-      } else {
-        document.getElementById("collapsible_holidays").style.display = 'block';
-        event.target.src = "images/collapse.png";
-
-      }
+      const evtSource = event.target.src;
+      view.displayMoreWeather(evtSource);
     }
 
     //TOGGLE SHOWING MORE WEATHER - DESKTOP
@@ -238,22 +227,15 @@ document.addEventListener(
 
       if (document.getElementById('register-wrapper').style.display === "none") {
 
-        document.getElementById('register-wrapper').style.display = "flex";
+        Account.displayRegisterWrapperDesktop();
         Account.insertRegisterWrapperDesktop();
-
-
-        if (document.getElementById("login-wrapper").style.display === "flex") {
-
-          document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
-          document.getElementById("login-wrapper").style.display = "none";
-        }
-
+        Account.removeLoginWrapperDesktop();
+        
       } 
       
       else {
 
-        document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
-        document.getElementById("register-wrapper").style.display = "none";
+        Account.removeRegisterWrapperDesktop();
       }
     }
 
@@ -281,7 +263,7 @@ document.addEventListener(
 
         if (document.getElementById('login-wrapper').style.display === "none") {
 
-          document.getElementById("login-wrapper").style.display = "flex";
+          Account.displayLoginWrapperDesktop();
           Account.insertLoginWrapperDesktop();
 
           if (document.getElementById("register-wrapper").style.display === "flex") {
@@ -357,7 +339,7 @@ document.addEventListener(
 
     else if (event.target.id === "credentials-pop-up-close") {
 
-      Account.undisplayAccountPopupResp();
+      Account.undisplayProfileBoxResposive();
       Account.removeLogOrRegisterBoxResponsive();
     }
 
@@ -493,8 +475,11 @@ else if (event.target.id.includes("btn-close-quick"))  {
 else if (event.target.id == 'btn-sbn-quick') {
 
   const inputQuickTask = document.getElementById('quick_input_list').value;
+  const fromDate = document.getElementById("quick-from-date").value;
+  const untilDate = document.getElementById("quick-until-date").value;
 
-  if (inputQuickTask) {
+  if (inputQuickTask && fromDate <= untilDate && fromDate.length != 0 
+    && untilDate.length != 0  ) {
     
     Quickadd.daysFromDateRange();
     view.undisplayQuickAddForm();
@@ -502,7 +487,7 @@ else if (event.target.id == 'btn-sbn-quick') {
   } 
     
   else {
-    console.log('empty input field');
+    console.log('wrong selections or empty input field');
   }
 }
 
@@ -541,4 +526,10 @@ window.onload = function () {
   Weather.locationWeather();
   welcome.nowTime();
   todos.countAllTodos();
+};
+
+//ON WINDOW RESIZE
+
+window.onresize = function() {
+  Account.undisplayOnWindowResize();
 };
