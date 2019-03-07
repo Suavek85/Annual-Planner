@@ -42,9 +42,9 @@ document.addEventListener(
     const dayNameAttribute = event.target.getAttribute("day-name");
     const currentId = event.target.id;
 
-
     Account.handleAccountClick(event, currentId);
-    
+    Calendar.handleRenderingCalendar(currentId);
+
   
     //SUBMIT NEW DAY
 
@@ -191,19 +191,6 @@ document.addEventListener(
       view.displayMoreWeather(evtSource);
       
     }
-
-    //DISPLAY NEXT MONTH
-
-    else if (currentId === "nextarrow") {
-      Calendar.newMonthsForward();
-    }
-
-    //DISPLAY PREVIOUS MONTH
-
-    else if (currentId === "backarrow") {
-      Calendar.newMonthsBackward();
-    }
-
 
 
     //ON REGISTER BUTTON

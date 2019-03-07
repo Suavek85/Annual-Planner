@@ -248,17 +248,17 @@ export const handleAccountClick = (event, currentId) => {
         removeLogOrRegisterBoxResponsive();
       }
 
-      //ON ACCOUNT DIV CLICK - RESPONSIVE
+        //ON ACCOUNT DIV CLICK - RESPONSIVE
 
-    else if (currentId === 'credentials-wrapper-icon' || currentId === 'credentials-wrapper-text') {
+        else if (currentId === 'credentials-wrapper-icon' || currentId === 'credentials-wrapper-text') {
 
-        displayAccountPopupResp();
-        removeLogOrRegisterBoxResponsive();
-        insertLogBoxResponsive();
-        focusSigninResponsive();
-        unfocusRegisterResponsive();
-  
-      }
+            displayAccountPopupResp();
+            removeLogOrRegisterBoxResponsive();
+            insertLogBoxResponsive();
+            focusSigninResponsive();
+            unfocusRegisterResponsive();
+    
+        }
   
       //ON SIGN IN CLICK - RESPONSIVE
   

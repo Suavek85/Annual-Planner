@@ -361,6 +361,22 @@ export const newMonthsBackward = () => {
 
 }
 
+export const handleRenderingCalendar = (currentId) => {
+
+  //DISPLAY NEXT MONTH
+
+  if (currentId === "nextarrow") {
+    newMonthsForward();
+  }
+
+  //DISPLAY PREVIOUS MONTH
+
+  else if (currentId === "backarrow") {
+    newMonthsBackward();
+  }
+
+}
+
 
 
 
