@@ -1,8 +1,8 @@
 import {
     todos,
-    onSignOut
-    
   } from './Todos';
+
+  import * as SignRegister from './SignRegister';
 
 
 const logBoxHtml = `<div id='logbox' class='login-box'>
@@ -207,7 +207,7 @@ export const handleAccountClick = (event, currentId) => {
 
             if (event.target.innerHTML === 'Sign out') {
 
-            onSignOut();
+            SignRegister.onSignOut();
             
             event.target.innerHTML = 'Sign in';
             } 

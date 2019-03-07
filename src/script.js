@@ -1,7 +1,5 @@
 import {
   todos,
-  renderingSigninClick,
-  renderingRegisterClick,
   handlingTasksRendering,
   renderingDayandFormBoxClick
 } from './modules/Todos';
@@ -19,7 +17,7 @@ import * as Account from './modules/Account';
 import * as Quickadd from './modules/Quickadd';
 import * as Calendar from './modules/Calendar';
 import * as Stats from './modules/Stats';
-
+import * as SignRegister from './modules/SignRegister';
 
 let closeBtnPreviousIds = [];
 
@@ -40,8 +38,8 @@ document.addEventListener(
     Account.handleAccountClick(event, currentId);
     Calendar.handleRenderingCalendar(currentId);
     Stats.renderingStatsBoxClick(currentId);
-    renderingSigninClick(currentId);
-    renderingRegisterClick(currentId);
+    SignRegister.renderingSigninClick(currentId);
+    SignRegister.renderingRegisterClick(currentId);
     handlingTasksRendering(currentId, currentHtml);
     renderingDayandFormBoxClick(currentId, currentStyle, dayNameAttribute, closeBtnPreviousIds);
     handleWeatherAndHolidaysClick(currentId, currentSrc);
