@@ -14,7 +14,6 @@ import {
   filteringTodos,
   onSignInButton,
   onRegisterButton,
-  onSignOut,
   updateProfileTodos
   
 } from './modules/Todos';
@@ -42,6 +41,10 @@ document.addEventListener(
 
     const dayNameAttribute = event.target.getAttribute("day-name");
     const currentId = event.target.id;
+
+
+    Account.handleAccountClick(event, currentId);
+    
   
     //SUBMIT NEW DAY
 
@@ -202,26 +205,6 @@ document.addEventListener(
     }
 
 
-    //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
-
-    else if (currentId === "btn-register-txt") {
-
-
-      if (document.getElementById('register-wrapper').style.display === "none") {
-
-        Account.displayRegisterWrapperDesktop();
-        Account.insertRegisterWrapperDesktop();
-        Account.removeLoginWrapperDesktop();
-        
-      } 
-      
-      else {
-
-        Account.removeRegisterWrapperDesktop();
-      }
-    }
-
-
 
     //ON REGISTER BUTTON
     
@@ -229,37 +212,6 @@ document.addEventListener(
 
       view.removeRegisterWarning();
       onRegisterButton();
-    }
-
-    //TOGGLE DISPLAYING SIGN IN SECTION
-
-    else if (currentId === "btn-login-txt") {
-
-      if (event.target.innerHTML === 'Sign out') {
-
-        onSignOut();
-       
-        event.target.innerHTML = 'Sign in';
-      } 
-      
-      else {
-
-        if (document.getElementById('login-wrapper').style.display === "none") {
-
-          Account.displayLoginWrapperDesktop();
-          Account.insertLoginWrapperDesktop();
-
-          if (document.getElementById("register-wrapper").style.display === "flex") {
-            Account.removeRegisterWrapperDesktop();
-          }
-        } 
-        
-        else {
-
-          Account.removeLoginWrapperDesktop();
-
-        }
-      }
     }
 
 
@@ -273,14 +225,7 @@ document.addEventListener(
 
     }
 
-    //ON BACKGROUND CLICK
-
-    else if (currentId === "main_pic") {
-
-      Account.onBackgroundClick();
-    }
-
-
+    
     //SHOW WEATHER RESPONSIVE
 
     else if (currentId === "showmore-weather-resp-icon" || currentId === "showmore-weather-resp-text") {
@@ -309,49 +254,6 @@ document.addEventListener(
     else if (currentId === "collapsible_holidays_responsive_close") {
 
       view.undisplayMoreHolidaysrResp();
-    }
-
-    //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
-
-    else if (currentId === "credentials-pop-up-close") {
-
-      Account.undisplayProfileBoxResposive();
-      Account.removeLogOrRegisterBoxResponsive();
-    }
-
-    //ON ACCOUNT DIV CLICK - RESPONSIVE
-
-    else if (currentId === 'credentials-wrapper-icon' || currentId === 'credentials-wrapper-text') {
-
-      Account.displayAccountPopupResp();
-      Account.removeLogOrRegisterBoxResponsive();
-      Account.insertLogBoxResponsive();
-      Account.focusSigninResponsive();
-      Account.unfocusRegisterResponsive();
-
-    }
-
-    //ON SIGN IN CLICK - RESPONSIVE
-
-    else if (currentId === 'btn-login-txt-responsive') {
-
-      Account.removeLogOrRegisterBoxResponsive();
-      Account.insertLogBoxResponsive();
-      Account.focusSigninResponsive();
-      Account.unfocusRegisterResponsive();
-
-    }
-
-    //ON REGISTER CLICK - RESPONSIVE
-
-    else if (currentId === 'btn-register-txt-responsive') {
-
-      Account.removeLogOrRegisterBoxResponsive();
-      Account.insertRegisterBoxResponsive();
-      Account.focusRegisterResponsive();
-      Account.unfocusSigninResponsive();
-      todos.countAllTodos();
-
     }
 
 
