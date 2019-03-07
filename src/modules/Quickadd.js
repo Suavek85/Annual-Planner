@@ -1,5 +1,6 @@
 import * as Main from './Todos';
 import * as Calendar from './Calendar';
+import * as Stats from './Stats';
 import {
   view
 } from './View';
@@ -197,6 +198,7 @@ const whichMonth = (n) => {
         daysFromDateRange();
         view.undisplayQuickAddForm();
         view.displayCalendar();
+        Stats.countAllTodos();
       } 
         
       else {

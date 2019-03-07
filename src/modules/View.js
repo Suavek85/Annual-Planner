@@ -8,7 +8,6 @@ const view = {
     },
 
     displayForm: function() {
-      //document.getElementById("notes").value = "";
       document.getElementById("work").checked = true;
       document.getElementById("form-main-wrapper").style.display = "flex";
       document.querySelector(".notes-box-wrapper").style.display = "none";
@@ -106,16 +105,12 @@ const view = {
     },
   
     undisplayWelcome: function() {
-      var welcome = document.querySelector(".welcome");
       var quotes = document.querySelector(".quotes");
-      //welcome.style.display = "none";
       quotes.style.display = "none";
     },
   
     displayWelcome: function() {
-      var welcome = document.querySelector(".welcome");
       var quotes = document.querySelector(".quotes");
-      //welcome.style.display = "block";
       quotes.style.display = "block";
     },
 
@@ -473,26 +468,26 @@ const handleDropdownsForTasks = (currentId, currentHtml) => {
 
 const handleRotatingDayTypes = (currentId) => {
 
-  //CHANGE DAY TYPE- RIGHT ARROW
+    //CHANGE DAY TYPE- RIGHT ARROW
 
-  if (currentId === 'right-change-day') {
+    if (currentId === 'right-change-day') {
 
-    const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"]
+      const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"]
+
+      view.rotateDayTypes(dayTypesArray);
+
+    } 
+
+    //CHANGE DAY TYPE- LEFT ARROW
+
+
+    else if (currentId == 'left-change-day') {
+
+    const dayTypesArray = ["images/holidays_icon.png", "images/dayoff_icon.png", "images/work_icon.png"  ]
 
     view.rotateDayTypes(dayTypesArray);
 
-  } 
-
-  //CHANGE DAY TYPE- LEFT ARROW
-
-
-  else if (currentId == 'left-change-day') {
-
-  const dayTypesArray = ["images/holidays_icon.png", "images/dayoff_icon.png", "images/work_icon.png"  ]
-
-  view.rotateDayTypes(dayTypesArray);
-
-}
+  }
 
 
 }

@@ -4,6 +4,7 @@ import {
 
 import * as Account from './Account';
 import * as Calendar from './Calendar';
+import * as Stats from './Stats';
 
 export let mainArray = [];
 export let tasksArray = [];
@@ -69,107 +70,6 @@ export const todos = {
       return element.value.length;
     },
 
-
-    googChart: function(done, all, intro) {
-
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-        
-        
-      function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Done', done],
-          ['Not completed', all - done]
-        ]);
-        
-          
-      var options = {
-      title: intro, 
-      titleTextStyle: { 
-        fontSize: 24,
-        bold: true
-      },
-       width:450, 
-       height:300,
-       is3D: true,
-        fontName: 'Montserrat',
-        colors:['orange','#A4A4A4'],
-        fontSize: 16,
-        legend: {
-          position: 'right',
-          alignment: 'center',
-          textStyle: { color: 'black' }
-        }
-      
-      };
-        
-          
-      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-          chart.draw(data, options);
-
-      }
-    },
-
-    clearDoneTodosText: function () {
-
-      document.getElementById('tooltip_statistics').innerHTML = "You've no outstanding tasks.";
-      document.getElementById('outstanding_tasks').innerHTML = "You've no outstanding tasks.";
-
-    },
-
-    clearDoneTodosChart: function () {
-
-      if (document.getElementById("piechart").hasChildNodes()) {
-        document.getElementById("piechart").removeChild(document.getElementById("piechart").childNodes[0]);
-      }
-       
-
-    },
-
-  
-    countAllTodos: function() {
-
-      let todosDone = 0;
-      let todosAll = 0;
-
-      this.clearDoneTodosText();
-      this.clearDoneTodosChart();
-      
-      for (let i = 0; i < mainArray.length; i++) {
-
-        for (let j = 0; j < mainArray[i].z.length; j++) {
-
-        todosAll = todosAll + 1;    
-
-        }
-
-        for (let h = 0; h < mainArray[i].z.length; h++) {
-
-              if (mainArray[i].z[h].done == true) {
-
-              todosDone = todosDone + 1;
-
-              }
-          }
-
-        if (todosDone == 0 && todosAll == 0 ) {
-
-          this.clearDoneTodosText();
-        } 
-        
-        else {
-
-          document.getElementById('outstanding_tasks').innerHTML = "";
-          document.getElementById('tooltip_statistics').innerHTML = todosDone + " out of " + todosAll + " tasks done.";
-  
-          let introStatsInfo = todosDone + " out of " + todosAll + " tasks done."
-
-          this.googChart(todosDone, todosAll, introStatsInfo);
-          
-        }
-      }
-    },
   };
 
 
@@ -178,7 +78,7 @@ export const submitTheNewDay = (dayNameAttribute) => {
   const typeOfDay = view.takeTypeOfDay();
   const dayfull = new Day(dayNameAttribute, typeOfDay, tasksArray);
   mainArray.push(dayfull);
-  todos.countAllTodos();
+  Stats.countAllTodos();
   tasksArray = [];
 }
 
@@ -667,7 +567,7 @@ export const addTheTaskDay = () => {
         Calendar.removeMonthHtml();
         Calendar.loadCurrentYear();
         Calendar.loadCurrentMonthHtml();
-        todos.countAllTodos();
+        Stats.countAllTodos();
         document.getElementById("btn-login-txt").innerHTML = 'Sign out';
         Account.removeRegisterWrapperDesktop();
         Account.undisplayAccountPopupResp();
@@ -675,7 +575,7 @@ export const addTheTaskDay = () => {
 
       }
 
-      todos.countAllTodos();
+      Stats.countAllTodos();
 
     })
 
@@ -724,7 +624,7 @@ export const addTheTaskDay = () => {
             mainArray.push(savedDayFull);
 
           }
-          todos.countAllTodos();
+          Stats.countAllTodos();
         }
 
         Calendar.removeMonthHtml();
@@ -751,43 +651,16 @@ export const addTheTaskDay = () => {
 
   signedIn = false;
   mainArray.splice(0, mainArray.length);
-  todos.countAllTodos();
+  Stats.countAllTodos();
   Calendar.removeMonthHtml();
   Calendar.loadCurrentYear();
   Calendar.loadCurrentMonthHtml();
-  todos.countAllTodos();
+  Stats.countAllTodos();
   view.displayHelloGuest();
   
  }
 
         
-
-
-
-export const renderingStatsBoxClick = (currentId) => {
-
-//ON STATS CLICK
-
-  if (currentId === 'stats_main_logo' || currentId === 'stats_main_text') {
-
-    view.displayStatsBox();
-    todos.countAllTodos();
-    view.undisplayCalendar();
-
-  }
-
-  //CLOSE STATS
-
-  else if (currentId === 'close_stats') {
-
-    view.undisplayStatsBox();
-    view.displayCalendar();
-  }
-
-}
-
-
-
 export const renderingSigninClick = (currentId) => {
 
     //ON SIGN IN BUTTON
@@ -819,74 +692,71 @@ export const renderingRegisterClick = (currentId) => {
 
 export const handlingTasksRendering = (currentId, currentHtml) => {
 
- //DELETE TASK - FORM
-    
- if (currentId.includes("delete_todo_form")) {
+    //DELETE TASK - FORM
+        
+    if (currentId.includes("delete_todo_form")) {
 
-  deleteTaskForm();
-  removeTodoList();
-  displayEachTaskForm();
+      deleteTaskForm();
+      removeTodoList();
+      displayEachTaskForm();
 
-} 
+    } 
 
-//DELETE TASK - DAY
+    //DELETE TASK - DAY
 
-else if (currentId.includes("delete_output")) {
+    else if (currentId.includes("delete_output")) {
 
-  deleteTaskDay();
-}
+      deleteTaskDay();
+    }
 
-//TASK COMPLETED - DAY
+    //TASK COMPLETED - DAY
 
-else if (currentId.includes("completed")) {
+    else if (currentId.includes("completed")) {
 
-  taskComepletedDay();
+      taskComepletedDay();
 
-} 
+    } 
 
-//ADD TASK - FORM
+    //ADD TASK - FORM
 
-else if (currentId.includes("enter")) {
-
-
-  if (todos.inputLength(todos.input_todo_form()) > 0) {
-
-    removeTodoList();
-    addTheTaskForm();
-    view.emptyInputForm();
-    view.displayDeleteForm();
-
-  }
-} 
-
-//ADD TASK - DAY
-
-else if (currentId.includes("add")) {
+    else if (currentId.includes("enter")) {
 
 
-  if (todos.inputLength(todos.input_todo_day()) > 0) {
+      if (todos.inputLength(todos.input_todo_form()) > 0) {
 
-    removeTodoListDay();
-    addTheTaskDay();
-    view.emptyInputDay();   
-  }
-}
+        removeTodoList();
+        addTheTaskForm();
+        view.emptyInputForm();
+        view.displayDeleteForm();
+
+      }
+    } 
+
+    //ADD TASK - DAY
+
+    else if (currentId.includes("add")) {
 
 
- //FILTERING
+      if (todos.inputLength(todos.input_todo_day()) > 0) {
 
- else if (currentId.includes('filtered')) {
+        removeTodoListDay();
+        addTheTaskDay();
+        view.emptyInputDay();   
+      }
+    }
 
-      
-  removeTodoListDay();
-  filteringTodos(currentHtml, currentId);
 
-}
+    //FILTERING
+
+    else if (currentId.includes('filtered')) {
+
+          
+      removeTodoListDay();
+      filteringTodos(currentHtml, currentId);
+
+    }
   
 }
-
-
-//renderingFormBoxClick
 
 
 
@@ -929,7 +799,7 @@ else if (currentId.includes("calendar")) {
     view.displayDay();
     view.undisplayForm();
     view.undisplayWelcome();
-    todos.countAllTodos();
+    Stats.countAllTodos();
     numberSave = currentId.slice(-9);
     displaySaveExitButton(numberSave);
     view.calcDateforDay(currentId)
@@ -946,7 +816,7 @@ else if (currentId.includes("close-day")) {
 
   updateTheDay(dayNameAttribute);
   updateProfileTodos();
-  todos.countAllTodos();
+  Stats.countAllTodos();
   view.displayCalendar();
   view.displayWelcome();
   view.undisplayDay();
@@ -960,17 +830,18 @@ else if (currentId.includes("close-day")) {
 else if (currentId.includes("close-form")) {
 
   view.displayCalendar();
+  view.clearTodo();
   view.removeGreenCircle(closeBtnPreviousIds);
   view.displayWelcome();
   view.undisplayForm();
   view.removeSubmitButton();
-
+  
 } 
 
 
 }
 
-//renderingDailyBoxClick
+
   
 
   

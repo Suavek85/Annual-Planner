@@ -1,6 +1,5 @@
 import {
   todos,
-  renderingStatsBoxClick,
   renderingSigninClick,
   renderingRegisterClick,
   handlingTasksRendering,
@@ -19,10 +18,11 @@ import * as Holidays from './modules/Holidays';
 import * as Account from './modules/Account';
 import * as Quickadd from './modules/Quickadd';
 import * as Calendar from './modules/Calendar';
+import * as Stats from './modules/Stats';
 
 
 let closeBtnPreviousIds = [];
-//
+
 
 //CLICK EVENT LISTENER
 
@@ -39,7 +39,7 @@ document.addEventListener(
 
     Account.handleAccountClick(event, currentId);
     Calendar.handleRenderingCalendar(currentId);
-    renderingStatsBoxClick(currentId);
+    Stats.renderingStatsBoxClick(currentId);
     renderingSigninClick(currentId);
     renderingRegisterClick(currentId);
     handlingTasksRendering(currentId, currentHtml);
@@ -49,9 +49,7 @@ document.addEventListener(
     handleRotatingDayTypes(currentId);
     Quickadd.handleQuickAddClick(currentId, currentHtml);
 
-},
-
-  false
+}, false
 );
 
 //ON WINDOW LOAD
@@ -62,7 +60,7 @@ window.onload = function () {
   Holidays.updateNextHolidays()
   Weather.locationWeather();
   welcome.nowTime();
-  todos.countAllTodos();
+  Stats.countAllTodos();
 };
 
 //ON WINDOW RESIZE
