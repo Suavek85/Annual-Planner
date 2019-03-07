@@ -153,3 +153,17 @@ export const undisplayOnWindowResize = () => {
         removeRegisterWrapperDesktop()
     }
 }
+
+
+export const onBackgroundClick = () => {
+
+      if (document.getElementById('login-wrapper').style.display === "flex") {
+
+        removeLoginWrapperDesktop();
+      } 
+      
+      else if (document.getElementById('register-wrapper').style.display === "flex") {
+        removeRegisterWrapperDesktop();
+      }
+
+}

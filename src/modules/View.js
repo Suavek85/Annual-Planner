@@ -372,9 +372,26 @@ const view = {
 
     clearInputFieldDay: function() {
       document.getElementById("input_list_output").value = '';
+    },
+
+    calcDateforDay: function(evTarId) {
+      const c = " ";
+      const currentDate = [evTarId.slice(8, 10), c, evTarId.slice(10, 11).toUpperCase(), evTarId.slice(11, 13), c, evTarId.slice(13)].join('');
+      document.getElementById("notes-box-top-right-text").innerHTML = currentDate;
+    },
+
+    removeGreenCircle: function(closeBtnPreviousIds) {
+      document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.borderRadius = null;
+    document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.backgroundColor = null;
+
     }
 
+
     
+
+
+    
+
   };
 
   export {view};

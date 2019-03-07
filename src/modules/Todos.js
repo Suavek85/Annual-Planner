@@ -110,11 +110,30 @@ export const todos = {
       }
     },
 
+    clearDoneTodosText: function () {
+
+      document.getElementById('tooltip_statistics').innerHTML = "You've no outstanding tasks.";
+      document.getElementById('outstanding_tasks').innerHTML = "You've no outstanding tasks.";
+
+    },
+
+    clearDoneTodosChart: function () {
+
+      if (document.getElementById("piechart").hasChildNodes()) {
+        document.getElementById("piechart").removeChild(document.getElementById("piechart").childNodes[0]);
+      }
+       
+
+    },
+
   
     countAllTodos: function() {
-      
+
       let todosDone = 0;
       let todosAll = 0;
+
+      this.clearDoneTodosText();
+      this.clearDoneTodosChart();
       
       for (let i = 0; i < mainArray.length; i++) {
 
@@ -131,14 +150,11 @@ export const todos = {
               todosDone = todosDone + 1;
 
               }
-  
           }
 
         if (todosDone == 0 && todosAll == 0 ) {
 
-          document.getElementById('tooltip_statistics').innerHTML = "You've no outstanding tasks.";
-          document.getElementById('outstanding_tasks').innerHTML = "You've no outstanding tasks.";
-
+          this.clearDoneTodosText();
         } 
         
         else {
@@ -146,7 +162,7 @@ export const todos = {
           document.getElementById('outstanding_tasks').innerHTML = "";
           document.getElementById('tooltip_statistics').innerHTML = todosDone + " out of " + todosAll + " tasks done.";
   
-          const introStatsInfo = todosDone + " out of " + todosAll + " tasks done."
+          let introStatsInfo = todosDone + " out of " + todosAll + " tasks done."
 
           this.googChart(todosDone, todosAll, introStatsInfo);
           
@@ -683,8 +699,7 @@ export const addTheTaskDay = (numberSave) => {
 
       if (data !== 'wrong credentials') {
 
-        console.log(data);
-
+       
         view.removeSigninWarning();
         signedIn = true;
         userId = data.id;
@@ -727,6 +742,7 @@ export const addTheTaskDay = (numberSave) => {
 
   signedIn = false;
   mainArray.splice(0, mainArray.length);
+  todos.countAllTodos();
   Calendar.removeMonthHtml();
   Calendar.loadCurrentYear();
   Calendar.loadCurrentMonthHtml();

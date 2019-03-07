@@ -45,7 +45,7 @@ document.addEventListener(
   
     //SUBMIT NEW DAY
 
-    if (event.target.id.includes("submit_")) {
+    if (currentId.includes("submit_")) {
 
       view.undisplayForm();
       view.displayCalendar();
@@ -60,7 +60,7 @@ document.addEventListener(
 
     //ADD DAY OR OPEN DAY
     
-    else if (event.target.id.includes("calendar")) {
+    else if (currentId.includes("calendar")) {
 
       view.undisplayCalendar();
 
@@ -68,15 +68,10 @@ document.addEventListener(
 
         view.displayForm();
         view.undisplayWelcome();
-        const numberAdd = event.target.id.slice(-9);
-
+        const numberAdd = currentId.slice(-9);
         view.displaySubmitButton(numberAdd);
         const elementStyle = event.target.style;
         view.createGreenCircle(elementStyle);
-
-        //refact
-        const b = " ";
-        const currentDate = [currentId.slice(8, 10), b, currentId.slice(10, 11).toUpperCase(), currentId.slice(11, 13), b, currentId.slice(13)].join('');
         closeBtnPreviousIds.push(currentId);
       
       } 
@@ -87,19 +82,10 @@ document.addEventListener(
         view.undisplayForm();
         view.undisplayWelcome();
         todos.countAllTodos();
-        numberSave = event.target.id.slice(-9);
+        numberSave = currentId.slice(-9);
         view.displaySaveExitButton(numberSave);
-
-
-        //refact
-        const c = " ";
-        const currentDate = [event.target.id.slice(8, 10), c, event.target.id.slice(10, 11).toUpperCase(), event.target.id.slice(11, 13), c, event.target.id.slice(13)].join('');
-        document.getElementById("notes-box-top-right-text").innerHTML = currentDate;
-
-
-
+        view.calcDateforDay(currentId)
         openTheDay( numberSave, dayNameAttribute);  
-
         view.clearInputFieldDay();
 
       }
@@ -108,7 +94,7 @@ document.addEventListener(
     
     //CLOSE DAY
     
-    else if (event.target.id.includes("close-day")) {
+    else if (currentId.includes("close-day")) {
 
       updateTheDay(dayNameAttribute);
       updateProfileTodos();
@@ -123,14 +109,10 @@ document.addEventListener(
     
     //CLOSE FORM
 
-    else if (event.target.id.includes("close-form")) {
+    else if (currentId.includes("close-form")) {
 
       view.displayCalendar();
-
-      //refact      
-      document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.borderRadius = null;
-      document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.backgroundColor = null;
-
+      view.removeGreenCircle(closeBtnPreviousIds);
       view.displayWelcome();
       view.undisplayForm();
       view.removeSubmitButton();
@@ -139,7 +121,7 @@ document.addEventListener(
     
     //DELETE TASK - FORM
     
-    else if (event.target.id.includes("delete_todo_form")) {
+    else if (currentId.includes("delete_todo_form")) {
 
       deleteTaskForm();
       removeTodoList();
@@ -149,14 +131,14 @@ document.addEventListener(
 
     //DELETE TASK - DAY
     
-    else if (event.target.id.includes("delete_output")) {
+    else if (currentId.includes("delete_output")) {
 
       deleteTaskDay(numberSave);
     }
     
     //TASK COMPLETED - DAY
     
-    else if (event.target.id.includes("completed")) {
+    else if (currentId.includes("completed")) {
 
       taskComepletedDay(numberSave);
 
@@ -179,7 +161,7 @@ document.addEventListener(
     
     //ADD TASK - DAY
     
-    else if (event.target.id.includes("add")) {
+    else if (currentId.includes("add")) {
 
 
       if (todos.inputLength(todos.input_todo_day()) > 0) {
@@ -192,7 +174,7 @@ document.addEventListener(
 
     //TOGGLE SHOWING MORE BANK HOLS
 
-    else if (event.target.id === "expand-holidays") {
+    else if (currentId === "expand-holidays") {
 
       const evtSource = event.target.src;
       view.displayMoreWeather(evtSource);
@@ -200,7 +182,7 @@ document.addEventListener(
 
     //TOGGLE SHOWING MORE WEATHER - DESKTOP
 
-    else if (event.target.id === 'showmore-weather') {
+    else if (currentId === 'showmore-weather') {
 
       const evtSource = event.target.src;
       view.displayMoreWeather(evtSource);
@@ -209,20 +191,20 @@ document.addEventListener(
 
     //DISPLAY NEXT MONTH
 
-    else if (event.target.id === "nextarrow") {
+    else if (currentId === "nextarrow") {
       Calendar.newMonthsForward();
     }
 
     //DISPLAY PREVIOUS MONTH
 
-    else if (event.target.id === "backarrow") {
+    else if (currentId === "backarrow") {
       Calendar.newMonthsBackward();
     }
 
 
     //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
 
-    else if (event.target.id === "btn-register-txt") {
+    else if (currentId === "btn-register-txt") {
 
 
       if (document.getElementById('register-wrapper').style.display === "none") {
@@ -243,7 +225,7 @@ document.addEventListener(
 
     //ON REGISTER BUTTON
     
-    else if (event.target.id === "register-button") {
+    else if (currentId === "register-button") {
 
       view.removeRegisterWarning();
       onRegisterButton();
@@ -251,11 +233,12 @@ document.addEventListener(
 
     //TOGGLE DISPLAYING SIGN IN SECTION
 
-    else if (event.target.id === "btn-login-txt") {
+    else if (currentId === "btn-login-txt") {
 
       if (event.target.innerHTML === 'Sign out') {
 
         onSignOut();
+       
         event.target.innerHTML = 'Sign in';
       } 
       
@@ -282,7 +265,7 @@ document.addEventListener(
 
     //ON SIGN IN BUTTON
 
-    else if (event.target.id === "signin-button") {
+    else if (currentId === "signin-button") {
 
       view.removeSigninWarning();
       view.displayLoading();
@@ -292,22 +275,15 @@ document.addEventListener(
 
     //ON BACKGROUND CLICK
 
-    else if (event.target.id === "main_pic") {
+    else if (currentId === "main_pic") {
 
-      if (document.getElementById('login-wrapper').style.display === "flex") {
-
-        Account.removeLoginWrapperDesktop();
-      } 
-      
-      else if (document.getElementById('register-wrapper').style.display === "flex") {
-        Account.removeRegisterWrapperDesktop();
-      }
+      Account.onBackgroundClick();
     }
 
 
     //SHOW WEATHER RESPONSIVE
 
-    else if (event.target.id === "showmore-weather-resp-icon" || event.target.id === "showmore-weather-resp-text") {
+    else if (currentId === "showmore-weather-resp-icon" || currentId === "showmore-weather-resp-text") {
 
       view.displayMoreWeatherResp();
 
@@ -315,7 +291,7 @@ document.addEventListener(
 
     //CLOSE WEATHER RESPONSIVE
 
-    else if (event.target.id === "collapsible_weather_close") {
+    else if (currentId === "collapsible_weather_close") {
 
       view.undisplayMoreWeatherResp();
 
@@ -323,21 +299,21 @@ document.addEventListener(
 
     //SHOW HOLIDAYS RESPONSIVE
 
-    else if (event.target.id === "expand-holidays-resp-logo" || event.target.id === "expand-holidays-resp-text") {
+    else if (currentId === "expand-holidays-resp-logo" || currentId === "expand-holidays-resp-text") {
 
       view.displayMoreHolidaysResp();
 
     }
 
     //CLOSE HOLIDAYS RESPONSIVE
-    else if (event.target.id === "collapsible_holidays_responsive_close") {
+    else if (currentId === "collapsible_holidays_responsive_close") {
 
       view.undisplayMoreHolidaysrResp();
     }
 
     //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
 
-    else if (event.target.id === "credentials-pop-up-close") {
+    else if (currentId === "credentials-pop-up-close") {
 
       Account.undisplayProfileBoxResposive();
       Account.removeLogOrRegisterBoxResponsive();
@@ -345,7 +321,7 @@ document.addEventListener(
 
     //ON ACCOUNT DIV CLICK - RESPONSIVE
 
-    else if (event.target.id === 'credentials-wrapper-icon' || event.target.id === 'credentials-wrapper-text') {
+    else if (currentId === 'credentials-wrapper-icon' || currentId === 'credentials-wrapper-text') {
 
       Account.displayAccountPopupResp();
       Account.removeLogOrRegisterBoxResponsive();
@@ -357,7 +333,7 @@ document.addEventListener(
 
     //ON SIGN IN CLICK - RESPONSIVE
 
-    else if (event.target.id === 'btn-login-txt-responsive') {
+    else if (currentId === 'btn-login-txt-responsive') {
 
       Account.removeLogOrRegisterBoxResponsive();
       Account.insertLogBoxResponsive();
@@ -368,7 +344,7 @@ document.addEventListener(
 
     //ON REGISTER CLICK - RESPONSIVE
 
-    else if (event.target.id === 'btn-register-txt-responsive') {
+    else if (currentId === 'btn-register-txt-responsive') {
 
       Account.removeLogOrRegisterBoxResponsive();
       Account.insertRegisterBoxResponsive();
@@ -381,7 +357,7 @@ document.addEventListener(
 
     //ON STATS CLICK
 
-    else if (event.target.id === 'stats_main_logo' || event.target.id === 'stats_main_text') {
+    else if (currentId === 'stats_main_logo' || currentId === 'stats_main_text') {
 
       view.displayStatsBox();
       todos.countAllTodos();
@@ -391,7 +367,7 @@ document.addEventListener(
 
     //CLOSE STATS
 
-    else if (event.target.id === 'close_stats') {
+    else if (currentId === 'close_stats') {
 
       view.undisplayStatsBox();
       view.displayCalendar();
@@ -399,13 +375,13 @@ document.addEventListener(
 
     //TOGGLE FORM DROPDOWN MENU
 
-    else if (event.target.id === 'btn-form-dropdown' || event.target.id === 'wrap-drpdn-area' ) {
+    else if (currentId === 'btn-form-dropdown' || currentId === 'wrap-drpdn-area' ) {
       view.toggleDropdownForm();
     }
 
     //ON DROPDOWN ITEM CLICK - FORM
 
-    else if (event.target.id.includes("drop-down-"))  {
+    else if (currentId.includes("drop-down-"))  {
 
       document.getElementById("todo-type-selected").innerHTML = event.target.innerHTML;
       view.toggleShowTasksDropdownForm();
@@ -413,13 +389,13 @@ document.addEventListener(
 
     //TOGGLE DAY DROPDOWN MENU
 
-    else if (event.target.id === 'todo-day-dropdown-area' || event.target.id === 'todo-day-dropdown-area-2' ) {
+    else if (currentId === 'todo-day-dropdown-area' || currentId === 'todo-day-dropdown-area-2' ) {
       view.toggleShowTasksDropdownDay();
     }
 
     //ON DROPDOWN ITEM CLICK - DAY
 
-    else if (event.target.id.includes("day-down"))  {
+    else if (currentId.includes("day-down"))  {
 
       document.getElementById("todo-type-selected-2").innerHTML = event.target.innerHTML;
       view.toggleDropdownDay();
@@ -427,12 +403,11 @@ document.addEventListener(
 
     //FILTERING
 
-    else if (event.target.id.includes('filtered')) {
+    else if (currentId.includes('filtered')) {
 
       let filteredType = event.target.innerHTML;
-      let filteredId = event.target.id;
       removeTodoListDay();
-      filteringTodos(filteredType, filteredId, numberSave);
+      filteringTodos(filteredType, currentId, numberSave);
 
     }
 
@@ -442,7 +417,7 @@ document.addEventListener(
 //CHOOSE QUICK ADD FORM
 
 
-else if (event.target.id === "fast-increase")  {
+else if (currentId === "fast-increase")  {
   view.undisplayCalendar();
   view.displayQuickAddForm();
 }
@@ -450,13 +425,13 @@ else if (event.target.id === "fast-increase")  {
 
 //SELECT TODO TYPE DROPDOWN
 
-else if (event.target.id == 'quick-dropdown-area' || event.target.id == 'quick-drp-inside'){
+else if (currentId == 'quick-dropdown-area' || currentId == 'quick-drp-inside'){
 view.toggleDropdownQuick();
   }
 
 //SELECT TODO TYPE
 
-else if (event.target.id.includes("qck"))  {
+else if (currentId.includes("qck"))  {
 
   document.getElementById("quick-todo-selected-2").innerHTML = event.target.innerHTML;
   view.undisplayDropdownQuick();
@@ -464,7 +439,7 @@ else if (event.target.id.includes("qck"))  {
 
 //CLOSE QUICK ADD FORM
 
-else if (event.target.id.includes("btn-close-quick"))  {
+else if (currentId.includes("btn-close-quick"))  {
 
   view.undisplayQuickAddForm();
   view.displayCalendar();
@@ -472,7 +447,7 @@ else if (event.target.id.includes("btn-close-quick"))  {
 
 //SUBMIT
 
-else if (event.target.id == 'btn-sbn-quick') {
+else if (currentId == 'btn-sbn-quick') {
 
   const inputQuickTask = document.getElementById('quick_input_list').value;
   const fromDate = document.getElementById("quick-from-date").value;
@@ -493,7 +468,7 @@ else if (event.target.id == 'btn-sbn-quick') {
 
   //CHANGE DAY TYPE- RIGHT ARROW
 
-else if (event.target.id === 'right-change-day') {
+else if (currentId === 'right-change-day') {
 
     const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"]
 
@@ -504,7 +479,7 @@ else if (event.target.id === 'right-change-day') {
 //CHANGE DAY TYPE- LEFT ARROW
 
 
-else if (event.target.id == 'left-change-day') {
+else if (currentId == 'left-change-day') {
 
   const dayTypesArray = ["images/holidays_icon.png", "images/dayoff_icon.png", "images/work_icon.png"  ]
 
