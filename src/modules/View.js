@@ -38,12 +38,7 @@ const view = {
       submitBtnsWrapper.removeChild(submitBtnsWrapper.childNodes[0]);
     },
 
-    displaySaveExitButton: function(numberSave) {
-      
-      let saveexitBtnGen = `<div day-name="dayname${numberSave}" class='close-save' id='close-day-${numberSave}'>Close</div>`
-      document.getElementById("close-day-wrapper").insertAdjacentHTML('afterbegin', saveexitBtnGen);
-
-    },
+   
   
     undisplayDay: function() {
       document.querySelector(".notes-box-wrapper").style.display = "none";
@@ -387,11 +382,122 @@ const view = {
     }
 
 
-    
-
-
-    
 
   };
 
-  export {view};
+
+const handleWeatherAndHolidaysClick = (currentId, currentSrc) => {
+
+    //TOGGLE SHOWING MORE BANK HOLS
+
+    if (currentId === "expand-holidays") {
+
+      view.displayMoreWeather(currentSrc);
+    }
+
+    //TOGGLE SHOWING MORE WEATHER - DESKTOP
+
+    else if (currentId === 'showmore-weather') {
+
+      view.displayMoreWeather(currentSrc);
+      
+    }
+
+
+    //SHOW WEATHER RESPONSIVE
+
+    else if (currentId === "showmore-weather-resp-icon" || currentId === "showmore-weather-resp-text") {
+
+      view.displayMoreWeatherResp();
+
+    }
+
+    //CLOSE WEATHER RESPONSIVE
+
+    else if (currentId === "collapsible_weather_close") {
+
+      view.undisplayMoreWeatherResp();
+
+    }
+
+    //SHOW HOLIDAYS RESPONSIVE
+
+    else if (currentId === "expand-holidays-resp-logo" || currentId === "expand-holidays-resp-text") {
+
+      view.displayMoreHolidaysResp();
+
+    }
+
+    //CLOSE HOLIDAYS RESPONSIVE
+    else if (currentId === "collapsible_holidays_responsive_close") {
+
+      view.undisplayMoreHolidaysrResp();
+    }
+
+
+}
+
+
+
+const handleDropdownsForTasks = (currentId, currentHtml) => {
+
+    //TOGGLE FORM DROPDOWN MENU
+
+    if (currentId === 'btn-form-dropdown' || currentId === 'wrap-drpdn-area' ) {
+      view.toggleDropdownForm();
+    }
+
+    //ON DROPDOWN ITEM CLICK - FORM
+
+    else if (currentId.includes("drop-down-"))  {
+
+      document.getElementById("todo-type-selected").innerHTML = currentHtml;
+      view.toggleShowTasksDropdownForm();
+    }
+
+    //TOGGLE DAY DROPDOWN MENU
+
+    else if (currentId === 'todo-day-dropdown-area' || currentId === 'todo-day-dropdown-area-2' ) {
+      view.toggleShowTasksDropdownDay();
+    }
+
+    //ON DROPDOWN ITEM CLICK - DAY
+
+    else if (currentId.includes("day-down"))  {
+
+      document.getElementById("todo-type-selected-2").innerHTML = currentHtml;
+      view.toggleDropdownDay();
+    }
+
+}
+
+const handleRotatingDayTypes = (currentId) => {
+
+  //CHANGE DAY TYPE- RIGHT ARROW
+
+  if (currentId === 'right-change-day') {
+
+    const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"]
+
+    view.rotateDayTypes(dayTypesArray);
+
+  } 
+
+  //CHANGE DAY TYPE- LEFT ARROW
+
+
+  else if (currentId == 'left-change-day') {
+
+  const dayTypesArray = ["images/holidays_icon.png", "images/dayoff_icon.png", "images/work_icon.png"  ]
+
+  view.rotateDayTypes(dayTypesArray);
+
+}
+
+
+}
+
+
+
+
+  export {view, handleWeatherAndHolidaysClick, handleDropdownsForTasks, handleRotatingDayTypes};

@@ -9,6 +9,7 @@ export let mainArray = [];
 export let tasksArray = [];
 let signedIn = false;
 let userId;
+let numberSave;
 
 
 export class Day {
@@ -181,7 +182,7 @@ export const submitTheNewDay = (dayNameAttribute) => {
   tasksArray = [];
 }
 
-export const openTheDay = (numberSave, dayNameAttribute) => {
+export const openTheDay = (dayNameAttribute) => {
 
   let dayIndexforOpen = mainArray.findIndex(element => {
     return element.a === dayNameAttribute;
@@ -206,7 +207,7 @@ export const updateTheDay = (dayNameAttribute) => {
   let dayIndex = mainArray.findIndex(element => {
     return element.a === dayNameAttribute;
   });
-
+  
   mainArray[dayIndex].updateDay();
 }
 
@@ -223,7 +224,7 @@ export const addTheTaskForm = () => {
 }
 
 
-export const addTheTaskDay = (numberSave) => {
+export const addTheTaskDay = () => {
 
   for (var i = 0; i < mainArray.length; i++) {
     
@@ -241,7 +242,7 @@ export const addTheTaskDay = (numberSave) => {
 }
       
 
-  export const taskComepletedDay = (numberSave) => {
+  export const taskComepletedDay = () => {
 
 
     var allTodos3 = document.getElementsByName("todoscb");
@@ -283,7 +284,7 @@ export const addTheTaskDay = (numberSave) => {
   
   
   
-  export const deleteTaskDay = (numberSave) => {
+  export const deleteTaskDay = () => {
   
     var allTodos2 = document.getElementsByName("todoscb");
   
@@ -319,7 +320,15 @@ export const addTheTaskDay = (numberSave) => {
   }
   
   
-  
+  const displaySaveExitButton = () => {
+      
+    let saveexitBtnGen = `<div day-name="dayname${numberSave}" class='close-save' id='close-day-${numberSave}'>Close</div>`
+    document.getElementById("close-day-wrapper").insertAdjacentHTML('afterbegin', saveexitBtnGen);
+
+  }
+
+
+
   
   export const deleteTaskForm = () => {
   
@@ -515,11 +524,11 @@ export const addTheTaskDay = (numberSave) => {
   
   
   
-  const displaySelectedTaskDay = (i, filteredType) => {
+  const displaySelectedTaskDay = (i, currentHtml) => {
   
     const mappedArraySelectedDay = mainArray[i].z.map( (el, ind) => {
   
-      if (el.type == filteredType) {
+      if (el.type == currentHtml) {
         
         return `
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;background-color:${isIndexEven(ind)}">
@@ -565,19 +574,19 @@ export const addTheTaskDay = (numberSave) => {
 
 
 
-  export const filteringTodos = (filteredType, filteredId, numberSave) => {
+  export const filteringTodos = (currentHtml, currentId) => {
 
     for (var i = 0; i < mainArray.length; i++) {
 
       if (mainArray[i].a.includes(numberSave)) {
 
-        if (filteredId === "filtered-all" ) {
+        if (currentId === "filtered-all" ) {
 
           displayEachTaskDay(i);
 
         } else {
 
-          displaySelectedTaskDay(i, filteredType);
+          displaySelectedTaskDay(i, currentHtml);
 
         }
       }
@@ -753,10 +762,215 @@ export const addTheTaskDay = (numberSave) => {
 
         
 
-      
+
+
+export const renderingStatsBoxClick = (currentId) => {
+
+//ON STATS CLICK
+
+  if (currentId === 'stats_main_logo' || currentId === 'stats_main_text') {
+
+    view.displayStatsBox();
+    todos.countAllTodos();
+    view.undisplayCalendar();
+
+  }
+
+  //CLOSE STATS
+
+  else if (currentId === 'close_stats') {
+
+    view.undisplayStatsBox();
+    view.displayCalendar();
+  }
+
+}
+
+
+
+export const renderingSigninClick = (currentId) => {
+
+    //ON SIGN IN BUTTON
+
+    if (currentId === "signin-button") {
+
+      view.removeSigninWarning();
+      view.displayLoading();
+      onSignInButton();
+
+    }
+}
       
 
+    
+export const renderingRegisterClick = (currentId) => {
+
+  //ON REGISTER BUTTON
+
+  if (currentId === "register-button") {
+
+    view.removeRegisterWarning();
+    onRegisterButton();
+  }
+
+}  
+
+
+
+export const handlingTasksRendering = (currentId, currentHtml) => {
+
+ //DELETE TASK - FORM
+    
+ if (currentId.includes("delete_todo_form")) {
+
+  deleteTaskForm();
+  removeTodoList();
+  displayEachTaskForm();
+
+} 
+
+//DELETE TASK - DAY
+
+else if (currentId.includes("delete_output")) {
+
+  deleteTaskDay();
+}
+
+//TASK COMPLETED - DAY
+
+else if (currentId.includes("completed")) {
+
+  taskComepletedDay();
+
+} 
+
+//ADD TASK - FORM
+
+else if (currentId.includes("enter")) {
+
+
+  if (todos.inputLength(todos.input_todo_form()) > 0) {
+
+    removeTodoList();
+    addTheTaskForm();
+    view.emptyInputForm();
+    view.displayDeleteForm();
+
+  }
+} 
+
+//ADD TASK - DAY
+
+else if (currentId.includes("add")) {
+
+
+  if (todos.inputLength(todos.input_todo_day()) > 0) {
+
+    removeTodoListDay();
+    addTheTaskDay();
+    view.emptyInputDay();   
+  }
+}
+
+
+ //FILTERING
+
+ else if (currentId.includes('filtered')) {
+
       
+  removeTodoListDay();
+  filteringTodos(currentHtml, currentId);
+
+}
   
+}
+
+
+//renderingFormBoxClick
+
+
+
+export const renderingDayandFormBoxClick = (currentId, currentStyle, dayNameAttribute,  closeBtnPreviousIds) => {
+
+//SUBMIT NEW DAY
+
+if (currentId.includes("submit_")) {
+
+  view.undisplayForm();
+  view.displayCalendar();
+  view.displayWelcome();
+  submitTheNewDay(dayNameAttribute);
+  view.removeSubmitButton();
+  view.clearTodo();
+  updateProfileTodos();
+
+} 
+
+
+//ADD DAY OR OPEN DAY
+
+else if (currentId.includes("calendar")) {
+
+  view.undisplayCalendar();
+
+  if (!currentStyle.borderRadius) {
+
+    view.displayForm();
+    view.undisplayWelcome();
+    const numberAdd = currentId.slice(-9);
+    view.displaySubmitButton(numberAdd);
+    view.createGreenCircle(currentStyle);
+    closeBtnPreviousIds.push(currentId);
   
+  } 
+  
+  else {
+
+    view.displayDay();
+    view.undisplayForm();
+    view.undisplayWelcome();
+    todos.countAllTodos();
+    numberSave = currentId.slice(-9);
+    displaySaveExitButton(numberSave);
+    view.calcDateforDay(currentId)
+    openTheDay( dayNameAttribute);  
+    view.clearInputFieldDay();
+
+  }
+
+} 
+
+//CLOSE DAY
+
+else if (currentId.includes("close-day")) {
+
+  updateTheDay(dayNameAttribute);
+  updateProfileTodos();
+  todos.countAllTodos();
+  view.displayCalendar();
+  view.displayWelcome();
+  view.undisplayDay();
+  view.todoListRemove();
+  view.clearProgress();
+
+} 
+
+//CLOSE FORM
+
+else if (currentId.includes("close-form")) {
+
+  view.displayCalendar();
+  view.removeGreenCircle(closeBtnPreviousIds);
+  view.displayWelcome();
+  view.undisplayForm();
+  view.removeSubmitButton();
+
+} 
+
+
+}
+
+//renderingDailyBoxClick
+  
+
   

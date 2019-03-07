@@ -1,6 +1,9 @@
 import * as Main from './Todos';
 import * as Calendar from './Calendar';
 import {
+  view
+} from './View';
+import {
     todos,
     mainArray
   } from './Todos';
@@ -146,4 +149,62 @@ const whichMonth = (n) => {
     Calendar.loadMonthHtml();
   
   
+  }
+
+
+
+  export const handleQuickAddClick = (currentId, currentHtml) => {
+
+    if (currentId === "fast-increase")  {
+      view.undisplayCalendar();
+      view.displayQuickAddForm();
+    }
+    
+    
+    //SELECT TODO TYPE DROPDOWN
+    
+    else if (currentId == 'quick-dropdown-area' || currentId == 'quick-drp-inside'){
+    view.toggleDropdownQuick();
+      }
+    
+    //SELECT TODO TYPE
+    
+    else if (currentId.includes("qck"))  {
+    
+      document.getElementById("quick-todo-selected-2").innerHTML = currentHtml;
+      view.undisplayDropdownQuick();
+    }
+    
+    //CLOSE QUICK ADD FORM
+    
+    else if (currentId.includes("btn-close-quick"))  {
+    
+      view.undisplayQuickAddForm();
+      view.displayCalendar();
+    }
+    
+    //SUBMIT
+    
+    else if (currentId == 'btn-sbn-quick') {
+    
+      const inputQuickTask = document.getElementById('quick_input_list').value;
+      const fromDate = document.getElementById("quick-from-date").value;
+      const untilDate = document.getElementById("quick-until-date").value;
+    
+      if (inputQuickTask && fromDate <= untilDate && fromDate.length != 0 
+        && untilDate.length != 0  ) {
+        
+        daysFromDateRange();
+        view.undisplayQuickAddForm();
+        view.displayCalendar();
+      } 
+        
+      else {
+        console.log('wrong selections or empty input field');
+      }
+    }
+    
+
+
+
   }
