@@ -10,6 +10,7 @@ import * as Menu from './modules/Menu';
 import * as DropdownTasks from './modules/DropdownTasks';
 import * as SliderDays from './modules/SliderDays';
 import * as Tasks from './modules/Tasks';
+import * as TaskForm from './modules/TasksForm';
 import {
   welcome
 } from './modules/Welcome';
@@ -34,6 +35,7 @@ const handlingAllClicks = (event) => {
   SliderDays.handleRotatingDayTypes(currentId);
   Tasks.handlingTasksRendering(currentId, currentHtml);
   Todos.renderingDayandFormBoxClick(currentId, currentStyle, dayNameAttribute);
+  TaskForm.handlingTasksRenderingForm(currentId);
 
 }
 

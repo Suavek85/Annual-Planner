@@ -2,7 +2,6 @@ import { view } from './View';
 import * as Progress from './Progress';
 import {
     mainArray,
-    tasksArray,
     numberSave
 } from './Todos';
 
@@ -16,17 +15,6 @@ export class Task {
       this.g = Math.random()
     }
 }
-  
-  
-export const addTheTaskForm = () => {
-  
-    let inputTodoForm = document.getElementById("input_list").value;
-    let typesTodo = document.getElementById("todo-type-selected").innerHTML;
-    const taskObj = new Task(typesTodo, inputTodoForm);
-    tasksArray.push(taskObj);
-    displayEachTaskForm();
-  
- }
   
   
 export const addTheTaskDay = () => {
@@ -118,35 +106,6 @@ export const addTheTaskDay = () => {
     }
 
 
-    export const deleteTaskForm = () => {
-  
-        const allTodos = document.getElementsByName("todoscb");
-      
-        for (let i = 0, length = allTodos.length - 1; i <= length; i++) {
-          
-          if (allTodos[i].checked) {
-      
-            for (var p = 0; p < tasksArray.length; p++) {
-      
-              if (tasksArray[p].g == allTodos[i].value) {
-      
-                tasksArray.splice(p, 1);
-                p--;
-      
-              }
-            }
-          }
-        }
-      }
-      
-      
-      export const removeTodoList = () => {
-      
-        const list = document.getElementById("task_list");
-        while (list.hasChildNodes()) {
-          list.removeChild(list.firstChild);
-        }
-      }
       
       export const removeTodoListDay = () => {
       
@@ -180,7 +139,6 @@ export const addTheTaskDay = () => {
         else {
           return " ";
         }
-        
       }
       
         
@@ -253,25 +211,7 @@ export const addTheTaskDay = () => {
       }
       
       
-      
-      export const displayEachTaskForm = () => {
-      
-        const mappedtasksArray = tasksArray.map(el => {
-      
-          return  `<input type="checkbox" id="checkbox_todo" value="${el.g}" name="todoscb"><li style=${doneTaskStyleCross(el)} >${el.text} (${el.type})</li><img src="images/completed.png" alt="logo done" class="icons_done" height="16px" width="16px" style=${doneTaskStyleIcon(el)}><br>`
-      
-          }
-        )
-      
-        const joinmappedtasksArray = mappedtasksArray.join("");
-      
-        document.getElementById("task_list").insertAdjacentHTML('afterbegin', joinmappedtasksArray);
-      
-      }
-      
-      
-      
-      
+    
       export const displayEachTaskDay = (i) => {
       
         const mappedtasksArrayDay = mainArray[i].z.map( (el, ind) => {
@@ -387,50 +327,27 @@ export const addTheTaskDay = () => {
     
     export const handlingTasksRendering = (currentId, currentHtml) => {
     
-        //DELETE TASK - FORM
-            
-        if (currentId.includes("delete_todo_form")) {
-    
-          deleteTaskForm();
-          removeTodoList();
-          displayEachTaskForm();
-    
-        } 
+       
     
         //DELETE TASK - DAY
     
-        else if (currentId.includes("delete_output")) {
+        if (currentId.includes("delete_output")) {
     
           deleteTaskDay();
         }
     
         //TASK COMPLETED - DAY
     
-        else if (currentId.includes("completed")) {
+        if (currentId.includes("completed")) {
     
           taskComepletedDay();
     
         } 
     
-        //ADD TASK - FORM
-    
-        else if (currentId.includes("enter")) {
-    
-    
-          if (document.getElementById("input_list").value.length > 0) {
-    
-    
-            removeTodoList();
-            addTheTaskForm();
-            view.emptyInputForm();
-            view.displayDeleteForm();
-    
-          }
-        } 
     
         //ADD TASK - DAY
     
-        else if (currentId.includes("add")) {
+        if (currentId.includes("add")) {
     
     
           if (document.getElementById("input_list_output").value.length > 0) {
@@ -444,7 +361,7 @@ export const addTheTaskDay = () => {
     
         //FILTERING
     
-        else if (currentId.includes('filtered')) {
+        if (currentId.includes('filtered')) {
         
           removeTodoListDay();
           filteringTodos(currentHtml, currentId);
