@@ -1,5 +1,3 @@
-import {todos, mainArray} from './Todos';
-
 const view = {
   
     todoListRemove: function() {
@@ -11,11 +9,11 @@ const view = {
       document.getElementById("work").checked = true;
       document.getElementById("form-main-wrapper").style.display = "flex";
       document.querySelector(".notes-box-wrapper").style.display = "none";
-      todos.ul_tasks().innerHTML = "";
+      document.getElementById("task_list").innerHTML = "";
     },
   
     clearTodo: function() {
-      todos.ul_tasks().innerHTML = "";
+      document.getElementById("task_list").innerHTML = "";
     },
   
     undisplayForm: function() {
@@ -38,7 +36,6 @@ const view = {
     },
 
    
-  
     undisplayDay: function() {
       document.querySelector(".notes-box-wrapper").style.display = "none";
       const closeDayWrapper = document.getElementById('close-day-wrapper');
@@ -54,63 +51,14 @@ const view = {
       document.getElementById("name" + number).innerHTML = "TODAY";
     },
 
-
-  
-    calculateProgress: function(i) {
-
-        var currentTasksCount = mainArray[i].z.length;
-        var currentTaskDone = 0;
-        var progressBar = document.getElementById("progressbar");
-
-        for (var k = 0; k < mainArray[i].z.length; k++) {
-
-          if (mainArray[i].z[k].done == true) {
-
-            currentTaskDone = currentTaskDone + 1;      
-
-          }
-
-        }
-
-
-          var widthPercentage = Math.round(
-            (currentTaskDone /currentTasksCount) * 100
-          );
-      
-          if (
-            isNaN(widthPercentage) ||
-            widthPercentage === 0 ||
-            widthPercentage === undefined
-          ) {
-            progressBar.style.width = "100%";
-            progressBar.innerHTML = "0% completed";
-            progressBar.style.backgroundColor = "#A4A4A4";
-          } else {
-            progressBar.style.width = widthPercentage + '%';
-            progressBar.style.backgroundColor = "orange";
-            if (widthPercentage > 40) {
-              progressBar.innerHTML = widthPercentage + "% done";
-            } else {
-              progressBar.innerHTML = widthPercentage + "%";
-            }
-          }
-    },
-
-
-    clearProgress: function() {
-      var progressBar = document.getElementById("progressbar");
-      progressBar.style.width = "100%";
-      progressBar.innerHTML = "0% completed";
-      progressBar.style.backgroundColor = "#A4A4A4";
-    },
-  
+    
     undisplayWelcome: function() {
-      var quotes = document.querySelector(".quotes");
+      const quotes = document.querySelector(".quotes");
       quotes.style.display = "none";
     },
   
     displayWelcome: function() {
-      var quotes = document.querySelector(".quotes");
+      const quotes = document.querySelector(".quotes");
       quotes.style.display = "block";
     },
 
@@ -210,29 +158,6 @@ const view = {
       return document.getElementById("notes").value;
     },
 
-    rotateDayTypes: function(dayTypesArray) {
-
-      let i;
-
-      for (i = 0; i < dayTypesArray.length; i++) {
-
-        if ( document.getElementById('type-day-icon').src.includes(dayTypesArray[i]))  {
-  
-          if (i ===  dayTypesArray.length -1)  {
-            document.getElementById('type-day-icon').src = dayTypesArray[0];
-          } 
-            
-          else {
-            document.getElementById('type-day-icon').src = dayTypesArray[i + 1];
-   
-          } 
-  
-          break;
-  
-        } 
-      }
-    },
-
 
     displayCalendar: function() {
 
@@ -258,16 +183,6 @@ const view = {
 
     },
 
-    toggleShowTasksDropdownDay: function(){
-
-      document.getElementById("myDropdown-2").classList.toggle("show");
-    },
-
-    toggleShowTasksDropdownForm: function(){
-
-      document.getElementById("myDropdown").classList.toggle("show");
-    },
-
     displayDeleteForm: function() {
 
       document.getElementById("delete_todo_form").style.display = "block";
@@ -283,55 +198,6 @@ const view = {
       document.getElementById("input_list_output").value = '';
     },
 
-    displayMoreWeather: function(evtSource) {
-
-      const showMoreWeather = document.getElementById("collapsible_weather");
-      
-      if (showMoreWeather.style.transform == "scaleY(1)") {
-        showMoreWeather.style.transform = "scaleY(0)";
-        evtSource = "images/expand.png";
-      } 
-      
-      else {
-        showMoreWeather.style.transform = "scaleY(1)";
-        evtSource = "images/collapse.png";
-      }
-
-    },
-
-    displayMoreHolidays: function(evtSource) {
-
-      const showMoreHols = document.getElementById("collapsible_holidays");
-
-      if (showMoreHols.style.display === "block") {
-
-        document.getElementById("collapsible_holidays").style.display = 'none';
-        evtSource = "images/expand.png";
-
-      } else {
-        document.getElementById("collapsible_holidays").style.display = 'block';
-        evtSource= "images/collapse.png";
-
-      }
-
-    },
-
-    displayMoreWeatherResp: function() {
-      document.getElementById("collapsible_weather_responsive").style.display = "flex";
-    },
-
-    undisplayMoreWeatherResp: function() {
-      document.getElementById("collapsible_weather_responsive").style.display = "none";
-    },
-
-    displayMoreHolidaysResp: function() {
-      document.getElementById("collapsible_holidays_responsive").style.display = "flex";
-    },
-
-    undisplayMoreHolidaysrResp: function() {
-      document.getElementById("collapsible_holidays_responsive").style.display = "none";
-    },
-
     displayStatsBox: function() {
       document.getElementById("stats-main").style.display = 'flex';
     },
@@ -340,13 +206,6 @@ const view = {
       document.getElementById("stats-main").style.display = 'none';
     },
 
-    toggleDropdownForm: function() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    },
-
-    toggleDropdownDay: function() {
-      document.getElementById("myDropdown-2").classList.toggle("show");
-    },
 
     toggleDropdownQuick: function() {
       if ( document.getElementById("quick-drp-list-2").style.display == "none") {
@@ -376,123 +235,7 @@ const view = {
 
     }
 
-
-
   };
 
 
-const handleWeatherAndHolidaysClick = (currentId, currentSrc) => {
-
-    //TOGGLE SHOWING MORE BANK HOLS
-
-    if (currentId === "expand-holidays") {
-
-      view.displayMoreWeather(currentSrc);
-    }
-
-    //TOGGLE SHOWING MORE WEATHER - DESKTOP
-
-    else if (currentId === 'showmore-weather') {
-
-      view.displayMoreWeather(currentSrc);
-      
-    }
-
-
-    //SHOW WEATHER RESPONSIVE
-
-    else if (currentId === "showmore-weather-resp-icon" || currentId === "showmore-weather-resp-text") {
-
-      view.displayMoreWeatherResp();
-
-    }
-
-    //CLOSE WEATHER RESPONSIVE
-
-    else if (currentId === "collapsible_weather_close") {
-
-      view.undisplayMoreWeatherResp();
-
-    }
-
-    //SHOW HOLIDAYS RESPONSIVE
-
-    else if (currentId === "expand-holidays-resp-logo" || currentId === "expand-holidays-resp-text") {
-
-      view.displayMoreHolidaysResp();
-
-    }
-
-    //CLOSE HOLIDAYS RESPONSIVE
-    else if (currentId === "collapsible_holidays_responsive_close") {
-
-      view.undisplayMoreHolidaysrResp();
-    }
-
-
-}
-
-
-
-const handleDropdownsForTasks = (currentId, currentHtml) => {
-
-    //TOGGLE FORM DROPDOWN MENU
-
-    if (currentId === 'btn-form-dropdown' || currentId === 'wrap-drpdn-area' ) {
-      view.toggleDropdownForm();
-    }
-
-    //ON DROPDOWN ITEM CLICK - FORM
-
-    else if (currentId.includes("drop-down-"))  {
-
-      document.getElementById("todo-type-selected").innerHTML = currentHtml;
-      view.toggleShowTasksDropdownForm();
-    }
-
-    //TOGGLE DAY DROPDOWN MENU
-
-    else if (currentId === 'todo-day-dropdown-area' || currentId === 'todo-day-dropdown-area-2' ) {
-      view.toggleShowTasksDropdownDay();
-    }
-
-    //ON DROPDOWN ITEM CLICK - DAY
-
-    else if (currentId.includes("day-down"))  {
-
-      document.getElementById("todo-type-selected-2").innerHTML = currentHtml;
-      view.toggleDropdownDay();
-    }
-
-}
-
-const handleRotatingDayTypes = (currentId) => {
-
-    //CHANGE DAY TYPE- RIGHT ARROW
-
-    if (currentId === 'right-change-day') {
-
-      const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"]
-
-      view.rotateDayTypes(dayTypesArray);
-
-    } 
-
-    //CHANGE DAY TYPE- LEFT ARROW
-
-
-    else if (currentId == 'left-change-day') {
-
-    const dayTypesArray = ["images/holidays_icon.png", "images/dayoff_icon.png", "images/work_icon.png"  ]
-
-    view.rotateDayTypes(dayTypesArray);
-
-  }
-
-
-}
-
-
-
-
-  export {view, handleWeatherAndHolidaysClick, handleDropdownsForTasks, handleRotatingDayTypes};
+  export { view };

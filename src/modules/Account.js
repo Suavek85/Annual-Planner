@@ -1,8 +1,5 @@
-import {
-    todos,
-  } from './Todos';
-
-  import * as SignRegister from './SignRegister';
+import * as SignRegister from './SignRegister';
+import * as Stats from './Stats';
 
 
 const logBoxHtml = `<div id='logbox' class='login-box'>
@@ -279,7 +276,7 @@ export const handleAccountClick = (event, currentId) => {
         insertRegisterBoxResponsive();
         focusRegisterResponsive();
         unfocusSigninResponsive();
-        todos.countAllTodos();
+        Stats.countAllTodos();
   
       }
 

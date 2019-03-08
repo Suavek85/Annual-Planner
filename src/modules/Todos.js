@@ -2,12 +2,14 @@ import {
   view
 } from './View';
 
+import * as Progress from './Progress';
 import * as Stats from './Stats';
 import * as SignRegister from './SignRegister';
 
 export let mainArray = [];
 export let tasksArray = [];
 let numberSave;
+let closeBtnPreviousIds = [];
 
 
 export class Day {
@@ -56,7 +58,7 @@ export const openTheDay = (dayNameAttribute) => {
   if (mainArray[i].a.includes(numberSave)) {
 
     displayEachTaskDay(i);
-    view.calculateProgress(i);
+    Progress.calculateProgress(i);
     
     }
   }
@@ -86,33 +88,6 @@ export class Task {
 }
 
 
-export const todos = {
-
-    input_todo_form: function() {
-      return document.getElementById("input_list");
-    },
-  
-    input_todo_day: function() {
-      return document.getElementById("input_list_output");
-    },
-  
-    ul_tasks: function() {
-      return document.getElementById("task_list");
-    },
-  
-    ul_tasks_day: function() {
-      return document.getElementById("task_list_output");
-    },
-  
-    inputLength: function(element) {
-      return element.value.length;
-    },
-
-  };
-
-
-
-
 export const addTheTaskForm = () => {
 
   let inputTodoForm = document.getElementById("input_list").value;
@@ -135,7 +110,7 @@ export const addTheTaskDay = () => {
       const taskObj2 = new Task(types, inputTodoDay);
       mainArray[i].z.push(taskObj2);
       displayEachTaskDay(i);
-      view.calculateProgress(i);
+      Progress.calculateProgress(i);
      
     }
   }
@@ -174,7 +149,7 @@ export const addTheTaskDay = () => {
   
             removeTodoListDay();
             displayEachTaskDay(y);
-            view.calculateProgress(y);
+            Progress.calculateProgress(y);
   
           }
   
@@ -213,7 +188,7 @@ export const addTheTaskDay = () => {
   
         removeTodoListDay();
         displayEachTaskDay(y);
-        view.calculateProgress(y);
+        Progress.calculateProgress(y);
   
       }
     }
@@ -527,7 +502,8 @@ export const handlingTasksRendering = (currentId, currentHtml) => {
     else if (currentId.includes("enter")) {
 
 
-      if (todos.inputLength(todos.input_todo_form()) > 0) {
+      if (document.getElementById("input_list").value.length > 0) {
+
 
         removeTodoList();
         addTheTaskForm();
@@ -542,7 +518,7 @@ export const handlingTasksRendering = (currentId, currentHtml) => {
     else if (currentId.includes("add")) {
 
 
-      if (todos.inputLength(todos.input_todo_day()) > 0) {
+      if (document.getElementById("input_list_output").value.length > 0) {
 
         removeTodoListDay();
         addTheTaskDay();
@@ -565,7 +541,7 @@ export const handlingTasksRendering = (currentId, currentHtml) => {
 
 
 
-export const renderingDayandFormBoxClick = (currentId, currentStyle, dayNameAttribute,  closeBtnPreviousIds) => {
+export const renderingDayandFormBoxClick = (currentId, currentStyle, dayNameAttribute) => {
 
 //SUBMIT NEW DAY
 
@@ -586,62 +562,62 @@ if (currentId.includes("submit_")) {
 
 else if (currentId.includes("calendar")) {
 
-  view.undisplayCalendar();
+    view.undisplayCalendar();
 
-  if (!currentStyle.borderRadius) {
+    if (!currentStyle.borderRadius) {
 
-    view.displayForm();
-    view.undisplayWelcome();
-    const numberAdd = currentId.slice(-9);
-    view.displaySubmitButton(numberAdd);
-    view.createGreenCircle(currentStyle);
-    closeBtnPreviousIds.push(currentId);
-  
+      view.displayForm();
+      view.undisplayWelcome();
+      const numberAdd = currentId.slice(-9);
+      view.displaySubmitButton(numberAdd);
+      view.createGreenCircle(currentStyle);
+      closeBtnPreviousIds.push(currentId);
+    
+    } 
+    
+    else {
+
+      view.displayDay();
+      view.undisplayForm();
+      view.undisplayWelcome();
+      Stats.countAllTodos();
+      numberSave = currentId.slice(-9);
+      displaySaveExitButton(numberSave);
+      view.calcDateforDay(currentId)
+      openTheDay( dayNameAttribute);  
+      view.clearInputFieldDay();
+
+    }
+
   } 
-  
-  else {
 
-    view.displayDay();
-    view.undisplayForm();
-    view.undisplayWelcome();
+  //CLOSE DAY
+
+  else if (currentId.includes("close-day")) {
+
+    updateTheDay(dayNameAttribute);
+    SignRegister.updateProfileTodos();
     Stats.countAllTodos();
-    numberSave = currentId.slice(-9);
-    displaySaveExitButton(numberSave);
-    view.calcDateforDay(currentId)
-    openTheDay( dayNameAttribute);  
-    view.clearInputFieldDay();
+    view.displayCalendar();
+    view.displayWelcome();
+    view.undisplayDay();
+    view.todoListRemove();
+    Progress.clearProgress();
 
-  }
+  } 
 
-} 
+  //CLOSE FORM
 
-//CLOSE DAY
+  else if (currentId.includes("close-form")) {
 
-else if (currentId.includes("close-day")) {
-
-  updateTheDay(dayNameAttribute);
-  SignRegister.updateProfileTodos();
-  Stats.countAllTodos();
-  view.displayCalendar();
-  view.displayWelcome();
-  view.undisplayDay();
-  view.todoListRemove();
-  view.clearProgress();
-
-} 
-
-//CLOSE FORM
-
-else if (currentId.includes("close-form")) {
-
-  view.displayCalendar();
-  view.clearTodo();
-  view.removeGreenCircle(closeBtnPreviousIds);
-  view.displayWelcome();
-  view.undisplayForm();
-  view.removeSubmitButton();
-  
-} 
+    view.displayCalendar();
+    view.clearTodo();
+    view.removeGreenCircle(closeBtnPreviousIds);
+    view.displayWelcome();
+    view.undisplayForm();
+    view.removeSubmitButton();
+    
+  } 
 
 
 }

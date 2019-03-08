@@ -5,7 +5,6 @@ import {
   view
 } from './View';
 import {
-    todos,
     mainArray
   } from './Todos';
 
