@@ -1,16 +1,11 @@
-import * as Main from './Todos';
+import { Task } from './Tasks';
+import { Day , mainArray } from './Todos';
 import * as Calendar from './Calendar';
 import * as Stats from './Stats';
-import {
-  view
-} from './View';
-import {
-    mainArray
-  } from './Todos';
+import { view } from './View';
 
 
 //QUICK ADD
-
 
 const whichMonth = (n) => {
 
@@ -117,7 +112,7 @@ const whichMonth = (n) => {
           let one = document.getElementById('quick-todo-selected-2').innerHTML;
           let two  = document.getElementById('quick_input_list').value;
   
-          const taskQuick = new Main.Task (one, two);
+          const taskQuick = new Task (one, two);
           mainArray[h].z.push(taskQuick);
           quickDatesArray.splice(j, 1);
           h--;
@@ -136,10 +131,10 @@ const whichMonth = (n) => {
       let temporaryArr = [];
       let one = document.getElementById('quick-todo-selected-2').innerHTML;
       let two  = document.getElementById('quick_input_list').value;
-      const taskQuick = new Main.Task(one, two);
+      const taskQuick = new Task(one, two);
       temporaryArr.push(taskQuick);
       let imageicon = 'images/work_icon.png';
-      const quickday = new Main.Day (quickDatesArray[n], imageicon, temporaryArr);
+      const quickday = new Day (quickDatesArray[n], imageicon, temporaryArr);
       mainArray.push(quickday);
       temporaryArr = [];
      

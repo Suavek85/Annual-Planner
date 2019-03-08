@@ -9,6 +9,7 @@ import * as SignRegister from './modules/SignRegister';
 import * as Menu from './modules/Menu';
 import * as DropdownTasks from './modules/DropdownTasks';
 import * as SliderDays from './modules/SliderDays';
+import * as Tasks from './modules/Tasks';
 import {
   welcome
 } from './modules/Welcome';
@@ -31,7 +32,7 @@ const handlingAllClicks = (event) => {
   Quickadd.handleQuickAddClick(currentId, currentHtml);
   DropdownTasks.handleDropdownsForTasks(currentId, currentHtml);
   SliderDays.handleRotatingDayTypes(currentId);
-  Todos.handlingTasksRendering(currentId, currentHtml);
+  Tasks.handlingTasksRendering(currentId, currentHtml);
   Todos.renderingDayandFormBoxClick(currentId, currentStyle, dayNameAttribute);
 
 }

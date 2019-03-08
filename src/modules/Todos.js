@@ -2,13 +2,17 @@ import {
   view
 } from './View';
 
+import {
+  displayEachTaskDay
+} from './Tasks';
+
 import * as Progress from './Progress';
 import * as Stats from './Stats';
 import * as SignRegister from './SignRegister';
 
 export let mainArray = [];
 export let tasksArray = [];
-let numberSave;
+export let numberSave;
 let closeBtnPreviousIds = [];
 
 
@@ -29,7 +33,6 @@ export class Day {
   }
 
   updateDay() {
-
     this.f = document.getElementById("type-day-icon").src;
   }
 }
@@ -74,7 +77,7 @@ export const updateTheDay = (dayNameAttribute) => {
   mainArray[dayIndex].updateDay();
 }
 
-
+/*
 
 export class Task {
 
@@ -194,6 +197,7 @@ export const addTheTaskDay = () => {
     }
   }
   
+  */
   
   const displaySaveExitButton = () => {
       
@@ -202,7 +206,7 @@ export const addTheTaskDay = () => {
 
   }
 
-
+/*
 
   
   export const deleteTaskForm = () => {
@@ -539,6 +543,7 @@ export const handlingTasksRendering = (currentId, currentHtml) => {
   
 }
 
+*/
 
 
 export const renderingDayandFormBoxClick = (currentId, currentStyle, dayNameAttribute) => {
