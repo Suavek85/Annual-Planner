@@ -4,7 +4,7 @@ import {
 
 import {
   displayEachTaskDay
-} from './Tasks';
+} from './Tasks/TasksDay';
 
 import * as Progress from './Progress';
 import * as Stats from './Stats';

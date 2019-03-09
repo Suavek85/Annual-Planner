@@ -1,9 +1,17 @@
-import { view } from './View';
-import * as Progress from './Progress';
+import { view } from '../View';
+import * as Progress from '../Progress';
 import {
     mainArray,
     numberSave
-} from './Todos';
+} from '../Days';
+
+import {
+  isIndexEven,
+  typeDayBackground,
+  typeDayIcon,
+  doneTaskStyleIcon,
+  doneTaskStyleCross
+} from './TasksStyle'
 
 
 export class Task {
@@ -35,10 +43,10 @@ export const addTheTaskDay = () => {
   }
         
   
-    export const taskComepletedDay = () => {
+  export const taskComepletedDay = () => {
   
-      var allTodos3 = document.getElementsByName("todoscb");
-      var allTodos3Array = Array.prototype.slice.call(allTodos3);
+      const allTodos3 = document.getElementsByName("todoscb");
+      const allTodos3Array = Array.prototype.slice.call(allTodos3);
     
        
           for (let y = 0; y < mainArray.length; y++) {
@@ -59,11 +67,7 @@ export const addTheTaskDay = () => {
                   }
                 } 
               }
-    
-              removeTodoListDay();
-              displayEachTaskDay(y);
-              Progress.calculateProgress(y);
-    
+              reloadTasksDay(y);
             }
           }
     }
@@ -72,9 +76,9 @@ export const addTheTaskDay = () => {
     
     export const deleteTaskDay = () => {
     
-      var allTodos2 = document.getElementsByName("todoscb");
+      const allTodos2 = document.getElementsByName("todoscb");
     
-      var allTodos2Array = Array.prototype.slice.call(allTodos2);
+      const allTodos2Array = Array.prototype.slice.call(allTodos2);
     
     
       for (var y = 0; y < mainArray.length; y++) {
@@ -96,15 +100,18 @@ export const addTheTaskDay = () => {
               }
             }
           }
-    
-          removeTodoListDay();
-          displayEachTaskDay(y);
-          Progress.calculateProgress(y);
-    
+          reloadTasksDay(y);
         }
       }
     }
 
+    const reloadTasksDay = (y) => {
+
+      removeTodoListDay();
+      displayEachTaskDay(y);
+      Progress.calculateProgress(y);
+
+    }
 
       
       export const removeTodoListDay = () => {
@@ -115,6 +122,7 @@ export const addTheTaskDay = () => {
         }
       }
       
+      /*
       
       export const doneTaskStyleCross = (el) => {
       
@@ -209,7 +217,7 @@ export const addTheTaskDay = () => {
         else
             return '#FFFFFF'
       }
-      
+      */
       
     
       export const displayEachTaskDay = (i) => {
@@ -327,8 +335,6 @@ export const addTheTaskDay = () => {
     
     export const handlingTasksRendering = (currentId, currentHtml) => {
     
-       
-    
         //DELETE TASK - DAY
     
         if (currentId.includes("delete_output")) {
@@ -344,11 +350,10 @@ export const addTheTaskDay = () => {
     
         } 
     
-    
+
         //ADD TASK - DAY
     
         if (currentId.includes("add")) {
-    
     
           if (document.getElementById("input_list_output").value.length > 0) {
     
@@ -357,7 +362,6 @@ export const addTheTaskDay = () => {
             view.emptyInputDay();   
           }
         }
-    
     
         //FILTERING
     

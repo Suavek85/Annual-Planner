@@ -1,4 +1,4 @@
-import { mainArray} from './Todos';
+import { mainArray} from './Days';
 
 export const calculateProgress = (i) => {
 

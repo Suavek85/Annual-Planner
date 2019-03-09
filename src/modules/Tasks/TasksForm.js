@@ -1,7 +1,10 @@
-import { view } from './View';
-import { doneTaskStyleCross, doneTaskStyleIcon } from './Tasks';
-import { tasksArray } from './Todos';
-import { Task } from './Tasks';
+import { view } from '../View';
+import { Task } from './TasksDay';
+import { tasksArray } from '../Days';
+import {
+  doneTaskStyleIcon,
+  doneTaskStyleCross
+} from './TasksStyle'
   
 export const addTheTaskForm = () => {
   

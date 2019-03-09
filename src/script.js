@@ -1,7 +1,7 @@
-import * as Todos from './modules/Todos';
+import * as Days from './modules/Days';
 import * as Weather from './modules/Weather';
 import * as Holidays from './modules/Holidays';
-import * as Account from './modules/Account';
+import * as MenuAccount from './modules/MenuAccount';
 import * as Quickadd from './modules/Quickadd';
 import * as Calendar from './modules/Calendar';
 import * as Stats from './modules/Stats';
@@ -9,8 +9,8 @@ import * as SignRegister from './modules/SignRegister';
 import * as Menu from './modules/Menu';
 import * as DropdownTasks from './modules/DropdownTasks';
 import * as SliderDays from './modules/SliderDays';
-import * as Tasks from './modules/Tasks';
-import * as TaskForm from './modules/TasksForm';
+import * as TasksDay from './modules/Tasks/TasksDay';
+import * as TaskForm from './modules/Tasks/TasksForm';
 import {
   welcome
 } from './modules/Welcome';
@@ -24,7 +24,7 @@ const handlingAllClicks = (event) => {
   const currentHtml = event.target.innerHTML;
   const currentStyle = event.target.style;
   
-  Account.handleAccountClick(event, currentId);
+  MenuAccount.handleAccountClick(event, currentId);
   Calendar.handleRenderingCalendar(currentId);
   Stats.renderingStatsBoxClick(currentId);
   SignRegister.renderingSigninClick(currentId);
@@ -33,8 +33,8 @@ const handlingAllClicks = (event) => {
   Quickadd.handleQuickAddClick(currentId, currentHtml);
   DropdownTasks.handleDropdownsForTasks(currentId, currentHtml);
   SliderDays.handleRotatingDayTypes(currentId);
-  Tasks.handlingTasksRendering(currentId, currentHtml);
-  Todos.renderingDayandFormBoxClick(currentId, currentStyle, dayNameAttribute);
+  TasksDay.handlingTasksRendering(currentId, currentHtml);
+  Days.renderingDayandFormBoxClick(currentId, currentStyle, dayNameAttribute);
   TaskForm.handlingTasksRenderingForm(currentId);
 
 }
@@ -57,5 +57,5 @@ window.onload = function () {
 //ON WINDOW RESIZE
 
 window.onresize = function() {
-  Account.undisplayOnWindowResize();
+  MenuAccount.undisplayOnWindowResize();
 };

@@ -1,5 +1,5 @@
-import { Task } from './Tasks';
-import { Day , mainArray } from './Todos';
+import { Task } from './Tasks/TasksDay';
+import { Day , mainArray } from './Days';
 import * as Calendar from './Calendar';
 import * as Stats from './Stats';
 import { view } from './View';
@@ -121,8 +121,6 @@ const whichMonth = (n) => {
       }
     }
     
-    console.log(quickDatesArray);
-  
   
     //NEW DAYS - CREATE NEW DAY WITH NEW TASK
   
@@ -142,7 +140,6 @@ const whichMonth = (n) => {
   
     Calendar.removeMonthHtml();
     Calendar.loadMonthHtml();
-  
   
   }
 

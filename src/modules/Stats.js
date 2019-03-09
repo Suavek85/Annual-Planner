@@ -4,7 +4,7 @@ import {
 
 import {
     mainArray
-} from './Todos';
+} from './Days';
 
 
 const googChart = (done, all, intro) => {
@@ -38,9 +38,7 @@ const googChart = (done, all, intro) => {
         alignment: 'center',
         textStyle: { color: 'black' }
       }
-    
     };
-      
         
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
@@ -53,7 +51,6 @@ const googChart = (done, all, intro) => {
 
     document.getElementById('tooltip_statistics').innerHTML = "You've no outstanding tasks.";
     document.getElementById('outstanding_tasks').innerHTML = "You've no outstanding tasks.";
-
   }
 
   const clearDoneTodosChart = () => {
@@ -124,16 +121,15 @@ const googChart = (done, all, intro) => {
     
       //CLOSE STATS
     
-      else if (currentId === 'close_stats') {
+      if (currentId === 'close_stats') {
     
         view.undisplayStatsBox();
         view.displayCalendar();
       }
-    
-    }
+  }
 
  
-    export { renderingStatsBoxClick, countAllTodos};
+    export { renderingStatsBoxClick, countAllTodos };
     
 
 

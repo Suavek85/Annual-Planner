@@ -5,8 +5,8 @@ import {
 import {
     mainArray,
     Day
-} from './Todos';
-import * as Account from './Account';
+} from './Days';
+import * as MenuAccount from './MenuAccount';
 import * as Calendar from './Calendar';
 import * as Stats from './Stats';
 
@@ -62,8 +62,8 @@ let userId;
           Calendar.removeMonthHtml();
           Calendar.loadCurrentYear();
           Calendar.loadCurrentMonthHtml();
-          Account.removeLoginWrapperDesktop();
-          Account.undisplayAccountPopupResp();
+          MenuAccount.removeLoginWrapperDesktop();
+          MenuAccount.undisplayAccountPopupResp();
           view.displaySignOut();
           document.getElementById("top-welcome-message").innerHTML = `${nameSignin}!`;
   
@@ -122,8 +122,8 @@ let userId;
           Calendar.loadCurrentMonthHtml();
           Stats.countAllTodos();
           document.getElementById("btn-login-txt").innerHTML = 'Sign out';
-          Account.removeRegisterWrapperDesktop();
-          Account.undisplayAccountPopupResp();
+          MenuAccount.removeRegisterWrapperDesktop();
+          MenuAccount.undisplayAccountPopupResp();
           document.getElementById("top-welcome-message").innerHTML = `${nameRegister}`;
   
         }

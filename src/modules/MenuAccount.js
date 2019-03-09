@@ -175,41 +175,32 @@ const onBackgroundClick = () => {
 
 export const handleAccountClick = (event, currentId) => {
 
-
         //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
-
 
         if (currentId === "btn-register-txt") {
 
-
-        if (document.getElementById('register-wrapper').style.display === "none") {
-    
-          displayRegisterWrapperDesktop();
-          insertRegisterWrapperDesktop();
-          removeLoginWrapperDesktop();
-          
-        } 
+            if (document.getElementById('register-wrapper').style.display === "none") {
         
-        else {
-    
-          removeRegisterWrapperDesktop();
+            displayRegisterWrapperDesktop();
+            insertRegisterWrapperDesktop();
+            removeLoginWrapperDesktop();
+            
+            } else {
+        
+            removeRegisterWrapperDesktop();
+            }
         }
-      }
 
         //TOGGLE DISPLAYING SIGN IN SECTION
 
-            
-
-        else if (currentId === "btn-login-txt") {
+        if (currentId === "btn-login-txt") {
 
             if (event.target.innerHTML === 'Sign out') {
 
             SignRegister.onSignOut();
             
             event.target.innerHTML = 'Sign in';
-            } 
-            
-            else {
+            } else {
 
             if (document.getElementById('login-wrapper').style.display === "none") {
 
@@ -219,19 +210,16 @@ export const handleAccountClick = (event, currentId) => {
                 if (document.getElementById("register-wrapper").style.display === "flex") {
                 removeRegisterWrapperDesktop();
                 }
-            } 
-            
-            else {
+            } else {
 
                 removeLoginWrapperDesktop();
-
             }
             }
         }
 
         //ON BACKGROUND CLICK
 
-        else if (currentId === "main_pic") {
+        if (currentId === "main_pic") {
 
             onBackgroundClick();
         }
@@ -239,15 +227,15 @@ export const handleAccountClick = (event, currentId) => {
 
         //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
 
-        else if (currentId === "credentials-pop-up-close") {
+        if (currentId === "credentials-pop-up-close") {
 
         undisplayProfileBoxResposive();
         removeLogOrRegisterBoxResponsive();
-      }
+        }
 
         //ON ACCOUNT DIV CLICK - RESPONSIVE
 
-        else if (currentId === 'credentials-wrapper-icon' || currentId === 'credentials-wrapper-text') {
+        if (currentId === 'credentials-wrapper-icon' || currentId === 'credentials-wrapper-text') {
 
             displayAccountPopupResp();
             removeLogOrRegisterBoxResponsive();
@@ -257,28 +245,26 @@ export const handleAccountClick = (event, currentId) => {
     
         }
   
-      //ON SIGN IN CLICK - RESPONSIVE
+        //ON SIGN IN CLICK - RESPONSIVE
+    
+        if (currentId === 'btn-login-txt-responsive') {
+    
+            removeLogOrRegisterBoxResponsive();
+            insertLogBoxResponsive();
+            focusSigninResponsive();
+            unfocusRegisterResponsive();
+        }
   
-      else if (currentId === 'btn-login-txt-responsive') {
-  
-        removeLogOrRegisterBoxResponsive();
-        insertLogBoxResponsive();
-        focusSigninResponsive();
-        unfocusRegisterResponsive();
-  
-      }
-  
-      //ON REGISTER CLICK - RESPONSIVE
-  
-      else if (currentId === 'btn-register-txt-responsive') {
-  
-        removeLogOrRegisterBoxResponsive();
-        insertRegisterBoxResponsive();
-        focusRegisterResponsive();
-        unfocusSigninResponsive();
-        Stats.countAllTodos();
-  
-      }
-
+        //ON REGISTER CLICK - RESPONSIVE
+    
+        if (currentId === 'btn-register-txt-responsive') {
+    
+            removeLogOrRegisterBoxResponsive();
+            insertRegisterBoxResponsive();
+            focusRegisterResponsive();
+            unfocusSigninResponsive();
+            Stats.countAllTodos();
+    
+        }
 }
 

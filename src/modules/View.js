@@ -101,7 +101,6 @@ const view = {
     displaySignOut: function() {
 
       document.getElementById("btn-login-txt").innerHTML = 'Sign out';
-
     },
 
     
@@ -234,8 +233,6 @@ const view = {
     document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.backgroundColor = null;
 
     }
-
   };
-
 
   export { view };
