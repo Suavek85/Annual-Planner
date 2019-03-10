@@ -6,7 +6,7 @@ let selectedYear;
 let selectedMonth;
 let monthNumber;
 let daysInMonthNumber;
-let monthStartDay;
+
 
 const monthsArray = [
   {a: 'January', b: 1},
@@ -109,6 +109,34 @@ const addPastDaysStyle = (el) => {
   else { return ''}
 }
 
+//ADD SUBMITTED STYLE
+
+const addSubmittedStyle = el => {
+
+  const doneDaysArray = mainArray.filter(el => el.a.includes(selectedMonth + selectedYear));
+  const slicedDoneDaysArray = doneDaysArray.map(el => { return el.a.slice(7,9) })
+  
+
+  if (slicedDoneDaysArray.includes(el)) {
+    return 'border-radius: 5px; background-color: green;';
+  }   
+  else {
+    return '';
+  }  
+};
+
+//CALCULATE EMPTY DAYS 
+
+const calcEmptyDays = () => {
+
+  let monthStartDay = (new Date(selectedYear + "-" + makeTwoDigitMonthNumber() + "-01").getDay());
+  if (monthStartDay === 0) {
+  monthStartDay = 7
+  }
+  return `<div style='padding: 5px;'>&nbsp</div>`.repeat(monthStartDay - 1);
+}
+
+
 
 //REMOVE MONTH HTML
 
@@ -118,25 +146,13 @@ export const removeMonthHtml = () => {
 }
 
 
-
-
-
-
-
 //LOAD ANY MONTH  HTML
-
 
 export const loadMonthHtml = () => {
 
     selectedYear = document.getElementById("selected_year").innerHTML;
     selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
 
-    monthStartDay = (new Date(selectedYear + "-" + makeTwoDigitMonthNumber() + "-01").getDay());
-    if (monthStartDay === 0) {
-    monthStartDay = 7
-    }
-    
-  
     let i;
     let daysInMonthArray = [];
 
@@ -150,21 +166,7 @@ export const loadMonthHtml = () => {
       let twoDigitDays = i.toString();
       daysInMonthArray.push(twoDigitDays);
       }
-    
     }
-
-    const doneDaysArray = mainArray.filter(el => el.a.includes(selectedMonth + selectedYear));
-    const slicedDoneDaysArray = doneDaysArray.map(el => { return el.a.slice(7,9) })
-    
-    const addSubmittedStyle = el => {
-      if (slicedDoneDaysArray.includes(el)) {
-        return 'border-radius: 5px; background-color: green;';
-      }   
-      else {
-        return '';
-      }  
-    };
-
 
     const addHtmlToDaysArray = daysInMonthArray.map( el => {
 
@@ -174,13 +176,9 @@ export const loadMonthHtml = () => {
 
     const joinHtmlArray = addHtmlToDaysArray.join("");
     
-    const emptyDays = `<div style='padding: 5px;'>&nbsp</div>`.repeat(monthStartDay - 1);
-
-   
-    
     const fullCalendarHtml = `
     <div id="fullcalhtml" class="month_days_gen">
-    ${emptyDays}
+    ${calcEmptyDays()}
     ${joinHtmlArray}
     </div>
     `
