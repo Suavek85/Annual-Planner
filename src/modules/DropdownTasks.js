@@ -30,7 +30,7 @@ export const handleDropdownsForTasks = (currentId, currentHtml) => {
 
     //ON DROPDOWN ITEM CLICK - FORM
 
-    else if (currentId.includes("drop-down-"))  {
+    if (currentId.includes("drop-down-"))  {
 
       document.getElementById("todo-type-selected").innerHTML = currentHtml;
       toggleShowTasksDropdownForm();
@@ -38,13 +38,13 @@ export const handleDropdownsForTasks = (currentId, currentHtml) => {
 
     //TOGGLE DAY DROPDOWN MENU
 
-    else if (currentId === 'todo-day-dropdown-area' || currentId === 'todo-day-dropdown-area-2' ) {
+    if (currentId === 'todo-day-dropdown-area' || currentId === 'todo-day-dropdown-area-2' ) {
       toggleShowTasksDropdownDay();
     }
 
     //ON DROPDOWN ITEM CLICK - DAY
 
-    else if (currentId.includes("day-down"))  {
+    if (currentId.includes("day-down"))  {
 
       document.getElementById("todo-type-selected-2").innerHTML = currentHtml;
       toggleDropdownDay();

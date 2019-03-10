@@ -35,9 +35,6 @@ export const updateNextHolidays = () => {
       <div id='collapsible_holidays_responsive_close'>X</div>
       </div>`;
 
-
-      console.log(res);
-
       //NEXT HOLIDAY
 
       const holidaysArray = res.response.holidays.map(el => {
@@ -68,8 +65,7 @@ export const updateNextHolidays = () => {
           document.getElementById('expand-holidays-responsive').insertAdjacentHTML("afterend", collapsibleHolsResp);
         }
 
-     
-
+    
       //COLLAPSIBLE SECTION
 
       let i;
@@ -114,8 +110,5 @@ export const updateNextHolidays = () => {
         document.getElementById('thirdHolResp').innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]} days`
         document.getElementById('fourthHolResp').innerHTML = `${res.response.holidays[moreholsArray[3]].name} in ${moreholsDaysLeft[3]} days`
       }
-
-
-
     })
 }

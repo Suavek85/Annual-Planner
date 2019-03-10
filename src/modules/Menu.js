@@ -1,4 +1,3 @@
-
 const displayMoreWeather = (evtSource) => {
 
     const showMoreWeather = document.getElementById("collapsible_weather");
@@ -29,23 +28,26 @@ const displayMoreHolidays = (evtSource) => {
       evtSource= "images/collapse.png";
 
     }
-
 }
 
 const displayMoreWeatherResp = () => {
-    document.getElementById("collapsible_weather_responsive").style.display = "flex";
+  const collapseWeatherRes = document.getElementById("collapsible_weather_responsive");
+  collapseWeatherRes.style.display = "flex";
 }
 
 const undisplayMoreWeatherResp = () => {
-    document.getElementById("collapsible_weather_responsive").style.display = "none";
+  const collapseWeatherRes = document.getElementById("collapsible_weather_responsive");
+  collapseWeatherRes.style.display = "none";
 }
 
 const displayMoreHolidaysResp = () => {
-    document.getElementById("collapsible_holidays_responsive").style.display = "flex";
+  const collapseHolsRes = document.getElementById("collapsible_holidays_responsive");
+  collapseHolsRes.style.display = "flex";
 }
 
 const undisplayMoreHolidaysrResp = () => {
-    document.getElementById("collapsible_holidays_responsive").style.display = "none";
+  const collapseHolsRes = document.getElementById("collapsible_holidays_responsive");
+  collapseHolsRes.style.display = "none";
 }
 
 
@@ -63,7 +65,6 @@ export const handleWeatherAndHolidaysClick = (currentId, currentSrc) => {
     if (currentId === 'showmore-weather') {
 
       displayMoreWeather(currentSrc);
-      
     }
 
     //SHOW WEATHER RESPONSIVE
@@ -84,7 +85,6 @@ export const handleWeatherAndHolidaysClick = (currentId, currentSrc) => {
     if (currentId === "expand-holidays-resp-logo" || currentId === "expand-holidays-resp-text") {
 
       displayMoreHolidaysResp();
-
     }
 
     //CLOSE HOLIDAYS RESPONSIVE

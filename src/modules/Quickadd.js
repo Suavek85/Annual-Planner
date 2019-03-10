@@ -53,15 +53,14 @@ const whichMonth = (n) => {
   }
   
   const makeTwoDigit = (no) => {
-  
-    if (no < 10) {no = '0' + no;}
-  
-  return no;
-  
+
+    if (no < 10) {
+      no = '0' + no;
+    }
+    return no;
   }
   
   export const daysFromDateRange = () => {
-  
   
     //GET QUICK-ADD DATES SEPERATELY INTO ARRAY FROM DATE RANGE INPUT FIELD
   
@@ -98,7 +97,6 @@ const whichMonth = (n) => {
       quickDatesArray.push(toDataAttrFormat);
     
     }
-  
   
   
     //EXISTING DAYS - ADD NEW TASK
@@ -138,9 +136,7 @@ const whichMonth = (n) => {
      
     }
   
-    Calendar.removeMonthHtml();
-    Calendar.loadMonthHtml();
-  
+    Calendar.clearAndLoadNewCalendar();
   }
 
 

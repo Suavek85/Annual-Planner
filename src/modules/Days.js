@@ -1,11 +1,5 @@
-import {
-  view
-} from './View';
-
-import {
-  displayEachTaskDay
-} from './Tasks/TasksDay';
-
+import { view } from './View';
+import { displayEachTaskDay } from './Tasks/RenderTasks';
 import * as Progress from './Progress';
 import * as Stats from './Stats';
 import * as SignRegister from './SignRegister';
@@ -22,7 +16,6 @@ export class Day {
     this.f = f;
     this.z = z;
   }
-
   createDayOnCard() {
     const todosListHtml = `
     <div style="flex-basis: 4" id='todolist' class='mynotes-gen'>
@@ -31,24 +24,22 @@ export class Day {
    document.getElementById("notes-box-top").insertAdjacentHTML("afterend", todosListHtml);
    document.getElementById("type-day-icon").src = this.f;
   }
-
   updateDay() {
     this.f = document.getElementById("type-day-icon").src;
   }
 }
 
 
-
-export const submitTheNewDay = (dayNameAttribute) => {
+const submitTheNewDay = (dayNameAttribute) => {
 
   const typeOfDay = view.takeTypeOfDay();
-  const dayfull = new Day(dayNameAttribute, typeOfDay, tasksArray);
+  const dayfull = new Day ( dayNameAttribute, typeOfDay, tasksArray );
   mainArray.push(dayfull);
   Stats.countAllTodos();
   tasksArray = [];
 }
 
-export const openTheDay = (dayNameAttribute) => {
+const openTheDay = (dayNameAttribute) => {
 
   let dayIndexforOpen = mainArray.findIndex(element => {
     return element.a === dayNameAttribute;
@@ -68,7 +59,7 @@ export const openTheDay = (dayNameAttribute) => {
 }
   
 
-export const updateTheDay = (dayNameAttribute) => {
+const updateTheDay = (dayNameAttribute) => {
 
   let dayIndex = mainArray.findIndex(element => {
     return element.a === dayNameAttribute;
@@ -82,7 +73,6 @@ const displaySaveExitButton = () => {
       
     let saveexitBtnGen = `<div day-name="dayname${numberSave}" class='close-save' id='close-day-${numberSave}'>Close</div>`
     document.getElementById("close-day-wrapper").insertAdjacentHTML('afterbegin', saveexitBtnGen);
-
 }
 
 
@@ -123,8 +113,8 @@ if (currentId.includes("calendar")) {
     else {
 
       view.displayDay();
-      view.undisplayForm();
       view.undisplayWelcome();
+      view.undisplayForm();
       Stats.countAllTodos();
       numberSave = currentId.slice(-9);
       displaySaveExitButton(numberSave);
@@ -163,7 +153,6 @@ if (currentId.includes("calendar")) {
     view.removeSubmitButton();
     
   } 
-
 }
 
 

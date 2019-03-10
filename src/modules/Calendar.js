@@ -104,12 +104,10 @@ export const loadMonthHtml = () => {
 
           if (startsWithZero == true) { 
             slicedEl = el.slice(1); 
-          } 
-          else { slicedEl = el;}
+          } else { slicedEl = el;}
 
           return slicedEl;
         }
-
 
         const toTimestamp = (el) => {
           const fullDate = new Date(selectedYear, monthNumber - 1, toOneDigit(el), '23', '59', '59');
@@ -123,8 +121,6 @@ export const loadMonthHtml = () => {
         else { return ''}
     }
 
-
-    
 
     const calcMonthNumber = () => {
 
@@ -221,12 +217,38 @@ export const loadCurrentMonthHtml = () => {
   loadMonthHtml();
 }
 
-//LOAD MONTH FORWRD
+
+
+
+//LOAD MONTH FORWRD AND BACKWARDS
 
 export const newMonthsForward = () => {
 
   let selectedMo = document.getElementById("selected_month");
   let selectedYe = document.getElementById("selected_year");
+  calculateNextMont(selectedMo, selectedYe);
+  daysInMonth (monthNumber, selectedYe.innerHTML); 
+  selectedYear = document.getElementById("selected_year").innerHTML;
+  selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
+  clearAndLoadNewCalendar(); 
+
+}
+
+
+export const newMonthsBackward = () => {
+
+  let selectedMoBack = document.getElementById("selected_month");
+  let selectedYeBack = document.getElementById("selected_year");
+  calculateBackMont(selectedMoBack, selectedYeBack);
+  daysInMonth (monthNumber, selectedYeBack.innerHTML); 
+  selectedYear = document.getElementById("selected_year").innerHTML;
+  selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
+  clearAndLoadNewCalendar(); 
+
+}
+
+
+const calculateNextMont = (selectedMo, selectedYe) => {
 
   switch(selectedMo.innerHTML) {
       case "December":
@@ -282,23 +304,13 @@ export const newMonthsForward = () => {
       selectedMo.innerHTML = "December";
       monthNumber = 12
     }
-  
-  daysInMonth (monthNumber, selectedYe.innerHTML); 
-  selectedYear = document.getElementById("selected_year").innerHTML;
-  selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
-  removeMonthHtml();
-  loadMonthHtml();
 
 }
 
-//LOAD MONTH BACKWARD
 
-export const newMonthsBackward = () => {
+const calculateBackMont = (selectedMoBack, selectedYeBack) => {
 
-  let selectedMoBack = document.getElementById("selected_month");
-  let selectedYeBack = document.getElementById("selected_year");
-
-  switch(selectedMoBack.innerHTML) {
+    switch(selectedMoBack.innerHTML) {
       case "December":
       selectedMoBack.innerHTML = "November";
       monthNumber = 11;
@@ -353,28 +365,32 @@ export const newMonthsBackward = () => {
       monthNumber = 10;
   }
 
-  daysInMonth (monthNumber, selectedYeBack.innerHTML); 
-  selectedYear = document.getElementById("selected_year").innerHTML;
-  selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
+}
+
+
+export const clearAndLoadNewCalendar = () => {
   removeMonthHtml();
   loadMonthHtml();
-
 }
+
+export const clearAndLoadCurrentCalendar = () => {
+  removeMonthHtml();
+  loadCurrentYear();
+  loadCurrentMonthHtml();
+}
+
 
 export const handleRenderingCalendar = (currentId) => {
 
   //DISPLAY NEXT MONTH
-
   if (currentId === "nextarrow") {
     newMonthsForward();
   }
 
   //DISPLAY PREVIOUS MONTH
-
-  else if (currentId === "backarrow") {
+  if (currentId === "backarrow") {
     newMonthsBackward();
   }
-
 }
 
 

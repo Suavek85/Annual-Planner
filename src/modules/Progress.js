@@ -13,7 +13,6 @@ export const calculateProgress = (i) => {
         currentTaskDone = currentTaskDone + 1;      
 
       }
-
     }
 
 

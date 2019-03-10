@@ -31,118 +31,112 @@ const registerBoxHtml = `<div id='regbox' class='register-box'>
 
 </div>`
 
+const profileRespBox = document.getElementById("signorregister_form");
+const registerWrapper = document.getElementById('register-wrapper');
+const loginWrapper = document.getElementById("login-wrapper");
+const loginBtnResp = document.getElementById("btn-login-txt-responsive");
+const registernBtnResp = document.getElementById("btn-register-txt-responsive");
+
+
 
 const removeLogOrRegisterBoxResponsive = () => {
 
-    if (document.getElementById("signorregister_form").hasChildNodes()) {
-        document.getElementById("signorregister_form").removeChild(document.getElementById("signorregister_form").childNodes[0]);
+    if (profileRespBox.hasChildNodes()) {
+        profileRespBox.removeChild(profileRespBox.childNodes[0]);
     }
 }
 
 const insertLogBoxResponsive = () => {
-
-    document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", logBoxHtml);
-
+    profileRespBox.insertAdjacentHTML("afterbegin", logBoxHtml);
 }
 
 const insertRegisterBoxResponsive = () => {
-
-    document.getElementById("signorregister_form").insertAdjacentHTML("afterbegin", registerBoxHtml);
-
+    profileRespBox.insertAdjacentHTML("afterbegin", registerBoxHtml);
 }
 
 
 const displayRegisterWrapperDesktop = () => {
-
-    document.getElementById('register-wrapper').style.display = "flex";
+    registerWrapper.style.display = "flex";
 }
 
 
 const insertRegisterWrapperDesktop = () => {
-    document.getElementById("register-wrapper").insertAdjacentHTML("afterbegin", registerBoxHtml);
-
+    registerWrapper.insertAdjacentHTML("afterbegin", registerBoxHtml);
 }
   
 
 const displayLoginWrapperDesktop = () => {
-
-    document.getElementById("login-wrapper").style.display = "flex";
+    loginWrapper.style.display = "flex";
 }
 
 const insertLoginWrapperDesktop = () => {
-
-    document.getElementById("login-wrapper").insertAdjacentHTML("afterbegin", logBoxHtml);
-
+    loginWrapper.insertAdjacentHTML("afterbegin", logBoxHtml);
 }
 
 export const removeRegisterWrapperDesktop = () => {
 
-    if (document.getElementById("register-wrapper").hasChildNodes()) {
-    document.getElementById("register-wrapper").removeChild(document.getElementById("register-wrapper").childNodes[0]);
+    if (registerWrapper.hasChildNodes()) {
+    registerWrapper.removeChild(registerWrapper.childNodes[0]);
     }
-    document.getElementById("register-wrapper").style.display = "none";
-
+    registerWrapper.style.display = "none";
 }
   
 
 export const removeLoginWrapperDesktop = () => {
 
-    if (document.getElementById("login-wrapper").hasChildNodes()) {
-    document.getElementById("login-wrapper").removeChild(document.getElementById("login-wrapper").childNodes[0]);
+    if (loginWrapper.hasChildNodes()) {
+        loginWrapper.removeChild(loginWrapper.childNodes[0]);
     }
-    document.getElementById("login-wrapper").style.display = "none";
+    loginWrapper.style.display = "none";
 }
 
 
 const focusSigninResponsive = () => {
 
-    document.getElementById("btn-login-txt-responsive").style.fontWeight = "900";
-    document.getElementById("btn-login-txt-responsive").style.transform = "scale(1.1)";
-    document.getElementById("btn-register-txt-responsive").style.transform = "scale(1)";
-    document.getElementById("btn-register-txt-responsive").style.fontWeight = "normal";
-
+    loginBtnResp.style.fontWeight = "900";
+    loginBtnResp.style.transform = "scale(1.1)";
+    unfocusRegisterResponsive()
 }
 
 const unfocusRegisterResponsive = () => {
 
-    document.getElementById("btn-register-txt-responsive").style.transform = "scale(1)";
-    document.getElementById("btn-register-txt-responsive").style.fontWeight = "normal";
-
+    registernBtnResp.style.transform = "scale(1)";
+    registernBtnResp.style.fontWeight = "normal";
 }
 
 
 const focusRegisterResponsive = () => {
 
-    document.getElementById("btn-register-txt-responsive").style.fontWeight = "900";
-    document.getElementById("btn-register-txt-responsive").style.transform = "scale(1.1)";
-    document.getElementById("btn-login-txt-responsive").style.transform = "scale(1)";
-    document.getElementById("btn-login-txt-responsive").style.fontWeight = "normal";
-
+    registernBtnResp.style.fontWeight = "900";
+    registernBtnResp.style.transform = "scale(1.1)";
+    unfocusSigninResponsive();
 }
 
 const unfocusSigninResponsive = () => {
 
-    document.getElementById("btn-login-txt-responsive").style.transform = "scale(1)";
-    document.getElementById("btn-login-txt-responsive").style.fontWeight = "normal";
-
+    loginBtnResp.style.transform = "scale(1)";
+    loginBtnResp.style.fontWeight = "normal";
 }
 
-export const undisplayAccountPopupResp = () => {
 
-    document.getElementById("credentials-pop-up").style.display = "none";
+
+export const undisplayAccountPopupResp = () => {
+    const profilePopUp = document.getElementById("credentials-pop-up");
+    profilePopUp.style.display = "none";
 
 }
 
 const displayAccountPopupResp = () => {
-
-    document.getElementById("credentials-pop-up").style.display = "flex";
+    const profilePopUp = document.getElementById("credentials-pop-up");
+    profilePopUp.style.display = "flex";
 
 }
 
 const undisplayProfileBoxResposive = () => {
-      if (document.getElementById('credentials-pop-up').style.display === 'flex') {
-        document.getElementById('credentials-pop-up').style.display = 'none';
-      }
+    const profilePopUp = document.getElementById("credentials-pop-up");
+    if (profilePopUp.style.display === 'flex') {
+        profilePopUp.style.display = 'none';
+    }
 }
 
 export const undisplayOnWindowResize = () => {
@@ -150,9 +144,7 @@ export const undisplayOnWindowResize = () => {
     if (window.innerWidth > 980) {
         undisplayProfileBoxResposive();
         removeLogOrRegisterBoxResponsive();
-    }
-      
-    else {
+    } else {
         removeLoginWrapperDesktop();
         removeRegisterWrapperDesktop()
     }
@@ -161,19 +153,17 @@ export const undisplayOnWindowResize = () => {
 
 const onBackgroundClick = () => {
 
-      if (document.getElementById('login-wrapper').style.display === "flex") {
-
+      if (loginWrapper.style.display === "flex") {
         removeLoginWrapperDesktop();
-      } 
+      }  
       
-      else if (document.getElementById('register-wrapper').style.display === "flex") {
+      if (registerWrapper.style.display === "flex") {
         removeRegisterWrapperDesktop();
       }
-
 }
 
 
-export const handleAccountClick = (event, currentId) => {
+export const handleAccountClick = (event, currentId, currentHtml) => {
 
         //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
 
@@ -195,21 +185,22 @@ export const handleAccountClick = (event, currentId) => {
 
         if (currentId === "btn-login-txt") {
 
-            if (event.target.innerHTML === 'Sign out') {
+            if (currentHtml === 'Sign out') {
 
             SignRegister.onSignOut();
-            
             event.target.innerHTML = 'Sign in';
+
             } else {
 
-            if (document.getElementById('login-wrapper').style.display === "none") {
+            if (loginWrapper.style.display === "none") {
 
                 displayLoginWrapperDesktop();
                 insertLoginWrapperDesktop();
 
-                if (document.getElementById("register-wrapper").style.display === "flex") {
+                if (registerWrapper.style.display === "flex") {
                 removeRegisterWrapperDesktop();
                 }
+                
             } else {
 
                 removeLoginWrapperDesktop();
@@ -229,8 +220,8 @@ export const handleAccountClick = (event, currentId) => {
 
         if (currentId === "credentials-pop-up-close") {
 
-        undisplayProfileBoxResposive();
-        removeLogOrRegisterBoxResponsive();
+            undisplayProfileBoxResposive();
+            removeLogOrRegisterBoxResponsive();
         }
 
         //ON ACCOUNT DIV CLICK - RESPONSIVE

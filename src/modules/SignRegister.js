@@ -59,9 +59,7 @@ let userId;
             Stats.countAllTodos();
           }
   
-          Calendar.removeMonthHtml();
-          Calendar.loadCurrentYear();
-          Calendar.loadCurrentMonthHtml();
+          Calendar.clearAndLoadCurrentCalendar();
           MenuAccount.removeLoginWrapperDesktop();
           MenuAccount.undisplayAccountPopupResp();
           view.displaySignOut();
@@ -117,9 +115,7 @@ let userId;
           signedIn = true;
           userId = data.id;
           mainArray.splice(0, mainArray.length);
-          Calendar.removeMonthHtml();
-          Calendar.loadCurrentYear();
-          Calendar.loadCurrentMonthHtml();
+          Calendar.clearAndLoadCurrentCalendar();
           Stats.countAllTodos();
           document.getElementById("btn-login-txt").innerHTML = 'Sign out';
           MenuAccount.removeRegisterWrapperDesktop();
@@ -140,9 +136,7 @@ const onSignOut = () => {
     signedIn = false;
     mainArray.splice(0, mainArray.length);
     Stats.countAllTodos();
-    Calendar.removeMonthHtml();
-    Calendar.loadCurrentYear();
-    Calendar.loadCurrentMonthHtml();
+    Calendar.clearAndLoadCurrentCalendar();
     Stats.countAllTodos();
     view.displayHelloGuest();
     

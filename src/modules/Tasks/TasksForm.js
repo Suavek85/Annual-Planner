@@ -1,10 +1,7 @@
 import { view } from '../View';
 import { Task } from './TasksDay';
 import { tasksArray } from '../Days';
-import {
-  doneTaskStyleIcon,
-  doneTaskStyleCross
-} from './TasksStyle'
+import { displayEachTaskForm } from './RenderTasks'
   
 export const addTheTaskForm = () => {
   
@@ -47,7 +44,7 @@ export const removeTodoList = () => {
     }
 }
       
-     
+/*    
       
 export const displayEachTaskForm = () => {
       
@@ -63,7 +60,7 @@ export const displayEachTaskForm = () => {
     document.getElementById("task_list").insertAdjacentHTML('afterbegin', joinmappedtasksArray);
       
 }
-      
+*/    
       
 
 //EVENT LISTENER
