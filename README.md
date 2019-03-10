@@ -1,5 +1,5 @@
 # Annual-Planner
-Annual Planner - JS Project
+Annual Planner - Vanilla JS Project
 
 •	Vanilla JS to-do app, own idea, not based on an online course, created from sratch
 
