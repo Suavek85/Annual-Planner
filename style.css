@@ -331,6 +331,7 @@ li {
 
 #quickadd_stats {
   display: flex;
+  width: 35vw;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -1176,7 +1177,6 @@ i {
 
 .quick-add-wrapper {
   display: flex;
-  width: 35vw;
   flex-direction: column;
   align-items: center;
   padding: 5px 15px 5px 15px;
@@ -1696,7 +1696,7 @@ input[type=date]::-webkit-clear-button
     width: 50vw;
   }
 
-  .quick-add-wrapper {
+  #quickadd_stats {
     width: 50vw;
   }
 
@@ -1747,7 +1747,7 @@ input[type=date]::-webkit-clear-button
     height: 60vh;
   }
 
-  .quick-add-wrapper {
+  #quickadd_stats {
     width: 70vw;
   }
 
@@ -1820,7 +1820,7 @@ input[type=date]::-webkit-clear-button
     width: 100vw;
   }
 
-  .quick-add-wrapper {
+  #quickadd_stats {
     width: 100vw;
   }
 
