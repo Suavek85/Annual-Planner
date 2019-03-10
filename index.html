@@ -21,16 +21,11 @@
 
             <div class="menu-wrapper_left">
 
-                <div class='upcoming_holidays' id='next_holidays'>
-
-                </div>
-
+                <div class='upcoming_holidays' id='next_holidays'></div>
 
                 <div class="logo">
                     <div><img src='images/logo_11.png' id='logo-pic' alt="Logo"></div>
-                    <div class="logo-text">
-
-                    </div>
+                    <div class="logo-text"></div>
                 </div>
 
             </div>
@@ -38,7 +33,6 @@
             <div class="menu-wrapper_right">
 
                 <div class="weather-gen">
-
 
                     <div>
                         <div id='welcoming' class='welcome_texts'>Good morning</div>
@@ -52,7 +46,6 @@
 
                             <div style="display: none" id='login-wrapper'>
 
-
                             </div>
 
                         </div>
@@ -64,7 +57,6 @@
                             </div>
                         </div>
                     </div>
-
 
 
                     <img src='images/expand.png' id='showmore-weather' style="display:none" alt="expand">
@@ -95,7 +87,6 @@
             </div>
 
 
-
             <div class="menu-wrapper_right">
 
                 <div class="weather-gen">
@@ -105,7 +96,6 @@
                         <img id='credentials-wrapper-icon' class='menu_left_icon' src="images/user-account.png">
                         <div id='credentials-wrapper-text'>Profile</div>
                     </div>
-
 
 
                     <div id='showmore-weather-responsive'>
@@ -205,8 +195,6 @@
 
             <p class="quick-todos-header">Quick add todo:</p>
 
-
-
             <div class="quick-add-form-item"> 
                     <p>From:</p>
                     <input id='quick-from-date' type='date' >
@@ -219,12 +207,6 @@
             </div>
 
            
-
-
-
-
-
-
             <div class='quickadd_input_wrapper'>
 
                 <input id='quick_input_list' type='textday-quick' placeholder="enter here">
@@ -251,87 +233,79 @@
 
 
 
-                <div class='quickadd-bottom-buttons'>
+            <div class='quickadd-bottom-buttons'>
 
-                    <div id='sbm-quick-wrappper'>
-                        <button id="btn-sbn-quick" class="button_day highlight" >Submit</button>
-                    </div>
-
-                        <div id='close-btn-quick-wrapper'>
-                        <button class="button_day highlight" id="btn-close-quick">Close</button>
-                    </div>
-
+                <div id='sbm-quick-wrappper'>
+                    <button id="btn-sbn-quick" class="button_day highlight" >Submit</button>
                 </div>
+
+                <div id='close-btn-quick-wrapper'>
+                    <button class="button_day highlight" id="btn-close-quick">Close</button>
+                </div>
+
+            </div>
 
         </div>
 
-        <!-- MAIN FORM -->
+
+        <!-- FORM -->
 
         <div id='form-main-wrapper'>
 
-          
             <!-- MAIN FORM PART  -->
 
             <div id='form-column-wrapper'>
 
+                <div class='form-create-todo-wrapper'>
 
+                    <p class="create-todos-header">Create a todo list:</p>
 
-            <div class='form-create-todo-wrapper'>
+                    <input id='input_list' type='text' placeholder="enter here">
 
-                <p class="create-todos-header">Create a todo list:</p>
+                    <div class='form-create-buttons-wrapper'>
 
-                <input id='input_list' type='text' placeholder="enter here">
+                        <button class="form-item-2 highlight" id='enter'>Add</button>
 
-                <div class='form-create-buttons-wrapper'>
-
-                    <button class="form-item-2 highlight" id='enter'>Add</button>
-
-                    <div id='todo-type-wrapper'>
-                        <div id="todo-type-selected">Home</div>
-                        <div id='wrap-drpdn-area' class="todo-type-dropdown">
-                                <button id='btn-form-dropdown' class="todo-type-dropbtn"><img width="12px" height="12px" style="padding-left: 5px;" src="images/expand.png"></button>
-                                <div id="myDropdown" class="dropdown-list">
-                    
-                                  <div id="drop-down-1" class="dropdown-list-item">Home</div>
-                                  <div id="drop-down-2"  class="dropdown-list-item">Shopping</div>
-                                  <div id="drop-down-3"  class="dropdown-list-item" >Celebration</div>
-                                  <div id="drop-down-4"  class="dropdown-list-item" >Learning</div>
-                                  <div id="drop-down-5"  class="dropdown-list-item" >Appointment</div>
-                                  <div id="drop-down-6"  class="dropdown-list-item" >Health</div>
-                                  <div id="drop-down-7"  class="dropdown-list-item" >Sports</div>
-                                </div>
-                        </div>
+                        <div id='todo-type-wrapper'>
+                            <div id="todo-type-selected">Home</div>
+                            <div id='wrap-drpdn-area' class="todo-type-dropdown">
+                                    <button id='btn-form-dropdown' class="todo-type-dropbtn"><img width="12px" height="12px" style="padding-left: 5px;" src="images/expand.png"></button>
+                                    <div id="myDropdown" class="dropdown-list">
+                        
+                                        <div id="drop-down-1" class="dropdown-list-item">Home</div>
+                                        <div id="drop-down-2"  class="dropdown-list-item">Shopping</div>
+                                        <div id="drop-down-3"  class="dropdown-list-item" >Celebration</div>
+                                        <div id="drop-down-4"  class="dropdown-list-item" >Learning</div>
+                                        <div id="drop-down-5"  class="dropdown-list-item" >Appointment</div>
+                                        <div id="drop-down-6"  class="dropdown-list-item" >Health</div>
+                                        <div id="drop-down-7"  class="dropdown-list-item" >Sports</div>
+                                    </div>
+                            </div>
                         </div>
 
                         <button class="form-item-3 highlight" id='delete_todo_form'><img src="images/rubbish_white.png" class="form_delete_todo_icon"></button>
 
-                </div>
+                    </div>
               
-          
-            <ul id="task_list"></ul>
+                    <ul id="task_list"></ul>
 
-            </div>
+                </div>
 
             
-            <!-- DAY TYPE-->
+                <!-- DAY TYPE-->
 
-            <div class='form-todo-type-wrapper'>
-                <p id="type-of-day">Type of day:</p>
-                <div class="form-item-radio"><input type="radio" class="form-radio" id="work" name="day" value="images/work_icon.png"
-                        checked>Work</div>
-                <div class="form-item-radio"><input type="radio" class="form-radio" id="holiday" name="day" value="images/dayoff_icon.png">Day
-                    off</div>
-                <div id="travel" class="form-item-radio"><input type="radio" class="form-radio" id="other" name="day" value="images/holidays_icon.png">
-                    Holidays</div>
+                <div class='form-todo-type-wrapper'>
+                    <p id="type-of-day">Type of day:</p>
+                    <div class="form-item-radio"><input type="radio" class="form-radio" id="work" name="day" value="images/work_icon.png"
+                            checked>Work</div>
+                    <div class="form-item-radio"><input type="radio" class="form-radio" id="holiday" name="day" value="images/dayoff_icon.png">Day
+                        off</div>
+                    <div id="travel" class="form-item-radio"><input type="radio" class="form-radio" id="other" name="day" value="images/holidays_icon.png">
+                        Holidays</div>
 
-            </div>
+                </div>
         
         </div>
-
-
-
-
-
 
 
             <!-- BOTTOM BUTTONS-->
@@ -349,11 +323,7 @@
             </div>
 
 
-
-
         </div>
-
-
 
 
         <!-- DAILY TODOS AND NOTES -->
@@ -384,29 +354,24 @@
                     
                     
 
-                    
-
-
                     <div class="day-menu-item-dropdown">
 
-                    <p class="day-menu-item-text-dropdown">Filter<img width="16px" height="16px" style="padding-left:10px;" src="images/expand.png"></p>
-                        
-                    <div class="dropdown-content">
-                        
-                            <div id="filtered-all" class="dropdown-content-item">All</div>
-                            <div id="filtered-home" class="dropdown-content-item">Home</div>
-                            <div id="filtered-shopping" class="dropdown-content-item" >Shopping</div>
-                            <div id="filtered-celebration" class="dropdown-content-item" >Celebration</div>
-                            <div id="filtered-learning" class="dropdown-content-item" >Learning</div>
-                            <div id="filtered-appointment" class="dropdown-content-item" >Appointment</div>
-                            <div id="filtered-health" class="dropdown-content-item" >Health</div>
-                            <div id="filtered-sports" class="dropdown-content-item" >Sports</div>
+                        <p class="day-menu-item-text-dropdown">Filter<img width="16px" height="16px" style="padding-left:10px;" src="images/expand.png"></p>
+                            
+                        <div class="dropdown-content">
+                            
+                                <div id="filtered-all" class="dropdown-content-item">All</div>
+                                <div id="filtered-home" class="dropdown-content-item">Home</div>
+                                <div id="filtered-shopping" class="dropdown-content-item" >Shopping</div>
+                                <div id="filtered-celebration" class="dropdown-content-item" >Celebration</div>
+                                <div id="filtered-learning" class="dropdown-content-item" >Learning</div>
+                                <div id="filtered-appointment" class="dropdown-content-item" >Appointment</div>
+                                <div id="filtered-health" class="dropdown-content-item" >Health</div>
+                                <div id="filtered-sports" class="dropdown-content-item" >Sports</div>
+                        </div>
+
                     </div>
 
-                    
-                    </div>
-
-                    
 
                     <div class='button_row_wrapper-2'>
                     
@@ -415,35 +380,19 @@
                             <button id='completed' class='button_day button_day_3 highlight'><img  src='images/checked-white.png' class='button_day_icon_left' >
                                 </button>
          
-         
-                            
-         
-                         </div>
-
-                    
-                    
+                     </div>
 
             </div>
 
 
-           
-            
-
-
-
-
-
             <div class='day-bottom-buttons'>
             
-                
                     <div class='day_input_wrapper'>
 
                             <button id='add' class='button_day button_day_2 highlight'><img class='button_day_icon_add' src='images\add-white.png'>Add</button>
 
                     <input id='input_list_output' type='textday' placeholder="enter here">
                         
-                    
-
                     <div id='todo-type-selected-2-wrapper'>
 
                             <div id="todo-type-selected-2">Home</div>
@@ -464,16 +413,8 @@
                                     </div>
                             </div>
 
-
-
                         </div>
                     </div>
-
-
-
-                
-
-                
 
                 <div id='close-day-wrapper' class='button_row_wrapper highlight'>
                     
@@ -481,10 +422,6 @@
                 <div id='progressbar_background'> <span id='progressbar'></span></div>
 
             </div>
-
-
-
-
 
         </div>
 
@@ -504,7 +441,6 @@
         </div>
 
 
-
         <!-- BOTTOM WELCOME SECTION -->
        
 
@@ -512,25 +448,9 @@
             <p id='quotes_text'>“I opened two gifts this morning. They were my eyes.”</p>
         </div>
 
-        
         <script type="text/javascript" src="./bundle.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-        <!--
-        <script type="text/javascript" src="../src/modules/Googlechart.js">
        
-        </script>
-      
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script> 
-        $(document).ready(function(){
-        $("#showmore-weather").click(function(){
-        $("#collapsible_weather").slideDown("slow");
-        });
-        });
-        </script>
-        -->
-
-</body>
+    </body>
 
 </html>
