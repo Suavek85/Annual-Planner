@@ -13,16 +13,19 @@ Annual Planner - JS Project
 
 •	extended version of https://suavek85.github.io/Weekly-Planner-Extra/
 
+
 Main features:
 
 •	allows creating to-do lists for any day,
 
 - for one particular day by clicking on that day,
-- for many days at once but one task by clicking on the big plus-add button,
+- for many days at once but one task noly by clicking on the big plus-add button,
 
-•	todos can be split into categories, marked as done or removed,
+•	todos can be accessed by clicking on a particular day and then, filtered, split into categories or updated(marked as done, removed etc.) 
 
 •	allows registering, signing in and saving results (saved automatically on each change and loaded on next visit after signin).
+
+•	shows weather for todat and upcoming days, shows upcoming bank holidays - in progress
 
 
 

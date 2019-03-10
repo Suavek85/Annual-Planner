@@ -2,7 +2,6 @@ import {
   mainArray
 } from './Days';
 
-
 let selectedYear;
 let selectedMonth;
 let monthNumber;
@@ -24,6 +23,7 @@ const monthsArray = [
   {a: 'December', b: 12}
 ]
 
+//GET CURRENT YEAR
 
 export const loadCurrentYear = () => {
   let currentTime = new Date()
@@ -31,13 +31,7 @@ export const loadCurrentYear = () => {
   document.getElementById("selected_year").innerHTML = year;
 }
 
-
-const daysInMonth = (month, year) => {
-  daysInMonthNumber = new Date(year, month, 0).getDate();
-}
-
-
-//CURRENT MONTH LENGTH
+//GET CURRENT MONTH LENGTH
 
 const currentMonthLenghtCalc = () => {
   
@@ -57,6 +51,7 @@ const currentMonthLenghtCalc = () => {
   daysInMonth(monthNumber, currentYearTake);
 }
 
+//GET CURRENT TIMESTAMP
 
 const currentTimestamp = () => {
   const newD = new Date();
@@ -67,6 +62,55 @@ const currentTimestamp = () => {
   return fullDate.getTime()/1000;
  }
 
+ //MAKE MONTH NUMBER TWO DIGIT
+
+ const makeTwoDigitMonthNumber = () => {
+
+  if (monthNumber < 10  ){
+    if (typeof monthNumber !== 'string') {
+      monthNumber = '0' + monthNumber;
+    }
+  }
+  return monthNumber;
+}
+
+//GET NUMBER OF DAYS IN MONTH
+
+const daysInMonth = (month, year) => {
+  daysInMonthNumber = new Date(year, month, 0).getDate();
+}
+
+
+//ADD STYLE FOR PAST DAYS
+
+const addPastDaysStyle = (el) => {
+
+  const daysToOneDigit = el => {  
+
+    let startsWithZero = el.startsWith("0"); 
+    let slicedEl;
+
+    if (startsWithZero == true) { 
+      slicedEl = el.slice(1); 
+    } else { slicedEl = el;}
+
+    return slicedEl;
+  }
+
+  const toTimestamp = (el) => {
+    const fullDate = new Date(selectedYear, monthNumber - 1, daysToOneDigit(el), '23', '59', '59');
+    return fullDate.getTime()/1000;
+  }
+
+  if (toTimestamp(el) < currentTimestamp()) { 
+    return 'color: darkgray;';
+  }
+  
+  else { return ''}
+}
+
+
+//REMOVE MONTH HTML
 
 export const removeMonthHtml = () => {
   const fullMonthHtml = document.getElementById("fullcalhtml");
@@ -74,54 +118,20 @@ export const removeMonthHtml = () => {
 }
 
 
-//LOAD ANY MONTH - HTML
+
+
+
+
+
+//LOAD ANY MONTH  HTML
 
 
 export const loadMonthHtml = () => {
 
-  selectedYear = document.getElementById("selected_year").innerHTML;
-  selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
+    selectedYear = document.getElementById("selected_year").innerHTML;
+    selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
 
-
-    const addPastDaysStyle = (el) => {
-
-        const toOneDigit = el => {  
-      
-          let startsWithZero = el.startsWith("0"); 
-          let slicedEl;
-
-          if (startsWithZero == true) { 
-            slicedEl = el.slice(1); 
-          } else { slicedEl = el;}
-
-          return slicedEl;
-        }
-
-        const toTimestamp = (el) => {
-          const fullDate = new Date(selectedYear, monthNumber - 1, toOneDigit(el), '23', '59', '59');
-          return fullDate.getTime()/1000;
-        }
-      
-        if (toTimestamp(el) < currentTimestamp()) { 
-          return 'color: darkgray;';
-        }
-        
-        else { return ''}
-    }
-
-
-    const calcMonthNumber = () => {
-
-      if (monthNumber < 10  ){
-        if (typeof monthNumber !== 'string') {
-          monthNumber = '0' + monthNumber;
-        }
-      }
-      return monthNumber;
-    }
-
-
-    monthStartDay = (new Date(selectedYear + "-" + calcMonthNumber() + "-01").getDay());
+    monthStartDay = (new Date(selectedYear + "-" + makeTwoDigitMonthNumber() + "-01").getDay());
     if (monthStartDay === 0) {
     monthStartDay = 7
     }
@@ -276,30 +286,24 @@ export const clearAndLoadNewCalendar = () => {
   loadMonthHtml();
 }
 
-export const clearAndLoadCurrentCalendar = () => {
-  removeMonthHtml();
+export const loadCurrentCalendar = () => {
   loadCurrentYear();
   loadCurrentMonthHtml();
 }
 
+export const clearAndLoadCurrentCalendar = () => {
+  removeMonthHtml();
+  loadCurrentCalendar();
+}
 
 export const handleRenderingCalendar = (currentId) => {
 
-  //DISPLAY NEXT MONTH
   if (currentId === "nextarrow") {
     newMonthsForward();
   }
 
-  //DISPLAY PREVIOUS MONTH
   if (currentId === "backarrow") {
     newMonthsBackward();
   }
 }
-
-
-
-
-
-
-
 

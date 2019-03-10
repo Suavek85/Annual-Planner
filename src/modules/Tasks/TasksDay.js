@@ -4,7 +4,7 @@ import {
     mainArray,
     numberSave
 } from '../Days';
-import { displayEachTaskDay } from './RenderTasks'
+import { displayEachTaskDay, displaySelectedTaskDay } from './RenderTasks'
 
 
 export class Task {

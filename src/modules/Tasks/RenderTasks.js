@@ -110,95 +110,65 @@ export const displayEachTaskForm = () => {
 }
 
 
+ const typeDayArray = [
+
+    {type: "Home", icon: "images/home-white.png", bgColor: "#6B5B95"},
+    {type: "Sports", icon: "images/barbell-white.png", bgColor: "#2E4A62"},
+    {type: "Shopping", icon: "images/shopping-white.png", bgColor: "#009B77"},
+    {type: "Celebration", icon: "images/celebrate-white.png", bgColor: "#BC70A4"},
+    {type: "Learning", icon: "images/learn-white.png", bgColor: "#663399"},
+    {type: "Appointment", icon: "images/appointment-white.png", bgColor: "#A9754F"},
+    {type: "Health", icon: "images/health-white.png", bgColor: "#DC4C46"},
+    
+ ]
+
+
+ const typeDayIcon = (el) => {
+
+  let i;
+  for (i = 0; i < typeDayArray.length; i++) {
+    
+    if (el.type === typeDayArray[i].type) {
+     return typeDayArray[i].icon;
+    }
+  }
+ }
+
+ const typeDayBackground = (el) => {
+  
+  let i;
+  for (i = 0; i < typeDayArray.length; i++) {
+    
+    if (el.type === typeDayArray[i].type) {
+     return typeDayArray[i].bgColor;
+    }
+  }
+}
 
 const doneTaskStyleCross = (el) => {
       
-    if ( el.done === true ) {
-  
-    return 'text-decoration: line-through; color: grey;';
-  
-    } else {
-  
-      return '';
-  
-    }
-  }
+  if ( el.done === true ) {
 
- const doneTaskStyleIcon = (el) => {
-      
-    if ( el.done === true) {
+  return 'text-decoration: line-through; color: grey;';
+
+  } else {
+    return '';
+  }
+}
+
+const doneTaskStyleIcon = (el) => {
+    
+  if ( el.done === true) {
     return 'display: inline-block;';
-    } 
-    
-    else {
-      return " ";
-    }
+  } else {
+    return " ";
   }
+}
+
   
-    
-  const typeDayIcon = (el) => {
-  
-    switch(el.type) {
-      case "Home":
-      return 'images/home-white.png';
-      break;
-      case "Sports":
-      return 'images/barbell-white.png';
-      break;
-      case "Shopping":
-      return 'images/shopping-white.png';
-      break;
-      case "Celebration":
-      return 'images/celebrate-white.png';
-      break;
-      case "Learning":
-      return 'images/learn-white.png';
-      break;
-      case "Appointment":
-      return 'images/appointment-white.png';
-      break;
-      case "Health":
-      return 'images/health-white.png';
-      break;
-      default:
-      return 'images/home-white.png';
-    }
-  }
-  
-  
-  const typeDayBackground = (el) => {
-  
-    switch(el.type) {
-      case "Home":
-      return '#6B5B95';
-      break;
-      case "Sports":
-      return '#2E4A62';
-      break;
-      case "Shopping":
-      return '#009B77';
-      break;
-      case "Celebration":
-      return '#BC70A4';
-      break;
-      case "Learning":
-      return '#663399';
-      break;
-      case "Appointment":
-      return '#A9754F';
-      break;
-      case "Health":
-      return '#DC4C46';
-      break;
-      default:
-      return '#6B5B95';
-    }
-  
-  }
-  
-  const isIndexEven = (value) => {
+const isIndexEven = (value) => {
     if (value % 2 == 0)
         return '#F5F5F5'
     else
         return '#FFFFFF'
-  }
+}
