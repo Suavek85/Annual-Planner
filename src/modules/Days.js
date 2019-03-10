@@ -47,14 +47,14 @@ const openTheDay = (dayNameAttribute) => {
 
   mainArray[dayIndexforOpen].createDayOnCard();
 
-  for (var i = 0; i < mainArray.length; i++) {
+  for (let i = 0; i < mainArray.length; i++) {
 
-  if (mainArray[i].a.includes(numberSave)) {
+    if (mainArray[i].a.includes(numberSave)) {
 
-    displayEachTaskDay(i);
-    Progress.calculateProgress(i);
-    
-    }
+      displayEachTaskDay(i);
+      Progress.calculateProgress(i);
+      
+      }
   }
 }
   
@@ -78,81 +78,78 @@ const displaySaveExitButton = () => {
 
 export const renderingDayandFormBoxClick = (currentId, currentStyle, dayNameAttribute) => {
 
-//SUBMIT NEW DAY
+  //SUBMIT NEW DAY
 
-if (currentId.includes("submit_")) {
+  if (currentId.includes("submit_")) {
 
-  view.undisplayForm();
-  view.displayCalendar();
-  view.displayWelcome();
-  submitTheNewDay(dayNameAttribute);
-  view.removeSubmitButton();
-  view.clearTodo();
-  SignRegister.updateProfileTodos();
-
-} 
-
-
-//ADD DAY OR OPEN DAY
-
-if (currentId.includes("calendar")) {
-
-    view.undisplayCalendar();
-
-    if (!currentStyle.borderRadius) {
-
-      view.displayForm();
-      view.undisplayWelcome();
-      const numberAdd = currentId.slice(-9);
-      view.displaySubmitButton(numberAdd);
-      view.createGreenCircle(currentStyle);
-      closeBtnPreviousIds.push(currentId);
-    
-    } 
-    
-    else {
-
-      view.displayDay();
-      view.undisplayWelcome();
-      view.undisplayForm();
-      Stats.countAllTodos();
-      numberSave = currentId.slice(-9);
-      displaySaveExitButton(numberSave);
-      view.calcDateforDay(currentId)
-      openTheDay( dayNameAttribute);  
-      view.clearInputFieldDay();
-
-    }
-
-  } 
-
-  //CLOSE DAY
-
-  if (currentId.includes("close-day")) {
-
-    updateTheDay(dayNameAttribute);
-    SignRegister.updateProfileTodos();
-    Stats.countAllTodos();
-    view.displayCalendar();
-    view.displayWelcome();
-    view.undisplayDay();
-    view.todoListRemove();
-    Progress.clearProgress();
-
-  } 
-
-  //CLOSE FORM
-
-  if (currentId.includes("close-form")) {
-
-    view.displayCalendar();
-    view.clearTodo();
-    view.removeGreenCircle(closeBtnPreviousIds);
-    view.displayWelcome();
     view.undisplayForm();
+    view.displayCalendar();
+    view.displayWelcome();
+    submitTheNewDay(dayNameAttribute);
     view.removeSubmitButton();
-    
+    view.clearTodo();
+    SignRegister.updateProfileTodos();
+
   } 
+
+
+  //ADD DAY OR OPEN DAY
+
+  if (currentId.includes("calendar")) {
+
+      view.undisplayCalendar();
+
+      if (!currentStyle.borderRadius) {
+
+        view.displayForm();
+        view.undisplayWelcome();
+        const numberAdd = currentId.slice(-9);
+        view.displaySubmitButton(numberAdd);
+        view.createGreenCircle(currentStyle);
+        closeBtnPreviousIds.push(currentId);
+      
+      } else {
+
+        view.displayDay();
+        view.undisplayWelcome();
+        view.undisplayForm();
+        Stats.countAllTodos();
+        numberSave = currentId.slice(-9);
+        displaySaveExitButton(numberSave);
+        view.calcDateforDay(currentId)
+        openTheDay( dayNameAttribute);  
+        view.clearInputFieldDay();
+
+      }
+    } 
+
+    //CLOSE DAY
+
+    if (currentId.includes("close-day")) {
+
+      updateTheDay(dayNameAttribute);
+      SignRegister.updateProfileTodos();
+      Stats.countAllTodos();
+      view.displayCalendar();
+      view.displayWelcome();
+      view.undisplayDay();
+      view.todoListRemove();
+      Progress.clearProgress();
+
+    } 
+
+    //CLOSE FORM
+
+    if (currentId.includes("close-form")) {
+
+      view.displayCalendar();
+      view.clearTodo();
+      view.removeGreenCircle(closeBtnPreviousIds);
+      view.displayWelcome();
+      view.undisplayForm();
+      view.removeSubmitButton();
+      
+    } 
 }
 
 

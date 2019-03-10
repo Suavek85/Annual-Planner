@@ -3,14 +3,11 @@ export const updateNextHolidays = () => {
   const date = new Date();
   const todaysTS = date.getTime()
 
-  const keyHols = 'b26794657e7d4906b15d868c3bb0a5f2abe5f74e'
+  const keyHols = 'b26794657e7d4906b15d868c3bb0a5f2abe5f74e';
   /* let urlHols = `https://cors-anywhere.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`; */
 
  let urlHols = `https://dry-crag-50254.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`;
 
-  
- 
-  
   
   fetch(urlHols)
   
@@ -22,7 +19,6 @@ export const updateNextHolidays = () => {
     })
 
     .then(res => {
-
 
       let collapsibleHols = `<img src='images/expand.png' id='expand-holidays'  alt="expand"><div style="display:none" id='collapsible_holidays'><p id='secondHol' class='collapsible_holidays-text' >second holiday</p><p id='thirdHol' class='collapsible_holidays-text'></p><p id='fourthHol' class='collapsible_holidays-text'></p></div>`;
 
@@ -76,7 +72,6 @@ export const updateNextHolidays = () => {
         if (holidaysArray[i] >= 0) {
           moreholsArray.push(i);
           let moredaysleft = Math.ceil(holidaysArray[i] / oneDaySecs);
-          console.log(moreholsDaysLeft)
           moreholsDaysLeft.push(moredaysleft);
         }
       }

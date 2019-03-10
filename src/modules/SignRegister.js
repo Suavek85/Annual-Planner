@@ -40,7 +40,6 @@ let userId;
   
         if (data !== 'wrong credentials') {
   
-         
           view.removeSigninWarning();
           signedIn = true;
           userId = data.id;
@@ -138,8 +137,7 @@ const onSignOut = () => {
     Stats.countAllTodos();
     Calendar.clearAndLoadCurrentCalendar();
     Stats.countAllTodos();
-    view.displayHelloGuest();
-    
+    view.displayHelloGuest();   
 }
 
 
@@ -171,12 +169,9 @@ const updateProfileTodos = () => {
 }
 
 
-
-
 const renderingSigninClick = (currentId) => {
 
     //ON SIGN IN BUTTON
-
     if (currentId === "signin-button") {
 
       view.removeSigninWarning();
@@ -190,13 +185,12 @@ const renderingSigninClick = (currentId) => {
 const renderingRegisterClick = (currentId) => {
 
   //ON REGISTER BUTTON
-
   if (currentId === "register-button") {
 
     view.removeRegisterWarning();
     onRegisterButton();
   }
-
 }
+
 export  { renderingRegisterClick, renderingSigninClick, updateProfileTodos, onSignOut };
   

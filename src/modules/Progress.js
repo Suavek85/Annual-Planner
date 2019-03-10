@@ -16,9 +16,9 @@ export const calculateProgress = (i) => {
     }
 
 
-      const widthPercentage = Math.round(
+    const widthPercentage = Math.round(
         (currentTaskDone /currentTasksCount) * 100
-      );
+    );
   
       if (
         isNaN(widthPercentage) ||

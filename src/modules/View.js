@@ -70,7 +70,6 @@ const view = {
       if  (signinNote ) {
         signinNote.remove();
       }
-
     },
 
     removeRegisterWarning: function() {
@@ -150,7 +149,7 @@ const view = {
           break;
         }
       }
-      return checkedRadio
+      return checkedRadio;
     },
 
     takeDailyNotes: function() {
@@ -204,7 +203,6 @@ const view = {
     undisplayStatsBox: function() {
       document.getElementById("stats-main").style.display = 'none';
     },
-
 
     toggleDropdownQuick: function() {
       if ( document.getElementById("quick-drp-list-2").style.display == "none") {

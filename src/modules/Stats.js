@@ -58,7 +58,6 @@ const googChart = (done, all, intro) => {
     if (document.getElementById("piechart").hasChildNodes()) {
       document.getElementById("piechart").removeChild(document.getElementById("piechart").childNodes[0]);
     }
-     
   }
 
 
@@ -80,37 +79,30 @@ const googChart = (done, all, intro) => {
 
       for (let h = 0; h < mainArray[i].z.length; h++) {
 
-            if (mainArray[i].z[h].done == true) {
+        if (mainArray[i].z[h].done == true) {
 
-            todosDone = todosDone + 1;
+        todosDone = todosDone + 1;
 
-            }
         }
+      }
 
       if (todosDone == 0 && todosAll == 0 ) {
 
         clearDoneTodosText();
-      } 
-      
-      else {
+      } else {
 
         document.getElementById('outstanding_tasks').innerHTML = "";
         document.getElementById('tooltip_statistics').innerHTML = todosDone + " out of " + todosAll + " tasks done.";
-
         let introStatsInfo = todosDone + " out of " + todosAll + " tasks done."
-
         googChart(todosDone, todosAll, introStatsInfo);
         
       }
     }
   }
 
-
-
   const renderingStatsBoxClick = (currentId) => {
 
     //ON STATS CLICK
-    
       if (currentId === 'stats_main_logo' || currentId === 'stats_main_text') {
     
         view.displayStatsBox();
@@ -120,7 +112,6 @@ const googChart = (done, all, intro) => {
       }
     
       //CLOSE STATS
-    
       if (currentId === 'close_stats') {
     
         view.undisplayStatsBox();
@@ -128,8 +119,7 @@ const googChart = (done, all, intro) => {
       }
   }
 
- 
-    export { renderingStatsBoxClick, countAllTodos };
+  export { renderingStatsBoxClick, countAllTodos };
     
 
 

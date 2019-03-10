@@ -23,11 +23,7 @@ export const locationWeather = () => {
 
       .then(res => {
         
-        console.log(res);
-
-        if (mainWeatherCity)
-
-        {
+        if (mainWeatherCity){
           mainWeatherText.innerHTML = `${Math.round(res.list[0].main.temp_max)}° in `;
           mainWeatherCity.innerHTML = `${ res.city.name}`;
           mainWeatherIcon.src = `https://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png`;
@@ -38,18 +34,13 @@ export const locationWeather = () => {
         </p> </div>`;
 
 
-        
-
       //EXPNADABLE DIV
 
       const showMW = document.getElementById('showmore-weather');
 
-      if(showMW)
-
-      {
+      if(showMW){
         document.getElementById('showmore-weather').style.display = "block";
       }
-
 
 
       const extraWeatherForArray = [
@@ -65,8 +56,6 @@ export const locationWeather = () => {
       {a: 11, b: 30}
       ]
 
-  
-
       const expandTimes = (el) => {
         var datum = new Date(el * 1000);
         const expandHour = datum.getHours();
@@ -81,9 +70,6 @@ export const locationWeather = () => {
       const extraWeatherHtml = extraWeatherForArray.map( el => {
       return `<div class='more-weather-wrapper'><img id='wea_${el.a}_icon' class='more-weather-icons' src='https://openweathermap.org/img/w/${res.list[el.b].weather[0].icon}.png'><p id='wea_${el.a}' class='collapible-weather-text'>${Math.round(res.list[el.b].main.temp)}° ${expandTimes(res.list[el.b].dt)}
       </p> </div>`
-
-    
-   
 
       })
 
@@ -103,9 +89,6 @@ export const locationWeather = () => {
       })
 
   }
-
-
-
 
   function error() {
 
