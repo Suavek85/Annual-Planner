@@ -1,9 +1,7 @@
 # Annual-Planner
 Annual Planner - JS Project
 
-•	Vanilla JS to-do app, own idea, not based on an online course,
-
-•	allows creating to-do lists for any day, registering, signing in and saving results (saved automatically on each change and loaded on signin),
+•	Vanilla JS to-do app, own idea, not based on an online course, created from sratch
 
 •	Front-end on GitHub Pages, back-end and database on Heroku,
 
@@ -11,9 +9,20 @@ Annual Planner - JS Project
 
 •	preview: https://suavek85.github.io/Annual-Planner/
 
-•	WORK IN PROGRESS: e.g. no responsiveness, might not work on IE, needs refactoring etc.
+•	Work in progress: e.g. some very very basic responsiveness, might not work on IE, code needs lots of refactoring etc.
 
 •	extended version of https://suavek85.github.io/Weekly-Planner-Extra/
+
+Main features:
+
+•	allows creating to-do lists for any day,
+
+- for one particular day by clicking on that day,
+- for many days at once but one task by clicking on the big plus-add button,
+
+•	todos can be split into categories, marked as done or removed,
+
+•	allows registering, signing in and saving results (saved automatically on each change and loaded on next visit after signin).
 
 
 

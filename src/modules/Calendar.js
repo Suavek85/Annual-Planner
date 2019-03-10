@@ -218,8 +218,6 @@ export const loadCurrentMonthHtml = () => {
 }
 
 
-
-
 //LOAD MONTH FORWRD AND BACKWARDS
 
 export const newMonthsForward = () => {
@@ -248,123 +246,71 @@ export const newMonthsBackward = () => {
 }
 
 
+const monthsArray = [
+  {a: 'January', b: 1},
+  {a: 'February', b: 2},
+  {a: 'March', b: 3},
+  {a: 'April', b: 4},
+  {a: 'May', b: 5},
+  {a: 'June', b: 6},
+  {a: 'July', b: 7},
+  {a: 'August', b: 8},
+  {a: 'September', b: 9},
+  {a: 'October', b: 10},
+  {a: 'November', b: 11},
+  {a: 'December', b: 12}
+]
+
+
 const calculateNextMont = (selectedMo, selectedYe) => {
 
-  switch(selectedMo.innerHTML) {
-      case "December":
-      selectedMo.innerHTML = "January";
-      selectedYe.innerHTML = parseFloat(selectedYe.innerHTML) + 1;
-      monthNumber = 1;
-      break;
-      case "January":
-      selectedMo.innerHTML = "February";
-      monthNumber = 2;
-      break;
-      case "February":
-      selectedMo.innerHTML = "March"; 
-      monthNumber = 3;
-      break;
-      case "March":
-      selectedMo.innerHTML = "April";
-      monthNumber = 4
-      break;
-      case "April":
-      selectedMo.innerHTML = "May";
-      monthNumber = 5 
-      break;
-      case "May":
-      selectedMo.innerHTML = "June";
-      monthNumber = 6
-      break;
-      case "June":
-      selectedMo.innerHTML = "July";
-      monthNumber = 7
-      break;
-      case "July":
-      selectedMo.innerHTML = "August";
-      monthNumber = 8
-      break;
-      case "August":
-      selectedMo.innerHTML = "September";
-      monthNumber = 9
-      break;
-      case "September":
-      selectedMo.innerHTML = "October";
-      monthNumber = 10 
-      break;
-      case "October":
-      selectedMo.innerHTML = "November";
-      monthNumber = 11
-      break;
-      case "November":
-      selectedMo.innerHTML = "December";
-      monthNumber = 12
-      break;
-      default:
-      selectedMo.innerHTML = "December";
-      monthNumber = 12
-    }
+  let i;
+  for (i = 0; i < monthsArray.length; i++) { 
 
+     if (selectedMo.innerHTML === monthsArray[i].a) {
+
+      if (selectedMo.innerHTML === 'December') {
+
+        selectedMo.innerHTML = monthsArray[0].a;
+        selectedYe.innerHTML = parseFloat(selectedYe.innerHTML) + 1;
+        monthNumber = monthsArray[0].b;
+
+      } else  {
+
+        selectedMo.innerHTML = monthsArray[i + 1].a;
+        monthNumber = monthsArray[i].b + 1;
+      } 
+     break;
+    
+    }  
+  }
 }
 
 
 const calculateBackMont = (selectedMoBack, selectedYeBack) => {
 
-    switch(selectedMoBack.innerHTML) {
-      case "December":
-      selectedMoBack.innerHTML = "November";
-      monthNumber = 11;
-      break;
-      case "January":
-      selectedMoBack.innerHTML = "December";
-      selectedYeBack.innerHTML = parseFloat(selectedYeBack.innerHTML) - 1;
-      monthNumber = 12;
-      break;
-      case "February":
-      selectedMoBack.innerHTML = "January"; 
-      monthNumber = 1;
-      break;
-      case "March":
-      selectedMoBack.innerHTML = "February";
-      monthNumber = 2;
-      break;
-      case "April":
-      selectedMoBack.innerHTML = "March";
-      monthNumber = 3;
-      break;
-      case "May":
-      selectedMoBack.innerHTML = "April";
-      monthNumber = 4;
-      break;
-      case "June":
-      selectedMoBack.innerHTML = "May";
-      monthNumber = 5;
-      break;
-      case "July":
-      selectedMoBack.innerHTML = "June";
-      monthNumber = 6;
-      break;
-      case "August":
-      selectedMoBack.innerHTML = "July";
-      monthNumber = 7;
-      break;
-      case "September":
-      selectedMoBack.innerHTML = "August";
-      monthNumber = 8;
-      break;
-      case "October":
-      selectedMoBack.innerHTML = "September";
-      monthNumber = 9;
-      break;
-      case "November":
-      selectedMoBack.innerHTML = "October";
-      monthNumber = 10;
-      break;
-      default:
-      selectedMoBack.innerHTML = "October";
-      monthNumber = 10;
-  }
+  let i;
+  for (i = 0; i < monthsArray.length; i++) { 
 
+     if (selectedMoBack.innerHTML === monthsArray[i].a) {
+
+      console.log(monthsArray[i].a)
+
+      if (selectedMoBack.innerHTML === 'January') {
+        
+        selectedMoBack.innerHTML = "December";
+        selectedYeBack.innerHTML = parseFloat(selectedYeBack.innerHTML) - 1;
+        monthNumber = 12;
+
+      } else  {
+
+        selectedMoBack.innerHTML = monthsArray[i - 1].a;
+        monthNumber = monthsArray[i - 1].b;
+      } 
+     break;
+    
+    }  
+  }
 }
 
 
