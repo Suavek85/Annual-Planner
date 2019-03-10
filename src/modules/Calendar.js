@@ -9,6 +9,21 @@ let monthNumber;
 let daysInMonthNumber;
 let monthStartDay;
 
+const monthsArray = [
+  {a: 'January', b: 1},
+  {a: 'February', b: 2},
+  {a: 'March', b: 3},
+  {a: 'April', b: 4},
+  {a: 'May', b: 5},
+  {a: 'June', b: 6},
+  {a: 'July', b: 7},
+  {a: 'August', b: 8},
+  {a: 'September', b: 9},
+  {a: 'October', b: 10},
+  {a: 'November', b: 11},
+  {a: 'December', b: 12}
+]
+
 
 export const loadCurrentYear = () => {
   let currentTime = new Date()
@@ -29,42 +44,15 @@ const currentMonthLenghtCalc = () => {
   let currentMonthName = document.getElementById("selected_month").innerHTML;
   let currentYearTake = parseFloat(document.getElementById("selected_year").innerHTML)
 
-  switch(currentMonthName ) {
-    case "December":
-     monthNumber = 12;
-    break;
-    case "January":
-    monthNumber = 1;
-    break;
-    case "February":
-    monthNumber = 2;
-    break;
-    case "March":
-    monthNumber = 3;
-    break;
-    case "April":
-    monthNumber = 4;
-    break;
-    case "May":
-    monthNumber = 5;
-    break;
-    case "June":
-    monthNumber = 6;
-    break;
-    case "July":
-    monthNumber = 7;
-    break;
-    case "August":
-    monthNumber = 8;
-    break;
-    case "September":
-    monthNumber = 9;
-    break;
-    case "November":
-    monthNumber = 11;
-    break;
-    default:
-    monthNumber = 12;
+  let i;
+  for (i = 0; i < monthsArray.length; i++) { 
+
+     if (currentMonthName === monthsArray[i].a) {
+
+      monthNumber = monthsArray[i].b;
+      break;
+    
+    }  
   }
   daysInMonth(monthNumber, currentYearTake);
 }
@@ -195,24 +183,9 @@ export const loadMonthHtml = () => {
 
 export const loadCurrentMonthHtml = () => {
   
-  const month = new Array();
-  month[0] = "January";
-  month[1] = "February";
-  month[2] = "March";
-  month[3] = "April";
-  month[4] = "May";
-  month[5] = "June";
-  month[6] = "July";
-  month[7] = "August";
-  month[8] = "September";
-  month[9] = "October";
-  month[10] = "November";
-  month[11] = "December";
-
-  const newD = new Date();
-  selectedMonth = month[newD.getMonth()];
+  const currentDate = new Date();
+  selectedMonth = monthsArray[currentDate.getMonth()].a;
   document.getElementById("selected_month").innerHTML = selectedMonth;
-
   currentMonthLenghtCalc();
   loadMonthHtml();
 }
@@ -244,22 +217,6 @@ export const newMonthsBackward = () => {
   clearAndLoadNewCalendar(); 
 
 }
-
-
-const monthsArray = [
-  {a: 'January', b: 1},
-  {a: 'February', b: 2},
-  {a: 'March', b: 3},
-  {a: 'April', b: 4},
-  {a: 'May', b: 5},
-  {a: 'June', b: 6},
-  {a: 'July', b: 7},
-  {a: 'August', b: 8},
-  {a: 'September', b: 9},
-  {a: 'October', b: 10},
-  {a: 'November', b: 11},
-  {a: 'December', b: 12}
-]
 
 
 const calculateNextMont = (selectedMo, selectedYe) => {
