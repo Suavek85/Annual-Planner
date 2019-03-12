@@ -1809,6 +1809,10 @@ input[type=date]::-webkit-clear-button
     margin-top: 0px;
   }
 
+  .menu-wrapper_right {
+    margin-right:0px;
+  }
+
 }
 
 /* UP TO 320*/
