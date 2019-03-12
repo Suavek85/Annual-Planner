@@ -5,13 +5,10 @@ const displayMoreWeather = (evtSource) => {
     if (showMoreWeather.style.transform == "scaleY(1)") {
       showMoreWeather.style.transform = "scaleY(0)";
       evtSource = "images/expand.png";
-    } 
-    
-    else {
+    } else {
       showMoreWeather.style.transform = "scaleY(1)";
       evtSource = "images/collapse.png";
     }
-
   }
 
 const displayMoreHolidays = (evtSource) => {
@@ -53,44 +50,27 @@ const undisplayMoreHolidaysrResp = () => {
 
 export const handleWeatherAndHolidaysClick = (currentId, currentSrc) => {
 
-    //TOGGLE SHOWING MORE BANK HOLS
-
-    if (currentId === "expand-holidays") {
-
+  switch(currentId) {
+    case "expand-holidays":
       displayMoreWeather(currentSrc);
-    }
-
-    //TOGGLE SHOWING MORE WEATHER - DESKTOP
-
-    if (currentId === 'showmore-weather') {
-
+      break;
+    case 'showmore-weather':
       displayMoreWeather(currentSrc);
-    }
-
-    //SHOW WEATHER RESPONSIVE
-
-    if (currentId === "showmore-weather-resp-icon" || currentId === "showmore-weather-resp-text") {
-      displayMoreWeatherResp();
-    }
-
-    //CLOSE WEATHER RESPONSIVE
-
-    if (currentId === "collapsible_weather_close") {
-
+      break;
+    case "collapsible_weather_close":
       undisplayMoreWeatherResp();
-    }
-
-    //SHOW HOLIDAYS RESPONSIVE
-
-    if (currentId === "expand-holidays-resp-logo" || currentId === "expand-holidays-resp-text") {
-
+      break;
+    case "showmore-weather-resp-icon":
+    case "showmore-weather-resp-text":
+      displayMoreWeatherResp();
+      break;
+    case "expand-holidays-resp-logo":
+    case "expand-holidays-resp-text":
       displayMoreHolidaysResp();
-    }
-
-    //CLOSE HOLIDAYS RESPONSIVE
-    if (currentId === "collapsible_holidays_responsive_close") {
-
+      break;
+    case "collapsible_holidays_responsive_close":
       undisplayMoreHolidaysrResp();
-    }
+      break;
+  }
 }
 

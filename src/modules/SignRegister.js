@@ -57,20 +57,17 @@ let userId;
             }
             Stats.countAllTodos();
           }
-  
+          
           Calendar.clearAndLoadCurrentCalendar();
           MenuAccount.removeLoginWrapperDesktop();
           MenuAccount.undisplayAccountPopupResp();
           view.displaySignOut();
           document.getElementById("top-welcome-message").innerHTML = `${nameSignin}!`;
   
-        } 
-        
-        else {
+        } else {
           view.removeSigninWarning();
           view.displayWrongCredentials();
         }
-  
       }
       )
    }
@@ -165,7 +162,7 @@ const updateProfileTodos = () => {
   
       }
     )
-    }
+  }
 }
 
 

@@ -1,9 +1,8 @@
 const rotateDayTypes = (dayTypesArray) => {
 
-    let i;
     const typeDayIcon = document.getElementById('type-day-icon');
 
-    for (i = 0; i < dayTypesArray.length; i++) {
+    for (let i = 0; i < dayTypesArray.length; i++) {
 
       if ( typeDayIcon.src.includes(dayTypesArray[i]))  {
 
@@ -20,23 +19,14 @@ const rotateDayTypes = (dayTypesArray) => {
 
 export const handleRotatingDayTypes = (currentId) => {
 
-    //CHANGE DAY TYPE- RIGHT ARROW
-
-    if (currentId === 'right-change-day') {
-
-      const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"]
-
+  switch(currentId) {
+    case 'right-change-day':
+      const dayTypesArray = ["images/work_icon.png", "images/dayoff_icon.png", "images/holidays_icon.png"];
       rotateDayTypes(dayTypesArray);
-
-    } 
-
-    //CHANGE DAY TYPE- LEFT ARROW
-
-    if (currentId == 'left-change-day') {
-
-    const dayTypesArray = ["images/holidays_icon.png", "images/dayoff_icon.png", "images/work_icon.png"  ]
-
-    rotateDayTypes(dayTypesArray);
-
+      break;
+    case 'left-change-day':
+      const dayTypesArray2 = ["images/holidays_icon.png", "images/dayoff_icon.png", "images/work_icon.png"];
+      rotateDayTypes(dayTypesArray2);
+      break;
   }
 }

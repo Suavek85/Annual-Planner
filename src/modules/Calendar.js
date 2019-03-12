@@ -1,12 +1,9 @@
-import {
-  mainArray
-} from './Days';
+import { mainArray } from './Days';
 
 let selectedYear;
 let selectedMonth;
 let monthNumber;
 let daysInMonthNumber;
-
 
 const monthsArray = [
   {a: 'January', b: 1},
@@ -38,14 +35,12 @@ const currentMonthLenghtCalc = () => {
   let currentMonthName = document.getElementById("selected_month").innerHTML;
   let currentYearTake = parseFloat(document.getElementById("selected_year").innerHTML)
 
-  let i;
-  for (i = 0; i < monthsArray.length; i++) { 
+  for (let i = 0; i < monthsArray.length; i++) { 
 
      if (currentMonthName === monthsArray[i].a) {
 
       monthNumber = monthsArray[i].b;
       break;
-    
     }  
   }
   daysInMonth(monthNumber, currentYearTake);
@@ -104,9 +99,7 @@ const addPastDaysStyle = (el) => {
 
   if (toTimestamp(el) < currentTimestamp()) { 
     return 'color: darkgray;';
-  }
-  
-  else { return ''}
+  } else { return ''}
 }
 
 //ADD SUBMITTED STYLE
@@ -116,11 +109,9 @@ const addSubmittedStyle = el => {
   const doneDaysArray = mainArray.filter(el => el.a.includes(selectedMonth + selectedYear));
   const slicedDoneDaysArray = doneDaysArray.map(el => { return el.a.slice(7,9) })
   
-
   if (slicedDoneDaysArray.includes(el)) {
     return 'border-radius: 5px; background-color: green;';
-  }   
-  else {
+  } else {
     return '';
   }  
 };
@@ -135,7 +126,6 @@ const calcEmptyDays = () => {
   }
   return `<div style='padding: 5px;'>&nbsp</div>`.repeat(monthStartDay - 1);
 }
-
 
 
 //REMOVE MONTH HTML
@@ -153,16 +143,14 @@ export const loadMonthHtml = () => {
     selectedYear = document.getElementById("selected_year").innerHTML;
     selectedMonth = document.getElementById("selected_month").innerHTML.slice(0,3).toLowerCase();
 
-    let i;
     let daysInMonthArray = [];
 
-    for (i = 1; i <= daysInMonthNumber; i++) {
+    for (let i = 1; i <= daysInMonthNumber; i++) {
       if(i < 10) {
 
       let oneDigitDays = '0' + i.toString();
       daysInMonthArray.push(oneDigitDays);
-      }
-      else {
+      } else {
       let twoDigitDays = i.toString();
       daysInMonthArray.push(twoDigitDays);
       }
@@ -229,8 +217,7 @@ export const newMonthsBackward = () => {
 
 const calculateNextMont = (selectedMo, selectedYe) => {
 
-  let i;
-  for (i = 0; i < monthsArray.length; i++) { 
+  for (let i = 0; i < monthsArray.length; i++) { 
 
      if (selectedMo.innerHTML === monthsArray[i].a) {
 
@@ -240,13 +227,12 @@ const calculateNextMont = (selectedMo, selectedYe) => {
         selectedYe.innerHTML = parseFloat(selectedYe.innerHTML) + 1;
         monthNumber = monthsArray[0].b;
 
-      } else  {
+      } else {
 
         selectedMo.innerHTML = monthsArray[i + 1].a;
         monthNumber = monthsArray[i].b + 1;
       } 
-     break;
-    
+      break;
     }  
   }
 }
@@ -254,12 +240,9 @@ const calculateNextMont = (selectedMo, selectedYe) => {
 
 const calculateBackMont = (selectedMoBack, selectedYeBack) => {
 
-  let i;
-  for (i = 0; i < monthsArray.length; i++) { 
+  for (let i = 0; i < monthsArray.length; i++) { 
 
      if (selectedMoBack.innerHTML === monthsArray[i].a) {
-
-      console.log(monthsArray[i].a)
 
       if (selectedMoBack.innerHTML === 'January') {
         
@@ -267,7 +250,7 @@ const calculateBackMont = (selectedMoBack, selectedYeBack) => {
         selectedYeBack.innerHTML = parseFloat(selectedYeBack.innerHTML) - 1;
         monthNumber = 12;
 
-      } else  {
+      } else {
 
         selectedMoBack.innerHTML = monthsArray[i - 1].a;
         monthNumber = monthsArray[i - 1].b;
@@ -277,7 +260,6 @@ const calculateBackMont = (selectedMoBack, selectedYeBack) => {
     }  
   }
 }
-
 
 export const clearAndLoadNewCalendar = () => {
   removeMonthHtml();
@@ -296,12 +278,13 @@ export const clearAndLoadCurrentCalendar = () => {
 
 export const handleRenderingCalendar = (currentId) => {
 
-  if (currentId === "nextarrow") {
-    newMonthsForward();
-  }
-
-  if (currentId === "backarrow") {
+  switch(currentId) {
+    case "nextarrow":
+      newMonthsForward();
+      break;
+    case "backarrow":
     newMonthsBackward();
+      break;
   }
 }
 

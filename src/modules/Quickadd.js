@@ -9,51 +9,30 @@ import { view } from './View';
 
 const whichMonth = (n) => {
 
-    switch(n) {
-      case 0:
-      return 'jan';
-      break;
-      case 1:
-      return 'feb';
-      break;
-      case 2:
-      return 'mar';
-      break;
-      case 3:
-      return 'apr';
-      break;
-      case 4:
-      return 'may';
-      break;
-      case 5:
-      return 'jun';
-      break;
-      case 6:
-      return 'jul';
-      break;
-      case 7:
-      return 'aug';
-      break;
-      case 8:
-      return 'sep';
-      break;
-      case 9:
-      return 'oct';
-      break;
-      case 10:
-      return 'nov';
-      break;
-      case 11:
-      return 'dec';
-      break;
-      default:
-      return '#6B5B95';
+  const shortMonthArr = [
+      {no: 0, short: 'jan'},
+      {no: 1, short: 'feb'},
+      {no: 2, short: 'mar'},
+      {no: 3, short: 'apr'},
+      {no: 4, short: 'may'},
+      {no: 5, short: 'jun'},
+      {no: 6, short: 'jul'},
+      {no: 7, short: 'aug'},
+      {no: 8, short: 'sep'},
+      {no: 9, short: 'oct'},
+      {no: 10, short: 'nov'},
+      {no: 11, short: 'dec'}
+  ]
+
+    for (let i = 0; i < shortMonthArr.length; i++) { 
+      
+      if (n == shortMonthArr[i].no) {
+      return shortMonthArr[i].short;
+      }
     }
-  
-  }
+}
   
   const makeTwoDigit = (no) => {
-
     if (no < 10) {
       no = '0' + no;
     }
@@ -83,14 +62,11 @@ const whichMonth = (n) => {
     
     const dateArr = getDateArray(startDate, endDate);
   
-    let i, j, h, n;
-   
-  
     //CONVERT QUICK-ADD DATES ARRAY TO DATA-ATTRIBUTE DATES ARRAY
   
     const quickDatesArray =  new Array();
   
-    for (i = 0; i < dateArr.length; i++) { 
+    for (let i = 0; i < dateArr.length; i++) { 
   
       const toDataAttrFormat = `dayname${makeTwoDigit(dateArr[i].getDate())}${whichMonth(dateArr[i].getMonth())}${dateArr[i].getFullYear()}`;
   
@@ -101,9 +77,9 @@ const whichMonth = (n) => {
   
     //EXISTING DAYS - ADD NEW TASK
   
-    for (j = 0; j < quickDatesArray.length; j++) {
+    for (let j = 0; j < quickDatesArray.length; j++) {
   
-      for (h = 0; h < mainArray.length; h++)  {
+      for (let h = 0; h < mainArray.length; h++)  {
   
         if (quickDatesArray[j] == mainArray[h].a) {
   
@@ -122,7 +98,7 @@ const whichMonth = (n) => {
   
     //NEW DAYS - CREATE NEW DAY WITH NEW TASK
   
-    for (n = 0; n < quickDatesArray.length; n++) {
+    for (let n = 0; n < quickDatesArray.length; n++) {
   
       let temporaryArr = [];
       let one = document.getElementById('quick-todo-selected-2').innerHTML;
@@ -135,10 +111,8 @@ const whichMonth = (n) => {
       temporaryArr = [];
      
     }
-  
     Calendar.clearAndLoadNewCalendar();
   }
-
 
 
   export const handleQuickAddClick = (currentId, currentHtml) => {
@@ -148,16 +122,15 @@ const whichMonth = (n) => {
       view.displayQuickAddForm();
     }
     
-    
     //SELECT TODO TYPE DROPDOWN
     
-    else if (currentId == 'quick-dropdown-area' || currentId == 'quick-drp-inside'){
+    if (currentId == 'quick-dropdown-area' || currentId == 'quick-drp-inside'){
     view.toggleDropdownQuick();
-      }
+    }
     
     //SELECT TODO TYPE
     
-    else if (currentId.includes("qck"))  {
+    if (currentId.includes("qck"))  {
     
       document.getElementById("quick-todo-selected-2").innerHTML = currentHtml;
       view.undisplayDropdownQuick();
@@ -165,7 +138,7 @@ const whichMonth = (n) => {
     
     //CLOSE QUICK ADD FORM
     
-    else if (currentId.includes("btn-close-quick"))  {
+    if (currentId.includes("btn-close-quick"))  {
     
       view.undisplayQuickAddForm();
       view.displayCalendar();
@@ -173,7 +146,7 @@ const whichMonth = (n) => {
     
     //SUBMIT
     
-    else if (currentId == 'btn-sbn-quick') {
+    if (currentId == 'btn-sbn-quick') {
     
       const inputQuickTask = document.getElementById('quick_input_list').value;
       const fromDate = document.getElementById("quick-from-date").value;
@@ -186,14 +159,8 @@ const whichMonth = (n) => {
         view.undisplayQuickAddForm();
         view.displayCalendar();
         Stats.countAllTodos();
-      } 
-        
-      else {
+      } else {
         console.log('wrong selections or empty input field');
       }
     }
-    
-
-
-
   }

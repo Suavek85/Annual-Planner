@@ -1,17 +1,11 @@
-import {
-    view
-  } from './View';
-
-import {
-    mainArray
-} from './Days';
+import { view } from './View';
+import { mainArray } from './Days';
 
 
 const googChart = (done, all, intro) => {
 
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
-      
       
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -46,7 +40,6 @@ const googChart = (done, all, intro) => {
     }
   }
 
-
   const clearDoneTodosText = () => {
 
     document.getElementById('tooltip_statistics').innerHTML = "You've no outstanding tasks.";
@@ -73,7 +66,7 @@ const googChart = (done, all, intro) => {
 
       for (let j = 0; j < mainArray[i].z.length; j++) {
 
-      todosAll = todosAll + 1;    
+        todosAll = todosAll + 1;    
 
       }
 
@@ -81,13 +74,11 @@ const googChart = (done, all, intro) => {
 
         if (mainArray[i].z[h].done == true) {
 
-        todosDone = todosDone + 1;
-
+          todosDone = todosDone + 1;
         }
       }
 
       if (todosDone == 0 && todosAll == 0 ) {
-
         clearDoneTodosText();
       } else {
 
@@ -102,21 +93,18 @@ const googChart = (done, all, intro) => {
 
   const renderingStatsBoxClick = (currentId) => {
 
-    //ON STATS CLICK
-      if (currentId === 'stats_main_logo' || currentId === 'stats_main_text') {
-    
+    switch(currentId) {
+      case 'stats_main_logo':
+      case 'stats_main_text':
         view.displayStatsBox();
         countAllTodos();
         view.undisplayCalendar();
-    
-      }
-    
-      //CLOSE STATS
-      if (currentId === 'close_stats') {
-    
+        break;
+      case 'close_stats':
         view.undisplayStatsBox();
         view.displayCalendar();
-      }
+        break;
+    }
   }
 
   export { renderingStatsBoxClick, countAllTodos };

@@ -1,7 +1,7 @@
 const view = {
   
     todoListRemove: function() {
-      var todolist = document.getElementById("todolist");
+      const todolist = document.getElementById("todolist");
       todolist.remove();
     },
 
@@ -17,7 +17,10 @@ const view = {
     },
   
     undisplayForm: function() {
-      document.getElementById("form-main-wrapper").style.display = "none"; 
+      const formCloseBtnWrapper = document.getElementById("form-main-wrapper");
+      if (formCloseBtnWrapper.style.display == "flex") {
+        formCloseBtnWrapper.style.display = "none"; 
+      }
     },
   
     displaySubmit: function(el) {
@@ -37,10 +40,14 @@ const view = {
 
    
     undisplayDay: function() {
-      document.querySelector(".notes-box-wrapper").style.display = "none";
+      const dayWrapper = document.querySelector(".notes-box-wrapper");
+      if(dayWrapper.style.display == 'flex') {
+        dayWrapper.style.display = "none";
+      }
       const closeDayWrapper = document.getElementById('close-day-wrapper');
-      closeDayWrapper.removeChild(closeDayWrapper.childNodes[0]);
-
+      if(closeDayWrapper.hasChildNodes()) {
+        closeDayWrapper.removeChild(closeDayWrapper.childNodes[0]);
+      }
     },
   
     displayDay: function() {
@@ -51,7 +58,6 @@ const view = {
       document.getElementById("name" + number).innerHTML = "TODAY";
     },
 
-    
     undisplayWelcome: function() {
       const quotes = document.querySelector(".quotes");
       quotes.style.display = "none";
@@ -61,7 +67,6 @@ const view = {
       const quotes = document.querySelector(".quotes");
       quotes.style.display = "block";
     },
-
 
     removeSigninWarning: function() {
 
@@ -79,69 +84,51 @@ const view = {
       if  (registerNote ) {
         registerNote.remove();
       }
-
     },
 
     emptyRegisterForm: function() {
-
       document.getElementById('name-input').value = '';
       document.getElementById('password-input').value = '';
       document.getElementById('email-input').value = '';
-
     },
 
     emptySigninForm: function() {
-
       document.getElementById('password-input-2').value = '';
       document.getElementById('email-input-2').value = '';
-
     },
 
     displaySignOut: function() {
-
       document.getElementById("btn-login-txt").innerHTML = 'Sign out';
     },
 
-    
+  
     displayWrongCredentials: function() {
-
       document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p id="signin-note">Wrong credentials</p>');
-
     },
 
     displayLoading: function() {
-
       document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p style="color: orange" id="signin-note">Loading...</p>');
-
     },
 
     displayHelloGuest: function() {
-
       document.getElementById("top-welcome-message").innerHTML = 'guest!';
-
     },
 
     displayNoBlankFields: function() {
-
       document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">Field cannot be left blank</p>');
-
     },
 
     displayUserExists: function() {
-
       document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">User already exists</p>');
-
     },
 
     createGreenCircle: function(elementStyle) {
 
       elementStyle.borderRadius = "5px";
       elementStyle.backgroundColor = 'green';
-
     },
 
     takeTypeOfDay: function() {
-
       const radios = document.getElementsByName("day");
       for (let i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
@@ -160,29 +147,22 @@ const view = {
     displayCalendar: function() {
 
       document.getElementById("calendar-main").style.display = 'grid';
-
     },
 
     undisplayCalendar: function() {
-
       document.getElementById("calendar-main").style.display = 'none';
-
     },
 
     displayQuickAddForm: function() {
 
       document.getElementById("quick-add-form-wrapper").style.display = 'flex';
-
     },
 
     undisplayQuickAddForm: function() {
-
       document.getElementById("quick-add-form-wrapper").style.display = 'none';
-
     },
 
     displayDeleteForm: function() {
-
       document.getElementById("delete_todo_form").style.display = "block";
     },
 
@@ -229,8 +209,8 @@ const view = {
     removeGreenCircle: function(closeBtnPreviousIds) {
       document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.borderRadius = null;
     document.getElementById(`${closeBtnPreviousIds[closeBtnPreviousIds.length - 1]}`).style.backgroundColor = null;
-
     }
+
   };
 
   export { view };

@@ -119,7 +119,6 @@ const unfocusSigninResponsive = () => {
 }
 
 
-
 export const undisplayAccountPopupResp = () => {
     const profilePopUp = document.getElementById("credentials-pop-up");
     profilePopUp.style.display = "none";
@@ -129,7 +128,6 @@ export const undisplayAccountPopupResp = () => {
 const displayAccountPopupResp = () => {
     const profilePopUp = document.getElementById("credentials-pop-up");
     profilePopUp.style.display = "flex";
-
 }
 
 const undisplayProfileBoxResposive = () => {
@@ -165,6 +163,7 @@ const onBackgroundClick = () => {
 
 export const handleAccountClick = (event, currentId, currentHtml) => {
 
+    
         //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
 
         if (currentId === "btn-register-txt") {
@@ -192,19 +191,19 @@ export const handleAccountClick = (event, currentId, currentHtml) => {
 
             } else {
 
-            if (loginWrapper.style.display === "none") {
+                if (loginWrapper.style.display === "none") {
 
-                displayLoginWrapperDesktop();
-                insertLoginWrapperDesktop();
+                    displayLoginWrapperDesktop();
+                    insertLoginWrapperDesktop();
 
-                if (registerWrapper.style.display === "flex") {
-                removeRegisterWrapperDesktop();
+                    if (registerWrapper.style.display === "flex") {
+                    removeRegisterWrapperDesktop();
+                    }
+                    
+                } else {
+
+                    removeLoginWrapperDesktop();
                 }
-                
-            } else {
-
-                removeLoginWrapperDesktop();
-            }
             }
         }
 
@@ -214,7 +213,6 @@ export const handleAccountClick = (event, currentId, currentHtml) => {
 
             onBackgroundClick();
         }
-
 
         //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
 

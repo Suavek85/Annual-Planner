@@ -130,9 +130,9 @@ export const renderingDayandFormBoxClick = (currentId, currentStyle, dayNameAttr
       updateTheDay(dayNameAttribute);
       SignRegister.updateProfileTodos();
       Stats.countAllTodos();
+      view.undisplayDay();
       view.displayCalendar();
       view.displayWelcome();
-      view.undisplayDay();
       view.todoListRemove();
       Progress.clearProgress();
 

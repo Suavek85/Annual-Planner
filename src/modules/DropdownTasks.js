@@ -22,31 +22,26 @@ const toggleDropdownDay = () => {
 
 export const handleDropdownsForTasks = (currentId, currentHtml) => {
 
-    //TOGGLE FORM DROPDOWN MENU
-
-    if (currentId === 'btn-form-dropdown' || currentId === 'wrap-drpdn-area' ) {
-      toggleDropdownForm();
+    switch(currentId) {
+      case 'btn-form-dropdown':
+      case 'wrap-drpdn-area':
+        toggleDropdownForm();
+        break;
+      case 'todo-day-dropdown-area':
+      case 'todo-day-dropdown-area-2':
+        toggleShowTasksDropdownDay();
+        break;
     }
-
-    //ON DROPDOWN ITEM CLICK - FORM
-
-    if (currentId.includes("drop-down-"))  {
-
-      document.getElementById("todo-type-selected").innerHTML = currentHtml;
-      toggleShowTasksDropdownForm();
-    }
-
-    //TOGGLE DAY DROPDOWN MENU
-
-    if (currentId === 'todo-day-dropdown-area' || currentId === 'todo-day-dropdown-area-2' ) {
-      toggleShowTasksDropdownDay();
-    }
-
-    //ON DROPDOWN ITEM CLICK - DAY
 
     if (currentId.includes("day-down"))  {
 
       document.getElementById("todo-type-selected-2").innerHTML = currentHtml;
       toggleDropdownDay();
+    }
+
+    if (currentId.includes("drop-down-"))  {
+
+      document.getElementById("todo-type-selected").innerHTML = currentHtml;
+      toggleShowTasksDropdownForm();
     }
 }

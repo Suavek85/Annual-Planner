@@ -4,16 +4,23 @@ export const updateNextHolidays = () => {
   const todaysTS = date.getTime()
 
   const keyHols = 'b26794657e7d4906b15d868c3bb0a5f2abe5f74e';
-  /* let urlHols = `https://cors-anywhere.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`; */
+  let urlHols = `https://cors-anywhere.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`; 
 
- let urlHols = `https://dry-crag-50254.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`;
+ /*const urlHols = `https://dry-crag-50254.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`; */
 
   
-  fetch(urlHols)
+  fetch(urlHols, {   
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Accept": "application/json",
+      'Origin': 'https://www.calendarindex.com/api/v1/holidays?'
+     }
+  })
   
     .then(data => {
       
-      console.log(data)
+      console.log(data);
       return data.json()
       
     })
@@ -64,11 +71,10 @@ export const updateNextHolidays = () => {
     
       //COLLAPSIBLE SECTION
 
-      let i;
       let moreholsArray = [];
       let moreholsDaysLeft = [];
 
-      for (i = 0; i < holidaysArray.length; i++) {
+      for (let i = 0; i < holidaysArray.length; i++) {
         if (holidaysArray[i] >= 0) {
           moreholsArray.push(i);
           let moredaysleft = Math.ceil(holidaysArray[i] / oneDaySecs);

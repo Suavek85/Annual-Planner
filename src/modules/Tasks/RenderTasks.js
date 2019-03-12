@@ -1,8 +1,5 @@
 import { tasksArray } from '../Days';
-import {
-  mainArray
-} from '../Days';
-
+import { mainArray } from '../Days';
 
 
 export const displayEachTaskDay = (i) => {
@@ -77,9 +74,7 @@ export const displaySelectedTaskDay = (i, currentHtml) => {
   
       `
 
-      } 
-      
-    else {
+      } else {
 
       return;
 
@@ -104,14 +99,13 @@ export const displayEachTaskForm = () => {
   )
     
   const joinmappedtasksArray = mappedtasksArray.join("");
-    
-  document.getElementById("task_list").insertAdjacentHTML('afterbegin', joinmappedtasksArray);
+  const taskList = document.getElementById("task_list");
+  taskList.insertAdjacentHTML('afterbegin', joinmappedtasksArray);
     
 }
 
 
  const typeDayArray = [
-
     {type: "Home", icon: "images/home-white.png", bgColor: "#6B5B95"},
     {type: "Sports", icon: "images/barbell-white.png", bgColor: "#2E4A62"},
     {type: "Shopping", icon: "images/shopping-white.png", bgColor: "#009B77"},
@@ -119,14 +113,12 @@ export const displayEachTaskForm = () => {
     {type: "Learning", icon: "images/learn-white.png", bgColor: "#663399"},
     {type: "Appointment", icon: "images/appointment-white.png", bgColor: "#A9754F"},
     {type: "Health", icon: "images/health-white.png", bgColor: "#DC4C46"},
-    
  ]
 
 
  const typeDayIcon = (el) => {
 
-  let i;
-  for (i = 0; i < typeDayArray.length; i++) {
+  for (let i = 0; i < typeDayArray.length; i++) {
     
     if (el.type === typeDayArray[i].type) {
      return typeDayArray[i].icon;
@@ -136,8 +128,7 @@ export const displayEachTaskForm = () => {
 
  const typeDayBackground = (el) => {
   
-  let i;
-  for (i = 0; i < typeDayArray.length; i++) {
+  for (let i = 0; i < typeDayArray.length; i++) {
     
     if (el.type === typeDayArray[i].type) {
      return typeDayArray[i].bgColor;

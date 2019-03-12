@@ -1,5 +1,13 @@
 import { mainArray} from './Days';
 
+
+export const clearProgress = () => {
+  const progressBar = document.getElementById("progressbar");
+  progressBar.style.width = "100%";
+  progressBar.innerHTML = "0% completed";
+  progressBar.style.backgroundColor = "#A4A4A4";
+}
+
 export const calculateProgress = (i) => {
 
     let currentTasksCount = mainArray[i].z.length;
@@ -15,7 +23,6 @@ export const calculateProgress = (i) => {
       }
     }
 
-
     const widthPercentage = Math.round(
         (currentTaskDone /currentTasksCount) * 100
     );
@@ -25,9 +32,7 @@ export const calculateProgress = (i) => {
         widthPercentage === 0 ||
         widthPercentage === undefined
       ) {
-        progressBar.style.width = "100%";
-        progressBar.innerHTML = "0% completed";
-        progressBar.style.backgroundColor = "#A4A4A4";
+       clearProgress();
       } else {
         progressBar.style.width = widthPercentage + '%';
         progressBar.style.backgroundColor = "orange";
@@ -40,9 +45,3 @@ export const calculateProgress = (i) => {
 }
 
 
-export const clearProgress = () => {
-  const progressBar = document.getElementById("progressbar");
-  progressBar.style.width = "100%";
-  progressBar.innerHTML = "0% completed";
-  progressBar.style.backgroundColor = "#A4A4A4";
-}

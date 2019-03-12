@@ -11,9 +11,7 @@ import * as DropdownTasks from './modules/DropdownTasks';
 import * as SliderDays from './modules/SliderDays';
 import * as TasksDay from './modules/Tasks/TasksDay';
 import * as TaskForm from './modules/Tasks/TasksForm';
-import {
-  welcome
-} from './modules/Welcome';
+import { welcome } from './modules/Welcome';
 
 
 const handlingAllClicks = (event) => {
@@ -46,8 +44,7 @@ document.addEventListener("click", handlingAllClicks, false);
 //ON WINDOW LOAD
 
 window.onload = function () {
-  Calendar.loadCurrentYear();
-  Calendar.loadCurrentMonthHtml();
+  Calendar.loadCurrentCalendar();
   Holidays.updateNextHolidays()
   Weather.locationWeather();
   welcome.nowTime();

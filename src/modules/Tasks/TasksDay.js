@@ -1,9 +1,6 @@
 import { view } from '../View';
 import * as Progress from '../Progress';
-import {
-    mainArray,
-    numberSave
-} from '../Days';
+import { mainArray, numberSave } from '../Days';
 import { displayEachTaskDay, displaySelectedTaskDay } from './RenderTasks'
 
 
@@ -20,7 +17,7 @@ export class Task {
   
 export const addTheTaskDay = () => {
   
-    for (var i = 0; i < mainArray.length; i++) {
+    for (let i = 0; i < mainArray.length; i++) {
       
       if (mainArray[i].a.includes(numberSave)) {
        
@@ -36,43 +33,39 @@ export const addTheTaskDay = () => {
   }
         
   
-  export const taskComepletedDay = () => {
+export const taskComepletedDay = () => {
   
-      const allTodos3 = document.getElementsByName("todoscb");
-      const allTodos3Array = Array.prototype.slice.call(allTodos3);
+    const allTodos3 = document.getElementsByName("todoscb");
+    const allTodos3Array = Array.prototype.slice.call(allTodos3);
     
-       
-          for (let y = 0; y < mainArray.length; y++) {
+    for (let y = 0; y < mainArray.length; y++) {
     
-            if (mainArray[y].a.includes(numberSave)) {
+      if (mainArray[y].a.includes(numberSave)) {
     
-              for (let i = 0;  i < allTodos3Array.length; i++) {
+        for (let i = 0;  i < allTodos3Array.length; i++) {
                
-                if ( allTodos3Array[i].checked == true ) {
+          if ( allTodos3Array[i].checked == true ) {
     
-                  for (var p = 0; p < mainArray[y].z.length; p++) {
+            for (var p = 0; p < mainArray[y].z.length; p++) {
     
-                    if (mainArray[y].z[p].g == allTodos3Array[i].value) {
+                if (mainArray[y].z[p].g == allTodos3Array[i].value) {
     
-                      mainArray[y].z[p].done = true;
+                  mainArray[y].z[p].done = true;
                     
-                    }
                   }
-                } 
               }
-              reloadTasksDay(y);
-            }
+            } 
           }
+        reloadTasksDay(y);
+      }
     }
+  }
     
     
+export const deleteTaskDay = () => {
     
-    export const deleteTaskDay = () => {
-    
-      const allTodos2 = document.getElementsByName("todoscb");
-    
-      const allTodos2Array = Array.prototype.slice.call(allTodos2);
-    
+  const allTodos2 = document.getElementsByName("todoscb"); 
+  const allTodos2Array = Array.prototype.slice.call(allTodos2);
     
       for (var y = 0; y < mainArray.length; y++) {
     
@@ -98,84 +91,80 @@ export const addTheTaskDay = () => {
       }
     }
 
-    const reloadTasksDay = (y) => {
+const reloadTasksDay = (y) => {
 
-      removeTodoListDay();
-      displayEachTaskDay(y);
-      Progress.calculateProgress(y);
+  removeTodoListDay();
+  displayEachTaskDay(y);
+  Progress.calculateProgress(y);
 
+}
+
+      
+export const removeTodoListDay = () => {
+      
+  const listDay = document.getElementById("task_list_output");
+  while (listDay.hasChildNodes()) {
+      listDay.removeChild(listDay.firstChild);
     }
-
-      
-      export const removeTodoListDay = () => {
-      
-        const listDay = document.getElementById("task_list_output");
-        while (listDay.hasChildNodes()) {
-          listDay.removeChild(listDay.firstChild);
-        }
-      }
-      
+}
       
 
-      export const filteringTodos = (currentHtml, currentId) => {
+export const filteringTodos = (currentHtml, currentId) => {
     
-        for (var i = 0; i < mainArray.length; i++) {
+  for (let i = 0; i < mainArray.length; i++) {
     
-          if (mainArray[i].a.includes(numberSave)) {
+      if (mainArray[i].a.includes(numberSave)) {
     
-            if (currentId === "filtered-all" ) {
+          if (currentId === "filtered-all" ) {
     
-              displayEachTaskDay(i);
+            displayEachTaskDay(i);
     
-            } else {
+          } else {
     
-              displaySelectedTaskDay(i, currentHtml);
+            displaySelectedTaskDay(i, currentHtml);
     
-            }
           }
-        }
       }
+  }
+}
     
     
-
-    //EVENT LISTENER
+//EVENT LISTENER
     
-    export const handlingTasksRendering = (currentId, currentHtml) => {
+export const handlingTasksRendering = (currentId, currentHtml) => {
     
-        //DELETE TASK - DAY
+    //DELETE TASK - DAY
     
-        if (currentId.includes("delete_output")) {
+    if (currentId.includes("delete_output")) {
     
-          deleteTaskDay();
-        }
+      deleteTaskDay();
+    }
     
-        //TASK COMPLETED - DAY
+    //TASK COMPLETED - DAY
     
-        if (currentId.includes("completed")) {
+    if (currentId.includes("completed")) {
     
-          taskComepletedDay();
+      taskComepletedDay();
+    } 
     
-        } 
+    //ADD TASK - DAY
     
-
-        //ADD TASK - DAY
+    if (currentId.includes("add")) {
     
-        if (currentId.includes("add")) {
+      if (document.getElementById("input_list_output").value.length > 0) {
     
-          if (document.getElementById("input_list_output").value.length > 0) {
-    
-            removeTodoListDay();
-            addTheTaskDay();
-            view.emptyInputDay();   
-          }
-        }
+        removeTodoListDay();
+        addTheTaskDay();
+        view.emptyInputDay();   
+      }
+    }
     
         //FILTERING
     
-        if (currentId.includes('filtered')) {
+    if (currentId.includes('filtered')) {
         
-          removeTodoListDay();
-          filteringTodos(currentHtml, currentId);
+      removeTodoListDay();
+      filteringTodos(currentHtml, currentId);
     
-        }
     }
+}
