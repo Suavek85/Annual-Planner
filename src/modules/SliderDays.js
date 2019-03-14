@@ -1,4 +1,4 @@
-const rotateDayTypes = (dayTypesArray) => {
+const rotateDayTypes = dayTypesArray => {
 
     const typeDayIcon = document.getElementById('type-day-icon');
 
@@ -17,7 +17,7 @@ const rotateDayTypes = (dayTypesArray) => {
   }
 
 
-export const handleRotatingDayTypes = (currentId) => {
+export const handleRotatingDayTypes = currentId => {
 
   switch(currentId) {
     case 'right-change-day':

@@ -47,10 +47,9 @@ export const removeTodoList = () => {
 
 //EVENT LISTENER
     
-export const handlingTasksRenderingForm = (currentId) => {
+export const handlingTasksRenderingForm = currentId => {
     
-        //DELETE TASK - FORM
-            
+    //DELETE TASK - FORM    
     if (currentId.includes("delete_todo_form")) {
     
       deleteTaskForm();
@@ -60,7 +59,6 @@ export const handlingTasksRenderingForm = (currentId) => {
     } 
         
     //ADD TASK - FORM
-    
     if (currentId.includes("enter")) {
     
       if (document.getElementById("input_list").value.length > 0) {

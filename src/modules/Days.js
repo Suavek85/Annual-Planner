@@ -76,7 +76,7 @@ const displaySaveExitButton = () => {
 }
 
 
-export const renderingDayandFormBoxClick = (currentId, currentStyle, dayNameAttribute) => {
+export const handleDayandFormBoxClick = (currentId, currentStyle, dayNameAttribute) => {
 
   //SUBMIT NEW DAY
 

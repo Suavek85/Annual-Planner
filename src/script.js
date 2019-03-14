@@ -14,7 +14,7 @@ import * as TaskForm from './modules/Tasks/TasksForm';
 import { welcome } from './modules/Welcome';
 
 
-const handlingAllClicks = (event) => {
+const handlingAllClicks = event => {
 
   const dayNameAttribute = event.target.getAttribute("day-name");
   const currentId = event.target.id;
@@ -24,25 +24,23 @@ const handlingAllClicks = (event) => {
   
   MenuAccount.handleAccountClick(event, currentId, currentHtml);
   Calendar.handleRenderingCalendar(currentId);
-  Stats.renderingStatsBoxClick(currentId);
-  SignRegister.renderingSigninClick(currentId);
-  SignRegister.renderingRegisterClick(currentId);
+  Stats.handleStatsBoxClick(currentId);
+  SignRegister.handleSigninClick(currentId);
+  SignRegister.handleRegisterClick(currentId);
   Menu.handleWeatherAndHolidaysClick(currentId, currentSrc);
   Quickadd.handleQuickAddClick(currentId, currentHtml);
   DropdownTasks.handleDropdownsForTasks(currentId, currentHtml);
   SliderDays.handleRotatingDayTypes(currentId);
   TasksDay.handlingTasksRendering(currentId, currentHtml);
-  Days.renderingDayandFormBoxClick(currentId, currentStyle, dayNameAttribute);
+  Days.handleDayandFormBoxClick(currentId, currentStyle, dayNameAttribute);
   TaskForm.handlingTasksRenderingForm(currentId);
 
 }
 
 //CLICK EVENT LISTENER
-
 document.addEventListener("click", handlingAllClicks, false);
 
 //ON WINDOW LOAD
-
 window.onload = function () {
   Calendar.loadCurrentCalendar();
   Holidays.updateNextHolidays()
@@ -52,7 +50,6 @@ window.onload = function () {
 };
 
 //ON WINDOW RESIZE
-
 window.onresize = function() {
   MenuAccount.undisplayOnWindowResize();
 };

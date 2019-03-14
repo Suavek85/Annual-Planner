@@ -2,32 +2,20 @@ export const updateNextHolidays = () => {
 
   const date = new Date();
   const todaysTS = date.getTime()
-
   const keyHols = 'b26794657e7d4906b15d868c3bb0a5f2abe5f74e';
-  let urlHols = `https://cors-anywhere.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`; 
-
- /*const urlHols = `https://dry-crag-50254.herokuapp.com/https://www.calendarindex.com/api/v1/holidays?country=GB&year=2019&api_key=${keyHols}`; */
-
-  
-  fetch(urlHols, {   
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Accept": "application/json",
-      'Origin': 'https://www.calendarindex.com/api/v1/holidays?'
-     }
-  })
+  const urlHols = `https://calendarific.com/api/v2/holidays?country=UK&year=2019&api_key=${keyHols}`;
+ 
+  fetch(urlHols)
   
     .then(data => {
       
-      console.log(data);
       return data.json()
       
     })
 
     .then(res => {
 
-      let collapsibleHols = `<img src='images/expand.png' id='expand-holidays'  alt="expand"><div style="display:none" id='collapsible_holidays'><p id='secondHol' class='collapsible_holidays-text' >second holiday</p><p id='thirdHol' class='collapsible_holidays-text'></p><p id='fourthHol' class='collapsible_holidays-text'></p></div>`;
+      let collapsibleHols = `<img src='images/expand.png' id='expand-holidays'  alt="expand"><div style="display:none" id='collapsible_holidays'><p id='secondHol' class='collapsible_holidays-text'></p><p id='thirdHol' class='collapsible_holidays-text'></p><p id='fourthHol' class='collapsible_holidays-text'></p></div>`;
 
 
       let collapsibleHolsResp = `<div style="display:none" id='collapsible_holidays_responsive'>
@@ -41,7 +29,7 @@ export const updateNextHolidays = () => {
       //NEXT HOLIDAY
 
       const holidaysArray = res.response.holidays.map(el => {
-        return Date.parse(el.date) - todaysTS;
+        return Date.parse(el.date.iso) - todaysTS;
       });
 
       const closestHolIndex = holidaysArray.findIndex(el => {
@@ -61,7 +49,6 @@ export const updateNextHolidays = () => {
           
           document.getElementById('next_holidays').insertAdjacentHTML("afterbegin", `It's ${res.response.holidays[closestHolIndex].name}` + collapsibleHols);
          
-
         } else {
           
           document.getElementById('next_holidays').insertAdjacentHTML("afterbegin", `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}` + collapsibleHols);
@@ -70,9 +57,17 @@ export const updateNextHolidays = () => {
 
     
       //COLLAPSIBLE SECTION
-
+      
       let moreholsArray = [];
       let moreholsDaysLeft = [];
+      const secHols = document.getElementById('secondHol');
+      const thirdHol = document.getElementById('thirdHol');
+      const fourthHol = document.getElementById('fourthHol');
+
+      const firstHolResp = document.getElementById('firstHolResp');
+      const secHolResp = document.getElementById('secondHolResp');
+      const thirdHolResp = document.getElementById('thirdHolResp');
+      const fourthHolResp = document.getElementById('fourthHolResp');
 
       for (let i = 0; i < holidaysArray.length; i++) {
         if (holidaysArray[i] >= 0) {
@@ -81,35 +76,47 @@ export const updateNextHolidays = () => {
           moreholsDaysLeft.push(moredaysleft);
         }
       }
+    
 
       if (moreholsArray.length < 2) {
         document.getElementById('expand-holidays').style.display = 'none';
-      } else if (moreholsArray.length === 2) {
-        document.getElementById('secondHol').innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`;
-      } else if (moreholsArray.length === 3) {
-        document.getElementById('secondHol').innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`
-        document.getElementById('thirdHol').innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]}  days`
-      } else if (moreholsArray.length >= 3) {
-        document.getElementById('secondHol').innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`
-        document.getElementById('thirdHol').innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]} days`
-        document.getElementById('fourthHol').innerHTML = `${res.response.holidays[moreholsArray[3]].name} in ${moreholsDaysLeft[3]} days`
+      } else {
+        switch(moreholsArray.length) {
+          case 2:
+            secHol.innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`;
+            break;
+          case 3:
+            secHol.innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`;
+            thirdHol.innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]} days`;
+            break;
+          default:
+            secHols.innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`;
+            thirdHol.innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]} days`;
+            fourthHol.innerHTML = `${res.response.holidays[moreholsArray[3]].name} in ${moreholsDaysLeft[3]} days`;
+            break;
+        }
       }
-
-   
+     
       if (moreholsArray.length < 2) {
-        document.getElementById('firstHolResp').innerHTML = `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}`;
-      } else if (moreholsArray.length === 2) {
-        document.getElementById('firstHolResp').innerHTML = `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}`;
-        document.getElementById('secondHolResp').innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`;
-      } else if (moreholsArray.length === 3) {
-        document.getElementById('firstHolResp').innerHTML = `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}`;
-        document.getElementById('secondHolResp').innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`
-        document.getElementById('thirdHolResp').innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]}  days`
-      } else if (moreholsArray.length >= 3) {
-        document.getElementById('firstHolResp').innerHTML = `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}`;
-        document.getElementById('secondHolResp').innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`
-        document.getElementById('thirdHolResp').innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]} days`
-        document.getElementById('fourthHolResp').innerHTML = `${res.response.holidays[moreholsArray[3]].name} in ${moreholsDaysLeft[3]} days`
+        firstHolResp.innerHTML = `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}`;
+      } else {
+        switch(moreholsArray.length) {
+          case 2:
+            firstHolRes.innerHTML = `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}`;
+            secHolResp.innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`;
+            break;
+          case 3:
+            firstHolResp.innerHTML = `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}`;
+            secHolResp.innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`
+            thirdHolResp.innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]}  days`
+            break;
+          default:
+            firstHolResp.innerHTML = `${daysLeft} days left till ${res.response.holidays[closestHolIndex].name}`;
+            secHolResp.innerHTML = `${res.response.holidays[moreholsArray[1]].name} in ${moreholsDaysLeft[1]} days`;
+            thirdHolResp.innerHTML = `${res.response.holidays[moreholsArray[2]].name} in ${moreholsDaysLeft[2]} days`;
+            fourthHolResp.innerHTML = `${res.response.holidays[moreholsArray[3]].name} in ${moreholsDaysLeft[3]} days`;
+            break;
+        }
       }
     })
 }

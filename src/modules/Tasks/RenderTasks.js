@@ -116,7 +116,7 @@ export const displayEachTaskForm = () => {
  ]
 
 
- const typeDayIcon = (el) => {
+ const typeDayIcon = el => {
 
   for (let i = 0; i < typeDayArray.length; i++) {
     
@@ -126,7 +126,7 @@ export const displayEachTaskForm = () => {
   }
  }
 
- const typeDayBackground = (el) => {
+ const typeDayBackground = el => {
   
   for (let i = 0; i < typeDayArray.length; i++) {
     
@@ -136,18 +136,16 @@ export const displayEachTaskForm = () => {
   }
 }
 
-const doneTaskStyleCross = (el) => {
+const doneTaskStyleCross = el => {
       
   if ( el.done === true ) {
-
-  return 'text-decoration: line-through; color: grey;';
-
+    return 'text-decoration: line-through; color: grey;';
   } else {
     return '';
   }
 }
 
-const doneTaskStyleIcon = (el) => {
+const doneTaskStyleIcon = el => {
     
   if ( el.done === true) {
     return 'display: inline-block;';
@@ -157,7 +155,7 @@ const doneTaskStyleIcon = (el) => {
 }
 
   
-const isIndexEven = (value) => {
+const isIndexEven = value => {
     if (value % 2 == 0)
         return '#F5F5F5'
     else

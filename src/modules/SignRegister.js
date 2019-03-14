@@ -166,7 +166,7 @@ const updateProfileTodos = () => {
 }
 
 
-const renderingSigninClick = (currentId) => {
+const handleSigninClick = currentId => {
 
     //ON SIGN IN BUTTON
     if (currentId === "signin-button") {
@@ -179,7 +179,7 @@ const renderingSigninClick = (currentId) => {
 }
 
 
-const renderingRegisterClick = (currentId) => {
+const handleRegisterClick = currentId => {
 
   //ON REGISTER BUTTON
   if (currentId === "register-button") {
@@ -190,5 +190,5 @@ const renderingRegisterClick = (currentId) => {
   }
 }
 
-export  { renderingRegisterClick, renderingSigninClick, updateProfileTodos, onSignOut };
+export  { handleRegisterClick, handleSigninClick, updateProfileTodos, onSignOut };
   

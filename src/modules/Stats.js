@@ -91,7 +91,7 @@ const googChart = (done, all, intro) => {
     }
   }
 
-  const renderingStatsBoxClick = (currentId) => {
+  const handleStatsBoxClick = currentId => {
 
     switch(currentId) {
       case 'stats_main_logo':
@@ -107,7 +107,7 @@ const googChart = (done, all, intro) => {
     }
   }
 
-  export { renderingStatsBoxClick, countAllTodos };
+  export { handleStatsBoxClick, countAllTodos };
     
 
 

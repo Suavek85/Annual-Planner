@@ -51,7 +51,7 @@ export const handleWeatherAndHolidaysClick = (currentId, currentSrc) => {
 
   switch(currentId) {
     case "expand-holidays":
-      displayMoreWeather(currentSrc);
+      displayMoreHolidays(currentSrc);
       break;
     case 'showmore-weather':
       displayMoreWeather(currentSrc);
