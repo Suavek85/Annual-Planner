@@ -55,7 +55,7 @@ li {
 
 /* WEBSITE LOGO */
 
-.logo {
+.logo-wrapper {
   display: flex;
   align-items: center;
   padding-right: 20px;
@@ -1732,7 +1732,7 @@ input[type=date]::-webkit-clear-button
     margin-top: 30px;
   }
 
-  .logo {
+  .logo-wrapper {
     padding-left: 10px;
   }
 
