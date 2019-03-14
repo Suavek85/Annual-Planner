@@ -70,6 +70,7 @@ li {
 
 .upcoming_holidays {
   color: white;
+  padding-left: 15px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -79,10 +80,10 @@ li {
 
 #collapsible_holidays {
   position: absolute;
-  bottom: -130px;
-  right: -7px;
+  bottom: -165px;
+  right: 0px;
   width: 250px;
-  height: 120px;
+  height: 150px;
   background-color: black;
   opacity: 0.85;
   border-radius: 4px;
