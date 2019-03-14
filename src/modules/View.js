@@ -1,3 +1,19 @@
+const undisplayItem = el => {
+  el.style.display = 'none';
+}
+
+const displayItemFlex = el => {
+  el.style.display = 'flex';
+}
+
+const displayItemBlock = el => {
+  el.style.display = 'block';
+}
+
+const clearItemValue = el => {
+  el.value = '';
+}
+
 const view = {
   
     todoListRemove: function() {
@@ -19,8 +35,8 @@ const view = {
     undisplayForm: function() {
       const formCloseBtnWrapper = document.getElementById("form-main-wrapper");
       if (formCloseBtnWrapper.style.display == "flex") {
-        formCloseBtnWrapper.style.display = "none"; 
-      }
+        undisplayItem(formCloseBtnWrapper);
+      }  
     },
   
     displaySubmit: function(el) {
@@ -28,21 +44,20 @@ const view = {
     },
 
     displaySubmitButton: function(numberAdd) {
-      
+      const submitBtnWrapper = document.getElementById("submit-btns");
       let submitBtnGen = `<button day-name="dayname${numberAdd}" class="submit-btn highlight" style="width: 90%" id="submit_${numberAdd}">Submit</button>`;
-      document.getElementById("submit-btns").insertAdjacentHTML('afterbegin', submitBtnGen);
+      submitBtnWrapper.insertAdjacentHTML('afterbegin', submitBtnGen);
     },
 
     removeSubmitButton: function() {
-      const submitBtnsWrapper = document.getElementById("submit-btns");
-      submitBtnsWrapper.removeChild(submitBtnsWrapper.childNodes[0]);
+      const submitBtnWrapper = document.getElementById("submit-btns");
+      submitBtnWrapper.removeChild(submitBtnWrapper.childNodes[0]);
     },
 
-   
     undisplayDay: function() {
       const dayWrapper = document.querySelector(".notes-box-wrapper");
       if(dayWrapper.style.display == 'flex') {
-        dayWrapper.style.display = "none";
+        undisplayItem(dayWrapper);
       }
       const closeDayWrapper = document.getElementById('close-day-wrapper');
       if(closeDayWrapper.hasChildNodes()) {
@@ -51,7 +66,8 @@ const view = {
     },
   
     displayDay: function() {
-      document.querySelector(".notes-box-wrapper").style.display = "flex";
+      const dayWrapper = document.querySelector(".notes-box-wrapper");
+      displayItemFlex(dayWrapper);
     },
   
     startFromToday: function(number) {
@@ -60,41 +76,39 @@ const view = {
 
     undisplayWelcome: function() {
       const quotes = document.querySelector(".quotes");
-      quotes.style.display = "none";
+      undisplayItem(quotes);
     },
   
     displayWelcome: function() {
       const quotes = document.querySelector(".quotes");
-      quotes.style.display = "block";
+      displayItemBlock(quotes);
     },
 
     removeSigninWarning: function() {
-
       const signinNote = document.getElementById('signin-note');
-
-      if  (signinNote ) {
+      if (signinNote) {
         signinNote.remove();
       }
     },
 
     removeRegisterWarning: function() {
-
       const registerNote = document.getElementById('register-note');
-
-      if  (registerNote ) {
+      if (registerNote ) {
         registerNote.remove();
       }
     },
 
     emptyRegisterForm: function() {
-      document.getElementById('name-input').value = '';
-      document.getElementById('password-input').value = '';
-      document.getElementById('email-input').value = '';
+      const nameInputReg = document.getElementById('name-input');
+      const passInputReg = document.getElementById('password-input');
+      const emailInputReg = document.getElementById('email-input');
+      [nameInputReg, passInputReg, emailInputReg].forEach = el => clearItemValue(el);
     },
 
     emptySigninForm: function() {
-      document.getElementById('password-input-2').value = '';
-      document.getElementById('email-input-2').value = '';
+      const passInputSign= document.getElementById('password-input-2');
+      const emailInputSign = document.getElementById('email-input-2');
+      [passInputSign, emailInputSign].forEach = el => clearItemValue(el);
     },
 
     displaySignOut: function() {
@@ -110,6 +124,10 @@ const view = {
       document.getElementById('signin-button').insertAdjacentHTML('afterend', '<p style="color: orange" id="signin-note">Loading...</p>');
     },
 
+    displayCreatingProfile: function() {
+      document.getElementById('register-button').insertAdjacentHTML('afterend', '<p style="color: blue" id="register-note">Creating profile...</p>');
+    },
+
     displayHelloGuest: function() {
       document.getElementById("top-welcome-message").innerHTML = 'guest!';
     },
@@ -123,7 +141,6 @@ const view = {
     },
 
     createGreenCircle: function(elementStyle) {
-
       elementStyle.borderRadius = "5px";
       elementStyle.backgroundColor = 'green';
     },
@@ -143,27 +160,28 @@ const view = {
       return document.getElementById("notes").value;
     },
 
-
     displayCalendar: function() {
-
       document.getElementById("calendar-main").style.display = 'grid';
     },
 
     undisplayCalendar: function() {
-      document.getElementById("calendar-main").style.display = 'none';
+      const calendarMain = document.getElementById("calendar-main");
+      undisplayItem(calendarMain);
     },
 
     displayQuickAddForm: function() {
-
-      document.getElementById("quick-add-form-wrapper").style.display = 'flex';
+      const quickAddForm = document.getElementById("quick-add-form-wrapper");
+      displayItemFlex(quickAddForm);
     },
 
     undisplayQuickAddForm: function() {
-      document.getElementById("quick-add-form-wrapper").style.display = 'none';
+      const quickAddForm = document.getElementById("quick-add-form-wrapper");
+      undisplayItem(quickAddForm);
     },
 
     displayDeleteForm: function() {
-      document.getElementById("delete_todo_form").style.display = "block";
+      const deleteForm = document.getElementById("delete_todo_form");
+      displayItemBlock(deleteForm);
     },
 
     emptyInputForm: function() {
@@ -172,32 +190,37 @@ const view = {
     },
 
     emptyInputDay: function() {
-
-      document.getElementById("input_list_output").value = '';
+      const inputListDay = document.getElementById("input_list_output");
+      clearItemValue(inputListDay);
     },
 
     displayStatsBox: function() {
-      document.getElementById("stats-main").style.display = 'flex';
+      const statsBox = document.getElementById("stats-main");
+      displayItemFlex(statsBox);
     },
 
     undisplayStatsBox: function() {
-      document.getElementById("stats-main").style.display = 'none';
+      const statsBox = document.getElementById("stats-main");
+      undisplayItem(statsBox);
     },
 
     toggleDropdownQuick: function() {
-      if ( document.getElementById("quick-drp-list-2").style.display == "none") {
-        document.getElementById("quick-drp-list-2").style.display = "block";
+      const quickDropdown = document.getElementById("quick-drp-list-2");
+      if ( quickDropdown.style.display == "none") {
+        displayItemBlock(quickDropdown);
       }  else {
-        document.getElementById("quick-drp-list-2").style.display = "none";
+        undisplayItem(quickDropdown);
       }
     },
 
     undisplayDropdownQuick: function() {
-      document.getElementById("quick-drp-list-2").style.display = "none";
+      const quickDropdown = document.getElementById("quick-drp-list-2");
+      undisplayItem(quickDropdown);
     },
 
     clearInputFieldDay: function() {
-      document.getElementById("input_list_output").value = '';
+      const inputFieldDay = document.getElementById("input_list_output");
+      clearItemValue(inputFieldDay);
     },
 
     calcDateforDay: function(evTarId) {

@@ -4,30 +4,28 @@ import * as Stats from './Stats';
 
 const logBoxHtml = `<div id='logbox' class='login-box'>
 
-<label for="username">Email:</label>
-<input type="username" id="email-input-2" name="username">
+    <label for="username">Email:</label>
+    <input type="username" id="email-input-2" name="username">
 
-<label for="pass">Password:</label>
-<input type="password" id="password-input-2" name="password">
+    <label for="pass">Password:</label>
+    <input type="password" id="password-input-2" name="password">
 
-<input id="signin-button" type="submit" value="Sign in">
-
+    <input id="signin-button" type="submit" value="Sign in">
 
 </div>`
 
 const registerBoxHtml = `<div id='regbox' class='register-box'>
 
-<label type="username" for="username">Email:</label>
-<input type="username" id="email-input" name="email">
+    <label type="username" for="username">Email:</label>
+    <input type="username" id="email-input" name="email">
 
-<label for="pass">Password:</label>
-<input type="password" id="password-input" name="password">
+    <label for="pass">Password:</label>
+    <input type="password" id="password-input" name="password">
 
-<label for="pass">Name:</label>
-<input type="name" id="name-input" name="password" required>
+    <label for="pass">Name:</label>
+    <input type="name" id="name-input" name="password" required>
 
-<input id="register-button" type="submit" value="Register">
-
+    <input id="register-button" type="submit" value="Register">
 
 </div>`
 
@@ -37,13 +35,24 @@ const loginWrapper = document.getElementById("login-wrapper");
 const loginBtnResp = document.getElementById("btn-login-txt-responsive");
 const registernBtnResp = document.getElementById("btn-register-txt-responsive");
 
+const removeItemContents = el => {
+    if (el.hasChildNodes()) {
+        el.removeChild(el.childNodes[0]);
+        }
+}
 
+const unfocusItem = el => {
+    el.style.transform = "scale(1)";
+    el.style.fontWeight = "normal";
+}
+
+const focusItem = el => {
+    el.style.fontWeight = "900";
+    el.style.transform = "scale(1.1)";
+}
 
 const removeLogOrRegisterBoxResponsive = () => {
-
-    if (profileRespBox.hasChildNodes()) {
-        profileRespBox.removeChild(profileRespBox.childNodes[0]);
-    }
+    removeItemContents(profileRespBox);
 }
 
 const insertLogBoxResponsive = () => {
@@ -54,17 +63,14 @@ const insertRegisterBoxResponsive = () => {
     profileRespBox.insertAdjacentHTML("afterbegin", registerBoxHtml);
 }
 
-
 const displayRegisterWrapperDesktop = () => {
     registerWrapper.style.display = "flex";
 }
-
 
 const insertRegisterWrapperDesktop = () => {
     registerWrapper.insertAdjacentHTML("afterbegin", registerBoxHtml);
 }
   
-
 const displayLoginWrapperDesktop = () => {
     loginWrapper.style.display = "flex";
 }
@@ -74,55 +80,36 @@ const insertLoginWrapperDesktop = () => {
 }
 
 export const removeRegisterWrapperDesktop = () => {
-
-    if (registerWrapper.hasChildNodes()) {
-    registerWrapper.removeChild(registerWrapper.childNodes[0]);
-    }
+    removeItemContents(registerWrapper);
     registerWrapper.style.display = "none";
 }
   
-
 export const removeLoginWrapperDesktop = () => {
-
-    if (loginWrapper.hasChildNodes()) {
-        loginWrapper.removeChild(loginWrapper.childNodes[0]);
-    }
+    removeItemContents(loginWrapper);
     loginWrapper.style.display = "none";
 }
 
-
 const focusSigninResponsive = () => {
-
-    loginBtnResp.style.fontWeight = "900";
-    loginBtnResp.style.transform = "scale(1.1)";
-    unfocusRegisterResponsive()
+    focusItem(loginBtnResp);
+    unfocusItem(registernBtnResp);
 }
 
 const unfocusRegisterResponsive = () => {
-
-    registernBtnResp.style.transform = "scale(1)";
-    registernBtnResp.style.fontWeight = "normal";
+    unfocusItem(registernBtnResp);
 }
 
-
 const focusRegisterResponsive = () => {
-
-    registernBtnResp.style.fontWeight = "900";
-    registernBtnResp.style.transform = "scale(1.1)";
-    unfocusSigninResponsive();
+    focusItem(registernBtnResp);
+    unfocusItem(loginBtnResp);
 }
 
 const unfocusSigninResponsive = () => {
-
-    loginBtnResp.style.transform = "scale(1)";
-    loginBtnResp.style.fontWeight = "normal";
+    unfocusItem(loginBtnResp);
 }
-
 
 export const undisplayAccountPopupResp = () => {
     const profilePopUp = document.getElementById("credentials-pop-up");
     profilePopUp.style.display = "none";
-
 }
 
 const displayAccountPopupResp = () => {
@@ -148,7 +135,6 @@ export const undisplayOnWindowResize = () => {
     }
 }
 
-
 const onBackgroundClick = () => {
 
       if (loginWrapper.style.display === "flex") {
@@ -160,15 +146,13 @@ const onBackgroundClick = () => {
       }
 }
 
-
 export const handleAccountClick = (event, currentId, currentHtml) => {
 
-    
         //TOGGLE DISPLAYING DESKTOP REGISTER SECTION
 
         if (currentId === "btn-register-txt") {
 
-            if (document.getElementById('register-wrapper').style.display === "none") {
+            if (registerWrapper.style.display === "none") {
         
             displayRegisterWrapperDesktop();
             insertRegisterWrapperDesktop();
@@ -201,59 +185,46 @@ export const handleAccountClick = (event, currentId, currentHtml) => {
                     }
                     
                 } else {
-
                     removeLoginWrapperDesktop();
                 }
             }
         }
 
-        //ON BACKGROUND CLICK
+        switch(currentId) {
+            //ON BACKGROUND CLICK
+            case "main_pic":
+                onBackgroundClick();
+                break;
+            //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
+            case "credentials-pop-up-close":
+                undisplayProfileBoxResposive();
+                removeLogOrRegisterBoxResponsive();
+                break;
+            //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
+            case 'credentials-wrapper-icon':
+            case 'credentials-wrapper-text':
+                displayAccountPopupResp();
+                removeLogOrRegisterBoxResponsive();
+                insertLogBoxResponsive();
+                focusSigninResponsive();
+                unfocusRegisterResponsive();
+                break;
+            //ON SIGN IN CLICK - RESPONSIVE
+            case 'btn-login-txt-responsive':
+                removeLogOrRegisterBoxResponsive();
+                insertLogBoxResponsive();
+                focusSigninResponsive();
+                unfocusRegisterResponsive();
+                break;
+            //ON REGISTER  CLICK - RESPONSIVE
+            case 'btn-register-txt-responsive':
+                removeLogOrRegisterBoxResponsive();
+                insertRegisterBoxResponsive();
+                focusRegisterResponsive();
+                unfocusSigninResponsive();
+                Stats.countAllTodos();
+                break;
+          }
 
-        if (currentId === "main_pic") {
-
-            onBackgroundClick();
-        }
-
-        //ON ACCOUNT DIV CLOSE CLICK - RESPONSIVE
-
-        if (currentId === "credentials-pop-up-close") {
-
-            undisplayProfileBoxResposive();
-            removeLogOrRegisterBoxResponsive();
-        }
-
-        //ON ACCOUNT DIV CLICK - RESPONSIVE
-
-        if (currentId === 'credentials-wrapper-icon' || currentId === 'credentials-wrapper-text') {
-
-            displayAccountPopupResp();
-            removeLogOrRegisterBoxResponsive();
-            insertLogBoxResponsive();
-            focusSigninResponsive();
-            unfocusRegisterResponsive();
-    
-        }
-  
-        //ON SIGN IN CLICK - RESPONSIVE
-    
-        if (currentId === 'btn-login-txt-responsive') {
-    
-            removeLogOrRegisterBoxResponsive();
-            insertLogBoxResponsive();
-            focusSigninResponsive();
-            unfocusRegisterResponsive();
-        }
-  
-        //ON REGISTER CLICK - RESPONSIVE
-    
-        if (currentId === 'btn-register-txt-responsive') {
-    
-            removeLogOrRegisterBoxResponsive();
-            insertRegisterBoxResponsive();
-            focusRegisterResponsive();
-            unfocusSigninResponsive();
-            Stats.countAllTodos();
-    
-        }
 }
 

@@ -22,18 +22,18 @@ const handlingAllClicks = (event) => {
   const currentHtml = event.target.innerHTML;
   const currentStyle = event.target.style;
   
-  MenuAccount.handleAccountClick( event, currentId, currentHtml );
-  Calendar.handleRenderingCalendar( currentId );
-  Stats.renderingStatsBoxClick( currentId );
-  SignRegister.renderingSigninClick( currentId );
-  SignRegister.renderingRegisterClick( currentId );
-  Menu.handleWeatherAndHolidaysClick( currentId, currentSrc );
-  Quickadd.handleQuickAddClick( currentId, currentHtml );
-  DropdownTasks.handleDropdownsForTasks( currentId, currentHtml );
-  SliderDays.handleRotatingDayTypes( currentId );
-  TasksDay.handlingTasksRendering( currentId, currentHtml );
-  Days.renderingDayandFormBoxClick( currentId, currentStyle, dayNameAttribute );
-  TaskForm.handlingTasksRenderingForm( currentId );
+  MenuAccount.handleAccountClick(event, currentId, currentHtml);
+  Calendar.handleRenderingCalendar(currentId);
+  Stats.renderingStatsBoxClick(currentId);
+  SignRegister.renderingSigninClick(currentId);
+  SignRegister.renderingRegisterClick(currentId);
+  Menu.handleWeatherAndHolidaysClick(currentId, currentSrc);
+  Quickadd.handleQuickAddClick(currentId, currentHtml);
+  DropdownTasks.handleDropdownsForTasks(currentId, currentHtml);
+  SliderDays.handleRotatingDayTypes(currentId);
+  TasksDay.handlingTasksRendering(currentId, currentHtml);
+  Days.renderingDayandFormBoxClick(currentId, currentStyle, dayNameAttribute);
+  TaskForm.handlingTasksRenderingForm(currentId);
 
 }
 

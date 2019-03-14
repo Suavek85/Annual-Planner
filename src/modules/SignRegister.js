@@ -185,6 +185,7 @@ const renderingRegisterClick = (currentId) => {
   if (currentId === "register-button") {
 
     view.removeRegisterWarning();
+    view.displayCreatingProfile();
     onRegisterButton();
   }
 }

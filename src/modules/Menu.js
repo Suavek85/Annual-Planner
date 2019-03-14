@@ -47,7 +47,6 @@ const undisplayMoreHolidaysrResp = () => {
   collapseHolsRes.style.display = "none";
 }
 
-
 export const handleWeatherAndHolidaysClick = (currentId, currentSrc) => {
 
   switch(currentId) {
