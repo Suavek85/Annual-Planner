@@ -126,6 +126,7 @@ export const displayEachTaskForm = () => {
   }
  }
 
+
  const typeDayBackground = el => {
   
   for (let i = 0; i < typeDayArray.length; i++) {
@@ -154,7 +155,6 @@ const doneTaskStyleIcon = el => {
   }
 }
 
-  
 const isIndexEven = value => {
     if (value % 2 == 0)
         return '#F5F5F5'
