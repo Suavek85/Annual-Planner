@@ -86,7 +86,7 @@ input[type="textday-quick"]::-webkit-input-placeholder {
 input[type="username"] {
   width: 200px;
   height: 30px;
-  background-image: url(images/envelope.png);
+  background-image: url(../dist/images/envelope.png);
   background-color: #e6e6e6;
   border: none;
   border-radius: 15px;
@@ -96,7 +96,7 @@ input[type="username"] {
 input[type="password"] {
   width: 200px;
   height: 30px;
-  background-image: url(images/locked-padlock.png);
+  background-image: url(../dist/images/locked-padlock.png);
   background-color: #e6e6e6;
   border: none;
   border-radius: 15px;
@@ -106,7 +106,7 @@ input[type="password"] {
 input[type="name"] {
   width: 200px;
   height: 30px;
-  background-image: url(images/user.png);
+  background-image: url(../dist/images/user.png);
   background-color: #e6e6e6;
   border: none;
   border-radius: 15px;
