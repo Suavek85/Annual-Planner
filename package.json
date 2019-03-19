@@ -7,7 +7,7 @@
     "deploy": "gh-pages -d dist",
     "start": "npm run webpack",
     "webpack": "webpack -d --watch",
-    "sass": "node-sass src/scss/styles.scss -o css/"
+    "sass": "node-sass src/scss/styles.scss -o dist/css/"
   },
   "repository": {
     "type": "git",
