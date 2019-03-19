@@ -5,7 +5,7 @@ Annual Planner - Vanilla JS Project - work in progress
 
 •	Front-end on GitHub Pages, back-end and database on Heroku,
 
-•	Vanilla JS, CSS Flexbox and Grid, 
+•	Vanilla JS, CSS Flexbox and Grid (SASS), 
 
 •	Webpack, Express API server, PostgreSQL, 
 

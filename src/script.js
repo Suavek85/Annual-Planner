@@ -12,7 +12,7 @@ import * as SliderDays from './modules/SliderDays';
 import * as TasksDay from './modules/Tasks/TasksDay';
 import * as TaskForm from './modules/Tasks/TasksForm';
 import { welcome } from './modules/Welcome';
-
+//import './scss/style2.scss';
 
 const handlingAllClicks = event => {
 

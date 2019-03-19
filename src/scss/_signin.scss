@@ -1,0 +1,110 @@
+/* LOGIN */
+
+.account-wrapper {
+    position: relative;
+    @include inline-flex;
+    flex-direction: row;
+  
+    &__logtext {
+      margin-right: 10px;
+      cursor: pointer;
+      position: relative;
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: solid 0.3px #909090;
+      &:hover {
+        color: orange;
+      }
+    }
+  
+    &__regtext {
+      margin-right: 15px;
+      padding-right: 15px;
+      border-right: solid 0.3px #909090;
+      cursor: pointer;
+      &:hover {
+        color: orange;
+      }
+    }
+  
+    &__logcolaps {
+      @include position(absolute, $top: 53px, $left: 35px);
+      z-index: 20;
+      display: none;
+      color: black;
+    }
+  
+    &__regcolaps {
+      @include position(absolute, $top: 53px, $left: 35px);
+      z-index: 20;
+      display: none;
+      color: black;
+    }
+  }
+  
+  #top-welcome-message {
+    color: yellow;
+    display: inline-block;
+  }
+
+  //DYNAMIC LOGIN
+
+.login-box {
+    @include flexbox;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    background: white;
+    border-radius: 5px;
+    width: 240px;
+    min-height: 200px;
+    max-height: 250px;
+  
+    &:after {
+      content: "";
+      @include position(absolute, $top:0, $left: 25px);
+      width: 0;
+      height: 0;
+      border: 9px solid transparent;
+      border-bottom-color: white;
+      border-top: 0;
+      margin-left: -9px;
+      margin-top: -9px;
+    }
+  }
+  
+  #signin-note {
+    @include red-note;
+  }
+  
+  //DYNAMIC REGISTER
+  
+  .register-box {
+    @include flexbox;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    background: white;
+    border-radius: 5px;
+    width: 240px;
+    min-height: 250px;
+    max-height: 300px;
+  
+    &:after {
+    content: "";
+    @include position(absolute, $top:0, $left: 87px);
+    width: 0;
+    height: 0;
+    border: 9px solid transparent;
+    border-bottom-color: white;
+    border-top: 0;
+    margin-left: -9px;
+    margin-top: -9px;
+    }
+  }
+  
+  #register-note {
+    @include red-note;
+  }

@@ -1,0 +1,53 @@
+/* WEATHER */
+  
+#collapsible_weather {
+    @include position(absolute, $bottom: -500px, $left: 200px);
+    flex-direction: column;
+    align-content: middle;
+    justify-content: space-between;
+    width: 250px;
+    height: 500px;
+    background-color: black;
+    opacity: 0.85;
+    border-radius: 4px;
+    z-index: 10;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 300ms ease-in;
+  }
+  
+  .collapible-weather-text {
+    @include inline-flex;
+  }
+  
+  #showmore-weather {
+    @include size(15px);
+    cursor: pointer;
+  }
+
+  /* WEATHER RESPONSIVE*/
+
+  #showmore-weather-responsive {
+    @include flexbox;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+  }
+  
+  #showmore-weather-resp-text {
+    color: lightseagreen;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .more-weather-icons {
+    @include inline-flex;
+  }
+  
+  .more-weather-wrapper {
+    @include flexbox;
+    flex-direction: row;
+    align-content: middle;
+    justify-content: center;
+  }
+  

@@ -24,7 +24,7 @@ const view = {
     displayForm: function() {
       document.getElementById("work").checked = true;
       document.getElementById("form-main-wrapper").style.display = "flex";
-      document.querySelector(".notes-box-wrapper").style.display = "none";
+      document.querySelector(".day-wrapper").style.display = "none";
       document.getElementById("task_list").innerHTML = "";
     },
   
@@ -45,7 +45,7 @@ const view = {
 
     displaySubmitButton: function(numberAdd) {
       const submitBtnWrapper = document.getElementById("submit-btns");
-      let submitBtnGen = `<button day-name="dayname${numberAdd}" class="submit-btn highlight" style="width: 90%" id="submit_${numberAdd}">Submit</button>`;
+      let submitBtnGen = `<button day-name="dayname${numberAdd}" class="form-submit-wrapper__buttons__item__submit" style="width: 90%" id="submit_${numberAdd}">Submit</button>`;
       submitBtnWrapper.insertAdjacentHTML('afterbegin', submitBtnGen);
     },
 
@@ -55,7 +55,7 @@ const view = {
     },
 
     undisplayDay: function() {
-      const dayWrapper = document.querySelector(".notes-box-wrapper");
+      const dayWrapper = document.querySelector(".day-wrapper");
       if(dayWrapper.style.display == 'flex') {
         undisplayItem(dayWrapper);
       }
@@ -66,7 +66,7 @@ const view = {
     },
   
     displayDay: function() {
-      const dayWrapper = document.querySelector(".notes-box-wrapper");
+      const dayWrapper = document.querySelector(".day-wrapper");
       displayItemFlex(dayWrapper);
     },
   

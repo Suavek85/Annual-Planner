@@ -1,0 +1,214 @@
+/* QUICK ADDING BUTTON AREA*/
+
+.quick-main-wrapper {
+    @include flexbox;
+    width: 35vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: blueviolet;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    @media only screen and (min-width: $bp-hands-wide) and (max-width: $bp-lap) {
+      width: 50vw;
+    }
+    @media only screen and (max-width: $bp-hands-wide) {
+      width: 70vw;
+    }
+    @media only screen and (max-width: $bp-hands) {
+      width: 100vw;
+    }
+  
+    &__sub {
+      @include flexbox;
+      flex-direction: column;
+      align-items: center;
+      padding: 5px 15px 5px 15px;
+      border-radius: 40px;
+      cursor: pointer;
+      text-align: middle;
+
+      &__icon {
+        @include size(40px);
+      }
+
+    }
+  }
+
+  /* QUICK-ADD SUBMIT FORM*/
+
+  .quick-form-wrapper {
+  
+    display: none;
+    flex-direction: column;
+    width: 40vw;
+    min-height: 250px;
+    max-height: 600px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+    background-color: rgba(250, 250, 250, 0.8);
+    @media only screen and (max-width: $bp-hands-wide) {
+      width: 70vw; 
+    }
+    @media only screen and (max-width: $bp-hands) {
+      width: 100vw;
+      margin-top: 0px;
+    }
+
+    &__header {
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      font-size: 16px;
+      border: none;
+      text-align: center;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      width: 100%;
+    }
+
+    &__date-item {
+      @include flexbox;
+      width: 80%;
+      align-items: center;
+      justify-content: center;
+      height: 45px;
+      margin-bottom: 15px;
+    }
+
+    &__input-wrapper {
+      @include flexbox;
+      flex-direction: row;
+      justify-content: center;
+      height: 45px;
+      width: 100%; 
+    }
+
+    &__buttons {
+  
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 15px;
+
+      &__first{
+  
+        padding: 8px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__submit{
+          @include button;
+          width: 90%;
+          background-color: #92b558;
+          padding: 7px;
+          border-radius: 20px;
+
+          &:hover {
+            @include focus;
+            }
+        }
+      }
+
+      &__second{
+        padding: 8px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__close{
+          @include button;
+          width: 90%;
+          background-color: #e15d44;
+          border-radius: 20px;
+          padding: 7px;
+
+          &:hover {
+            @include focus;
+            }
+          }
+      }
+    }
+  }
+  
+  .quick-type-wrapper {
+  
+    @include flexbox();
+    flex-direction: column;
+    width: 20%;
+
+      &__selected {
+        color: black;
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        border-top: solid 1px lightgrey;
+        background-color: white;
+        height: 60%;
+        box-sizing: border-box;
+      }
+
+      &__dropdown {
+        position: relative;
+        @include button-generic;
+        @include flexbox;
+        align-items: center;
+        justify-content: center;
+        background-color: #6f9fd8;
+        height:40%;
+        font-size: 16px;
+        color: white;
+
+        &__button {
+          @include button-generic;
+          @include flexbox;
+          background-color:#6f9fd8;
+          color: white;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          
+          &__icon {
+            @include size(14px);
+          }
+        }
+
+        &__list {
+          display: none;
+          @include position(absolute, $bottom: -203px);
+          background-color: #f1f1f1;
+          min-width: 160px;
+          overflow: auto;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+
+          &__item {
+            color: black;
+            padding: 5px 12px;
+            text-decoration: none;
+            display: block;
+          }
+        }
+      }
+  }
+
+  #quick-from-date {
+    height: 45px;
+    margin-left: 10px;
+  }
+  
+  #quick-until-date {
+    height: 45px;
+    margin-left: 10px;
+  }
+  
+
+  
+ 

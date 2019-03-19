@@ -6,7 +6,8 @@
   "scripts": {
     "deploy": "gh-pages -d dist",
     "start": "npm run webpack",
-    "webpack": "webpack -d --watch"
+    "webpack": "webpack -d --watch",
+    "sass": "node-sass src/scss/styles.scss -o css/"
   },
   "repository": {
     "type": "git",
@@ -20,10 +21,11 @@
   "homepage": "https://github.com/Suavek85/Annual-Planner",
   "dependencies": {
     "gh-pages": "^2.0.1",
-    "request": "^2.88.0",
-    "webpack": "^4.26.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
+    "node-sass": "^4.11.0",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.1.2"
   }
 }

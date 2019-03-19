@@ -1,0 +1,90 @@
+/* STATS*/
+  
+.stats-main-wrapper {
+    @include flexbox;
+    @include position(absolute, $top: 0, $right: 0);
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    border-radius: 50px;
+  }
+  
+  .stats-sub-wrapper {
+    position: relative;
+    display: inline-block;
+    color: #c3e3f0;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .stats-sub-wrapper {
+    .tooltip-stats {
+      @include position(absolute, $top: 0px, $right: 40px);
+      visibility: hidden;
+      width: 160px;
+      background-color: grey;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      z-index: 1;
+    }
+  }
+  
+  .stats-sub-wrapper {
+    .tooltip-stats::after {
+      @include position(absolute, $top: 50%, $left: 100%);
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent grey;
+      content: "";
+    }
+  }
+  
+  .stats-sub-wrapper:hover {
+    .tooltip-stats {
+      visibility: visible;
+    }
+  }
+    
+  #stats_main_logo {
+    width: 30px; 
+    height: 30px;
+    opacity: 0.7;
+  }
+
+/* STATS POP UP*/
+
+.stats-wrapper {
+  display: none;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 520px;
+  height: 400px;
+  margin: auto;
+  border-radius: 5px;
+  @media only screen and (max-width: $bp-hands-wide) {
+    width: 100vw;
+  }
+  @media only screen and (max-width: $bp-hands) {
+    width: 100vw;
+  }
+  &__text {
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+#close_stats {
+  @include position(absolute, $top: 15px, $right: 15px);
+  cursor: pointer;
+}
+  

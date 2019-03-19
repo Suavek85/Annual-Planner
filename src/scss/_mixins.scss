@@ -1,0 +1,79 @@
+/* COLORS AND BREAKPOINTS - VARS */
+
+$day-menu-blue: #6f9fd8;
+$bp-lap: 1150px;
+$bp-hands-wide: 980px;
+$bp-hands: 680px;
+$bp-palm: 320px;
+
+/* MIXINS */
+
+  @mixin inline-flex {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+
+  @mixin flexbox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+  @mixin grid {
+    display: -ms-grid;
+    display: grid;
+  }
+  
+
+  @mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+  }
+
+  @mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+  }
+
+  @mixin x-appearance ($value) {
+    -webkit-appearance: $value;
+       -moz-appearance: $value;
+            appearance: $value;
+  }
+
+
+  @mixin red-note {
+    color: red;
+    text-align: center;
+  }
+
+  @mixin focus {
+    opacity: 0.8;
+  }
+
+  @mixin button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  @mixin button-generic {
+    outline: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  

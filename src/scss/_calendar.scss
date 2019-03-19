@@ -1,0 +1,101 @@
+/* CALENDAR STATIC*/
+  
+.calendar-main-wrapper {
+    @include grid;
+    position: relative;
+    -ms-grid-columns: 1;
+    grid-template-columns: 1;
+    -ms-grid-rows: 14% 16% 13% 57%;
+    grid-template-rows: 14% 16% 13% 57%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 35vw;
+    height: 500px;
+    margin: auto;
+    border-radius: 5px;
+    @media only screen and (min-width: $bp-hands-wide) and (max-width: $bp-lap) {
+      width: 50vw;
+    }
+    @media only screen and (max-width: $bp-hands-wide) {
+      width: 70vw;
+      height: 60vh;
+    }
+    @media only screen and (max-width: $bp-hands) {
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100vw;
+      height: 90vh;
+      border-radius: 0;
+    }
+
+    &__month {
+      color: white;
+      text-align: center;
+      @include flexbox;
+      width: inherit;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    &__days {
+      @include grid;
+      -ms-grid-columns:repeat(7, 1fr);
+      grid-template-columns: repeat(7, 1fr);
+      width: inherit;
+      justify-items: center;
+      align-items: center;
+      &__item {
+        text-align: center;
+      }
+    }
+  }
+  
+  /* CALENDAR - DYNAMIC*/
+  
+  .month_days_gen {
+    @include grid;
+    width: 35vw;
+    -ms-grid-columns:repeat(7, auto);
+    grid-template-columns: repeat(7, auto);
+    justify-items: center;
+    align-items: center;
+    @media only screen and (min-width: $bp-hands-wide) and (max-width: $bp-lap) {
+      width: 50vw;
+    }
+    @media only screen and (max-width: $bp-hands-wide) {
+      width: 70vw;
+    }
+    @media only screen and (max-width: $bp-hands) {
+      width: 100vw;
+    }
+  }
+  
+  .day_in_month_item {
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .selected_month_year {
+    min-width: 150px;
+    max-width: 150px;
+  }
+  
+  #selected_month {
+    padding-right: 5px;
+  }
+  
+  #backarrow {
+    display: inline-block;
+    @include size(14px);
+    padding-right: 7px;
+    cursor: pointer;
+  }
+  
+  #nextarrow {
+    display: inline-block;
+    @include size(14px);
+    padding-left: 7px;
+    cursor: pointer;
+  }
