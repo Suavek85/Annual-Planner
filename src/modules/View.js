@@ -140,6 +140,10 @@ const view = {
       document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">User already exists</p>');
     },
 
+    displayEmailNotValid: function() {
+      document.getElementById('register-button').insertAdjacentHTML('afterend', '<p id="register-note">Invalid email format</p>');
+    },
+
     createGreenCircle: function(elementStyle) {
       elementStyle.borderRadius = "5px";
       elementStyle.backgroundColor = 'green';

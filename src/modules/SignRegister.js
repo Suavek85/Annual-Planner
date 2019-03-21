@@ -77,7 +77,15 @@ let userId;
     const nameRegister = document.getElementById('name-input').value;
     const passwordRegister = document.getElementById('password-input').value;
     const emailRegister = document.getElementById('email-input').value;
-  
+   
+    const emailElement = document.getElementById('email-input');
+    let isValidEmail = emailElement.checkValidity();
+    if (!isValidEmail && emailRegister.length >= 1) {
+      view.removeRegisterWarning();
+      view.displayEmailNotValid();
+      return;
+    }
+    
     fetch('https://morning-wave-83831.herokuapp.com/register', {
   
         method: 'post',
@@ -123,7 +131,6 @@ let userId;
         Stats.countAllTodos();
   
       })
-  
    }
 
 

@@ -2,32 +2,32 @@ import * as SignRegister from './SignRegister';
 import * as Stats from './Stats';
 
 
-const logBoxHtml = `<div id='logbox' class='login-box'>
+const logBoxHtml = `<form id='logbox' class='login-box'>
 
-    <label for="username">Email:</label>
-    <input type="username" id="email-input-2" name="username">
-
-    <label for="pass">Password:</label>
-    <input type="password" id="password-input-2" name="password">
-
-    <input id="signin-button" type="submit" value="Sign in">
-
-</div>`
-
-const registerBoxHtml = `<div id='regbox' class='register-box'>
-
-    <label type="username" for="username">Email:</label>
-    <input type="username" id="email-input" name="email">
+    <label for="email">Email:</label>
+    <input type="email" id="email-input-2" name="email">
 
     <label for="pass">Password:</label>
-    <input type="password" id="password-input" name="password">
+    <input type="password" id="password-input-2" name="pass">
 
-    <label for="pass">Name:</label>
-    <input type="name" id="name-input" name="password" required>
+    <input id="signin-button" type="button" value="Sign in">
 
-    <input id="register-button" type="submit" value="Register">
+</form>`
 
-</div>`
+const registerBoxHtml = `<form id='regbox' class='register-box'>
+
+    <label type="email" for="username">Email:</label>
+    <input type="email" id="email-input" name="email" required>
+
+    <label for="pass">Password:</label>
+    <input type="password" id="password-input" name="pass"required>
+
+    <label for="name">Name:</label>
+    <input type="name" id="name-input" name="name" required>
+
+    <input id="register-button" type="button" value="Register">
+
+</form>`
 
 const profileRespBox = document.getElementById("signorregister_form");
 const registerWrapper = document.getElementById('register-wrapper');

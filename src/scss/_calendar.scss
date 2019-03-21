@@ -45,9 +45,10 @@
       width: inherit;
       justify-items: center;
       align-items: center;
-      &__item {
-        text-align: center;
-      }
+    }
+
+    &__days-item {
+      text-align: center;
     }
   }
   
@@ -55,20 +56,11 @@
   
   .month_days_gen {
     @include grid;
-    width: 35vw;
+    width: inherit;
     -ms-grid-columns:repeat(7, auto);
     grid-template-columns: repeat(7, auto);
     justify-items: center;
     align-items: center;
-    @media only screen and (min-width: $bp-hands-wide) and (max-width: $bp-lap) {
-      width: 50vw;
-    }
-    @media only screen and (max-width: $bp-hands-wide) {
-      width: 70vw;
-    }
-    @media only screen and (max-width: $bp-hands) {
-      width: 100vw;
-    }
   }
   
   .day_in_month_item {

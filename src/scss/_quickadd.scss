@@ -60,7 +60,6 @@
     &__header {
       background: rgba(0, 0, 0, 0.3);
       color: white;
-      font-size: 16px;
       border: none;
       text-align: center;
       padding-top: 16px;
@@ -148,7 +147,6 @@
         @include flexbox();
         align-items: center;
         justify-content: center;
-        font-size: 16px;
         border-top: solid 1px lightgrey;
         background-color: white;
         height: 60%;
@@ -163,7 +161,6 @@
         justify-content: center;
         background-color: #6f9fd8;
         height:40%;
-        font-size: 16px;
         color: white;
 
         &__button {
@@ -173,7 +170,6 @@
           color: white;
           align-items: center;
           justify-content: center;
-          font-size: 16px;
           
           &__icon {
             @include size(14px);
@@ -199,15 +195,18 @@
       }
   }
 
-  #quick-from-date {
+.quickadd {
+  &__from {
     height: 45px;
     margin-left: 10px;
   }
-  
-  #quick-until-date {
+  &__until {
     height: 45px;
     margin-left: 10px;
   }
+}
+
+
   
 
   

@@ -89,10 +89,10 @@
 
     &__text {
       color: yellow;
-      font-size: 13px;
+      font-size: 0.8rem;
       cursor: pointer;
       @media only screen and (max-width: $bp-palm) {
-        font-size: 12px;
+        font-size: 0.75rem;
       }
     }
   }
@@ -117,10 +117,10 @@
 
     &__text {
       color: lightseagreen;
-      font-size: 13px;
+      font-size: 0.8rem;
       cursor: pointer;
       @media only screen and (max-width: $bp-palm) {
-        font-size: 12px;
+        font-size: 0.75rem;
       }
     }
   }
@@ -172,10 +172,10 @@
 
   &__text {
     color: red;
-    font-size: 13px;
+    font-size: 0.8rem;
     cursor: pointer;
     @media only screen and (max-width: 320px) {
-      font-size: 12px;
+      font-size: 0.75rem;
     }
   }
 }
@@ -223,7 +223,7 @@
 
 #expand-holidays-resp-text {
   color: red;
-  font-size: 13px;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 
