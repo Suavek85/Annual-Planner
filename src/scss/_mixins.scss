@@ -64,6 +64,12 @@ $bp-palm: 320px;
     opacity: 0.8;
   }
 
+  @mixin focus-dropdown {
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
   @mixin button {
     display: flex;
     align-items: center;

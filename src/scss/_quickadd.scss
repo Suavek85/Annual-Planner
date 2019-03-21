@@ -190,6 +190,7 @@
             padding: 5px 12px;
             text-decoration: none;
             display: block;
+            @include focus-dropdown;
           }
         }
       }
