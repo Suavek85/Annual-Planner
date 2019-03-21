@@ -792,7 +792,10 @@ input[type=date]::-webkit-clear-button {
     color: black;
     padding: 5px 12px;
     text-decoration: none;
-    display: block; }
+    display: block;
+    cursor: pointer; }
+    .form-submit-dropdown__list-item:hover {
+      background-color: #ddd; }
 
 /* DAY - MAIN WRAPPER AND MENU*/
 .card-weather-wrapper {
@@ -1072,6 +1075,8 @@ input[type=date]::-webkit-clear-button {
   padding: 5px 12px;
   text-decoration: none;
   display: block; }
+  .dropdown__list-item:hover {
+    background-color: #ddd; }
 
 /* PROGRESS BAR */
 .progressbar-wrapper {
@@ -1473,6 +1478,8 @@ input[type=date]::-webkit-clear-button {
         padding: 5px 12px;
         text-decoration: none;
         display: block; }
+        .quick-type-wrapper__dropdown__list__item:hover {
+          background-color: #ddd; }
 
 .quickadd__from {
   height: 45px;
