@@ -1,0 +1,42 @@
+/* FORM BOTTOM BUTTONS */
+
+.form-bottom-buttons {
+
+    &__item {
+    
+        padding: 8px;
+        width: 50%;
+        @include flexbox;
+        align-items: center;
+        justify-content: center;
+
+        &--submit {
+          @include button;
+          border-radius: 20px;
+          padding: 7px;
+          width: 200px;
+          background-color: $submit-green;
+          &:hover {
+            @include focus;
+          }
+        }
+
+        &--close {
+          @include button;
+          padding: 7px;
+          width: 200px;
+          background-color: $delete-red;
+          border-radius: 20px;
+          &:hover {
+            @include focus;
+          }
+
+        }
+    }
+  }
+
+  
+  #close-form {
+    padding: 7px;
+    width: 90%;
+  }

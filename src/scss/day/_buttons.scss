@@ -1,0 +1,84 @@
+/* BOTTOM BUTTONS */
+
+.day-buttons {
+    @include flexbox;
+    flex-direction: column;
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    &__input {
+      
+        @include flexbox;
+        flex-direction: row;
+        justify-content: center;
+        height: 45px;
+        margin-top: 30px;
+
+        &--add {
+          @include button;
+          width: 15%;
+          background-color: $day-menu-blue;
+          &:hover {
+            @include focus;
+          }
+        }
+
+        &--add-icon {
+          @include size(14px);
+          margin-right: 7px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+    }
+
+    &__type {
+
+      @include flexbox;
+      flex-direction: column;
+      width: 20%;
+
+      &__selected {
+        color: black;
+        @include flexbox;
+        align-items: center;
+        justify-content: center;
+        border-top: solid 1px lightgrey;
+        background-color: white;
+        height: 60%;
+        box-sizing: border-box;
+      }
+
+      &__dropdown {
+          position: relative;
+          @include flexbox;
+          align-items: center;
+          justify-content: center;
+          background-color: $day-menu-blue;
+          height: 40%;
+          color: white;
+          @include button-generic;
+      }
+    }
+
+    &__close {
+      @include flexbox;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      &:hover {
+        @include focus;
+      }
+    }
+  }
+
+  .close-save {
+    @include button;
+    width: 30%;
+    background-color: #9896a4;
+    border-radius: 20px;
+    margin-top: 5px;
+    padding-top: 8.5px;
+    padding-bottom: 8.5px;
+  }

@@ -10,7 +10,7 @@ const logBoxHtml = `<form id='logbox' class='login-box'>
     <label for="pass">Password:</label>
     <input type="password" id="password-input-2" name="pass">
 
-    <input id="signin-button" type="button" value="Sign in">
+    <input class="profile-button profile-button--signin" id="signin-button" type="button" value="Sign in">
 
 </form>`
 
@@ -25,7 +25,7 @@ const registerBoxHtml = `<form id='regbox' class='register-box'>
     <label for="name">Name:</label>
     <input type="name" id="name-input" name="name" required>
 
-    <input id="register-button" type="button" value="Register">
+    <input class="profile-button profile-button--register" id="register-button" type="button" value="Register">
 
 </form>`
 

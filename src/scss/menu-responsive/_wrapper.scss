@@ -1,0 +1,72 @@
+ 
+  
+  /* MENU RESPONSIVE */
+  
+  .menu-resp-wrapper {
+    width: 100vw;
+    background-color: #474a51;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 0 auto;
+    padding: 10px 0px 10px 0px;
+    @media only screen and (min-width: $bp-hands-wide) {
+      display: none;
+    }
+    @media only screen and (max-width: $bp-hands-wide) {
+      @include flexbox;
+      height: 5vh;
+    }
+    @media only screen and (max-width: $bp-hands) {
+      height: 10vh;
+    }
+
+    &__left {
+      width: 56%;
+      @include flexbox;
+      justify-content: space-between;
+      align-items: center;
+      @media only screen and (min-width: $bp-hands-wide) and (max-width: $bp-lap) {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
+    }
+
+    &__left-logo {
+      @include flexbox;
+      align-items: center;
+      padding-right: 20px;
+      @media only screen and (max-width: $bp-hands-wide) {
+        padding-left: 10px;
+        }
+    }
+
+
+    &__right {
+      width: 44%;
+      @include flexbox;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 30px;
+      @media only screen and (min-width: $bp-hands-wide) and (max-width: $bp-lap) {
+        width: 50vw;    
+      }
+      @media only screen and (max-width: $bp-hands) {
+        margin-right: 0px;
+
+      }
+    }
+
+    &__right-sub {
+      color: white;
+      position: relative;
+      @include flexbox;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
+
+ 
+
+
+

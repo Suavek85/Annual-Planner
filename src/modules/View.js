@@ -45,7 +45,7 @@ const view = {
 
     displaySubmitButton: function(numberAdd) {
       const submitBtnWrapper = document.getElementById("submit-btns");
-      let submitBtnGen = `<button day-name="dayname${numberAdd}" class="form-submit-wrapper__buttons__item__submit" style="width: 90%" id="submit_${numberAdd}">Submit</button>`;
+      let submitBtnGen = `<button day-name="dayname${numberAdd}" class="form-bottom-buttons__item--submit" style="width: 90%" id="submit_${numberAdd}">Submit</button>`;
       submitBtnWrapper.insertAdjacentHTML('afterbegin', submitBtnGen);
     },
 

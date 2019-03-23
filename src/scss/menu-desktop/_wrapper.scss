@@ -33,18 +33,4 @@
         }
   }
    
-  /* WEBSITE LOGO */
-  
-  .logo-wrapper {
-    @include flexbox;
-    align-items: center;
-    padding-right: 20px;
-  }
-  
-  .logo-image {
-    height: 45px;
-    @media only screen and (max-width: $bp-palm) {
-      height: 35px;
-      }
-  }
- 
+

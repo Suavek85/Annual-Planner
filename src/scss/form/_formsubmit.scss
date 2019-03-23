@@ -1,0 +1,107 @@
+
+  /* FORM SUBMIT WRAPPER */
+
+.form-submit-wrapper {
+
+  display: none;
+  flex-direction: column;
+  width: 40vw;
+  min-height: 250px;
+  max-height: 600px;
+  justify-content: space-around;
+  align-items: baseline;
+  margin: auto;
+  margin-top: 50px;
+  background-color: rgba(250, 250, 250, 0.8);
+  @media only screen and (max-width: $bp-hands-wide) {
+    width: 70vw;
+  }
+  @media only screen and (max-width: $bp-hands) {
+    width: 100vw;
+    margin-top: 0px;
+  }
+
+  &__columns {
+    @include flexbox;
+    flex-direction: row;
+    width: 40vw;
+    @media only screen and (max-width: $bp-hands-wide) {
+      width: 70vw; 
+    }
+    @media only screen and (max-width: $bp-hands) {
+      width: 100vw;
+      min-height: 40vh;
+    }
+  }
+
+  &__buttons {
+    @include flexbox;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+  }
+}
+
+
+/* CREATE DAY WRAPPER */
+
+.create-list-wrapper {
+  @include flexbox;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 15px;
+  width: 70%;
+
+  &__header {
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      border: none;
+      text-align: center;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      width: 100%;
+  }
+
+  &__buttons-wrapper {
+      
+    @include flexbox;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+  }
+}
+
+
+/* CREATE DAY TYPE WRAPPER*/
+
+.create-daytype-wrapper {
+  @include flexbox;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 15px;
+  width: 30%;
+
+  &__header {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__item {
+    padding: 8px;
+    @include flexbox;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+

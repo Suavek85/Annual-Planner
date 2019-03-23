@@ -15,15 +15,15 @@ export const updateNextHolidays = () => {
 
     .then(res => {
 
-      let collapsibleHols = `<img src='images/expand.png' id='expand-holidays'  alt="expand"><div style="display:none" id='collapsible_holidays'><p id='secondHol' class='collapsible_holidays-text'></p><p id='thirdHol' class='collapsible_holidays-text'></p><p id='fourthHol' class='collapsible_holidays-text'></p></div>`;
+      let collapsibleHols = `<img src='images/expand.png' id='expand-holidays'  alt="expand"><div style="display:none" class='collapsible-hols' id='collapsible_holidays'><p id='secondHol' class='collapsible-hols__text'></p><p id='thirdHol' class='collapsible-hols__text'></p><p id='fourthHol' class='collapsible-hols__text'></p></div>`;
 
 
-      let collapsibleHolsResp = `<div style="display:none" id='collapsible_holidays_responsive'>
-      <p id='firstHolResp' class='collapsible_holidays-text'></p>
-      <p id='secondHolResp' class='collapsible_holidays-text'></p>
-      <p id='thirdHolResp' class='collapsible_holidays-text'></p>
-      <p id='fourthHolResp' class='collapsible_holidays-text'></p>
-      <div id='collapsible_holidays_responsive_close'>X</div>
+      let collapsibleHolsResp = `<div style="display:none" class='collapsible-hols-resp' id='collapsible_holidays_responsive'>
+      <p id='firstHolResp' class='collapsible-hols-resp__text'></p>
+      <p id='secondHolResp' class='collapsible-hols-resp__text'></p>
+      <p id='thirdHolResp' class='collapsible-hols-resp__text'></p>
+      <p id='fourthHolResp' class='collapsible-hols-resp__text'></p>
+      <div class='collapsible-hols-resp__close' id='collapsible_holidays_responsive_close'>X</div>
       </div>`;
 
       //NEXT HOLIDAY

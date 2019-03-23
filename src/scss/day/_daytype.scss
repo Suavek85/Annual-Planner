@@ -1,0 +1,21 @@
+// ROTATE ICONS AND DAY-TYPE ICON
+
+#left-change-day {
+    transform: rotate(90deg);
+    margin-right: 7px;
+    opacity: 0.7;
+    cursor: pointer;
+    @include size(16px);
+}
+  
+#right-change-day {
+    transform: rotate(-90deg);
+    opacity: 0.7;
+    cursor: pointer;
+    @include size(16px); 
+}
+
+#type-day-icon {
+  @include size(44px);
+    padding-right: 7px;
+  }

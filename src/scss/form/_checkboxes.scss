@@ -1,0 +1,32 @@
+  
+/* INPUT FOR TYPE OF DAY */
+ 
+.daytype-input{
+    @include x-appearance (none);
+    background-color: #f1f1f1;
+    color: #666;
+    top: 10px;
+    @include size(20px);
+    border-radius: 50px;   
+    margin-right: 7px;
+    @include button-generic;
+  
+    &:checked::before{
+      content: '';
+      display: block;
+      width: 3.5px;
+      height: 7px;
+      margin-left: 7px;
+      margin-top: 4px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg); 
+    }
+  
+    &:hover{
+      background-color: #f7f7f7;
+    }
+    &:checked {
+      background-color: #6f9fd8;
+    }
+  }

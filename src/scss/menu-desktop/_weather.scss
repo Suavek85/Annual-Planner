@@ -24,30 +24,3 @@
     @include size(15px);
     cursor: pointer;
   }
-
-  /* WEATHER RESPONSIVE*/
-
-  #showmore-weather-responsive {
-    @include flexbox;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 20px;
-  }
-  
-  #showmore-weather-resp-text {
-    color: lightseagreen;
-    font-size: 0.8rem;
-    cursor: pointer;
-  }
-
-  .more-weather-icons {
-    @include inline-flex;
-  }
-  
-  .more-weather-wrapper {
-    @include flexbox;
-    flex-direction: row;
-    align-content: middle;
-    justify-content: center;
-  }
-  

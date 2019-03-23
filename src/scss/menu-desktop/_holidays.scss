@@ -1,0 +1,23 @@
+.upcoming-holidays-wrapper {
+    @include inline-flex;
+    color: white;
+    padding-left: 15px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+/* HOLIDAYS POP UP*/
+
+.collapsible-hols {
+    @include position(absolute, $bottom: -165px, $right: 0px);
+    width: 250px;
+    height: 150px;
+    background-color: black;
+    opacity: 0.85;
+    border-radius: 4px;
+    z-index: 10;
+    &__text {
+      padding: 0 7px 0 7px;
+  }
+}

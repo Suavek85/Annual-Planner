@@ -1,0 +1,35 @@
+/* DROPDOWN */
+
+.dropdown {
+    
+    &__button {
+      @include button-generic;
+      background-color: $day-menu-blue;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__button-icon {
+      @include size(14px)
+    }
+
+    &__list {
+      display: none;
+      @include position(absolute, $bottom: -203px);
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    &__list-item { 
+      color: black;
+      padding: 5px 12px;
+      text-decoration: none;
+      display: block;
+      @include focus-dropdown;
+    }
+}

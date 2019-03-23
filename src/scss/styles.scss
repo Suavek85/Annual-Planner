@@ -1,15 +1,58 @@
-@import "core";
-@import "mixins";
-@import "input";
+/*** GENERAL, TYPOGRAPHY, MIXINS, INPUT FIELDS ***/
 
-@import "menu";
-@import "menu-resp";
-@import "calendar";
-@import "formsubmit";
-@import "day";
-@import "signin";
-@import "weather";
-@import "quickadd";
-@import "stats";
-@import "profile-resp";
-@import "miscallenous";
+@import "./general/core";
+@import "./general/mixins";
+@import "./general/input";
+
+/*** MENU DESKTOP ***/
+
+@import "./menu-desktop/wrapper";
+@import "./menu-desktop/logo";
+@import "./menu-desktop/holidays";
+@import "./menu-desktop/weather";
+@import "./menu-desktop/log-register";
+
+
+/*** MENU RESPONSIVE ***/
+
+@import "./menu-responsive/wrapper";
+@import "./menu-responsive/profile";
+@import "./menu-responsive/holidays";
+@import "./menu-responsive/weather";
+
+/*** DAY ***/
+
+@import "./day/menu";
+@import "./day/buttons";
+@import "./day/progress";
+@import "./day/dropdown";
+@import "./day/daytype";
+
+/*** CALENDAR ***/
+
+@import "./calendar/calendar";
+
+/*** FORM SUBMIT ***/
+
+@import "./form/formsubmit";
+@import "./form/dropdown";
+@import "./form/create-list-btns";
+@import "./form/checkboxes";
+@import "./form/bottom-btns";
+
+/*** STATS ***/
+
+@import "./general/stats";
+
+/*** DYNAMIC SIGNIN AND REGISTER ***/
+
+@import "./dynamic-sign-reg/signin";
+
+
+/*** QUICKADD ***/
+
+@import "./quickadd//quickadd";
+
+/*** OTHER ***/
+
+@import "./general/miscallenous";

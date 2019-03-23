@@ -104,7 +104,7 @@
         &__submit{
           @include button;
           width: 90%;
-          background-color: #92b558;
+          background-color: $submit-green;
           padding: 7px;
           border-radius: 20px;
 
@@ -124,7 +124,7 @@
         &__close{
           @include button;
           width: 90%;
-          background-color: #e15d44;
+          background-color: $delete-red;
           border-radius: 20px;
           padding: 7px;
 
@@ -159,14 +159,14 @@
         @include flexbox;
         align-items: center;
         justify-content: center;
-        background-color: #6f9fd8;
+        background-color: $day-menu-blue;
         height:40%;
         color: white;
 
         &__button {
           @include button-generic;
           @include flexbox;
-          background-color:#6f9fd8;
+          background-color:$day-menu-blue;
           color: white;
           align-items: center;
           justify-content: center;

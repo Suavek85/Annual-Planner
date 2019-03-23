@@ -1,0 +1,48 @@
+/* LOGIN */
+
+.account-wrapper {
+    position: relative;
+    @include inline-flex;
+    flex-direction: row;
+  
+    &__logtext {
+      margin-right: 10px;
+      cursor: pointer;
+      position: relative;
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: solid 0.3px #909090;
+      &:hover {
+        color: orange;
+      }
+    }
+  
+    &__regtext {
+      margin-right: 15px;
+      padding-right: 15px;
+      border-right: solid 0.3px #909090;
+      cursor: pointer;
+      &:hover {
+        color: orange;
+      }
+    }
+  
+    &__logcolaps {
+      @include position(absolute, $top: 53px, $left: 35px);
+      z-index: 20;
+      display: none;
+      color: black;
+    }
+  
+    &__regcolaps {
+      @include position(absolute, $top: 53px, $left: 35px);
+      z-index: 20;
+      display: none;
+      color: black;
+    }
+  }
+  
+  #top-welcome-message {
+    color: yellow;
+    display: inline-block;
+  }
