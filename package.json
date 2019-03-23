@@ -4,7 +4,7 @@
   "description": "Annual Planner",
   "main": "script.js",
   "scripts": {
-    "deployzzz": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist",
     "start": "npm run webpack",
     "webpack": "webpack -d --watch",
     "sass": "node-sass src/scss/styles.scss -o dist/css/"
