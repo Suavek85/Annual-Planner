@@ -314,10 +314,10 @@ input[type=date]::-webkit-clear-button {
       display: -ms-flexbox;
       display: -webkit-flex;
       display: flex;
-      height: 5vh; } }
+      height: 7vh; } }
   @media only screen and (max-width: 680px) {
     .menu-resp-wrapper {
-      height: 10vh; } }
+      height: 12vh; } }
   .menu-resp-wrapper__left {
     width: 56%;
     display: -webkit-box;
@@ -707,7 +707,7 @@ input[type=date]::-webkit-clear-button {
   .menu-center__dropdown-item:hover {
     background-color: #ddd; }
 
-.menu-right__delete {
+.menu-right {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -718,34 +718,16 @@ input[type=date]::-webkit-clear-button {
   border: none;
   width: 100%;
   height: 50%;
-  color: white;
-  background-color: #E8E8E8; }
-  .menu-right__delete:hover {
+  color: white; }
+  .menu-right:hover {
     opacity: 0.8; }
-
-.menu-right__delete-icon {
-  width: 20px;
-  height: 20px; }
-
-.menu-right__done {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: white;
-  outline: none;
-  cursor: pointer;
-  border: none;
-  width: 100%;
-  height: 50%;
-  color: white;
-  background-color: #F8F8F8; }
-  .menu-right__done:hover {
-    opacity: 0.8; }
-
-.menu-right__done-icon {
-  width: 20px;
-  height: 20px; }
+  .menu-right--delete {
+    background-color: #E8E8E8; }
+  .menu-right--done {
+    background-color: #F8F8F8; }
+  .menu-right__icon {
+    width: 20px;
+    height: 20px; }
 
 .card-weather-wrapper {
   display: -webkit-box;
@@ -780,25 +762,25 @@ input[type=date]::-webkit-clear-button {
     justify-content: center;
     height: 45px;
     margin-top: 30px; }
-    .day-buttons__input--add {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: white;
-      outline: none;
-      cursor: pointer;
-      border: none;
-      width: 15%;
-      background-color: #6f9fd8; }
-      .day-buttons__input--add:hover {
-        opacity: 0.8; }
-    .day-buttons__input--add-icon {
-      width: 14px;
-      height: 14px;
-      margin-right: 7px;
-      padding-top: 10px;
-      padding-bottom: 10px; }
+  .day-buttons__input-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    width: 15%;
+    background-color: #6f9fd8; }
+    .day-buttons__input-add:hover {
+      opacity: 0.8; }
+  .day-buttons__input-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px; }
   .day-buttons__type {
     display: -webkit-box;
     display: -moz-box;
@@ -807,34 +789,34 @@ input[type=date]::-webkit-clear-button {
     display: flex;
     flex-direction: column;
     width: 20%; }
-    .day-buttons__type__selected {
-      color: black;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-top: solid 1px lightgrey;
-      background-color: white;
-      height: 60%;
-      box-sizing: border-box; }
-    .day-buttons__type__dropdown {
-      position: relative;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #6f9fd8;
-      height: 40%;
-      color: white;
-      outline: none;
-      cursor: pointer;
-      border: none; }
+  .day-buttons__type-selected {
+    color: black;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: solid 1px lightgrey;
+    background-color: white;
+    height: 60%;
+    box-sizing: border-box; }
+  .day-buttons__type-dropdown {
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6f9fd8;
+    height: 40%;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border: none; }
   .day-buttons__close {
     display: -webkit-box;
     display: -moz-box;
@@ -923,25 +905,20 @@ input[type=date]::-webkit-clear-button {
   .dropdown__list-item:hover {
     background-color: #ddd; }
 
-#left-change-day {
-  transform: rotate(90deg);
-  margin-right: 7px;
+.change-day {
   opacity: 0.7;
   cursor: pointer;
   width: 16px;
   height: 16px; }
-
-#right-change-day {
-  transform: rotate(-90deg);
-  opacity: 0.7;
-  cursor: pointer;
-  width: 16px;
-  height: 16px; }
-
-#type-day-icon {
-  width: 44px;
-  height: 44px;
-  padding-right: 7px; }
+  .change-day--left {
+    transform: rotate(90deg);
+    margin-right: 7px; }
+  .change-day--right {
+    transform: rotate(-90deg); }
+  .change-day__icon {
+    width: 44px;
+    height: 44px;
+    padding-right: 7px; }
 
 /*** CALENDAR ***/
 /* CALENDAR STATIC*/
@@ -969,8 +946,6 @@ input[type=date]::-webkit-clear-button {
   @media only screen and (max-width: 680px) {
     .calendar-main-wrapper {
       margin-top: 0;
-      margin-left: auto;
-      margin-right: auto;
       width: 100vw;
       height: 90vh;
       border-radius: 0; } }
@@ -1130,12 +1105,12 @@ input[type=date]::-webkit-clear-button {
     width: 100%;
     text-align: center; }
   .create-daytype-wrapper__item {
-    padding: 8px;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    padding: 8px;
     align-items: center;
     justify-content: center; }
 
@@ -1233,19 +1208,19 @@ input[type=date]::-webkit-clear-button {
 
 /* INPUT FOR TYPE OF DAY */
 .daytype-input {
+  outline: none;
+  cursor: pointer;
+  border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  width: 20px;
+  height: 20px;
   background-color: #f1f1f1;
   color: #666;
   top: 10px;
-  width: 20px;
-  height: 20px;
   border-radius: 50px;
-  margin-right: 7px;
-  outline: none;
-  cursor: pointer;
-  border: none; }
+  margin-right: 7px; }
   .daytype-input:checked::before {
     content: '';
     display: block;
@@ -1272,36 +1247,25 @@ input[type=date]::-webkit-clear-button {
   display: flex;
   align-items: center;
   justify-content: center; }
-  .form-bottom-buttons__item--submit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    color: white;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    border-radius: 20px;
-    padding: 7px;
-    width: 200px;
+
+.form-bottom-buttons__item-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  padding: 7px;
+  width: 200px; }
+  .form-bottom-buttons__item-button:hover {
+    opacity: 0.8; }
+  .form-bottom-buttons__item-button--submit {
     background-color: #92b558; }
-    .form-bottom-buttons__item--submit:hover {
-      opacity: 0.8; }
-  .form-bottom-buttons__item--close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    color: white;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    padding: 7px;
-    width: 200px;
-    background-color: #e15d44;
-    border-radius: 20px; }
-    .form-bottom-buttons__item--close:hover {
-      opacity: 0.8; }
+  .form-bottom-buttons__item-button--close {
+    background-color: #e15d44; }
 
 #close-form {
   padding: 7px;
@@ -1469,6 +1433,8 @@ input[type=date]::-webkit-clear-button {
   width: 100px;
   border-radius: 15px;
   height: 30px; }
+  .profile-button:hover {
+    opacity: 0.8; }
   @media only screen and (max-width: 980px) {
     .profile-button {
       height: 40px;
@@ -1519,7 +1485,7 @@ input[type=date]::-webkit-clear-button {
       width: 40px;
       height: 40px; }
 
-/* QUICK-ADD SUBMIT FORM*/
+/* QUICK-ADD SUBMIT FORM */
 .quick-form-wrapper {
   display: none;
   flex-direction: column;
@@ -1574,49 +1540,34 @@ input[type=date]::-webkit-clear-button {
     align-items: center;
     justify-content: space-around;
     margin-top: 15px; }
-    .quick-form-wrapper__buttons__first {
-      padding: 8px;
-      width: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center; }
-      .quick-form-wrapper__buttons__first__submit {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        color: white;
-        outline: none;
-        cursor: pointer;
-        border: none;
-        width: 90%;
-        background-color: #92b558;
-        padding: 7px;
-        border-radius: 20px; }
-        .quick-form-wrapper__buttons__first__submit:hover {
-          opacity: 0.8; }
-    .quick-form-wrapper__buttons__second {
-      padding: 8px;
-      width: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center; }
-      .quick-form-wrapper__buttons__second__close {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        color: white;
-        outline: none;
-        cursor: pointer;
-        border: none;
-        width: 90%;
-        background-color: #e15d44;
-        border-radius: 20px;
-        padding: 7px; }
-        .quick-form-wrapper__buttons__second__close:hover {
-          opacity: 0.8; }
 
+/* QUICK-ADD BUTTONS*/
+.quick-button {
+  padding: 8px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .quick-button__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    width: 90%;
+    padding: 7px;
+    border-radius: 20px; }
+    .quick-button__item:hover {
+      opacity: 0.8; }
+    .quick-button__item--submit {
+      background-color: #92b558; }
+    .quick-button__item--close {
+      background-color: #e15d44; }
+
+/* QUICK-ADD DROPDOWN*/
 .quick-type-wrapper {
   display: -webkit-box;
   display: -moz-box;
