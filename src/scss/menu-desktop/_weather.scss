@@ -1,6 +1,6 @@
 /* WEATHER */
   
-#collapsible_weather {
+.weather-collapsible {
     @include position(absolute, $bottom: -500px, $left: 200px);
     flex-direction: column;
     align-content: middle;
@@ -20,7 +20,7 @@
     @include inline-flex;
   }
   
-  #showmore-weather {
+  .more-weather-icon {
     @include size(15px);
     cursor: pointer;
   }

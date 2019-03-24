@@ -80,4 +80,7 @@
     margin-top: 5px;
     padding-top: 8.5px;
     padding-bottom: 8.5px;
+    @media only screen and (max-width: $bp-hands) {
+      width: 50%;
+    }
   }

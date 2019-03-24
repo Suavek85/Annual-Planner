@@ -30,6 +30,10 @@
       padding: 5px 0;
       z-index: 1;
     }
+    &__logo {
+      @include size (30px);
+      opacity: 0.7;
+    }
   }
   
   .stats-sub-wrapper {
@@ -49,11 +53,7 @@
     }
   }
     
-  #stats_main_logo {
-    @include size (30px);
-    opacity: 0.7;
-  }
-
+  
 /* STATS POP UP*/
 
 .stats-wrapper {
@@ -80,10 +80,11 @@
     text-align: center;
     align-items: center;
   }
+  &__close {
+    @include position(absolute, $top: 15px, $right: 15px);
+    cursor: pointer;
+  }
 }
 
-#close_stats {
-  @include position(absolute, $top: 15px, $right: 15px);
-  cursor: pointer;
-}
+
   

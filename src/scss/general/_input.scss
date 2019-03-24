@@ -1,6 +1,18 @@
-/* INPUT FIELDS */
+/* LABELS */
+
+ label[for="email"] {
+    margin-top: 10px;
+  }
   
-input[type="checkbox"] {
+
+/* INPUT FIELDS */
+
+  input {
+    text-align: center;
+    &:focus { outline: none; }
+  }
+  
+  input[type="checkbox"] {
     -webkit-appearance: none;
     height: 16px;
     width: 16px;
@@ -76,17 +88,6 @@ input[type="checkbox"] {
     margin-top: 5px;
   }
   
-  input {
-    text-align: center;
-  }
-  
-  label[for="username"] {
-    margin-top: 10px;
-  }
-  
-  input:focus {
-    outline: none;
-  }
   
   input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;

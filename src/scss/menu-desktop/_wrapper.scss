@@ -21,16 +21,16 @@
             @include flexbox;
             justify-content: flex-end;
             align-items: center;
-            margin-right:30px;
-
-            &--section { 
-                color: white;
-                position: relative;
-                @include flexbox;
-                align-items: center;
-                justify-content: center;
-            }
+            margin-right:30px; 
         }
+
+        &__right-sub { 
+          color: white;
+          position: relative;
+          @include flexbox;
+          align-items: center;
+          justify-content: center;
+      }
   }
    
 

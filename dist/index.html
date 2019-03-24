@@ -31,7 +31,7 @@
 
             <div class="menu-wrapper__right">
 
-                <div class="menu-wrapper__right--section">
+                <div class="menu-wrapper__right-sub">
                     <div>
                         <div id='welcoming' class='welcome_texts'>Good morning</div>
                         <div id="top-welcome-message">guest!</div>
@@ -51,8 +51,8 @@
                         </div>
                     </div>
 
-                    <img src='images/expand.png' id='showmore-weather' style="display:none" alt="expand">
-                    <div id='collapsible_weather'></div>
+                    <img src='images/expand.png' class='more-weather-icon' id='showmore-weather' style="display:none" alt="expand">
+                    <div class='weather-collapsible' id='collapsible_weather'></div>
                     <img id="weather-icon" src="" alt="">
                     <p id="weather"></p><span id='weather-city'></span>
                 </div>
@@ -102,8 +102,8 @@
         <section style="display: none" class='profile-popup-resp' id="credentials-pop-up">
 
             <div class='profile-popup-resp__header' id="signorregister">
-                <p class="profile-popup-resp__header--login" id="btn-login-txt-responsive">Sign in</p>
-                <p class="profile-popup-resp__header--register" id='btn-register-txt-responsive'>Register</p>
+                <p class="profile-popup-resp__header-login" id="btn-login-txt-responsive">Sign in</p>
+                <p class="profile-popup-resp__header-register" id='btn-register-txt-responsive'>Register</p>
             </div>
 
             <div class="profile-popup-resp__form" id="signorregister_form"></div>
@@ -118,7 +118,7 @@
 
                 <div class='stats-main-wrapper'>
                         <div id='stats_main_text' class="stats-sub-wrapper">
-                                <img id='stats_main_logo' src="images/todo_stats.png"  alt="Statstics">
+                                <img id='stats_main_logo' class="stats-sub-wrapper__logo" src="images/todo_stats.png" alt="Statstics">
                             <span id="tooltip_statistics" class="tooltip-stats">No outstanding tasks</span>
                         </div>
                 </div>
@@ -129,11 +129,12 @@
                     </div>
                 </div>
 
-                <div class="calendar-main-wrapper__month"><img src='images/back.png' id="backarrow">                                                <span class='selected_month_year'>
-                        <span id="selected_month"></span>
-                        <span id="selected_year"></span>
-                    </span>
-                    <img src='images/next.png' id="nextarrow">
+                <div class="calendar-main-wrapper__month">
+                    <img src='images/back.png' class='month-arrow month-arrow--back' id="backarrow">                                                                                                                 <span class='selected_month_year'>      
+                            <span id="selected_month"></span>
+                            <span id="selected_year"></span>
+                        </span>
+                    <img src='images/next.png' class='month-arrow month-arrow--next' id="nextarrow">
                </div>
 
                 <div id="weekdaysid" class="calendar-main-wrapper__days">
@@ -326,9 +327,9 @@
                     
                 <div class='day-wrapper__menu-right'>
                     
-                            <button id='delete_output' class='menu-right menu-right--delete'><img src='images/rubbish_red.png' class='menu-right__icon' ></button>
+                            <button id='delete_output' class='menu-right-button menu-right-button--delete'><img src='images/rubbish_red.png' class='menu-right-button__icon' ></button>
                         
-                            <button id='completed' class='menu-right menu-right--done'><img  src='images/checked-white.png' class='menu-right__icon' >
+                            <button id='completed' class='menu-right-button menu-right-button--done'><img  src='images/checked-white.png' class='menu-right-button__icon' >
                             </button>
                 </div>
             </div>
@@ -377,7 +378,7 @@
         <section id="stats-main" style='display: none' class="stats-wrapper">
             <p class='stats-wrapper__text' id='outstanding_tasks'>No outstanding tasks</p>
             <div id="piechart"></div>
-            <div id='close_stats'>X</div>
+            <div class='stats-wrapper__close' id='close_stats'>X</div>
         </section>
 
 

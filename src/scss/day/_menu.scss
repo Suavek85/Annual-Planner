@@ -110,9 +110,8 @@
 
 //MENU RIGHT
 
-.menu-right {
-
-  @include button;
+.menu-right-button {
+    @include button;
     width: 100%;
     height: 50%;
     color: white;

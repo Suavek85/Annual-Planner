@@ -47,7 +47,16 @@ i {
 /* COLORS */
 /* BREAKPOINTS */
 /* MIXINS */
+/* LABELS */
+label[for="email"] {
+  margin-top: 10px; }
+
 /* INPUT FIELDS */
+input {
+  text-align: center; }
+  input:focus {
+    outline: none; }
+
 input[type="checkbox"] {
   -webkit-appearance: none;
   height: 16px;
@@ -115,15 +124,6 @@ input[type="submit"] {
   margin-bottom: 10px;
   margin-top: 5px; }
 
-input {
-  text-align: center; }
-
-label[for="username"] {
-  margin-top: 10px; }
-
-input:focus {
-  outline: none; }
-
 input[type=date]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   display: none; }
@@ -168,16 +168,16 @@ input[type=date]::-webkit-clear-button {
     justify-content: flex-end;
     align-items: center;
     margin-right: 30px; }
-    .menu-wrapper__right--section {
-      color: white;
-      position: relative;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      align-items: center;
-      justify-content: center; }
+  .menu-wrapper__right-sub {
+    color: white;
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
 
 /* WEBSITE LOGO */
 .logo-wrapper {
@@ -222,7 +222,7 @@ input[type=date]::-webkit-clear-button {
     padding: 0 7px 0 7px; }
 
 /* WEATHER */
-#collapsible_weather {
+.weather-collapsible {
   position: absolute;
   bottom: -500px;
   left: 200px;
@@ -246,7 +246,7 @@ input[type=date]::-webkit-clear-button {
   display: -ms-inline-flexbox;
   display: inline-flex; }
 
-#showmore-weather {
+.more-weather-icon {
   width: 15px;
   height: 15px;
   cursor: pointer; }
@@ -430,14 +430,14 @@ input[type=date]::-webkit-clear-button {
     flex-basis: 20%;
     align-items: center;
     justify-content: space-between; }
-    .profile-popup-resp__header--login {
-      font-weight: 900;
-      transform: scale(1.1);
-      padding: 10px;
-      cursor: pointer; }
-    .profile-popup-resp__header--register {
-      padding: 10px;
-      cursor: pointer; }
+  .profile-popup-resp__header-login {
+    font-weight: 900;
+    transform: scale(1.1);
+    padding: 10px;
+    cursor: pointer; }
+  .profile-popup-resp__header-register {
+    padding: 10px;
+    cursor: pointer; }
   .profile-popup-resp__form {
     display: -webkit-box;
     display: -moz-box;
@@ -707,7 +707,7 @@ input[type=date]::-webkit-clear-button {
   .menu-center__dropdown-item:hover {
     background-color: #ddd; }
 
-.menu-right {
+.menu-right-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -719,13 +719,13 @@ input[type=date]::-webkit-clear-button {
   width: 100%;
   height: 50%;
   color: white; }
-  .menu-right:hover {
+  .menu-right-button:hover {
     opacity: 0.8; }
-  .menu-right--delete {
+  .menu-right-button--delete {
     background-color: #E8E8E8; }
-  .menu-right--done {
+  .menu-right-button--done {
     background-color: #F8F8F8; }
-  .menu-right__icon {
+  .menu-right-button__icon {
     width: 20px;
     height: 20px; }
 
@@ -845,6 +845,9 @@ input[type=date]::-webkit-clear-button {
   margin-top: 5px;
   padding-top: 8.5px;
   padding-bottom: 8.5px; }
+  @media only screen and (max-width: 680px) {
+    .close-save {
+      width: 50%; } }
 
 /* PROGRESS BAR */
 .progressbar-wrapper {
@@ -945,10 +948,10 @@ input[type=date]::-webkit-clear-button {
       height: 60vh; } }
   @media only screen and (max-width: 680px) {
     .calendar-main-wrapper {
-      margin-top: 0;
       width: 100vw;
       height: 90vh;
-      border-radius: 0; } }
+      border-radius: 0;
+      margin-top: 0; } }
   .calendar-main-wrapper__month {
     color: white;
     text-align: center;
@@ -990,22 +993,22 @@ input[type=date]::-webkit-clear-button {
   min-width: 150px;
   max-width: 150px; }
 
+.month-arrow {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  cursor: pointer; }
+  @media only screen and (max-width: 680px) {
+    .month-arrow {
+      width: 19px;
+      height: 19px; } }
+  .month-arrow--back {
+    padding-right: 7px; }
+  .month-arrow--next {
+    padding-left: 7px; }
+
 #selected_month {
   padding-right: 5px; }
-
-#backarrow {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  padding-right: 7px;
-  cursor: pointer; }
-
-#nextarrow {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  padding-left: 7px;
-  cursor: pointer; }
 
 /*** FORM SUBMIT ***/
 /* FORM SUBMIT WRAPPER */
@@ -1308,6 +1311,11 @@ input[type=date]::-webkit-clear-button {
   padding: 5px 0;
   z-index: 1; }
 
+.stats-sub-wrapper__logo {
+  width: 30px;
+  height: 30px;
+  opacity: 0.7; }
+
 .stats-sub-wrapper .tooltip-stats::after {
   position: absolute;
   top: 50%;
@@ -1320,11 +1328,6 @@ input[type=date]::-webkit-clear-button {
 
 .stats-sub-wrapper:hover .tooltip-stats {
   visibility: visible; }
-
-#stats_main_logo {
-  width: 30px;
-  height: 30px;
-  opacity: 0.7; }
 
 /* STATS POP UP*/
 .stats-wrapper {
@@ -1350,12 +1353,11 @@ input[type=date]::-webkit-clear-button {
     font-size: 1.5rem;
     text-align: center;
     align-items: center; }
-
-#close_stats {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer; }
+  .stats-wrapper__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer; }
 
 /*** DYNAMIC SIGNIN AND REGISTER ***/
 .login-box {

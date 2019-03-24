@@ -16,11 +16,11 @@ const logBoxHtml = `<form id='logbox' class='login-box'>
 
 const registerBoxHtml = `<form id='regbox' class='register-box'>
 
-    <label type="email" for="username">Email:</label>
+    <label type="email" for="email">Email:</label>
     <input type="email" id="email-input" name="email" required>
 
     <label for="pass">Password:</label>
-    <input type="password" id="password-input" name="pass"required>
+    <input type="password" id="password-input" name="pass" required>
 
     <label for="name">Name:</label>
     <input type="name" id="name-input" name="name" required>
