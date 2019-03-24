@@ -2,15 +2,15 @@
 /* INPUT FOR TYPE OF DAY */
  
 .daytype-input{
-    @include x-appearance (none);
-    background-color: #f1f1f1;
-    color: #666;
-    top: 10px;
-    @include size(20px);
-    border-radius: 50px;   
-    margin-right: 7px;
-    @include button-generic;
-  
+  @include button-generic;
+  @include x-appearance (none);
+  @include size(20px);
+  background-color: #f1f1f1;
+  color: #666;
+  top: 10px;
+  border-radius: 50px;   
+  margin-right: 7px;
+    
     &:checked::before{
       content: '';
       display: block;
@@ -22,11 +22,6 @@
       border-width: 0 2px 2px 0;
       transform: rotate(45deg); 
     }
-  
-    &:hover{
-      background-color: #f7f7f7;
-    }
-    &:checked {
-      background-color: #6f9fd8;
-    }
+    &:hover{ background-color: #f7f7f7; }
+    &:checked { background-color: $day-menu-blue; }
   }

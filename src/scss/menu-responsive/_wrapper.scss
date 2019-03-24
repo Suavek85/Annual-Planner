@@ -14,10 +14,10 @@
     }
     @media only screen and (max-width: $bp-hands-wide) {
       @include flexbox;
-      height: 5vh;
+      height: 7vh;
     }
     @media only screen and (max-width: $bp-hands) {
-      height: 10vh;
+      height: 12vh;
     }
 
     &__left {
@@ -39,7 +39,6 @@
         padding-left: 10px;
         }
     }
-
 
     &__right {
       width: 44%;

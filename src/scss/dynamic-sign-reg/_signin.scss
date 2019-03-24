@@ -1,5 +1,5 @@
 
-  //DYNAMIC LOGIN
+  //DYNAMIC LOGIN BOX
 
   .login-box {
     @include flexbox;
@@ -30,7 +30,7 @@
     @include red-note;
   }
   
-  //DYNAMIC REGISTER
+  //DYNAMIC REGISTER BOX
   
   .register-box {
     @include flexbox;
@@ -61,7 +61,7 @@
     @include red-note;
   }
 
-//SIGNIN AND REGISTER BUTTONS
+//LOGIN AND REGISTER BUTTONS
 
 .profile-button {
   @include button-generic;
@@ -72,6 +72,7 @@
   width: 100px;
   border-radius: 15px;
   height: 30px;
+  &:hover { @include focus; }
   @media only screen and (max-width: $bp-hands-wide) {
     height: 40px;
     width: 200px;

@@ -50,8 +50,7 @@
   }
     
   #stats_main_logo {
-    width: 30px; 
-    height: 30px;
+    @include size (30px);
     opacity: 0.7;
   }
 

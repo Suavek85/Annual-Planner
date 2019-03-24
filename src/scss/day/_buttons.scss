@@ -14,51 +14,50 @@
         justify-content: center;
         height: 45px;
         margin-top: 30px;
+    }
 
-        &--add {
-          @include button;
-          width: 15%;
-          background-color: $day-menu-blue;
-          &:hover {
-            @include focus;
-          }
-        }
+    &__input-add {
+      @include button;
+      width: 15%;
+      background-color: $day-menu-blue;
+      &:hover {
+        @include focus;
+      }
+    }
 
-        &--add-icon {
-          @include size(14px);
-          margin-right: 7px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-        }
+    &__input-icon {
+      @include size(14px);
+      margin-right: 7px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     &__type {
-
       @include flexbox;
       flex-direction: column;
       width: 20%;
+    }
 
-      &__selected {
-        color: black;
+    &__type-selected {
+      color: black;
+      @include flexbox;
+      align-items: center;
+      justify-content: center;
+      border-top: solid 1px lightgrey;
+      background-color: white;
+      height: 60%;
+      box-sizing: border-box;
+    }
+
+    &__type-dropdown {
+        position: relative;
         @include flexbox;
         align-items: center;
         justify-content: center;
-        border-top: solid 1px lightgrey;
-        background-color: white;
-        height: 60%;
-        box-sizing: border-box;
-      }
-
-      &__dropdown {
-          position: relative;
-          @include flexbox;
-          align-items: center;
-          justify-content: center;
-          background-color: $day-menu-blue;
-          height: 40%;
-          color: white;
-          @include button-generic;
-      }
+        background-color: $day-menu-blue;
+        height: 40%;
+        color: white;
+        @include button-generic;
     }
 
     &__close {

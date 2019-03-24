@@ -58,14 +58,13 @@
         }
       }
     }
-      &__menu-right {
-
-        @include flexbox;
-        flex-direction: column;
-        justify-content: center;
-        width: 60px;
-        height: 100%;
-      }
+    &__menu-right {
+      @include flexbox;
+      flex-direction: column;
+      justify-content: center;
+      width: 60px;
+      height: 100%;
+    }
   }
 
 //MENU LEFT
@@ -85,11 +84,11 @@
 .menu-center {
   
   &__text {
-      background-color: $day-menu-blue;
-      color: white;
-      border: none;
-      text-align: center;
-  }
+    background-color: $day-menu-blue;
+    color: white;
+    border: none;
+    text-align: center;
+    }
 
   &__dropdown {
     display: none;
@@ -98,7 +97,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 100;
-  }
+    }
 
   &__dropdown-item {
     color: black;
@@ -106,41 +105,25 @@
     text-decoration: none;
     display: block;
     @include focus-dropdown;
-  }
+    }
 }
 
 //MENU RIGHT
 
 .menu-right {
 
-  &__delete {
   @include button;
     width: 100%;
     height: 50%;
     color: white;
-    background-color: #E8E8E8;
-  &:hover {
-    @include focus;
+    &:hover { @include focus; }
+    &--delete {
+      background-color: #E8E8E8;
     }
-  }
-
-  &__delete-icon {
-    @include size(20px);
-  }
-
-  &__done {
-    @include button;
-      width: 100%;
-      height: 50%;
-      color: white;
+    &--done {
       background-color: #F8F8F8;
-  &:hover {
-    @include focus;
-      }
-  }
-  &__done-icon {
-    @include size(20px);
     }
+    &__icon { @include size(20px); }
 }
 
 

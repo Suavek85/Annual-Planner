@@ -27,13 +27,9 @@ h1 {
   letter-spacing: 2;
 }
   
-li {
-    overflow-wrap: break-word;
-}
+li { overflow-wrap: break-word; }
 
-button > * {
-  pointer-events: none;
-}
+button > * { pointer-events: none; }
 
 i {
   border: solid black;
