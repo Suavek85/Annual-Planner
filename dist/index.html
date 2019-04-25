@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-    <html>
+<html lang='en'>
 
-    <head>
-        <title>Annual Planner</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" >
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<head>
+    <title>Annual Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-    </head>
+</head>
 
 
-    <body>
+<body>
 
     <div class='background-image' id='main_pic'>
 
@@ -33,8 +33,8 @@
 
                 <div class="menu-wrapper__right-sub">
                     <div>
-                        <div id='welcoming' class='welcome_texts'>Good morning</div>
-                        <div id="top-welcome-message">guest!</div>
+                        <p id='welcoming' class='menu-wrapper__welcome'>Good morning</p>
+                        <p id="top-welcome-message" class='menu-wrapper__welcome'>guest!</p>
                     </div>
 
                     <div class='account-wrapper' id='credentials-wrapper'>
@@ -46,12 +46,12 @@
 
                         <div id="btn-register">
                             <p class='account-wrapper__regtext' id='btn-register-txt'>Register</p>
-                            <div class='account-wrapper__regcolaps'
-                            style="display: none" id='register-wrapper'></div>
+                            <div class='account-wrapper__regcolaps' style="display: none" id='register-wrapper'></div>
                         </div>
                     </div>
 
-                    <img src='images/expand.png' class='more-weather-icon' id='showmore-weather' style="display:none" alt="expand">
+                    <img src='images/expand.png' class='more-weather-icon' id='showmore-weather' style="display:none"
+                        alt="expand">
                     <div class='weather-collapsible' id='collapsible_weather'></div>
                     <img id="weather-icon" src="" alt="">
                     <p id="weather"></p><span id='weather-city'></span>
@@ -72,23 +72,26 @@
 
             <div class="menu-resp-wrapper__right">
                 <div class="menu-resp-wrapper__right-sub">
-                    
+
                     <div class="profile-resp-wrapper" id='credentials-wrapper-responsive'>
-                        <img id='credentials-wrapper-icon' class='profile-resp-wrapper__icon' src="images/user-account.png">
+                        <img id='credentials-wrapper-icon' class='profile-resp-wrapper__icon'
+                            src="images/user-account.png">
                         <div class='profile-resp-wrapper__text' id='credentials-wrapper-text'>Profile</div>
                     </div>
 
                     <div class='weather-resp-wrapper' id='showmore-weather-responsive'>
-                        <img src='images/weather.png' id='showmore-weather-resp-icon' class='weather-resp-wrapper__icon' alt="expand">
+                        <img src='images/weather.png' id='showmore-weather-resp-icon' class='weather-resp-wrapper__icon'
+                            alt="expand">
                         <div class='weather-resp-wrapper__text' id='showmore-weather-resp-text'>Weather</div>
                     </div>
 
                     <div style="display:none" class='weather-collapsible-wrapper' id='collapsible_weather_responsive'>
-                        <div class='weather-collapsible-wrapper__close' id='collapsible_weather_close'>X</div>
+                        <div class='weather-collapsible-wrapper__close' id='collapsible_weather_close'>x</div>
                     </div>
 
                     <div class="holidays-resp-wrapper" id="expand-holidays-responsive">
-                        <img class="holidays-resp-wrapper__icon" id="expand-holidays-resp-logo" class='menu_left_icon' src="images/holidays.png" alt="expand">
+                        <img class="holidays-resp-wrapper__icon" id="expand-holidays-resp-logo" class='menu_left_icon'
+                            src="images/holidays.png" alt="expand">
                         <div class="holidays-resp-wrapper__text" id="expand-holidays-resp-text">Holidays</div>
                     </div>
 
@@ -116,36 +119,39 @@
 
         <section id="calendar-main" class='calendar-main-wrapper'>
 
-                <div class='stats-main-wrapper'>
-                        <div id='stats_main_text' class="stats-sub-wrapper">
-                                <img id='stats_main_logo' class="stats-sub-wrapper__logo" src="images/todo_stats.png" alt="Statstics">
-                            <span id="tooltip_statistics" class="tooltip-stats">No outstanding tasks</span>
-                        </div>
+            <div class='stats-main-wrapper'>
+                <div id='stats_main_text' class="stats-sub-wrapper">
+                    <img id='stats_main_logo' class="stats-sub-wrapper__logo" src="images/todo_stats.png"
+                        alt="Statstics">
+                    <span id="tooltip_statistics" class="tooltip-stats">No outstanding tasks</span>
                 </div>
+            </div>
 
-                <div id="quickadd_stats" class='quick-main-wrapper'>
-                    <div class='quick-main-wrapper__sub'>
-                        <img class='quick-main-wrapper__sub__icon' id='fast-increase' src="images/quick_add.png"  alt="Quick add">
-                    </div>
+            <div id="quickadd_stats" class='quick-main-wrapper'>
+                <div class='quick-main-wrapper__sub'>
+                    <img class='quick-main-wrapper__sub__icon' id='fast-increase' src="images/quick_add.png"
+                        alt="Quick add">
                 </div>
+            </div>
 
-                <div class="calendar-main-wrapper__month">
-                    <img src='images/back.png' class='month-arrow month-arrow--back' id="backarrow">                                                                                                                 <span class='selected_month_year'>      
-                            <span id="selected_month"></span>
-                            <span id="selected_year"></span>
-                        </span>
-                    <img src='images/next.png' class='month-arrow month-arrow--next' id="nextarrow">
-               </div>
+            <div class="calendar-main-wrapper__month">
+                <img src='images/back.png' class='month-arrow month-arrow--back' id="backarrow"> <span
+                    class='selected_month_year'>
+                    <span id="selected_month"></span>
+                    <span id="selected_year"></span>
+                </span>
+                <img src='images/next.png' class='month-arrow month-arrow--next' id="nextarrow">
+            </div>
 
-                <div id="weekdaysid" class="calendar-main-wrapper__days">
-                    <div class="calendar-main-wrapper__days-item">Mon</div>
-                    <div class="calendar-main-wrapper__days-item">Tue</div>
-                    <div class="calendar-main-wrapper__days-item">Wed</div>
-                    <div class="calendar-main-wrapper__days-item">Thu</div>
-                    <div class="calendar-main-wrapper__days-item">Fri</div>
-                    <div class="calendar-main-wrapper__days-item">Sat</div>
-                    <div class="calendar-main-wrapper__days-item">Sun</div>
-                </div>
+            <div id="weekdaysid" class="calendar-main-wrapper__days">
+                <div class="calendar-main-wrapper__days-item">Mon</div>
+                <div class="calendar-main-wrapper__days-item">Tue</div>
+                <div class="calendar-main-wrapper__days-item">Wed</div>
+                <div class="calendar-main-wrapper__days-item">Thu</div>
+                <div class="calendar-main-wrapper__days-item">Fri</div>
+                <div class="calendar-main-wrapper__days-item">Sat</div>
+                <div class="calendar-main-wrapper__days-item">Sun</div>
+            </div>
         </section>
 
 
@@ -155,14 +161,14 @@
 
             <p class="quick-form-wrapper__header">Quick add todo:</p>
 
-            <div class="quick-form-wrapper__date-item"> 
-                    <p>From:</p>
-                    <input class="quickadd__from" id='quick-from-date' type='date' >
+            <div class="quick-form-wrapper__date-item">
+                <p>From:</p>
+                <input class="quickadd__from" id='quick-from-date' type='date'>
             </div>
 
-            <div class="quick-form-wrapper__date-item" >
-                    <p>Until:</p>
-                    <input class="quickadd__until" id='quick-until-date' type='date' >
+            <div class="quick-form-wrapper__date-item">
+                <p>Until:</p>
+                <input class="quickadd__until" id='quick-until-date' type='date'>
             </div>
 
             <div class='quick-form-wrapper__input-wrapper'>
@@ -172,35 +178,35 @@
                 <div class='quick-type-wrapper' id='quick-todo-type-selected-2-wrapper'>
 
                     <div class='quick-type-wrapper__selected' id="quick-todo-selected-2">Home</div>
-                    <div class='quick-type-wrapper__dropdown'  id='quick-dropdown-area'>
+                    <div class='quick-type-wrapper__dropdown' id='quick-dropdown-area'>
 
-                            <button  id='quick-drp-inside' class="quick-type-wrapper__dropdown__button"> 
-                                <img class="quick-type-wrapper__dropdown__button__icon" src="images/expand.png">
-                            </button>
-                            
+                        <button id='quick-drp-inside' class="quick-type-wrapper__dropdown__button">
+                            <img class="quick-type-wrapper__dropdown__button__icon" src="images/expand.png">
+                        </button>
 
-                            <div id="quick-drp-list-2" class="quick-type-wrapper__dropdown__list">
-                                <div id="qck-1" class="quick-type-wrapper__dropdown__list__item">Home</div>
-                                <div id="qck-2"  class="quick-type-wrapper__dropdown__list__item">Shopping</div>
-                                <div id="qck-3"  class="quick-type-wrapper__dropdown__list__item">Celebration</div>
-                                <div id="qck-4"  class="quick-type-wrapper__dropdown__list__item">Learning</div>
-                                <div id="qck-5"  class="quick-type-wrapper__dropdown__list__item">Appointment</div>
-                                <div id="qck-6"  class="quick-type-wrapper__dropdown__list__item">Health</div>
-                                <div id="qck-7"  class="quick-type-wrapper__dropdown__list__item">Sports</div>
-                            </div>
+
+                        <div id="quick-drp-list-2" class="quick-type-wrapper__dropdown__list">
+                            <div id="qck-1" class="quick-type-wrapper__dropdown__list__item">Home</div>
+                            <div id="qck-2" class="quick-type-wrapper__dropdown__list__item">Shopping</div>
+                            <div id="qck-3" class="quick-type-wrapper__dropdown__list__item">Celebration</div>
+                            <div id="qck-4" class="quick-type-wrapper__dropdown__list__item">Learning</div>
+                            <div id="qck-5" class="quick-type-wrapper__dropdown__list__item">Appointment</div>
+                            <div id="qck-6" class="quick-type-wrapper__dropdown__list__item">Health</div>
+                            <div id="qck-7" class="quick-type-wrapper__dropdown__list__item">Sports</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class='quick-form-wrapper__buttons'>
 
-                    <div class='quick-button' id='sbm-quick-wrappper'>
-                        <button class='quick-button__item quick-button__item--submit' id="btn-sbn-quick" >Submit</button>
-                    </div>
+                <div class='quick-button' id='sbm-quick-wrappper'>
+                    <button class='quick-button__item quick-button__item--submit' id="btn-sbn-quick">Submit</button>
+                </div>
 
-                    <div class='quick-button' id='close-btn-quick-wrapper'>
-                        <button class='quick-button__item quick-button__item--close' id="btn-close-quick">Close</button>
-                    </div>
+                <div class='quick-button' id='close-btn-quick-wrapper'>
+                    <button class='quick-button__item quick-button__item--close' id="btn-close-quick">Close</button>
+                </div>
 
             </div>
         </section>
@@ -230,42 +236,46 @@
                         <div class="create-buttons__type" id='todo-type-wrapper'>
                             <div class="create-buttons__type-selected" id="todo-type-selected">Home</div>
                             <div id='wrap-drpdn-area' class="form-submit-dropdown">
-                                    <button id='btn-form-dropdown' class="form-submit-dropdown__button"><img width="12px" height="12px" style="padding-left: 5px;" src="images/expand.png"></button>
-                                    <div id="myDropdown" class="form-submit-dropdown__list">
-                        
-                                        <div id="drop-down-1" class="form-submit-dropdown__list-item">Home</div>
-                                        <div id="drop-down-2"  class="form-submit-dropdown__list-item">Shopping</div>
-                                        <div id="drop-down-3"  class="form-submit-dropdown__list-item" >Celebration</div>
-                                        <div id="drop-down-4"  class="form-submit-dropdown__list-item" >Learning</div>
-                                        <div id="drop-down-5"  class="form-submit-dropdown__list-item">Appointment</div>
-                                        <div id="drop-down-6"  class="form-submit-dropdown__list-item">Health</div>
-                                        <div id="drop-down-7"  class="form-submit-dropdown__list-item">Sports</div>
-                                    </div>
+                                <button id='btn-form-dropdown' class="form-submit-dropdown__button"><img width="12px"
+                                        height="12px" style="padding-left: 5px;" src="images/expand.png"></button>
+                                <div id="myDropdown" class="form-submit-dropdown__list">
+
+                                    <div id="drop-down-1" class="form-submit-dropdown__list-item">Home</div>
+                                    <div id="drop-down-2" class="form-submit-dropdown__list-item">Shopping</div>
+                                    <div id="drop-down-3" class="form-submit-dropdown__list-item">Celebration</div>
+                                    <div id="drop-down-4" class="form-submit-dropdown__list-item">Learning</div>
+                                    <div id="drop-down-5" class="form-submit-dropdown__list-item">Appointment</div>
+                                    <div id="drop-down-6" class="form-submit-dropdown__list-item">Health</div>
+                                    <div id="drop-down-7" class="form-submit-dropdown__list-item">Sports</div>
+                                </div>
                             </div>
                         </div>
 
-                        <button class="create-buttons__delete" id='delete_todo_form'><img src="images/rubbish_white.png" class="create-buttons__delete-icon"></button>
+                        <button class="create-buttons__delete" id='delete_todo_form'><img src="images/rubbish_white.png"
+                                class="create-buttons__delete-icon"></button>
 
                     </div>
-                
+
                     <ul id="task_list"></ul>
 
                 </div>
 
-                
+
                 <!-- DAY TYPE-->
 
                 <div class='create-daytype-wrapper'>
-                        <p class='create-daytype-wrapper__header' id="type-of-day">Type of day:</p>
-                        <div class='create-daytype-wrapper__item' >
-                            <input type="radio" class="daytype-input" id="work" name="day" value="images/work_icon.png"
-                                checked>Work</div>
-                        <div class="create-daytype-wrapper__item">
-                            <input type="radio" class="daytype-input" id="holiday" name="day" value="images/dayoff_icon.png">Day
-                            off</div>
-                        <div id="travel" class='create-daytype-wrapper__item'>
-                            <input type="radio" class="daytype-input" id="other" name="day" value="images/holidays_icon.png">
-                            Holidays</div>
+                    <p class='create-daytype-wrapper__header' id="type-of-day">Type of day:</p>
+                    <div class='create-daytype-wrapper__item'>
+                        <input type="radio" class="daytype-input" id="work" name="day" value="images/work_icon.png"
+                            checked>Work</div>
+                    <div class="create-daytype-wrapper__item">
+                        <input type="radio" class="daytype-input" id="holiday" name="day"
+                            value="images/dayoff_icon.png">Day
+                        off</div>
+                    <div id="travel" class='create-daytype-wrapper__item'>
+                        <input type="radio" class="daytype-input" id="other" name="day"
+                            value="images/holidays_icon.png">
+                        Holidays</div>
                 </div>
             </div>
 
@@ -275,8 +285,9 @@
             <div class='form-submit-wrapper__buttons'>
 
                 <div id='submit-btns' class="form-bottom-buttons__item"></div>
-                <div class="form-bottom-buttons__item" >
-                    <button class="form-bottom-buttons__item-button form-bottom-buttons__item-button--close" id="close-form">Close</button>
+                <div class="form-bottom-buttons__item">
+                    <button class="form-bottom-buttons__item-button form-bottom-buttons__item-button--close"
+                        id="close-form">Close</button>
                 </div>
             </div>
         </section>
@@ -288,10 +299,10 @@
 
         <section class='day-wrapper'>
 
-          <!--MENU-->
+            <!--MENU-->
 
             <div id="notes-box-top" class='day-wrapper__menu'>
-                
+
                 <div class='day-wrapper__menu-left'>
 
                     <div class='menu-left__text' id='notes-box-top-right-text'></div>
@@ -302,72 +313,78 @@
 
                         <img class='change-day__icon' id='type-day-icon' src='images/dayoff_icon.png'>
 
-                        <img class='change-day change-day--right' id='right-change-day'  src="images/expand.png">
+                        <img class='change-day change-day--right' id='right-change-day' src="images/expand.png">
 
                     </div>
                 </div>
-                    
-                
+
+
                 <div class="day-wrapper__menu-center">
 
-                    <p class="menu-center__text">Filter<img width="16px" height="16px" style="padding-left:10px;" src="images/expand.png"></p>
-                        
+                    <p class="menu-center__text">Filter<img width="16px" height="16px" style="padding-left:10px;"
+                            src="images/expand.png"></p>
+
                     <div class="menu-center__dropdown">
-                            <div id="filtered-all" class="menu-center__dropdown-item">All</div>
-                            <div id="filtered-home" class="menu-center__dropdown-item">Home</div>
-                            <div id="filtered-shopping" class="menu-center__dropdown-item" >Shopping</div>
-                            <div id="filtered-celebration" class="menu-center__dropdown-item" >Celebration</div>
-                            <div id="filtered-learning" class="menu-center__dropdown-item" >Learning</div>
-                            <div id="filtered-appointment" class="menu-center__dropdown-item" >Appointment</div>
-                            <div id="filtered-health" class="menu-center__dropdown-item" >Health</div>
-                            <div id="filtered-sports" class="menu-center__dropdown-item" >Sports</div>
-                    </div> 
+                        <div id="filtered-all" class="menu-center__dropdown-item">All</div>
+                        <div id="filtered-home" class="menu-center__dropdown-item">Home</div>
+                        <div id="filtered-shopping" class="menu-center__dropdown-item">Shopping</div>
+                        <div id="filtered-celebration" class="menu-center__dropdown-item">Celebration</div>
+                        <div id="filtered-learning" class="menu-center__dropdown-item">Learning</div>
+                        <div id="filtered-appointment" class="menu-center__dropdown-item">Appointment</div>
+                        <div id="filtered-health" class="menu-center__dropdown-item">Health</div>
+                        <div id="filtered-sports" class="menu-center__dropdown-item">Sports</div>
+                    </div>
                 </div>
 
-                    
+
                 <div class='day-wrapper__menu-right'>
-                    
-                            <button id='delete_output' class='menu-right-button menu-right-button--delete'><img src='images/rubbish_red.png' class='menu-right-button__icon' ></button>
-                        
-                            <button id='completed' class='menu-right-button menu-right-button--done'><img  src='images/checked-white.png' class='menu-right-button__icon' >
-                            </button>
+
+                    <button id='delete_output' class='menu-right-button menu-right-button--delete'><img
+                            src='images/rubbish_red.png' class='menu-right-button__icon'></button>
+
+                    <button id='completed' class='menu-right-button menu-right-button--done'><img
+                            src='images/checked-white.png' class='menu-right-button__icon'>
+                    </button>
                 </div>
             </div>
 
             <div class='day-buttons'>
-            
-                    <div class='day-buttons__input'>
 
-                            <button id='add' class='day-buttons__input-add'><img class='day-buttons__input-icon' src='images\add-white.png'>Add</button>
+                <div class='day-buttons__input'>
+
+                    <button id='add' class='day-buttons__input-add'><img class='day-buttons__input-icon'
+                            src='images\add-white.png'>Add</button>
 
                     <input id='input_list_output' type='textday' placeholder="enter here">
-                        
+
                     <div class="day-buttons__type" id='todo-type-selected-2-wrapper'>
 
-                            <div class="day-buttons__type-selected" id="todo-type-selected-2">Home</div>
+                        <div class="day-buttons__type-selected" id="todo-type-selected-2">Home</div>
 
-                            <div id='todo-day-dropdown-area' class="day-buttons__type-dropdown">
+                        <div id='todo-day-dropdown-area' class="day-buttons__type-dropdown">
 
-                                    <button  id='todo-day-dropdown-area-2' class="dropdown__button"> <img class="dropdown__button-icon" src="images/expand.png"></button>
+                            <button id='todo-day-dropdown-area-2' class="dropdown__button"> <img
+                                    class="dropdown__button-icon" src="images/expand.png"></button>
 
-                                    <div id="myDropdown-2" class="dropdown__list">
-                        
-                                      <div id="day-down-1" class="dropdown__list-item">Home</div>
-                                      <div id="day-down-2"  class="dropdown__list-item">Shopping</div>
-                                      <div id="day-down-3" class="dropdown__list-item" >Celebration</div>
-                                      <div id="day-down-4" class="dropdown__list-item" >Learning</div>
-                                      <div id="day-down-5" class="dropdown__list-item" >Appointment</div>
-                                      <div id="day-down-6" class="dropdown__list-item" >Health</div>
-                                      <div id="day-down-7" class="dropdown__list-item" >Sports</div>
-                                    </div>
+                            <div id="myDropdown-2" class="dropdown__list">
+
+                                <div id="day-down-1" class="dropdown__list-item">Home</div>
+                                <div id="day-down-2" class="dropdown__list-item">Shopping</div>
+                                <div id="day-down-3" class="dropdown__list-item">Celebration</div>
+                                <div id="day-down-4" class="dropdown__list-item">Learning</div>
+                                <div id="day-down-5" class="dropdown__list-item">Appointment</div>
+                                <div id="day-down-6" class="dropdown__list-item">Health</div>
+                                <div id="day-down-7" class="dropdown__list-item">Sports</div>
                             </div>
                         </div>
                     </div>
+                </div>
 
                 <div id='close-day-wrapper' class='day-buttons__close'>
-                    
+
                 </div>
-                <div class="progressbar-wrapper" id='progressbar_background'> <span class="progressbar-wrapper__bar" id='progressbar'></span></div>
+                <div class="progressbar-wrapper" id='progressbar_background'> <span class="progressbar-wrapper__bar"
+                        id='progressbar'></span></div>
 
             </div>
         </section>
@@ -383,16 +400,16 @@
 
 
         <!-- BOTTOM WELCOME SECTION -->
-       
+
         <section class='quotes'>
             <p id='quotes_text'>“I opened two gifts this morning. They were my eyes.”</p>
         </section>
 
-        
+
         <script type="text/javascript" src="./bundle.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-       
+
 </body>
 
 </html>

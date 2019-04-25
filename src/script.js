@@ -1,27 +1,26 @@
-import * as Days from './modules/Days';
-import * as Weather from './modules/Weather';
-import * as Holidays from './modules/Holidays';
-import * as MenuAccount from './modules/MenuAccount';
-import * as Quickadd from './modules/Quickadd';
-import * as Calendar from './modules/Calendar';
-import * as Stats from './modules/Stats';
-import * as SignRegister from './modules/SignRegister';
-import * as Menu from './modules/Menu';
-import * as DropdownTasks from './modules/DropdownTasks';
-import * as SliderDays from './modules/SliderDays';
-import * as TasksDay from './modules/Tasks/TasksDay';
-import * as TaskForm from './modules/Tasks/TasksForm';
-import { welcome } from './modules/Welcome';
+import * as Days from "./modules/Days";
+import * as Weather from "./modules/Weather";
+import * as Holidays from "./modules/Holidays";
+import * as MenuAccount from "./modules/MenuAccount";
+import * as Quickadd from "./modules/Quickadd";
+import * as Calendar from "./modules/Calendar";
+import * as Stats from "./modules/Stats";
+import * as SignRegister from "./modules/SignRegister";
+import * as Menu from "./modules/Menu";
+import * as DropdownTasks from "./modules/DropdownTasks";
+import * as SliderDays from "./modules/SliderDays";
+import * as TasksDay from "./modules/Tasks/TasksDay";
+import * as TaskForm from "./modules/Tasks/TasksForm";
+import { welcome } from "./modules/Welcome";
 //import './scss/style2.scss';
 
 const handlingAllClicks = event => {
-
   const dayNameAttribute = event.target.getAttribute("day-name");
   const currentId = event.target.id;
   const currentSrc = event.target.src;
   const currentHtml = event.target.innerHTML;
   const currentStyle = event.target.style;
-  
+
   MenuAccount.handleAccountClick(event, currentId, currentHtml);
   Calendar.handleRenderingCalendar(currentId);
   Stats.handleStatsBoxClick(currentId);
@@ -34,16 +33,15 @@ const handlingAllClicks = event => {
   TasksDay.handlingTasksRendering(currentId, currentHtml);
   Days.handleDayandFormBoxClick(currentId, currentStyle, dayNameAttribute);
   TaskForm.handlingTasksRenderingForm(currentId);
-
-}
+};
 
 //CLICK EVENT LISTENER
 document.addEventListener("click", handlingAllClicks, false);
 
 //ON WINDOW LOAD
-window.onload = function () {
+window.onload = function() {
   Calendar.loadCurrentCalendar();
-  Holidays.updateNextHolidays()
+  Holidays.updateNextHolidays();
   Weather.locationWeather();
   welcome.nowTime();
   Stats.countAllTodos();

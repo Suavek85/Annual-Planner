@@ -10,49 +10,49 @@
     border-radius: 50px;
   }
   
-  .stats-sub-wrapper {
-    position: relative;
-    display: inline-block;
-    color: #c3e3f0;
-    font-size: 0.8rem;
+.stats-sub-wrapper {
+  position: relative;
+  display: inline-block;
+  color: #c3e3f0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.stats-sub-wrapper {
+  .tooltip-stats {
+    @include position(absolute, $top: 0px, $right: 40px);
+    visibility: hidden;
+    width: 160px;
+    background-color: grey;
+    color: #fff;
     text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 1;
   }
+  &__logo {
+    @include size (30px);
+    opacity: 0.7;
+  }
+}
+
+.stats-sub-wrapper {
+  .tooltip-stats::after {
+    @include position(absolute, $top: 50%, $left: 100%);
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent grey;
+    content: "";
+  }
+}
+
+.stats-sub-wrapper:hover {
+  .tooltip-stats {
+    visibility: visible;
+  }
+}
   
-  .stats-sub-wrapper {
-    .tooltip-stats {
-      @include position(absolute, $top: 0px, $right: 40px);
-      visibility: hidden;
-      width: 160px;
-      background-color: grey;
-      color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 5px 0;
-      z-index: 1;
-    }
-    &__logo {
-      @include size (30px);
-      opacity: 0.7;
-    }
-  }
-  
-  .stats-sub-wrapper {
-    .tooltip-stats::after {
-      @include position(absolute, $top: 50%, $left: 100%);
-      margin-top: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: transparent transparent transparent grey;
-      content: "";
-    }
-  }
-  
-  .stats-sub-wrapper:hover {
-    .tooltip-stats {
-      visibility: visible;
-    }
-  }
-    
   
 /* STATS POP UP*/
 

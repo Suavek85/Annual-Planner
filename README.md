@@ -1,37 +1,82 @@
-# Annual-Planner
-Annual Planner - Vanilla JS Project - work in progress
+# Annual Planner App
 
-•	Vanilla JS to-do app, own idea, not based on an online course, created from scratch
+> Vanilla JavaScript app for creating and managing to-do lists.
 
-•	Front-end on GitHub Pages, back-end and database on Heroku,
+## Table of Contents
 
-•	Vanilla JS, CSS Flexbox and CSS Grid with Sass, 
+- [General info](#general-info)
 
-•	Webpack, Express API server, PostgreSQL, 
+- [Features](#features)
 
-•	OpenweatherMap API, CalendarIndex API, Google Charts, 
+- [Technologies](#technologies)
 
-•	Live preview: https://suavek85.github.io/Annual-Planner/
+- [Setup](#setup)
 
-•	Work in progress: e.g. some very very basic responsiveness now, might not work on IE, code needs lots of refactoring etc.
+- [Issues](#issues)
 
-•	extended version of https://suavek85.github.io/Weekly-Planner-Extra/
+- [Status](#status)
 
+## General info
 
-Main features:
+Vanilla JS app for creating and managing to-do lists. Also allows registering/signing in and then saving todo-lists under one's profile. Front-end on GitHub Pages, back-end and database on Heroku.
 
-•	allows creating to-do lists for any day,
+My own idea  ![🤓](https://mail.google.com/mail/e/1f913), created from scratch.  ![🔨](https://mail.google.com/mail/e/1f528)
 
-- for one particular day by clicking on that day,
-- for many days at once but one task only by clicking on the big plus-add button,
+Live preview [here](https://suavek85.github.io/Annual-Planner/). Inspired by my [earlier project](https://suavek85.github.io/Weekly-Planner-Extra/).
 
-•	todos can be accessed by clicking on a particular day and then, filtered, split into categories or updated(marked as done, removed etc.) 
+## Features
 
-•	allows registering, signing in and saving results (saved automatically on each change and loaded on next visit after signin)
+- creating to-do lists for single selected days,
 
-•	access to weather and upcoming holidays
+- creating to-do lists for multiple days at once with the same to-do,
 
-•	shows weather for todat and upcoming days, shows upcoming bank holidays - in progress
+- accessing to-do list for editing, adding/removing to-dos, marking as done, or filtering
+
+- registering, signing in and saving results (saved automatically on each change and loaded on next visit after signin)
+
+- access to weather and upcoming holidays sections
+
+## Setup
+
+To run this project, install it locally using npm:
+
+1. cd ../annual-planner
+
+2. npm install
+
+3. npm start
+
+## Issues
+
+ - only basic responsiveness,
+ 
+ - might not work on IE for now.
+
+## Technologies
+
+- Vanilla JS,
+
+- CSS Flexbox and CSS Grid,
+
+- Sass (Scss),
+
+- Webpack,
+
+- Express,
+
+- PostgreSQL.
+
+- OpenweatherMap API,
+
+- CalendarIndex API,
+
+- Google Charts,
+
+- Heroku.
+
+## Status
+
+The project is currently on hold.
 
 
 
