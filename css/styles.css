@@ -178,6 +178,9 @@ input[type=date]::-webkit-clear-button {
     display: flex;
     align-items: center;
     justify-content: center; }
+  .menu-wrapper__welcome {
+    color: yellow;
+    display: inline-block; }
 
 /* WEBSITE LOGO */
 .logo-wrapper {
@@ -290,10 +293,6 @@ input[type=date]::-webkit-clear-button {
     z-index: 20;
     display: none;
     color: black; }
-
-#top-welcome-message {
-  color: yellow;
-  display: inline-block; }
 
 /*** MENU RESPONSIVE ***/
 /* MENU RESPONSIVE */
@@ -453,6 +452,13 @@ input[type=date]::-webkit-clear-button {
     top: 10px;
     right: 10px;
     cursor: pointer; }
+    @media only screen and (max-width: 680px) {
+      .profile-popup-resp__close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 7px;
+        font-size: 1.2rem; } }
 
 .holidays-resp-wrapper {
   display: -webkit-box;
@@ -491,10 +497,10 @@ input[type=date]::-webkit-clear-button {
   left: 0;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  height: 300px;
+  height: 400px;
   background-color: black;
   opacity: 0.85;
   border-radius: 4px;
@@ -506,22 +512,13 @@ input[type=date]::-webkit-clear-button {
     top: 10px;
     right: 10px;
     cursor: pointer; }
-
-#expand-holidays-responsive {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px; }
-
-#expand-holidays-resp-text {
-  color: red;
-  font-size: 0.8rem;
-  cursor: pointer; }
+    @media only screen and (max-width: 680px) {
+      .collapsible-hols-resp__close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        padding: 7px;
+        font-size: 1.2rem; } }
 
 #expand-holidays {
   width: 15px;
@@ -575,12 +572,20 @@ input[type=date]::-webkit-clear-button {
   z-index: 10; }
   @media only screen and (max-width: 680px) {
     .weather-collapsible-wrapper {
-      width: 100vw; } }
+      width: 100vw;
+      height: 80vh; } }
   .weather-collapsible-wrapper__close {
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 10px;
     cursor: pointer; }
+    @media only screen and (max-width: 680px) {
+      .weather-collapsible-wrapper__close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 7px;
+        font-size: 1.2rem; } }
 
 .more-weather-icons {
   display: -webkit-inline-box;
@@ -1659,11 +1664,6 @@ input[type=date]::-webkit-clear-button {
   margin: auto;
   padding-bottom: 10px;
   align-items: center; }
-
-/* WELCOME*/
-.welcome_texts {
-  color: yellow;
-  display: inline-block; }
 
 /* SHOW CLASS */
 .show {
